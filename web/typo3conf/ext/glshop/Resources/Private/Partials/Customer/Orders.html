@@ -1,0 +1,45 @@
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<table class="bestellungen-table">
+				<thead>
+					<tr>
+						<th>BestellNr.</th>
+						<th>Datum</th>
+						<th>Lieferart / Bemerkung</th>
+						<th class="last">Status</th>
+					</tr>
+				</thead>
+				<tbody>
+				<f:for each="{orders}" as="order">
+					<tr>
+						<td class="cell-bottom-border">
+					<f:if condition="{order.confirmation -> f:count()} > 0" >
+						<f:then>
+							<f:for each="{order.confirmation}" as="a">
+								BI{a.uid}
+							</f:for>
+						</f:then>
+						<f:else>
+							In Pr&uuml;fung
+						</f:else>
+					</f:if>
+					</td>
+					<td class="cell-bottom-border">
+					<glacryl:date date="{order.date}" format="d.m.Y H:i" />
+					</td>
+					<td class="cell-bottom-border">
+					<glacryl:noticeOrder order="{order}" />
+					</td>
+					<td class="cell-bottom-border last">
+					<glacryl:status statusse="{order.orderstatus}" />
+					</td>
+					</tr>
+				</f:for>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

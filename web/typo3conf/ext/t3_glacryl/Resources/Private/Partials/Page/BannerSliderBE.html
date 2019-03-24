@@ -1,0 +1,13 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+<flux:grid.row>
+    <flux:grid.column name="banner.slider"
+                      label="{v:l(key: 'banner.slider', extensionName: 't3_glacryl')}"
+                      colPos="99" colspan="4">
+        <flux:form.variable name="allowedContentTypes" value="textmedia,fluidcontent_content"/>
+        <flux:form.variable name="Fluidcontent"
+                            value="{allowedContentTypes: 'Glacryl.T3Glacryl:FCE_OwlCarousel.html'}"/>
+    </flux:grid.column>
+</flux:grid.row>
+</div>

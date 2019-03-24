@@ -1,0 +1,166 @@
+.clearer {
+    clear: both;
+}
+html {
+    margin: 0pt;
+    padding: 0pt;
+}
+body {
+    font-size: 10pt;
+    font-family: 'trebuchet ms',Arial, Verdana,times new roman,sans-serif;
+}
+.topContainer {
+    height: 90px;
+}
+.header {
+}
+.adresse {
+    width: 55%;
+    float: left;
+    margin-top: 50px;
+}
+.adresse p {
+    margin: 0px;
+}
+.infoDaten {
+    width: 200px;
+    float: right;
+    margin-top: 53px;
+    margin-right: 60px;
+}
+.infoDaten p {
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.3em !important; 
+    margin:0;
+    padding:0;
+	width: 100%;
+}
+.infoDaten table {
+    border-collapse: collapse;
+}
+.infoDaten table tr td {
+    font-size: 1.5em;
+    line-height: 0.5em;
+    padding: 0px 5px 0px 0px;
+    width: 25%;
+}
+.content {
+    margin-top: 150pt;
+}
+.content div p {
+    font-size: 10pt;
+    line-height: 1.1em;
+    margin: 0.5em 0;
+}
+.footer {
+
+}
+.footerText {
+    padding-bottom: -19px;    
+}
+.footerText p {
+    font-size: 0.7em !important;
+}
+.footerInfo {
+    font-size: 0.9em !important;
+    text-align: left;
+}
+.footerInfo p{
+    font-size: 0.8em !important;
+    text-align: left;
+}
+.footerInfo div {
+    display: inline-block;
+    padding-bottom: -10px;
+}
+.fTelefon{
+    font-size: 1.2em;
+    font-weight: bold;
+    width: 120pt;
+    float: left;
+}
+.fAnschrift {
+    width: 85pt;
+    float: left;
+}
+.fGericht {
+    width: 90pt;
+    float:left;
+}
+.fBankd {
+    text-align: right;
+    width: 71pt;
+    float:left;
+}
+.fKonto {
+    width: 130pt;
+    float: left;
+}
+.positionenTabelle table {
+    border-collapse: collapse; 
+    border: 0; 
+    margin-left:-1px;
+}
+.positionenTabelle table thead tr th {
+    border-bottom: 1px solid !important;
+}
+.positionenTabelle table tbody tr td.last {
+    border-bottom: 1px solid;
+}
+
+.positionenTabelle table thead tr th, .positionenTabelle table tbody tr td{
+    font-size: 10pt;
+    font-weight: normal;
+    padding: 5px;
+}
+.positionenTabelle table tbody tr td {
+    vertical-align: top;
+}
+.position {
+
+}
+.deatail1 {
+    font-size: 9pt;
+	padding: -8px 0 -8px 20px;
+}
+.deatail2 {
+    font-size: 8pt;
+	padding: -8px 0 -8px 40px;
+}
+.deatail3 {
+    font-size: 7pt;
+	padding: -8px 0 -8px 60px;
+}
+.zusammenFassungPreise {
+    float: right;
+    width: 505px;
+    margin-right: 40px;
+}
+.zusammenFassungPreise table {
+    border-collapse: collapse;
+}
+.zusammenFassungPreise table .beschriftung {
+    font-weight: bold; 
+    width: 400px;
+    display: inline-table;
+    text-align: right;
+}
+.zusammenFassungPreise table .wert {
+    text-align: right;
+    width: 100px;
+    display: inline-table;
+}
+.barcode span {
+    font-size: 3.2em;
+}
+
+/* Anlage */
+.row {width: 100%; margin-top: -10px;}
+.imgCol {width: 33.3333%; float: left; position: relative;}
+.textCal {width: 66.6667%; float: right; position: relative;}
+.cart-detailInfo, .cart-detailImg { text-align: center; }
+.cart-detail-span {font-weight: normal; font-size: 8pt; }
+.cart-detail-dl { margin: 0 0 10px 0; padding: 0;}
+.cart-detail-dt { margin: 0; padding: 0; font-weight: bold; font-size: 10pt; }
+.cart-detail-dd { margin: 0px; padding: 0; font-size: 8pt;}

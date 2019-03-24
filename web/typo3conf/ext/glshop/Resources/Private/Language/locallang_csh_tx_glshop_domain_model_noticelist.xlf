@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2014-10-20T16:54:48Z" product-name="glshop">
+		<header/>
+		<body>
+			<trans-unit id="notice_name.description">
+				<source>noticeName</source>
+			</trans-unit>
+			<trans-unit id="position.description">
+				<source>position</source>
+			</trans-unit>
+			<trans-unit id="qty.description">
+				<source>qty</source>
+			</trans-unit>
+			<trans-unit id="price.description">
+				<source>price</source>
+			</trans-unit>
+			<trans-unit id="pic.description">
+				<source>picture</source>
+			</trans-unit>
+			<trans-unit id="date.description">
+				<source>date</source>
+			</trans-unit>
+			<trans-unit id="article.description">
+				<source>article</source>
+			</trans-unit>
+			<trans-unit id="details.description">
+				<source>details</source>
+			</trans-unit>
+			<trans-unit id="expire.description">
+				<source>expire</source>
+			</trans-unit>
+			<trans-unit id="user.description">
+				<source>Kunde</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

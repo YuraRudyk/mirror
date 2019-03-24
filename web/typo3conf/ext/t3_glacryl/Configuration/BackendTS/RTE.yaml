@@ -1,0 +1,95 @@
+imports:
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+  #- { resource: "EXT:rte_ckeditor/Configuration/RTE/Default.yaml" } # Import the image plugin configuration
+  #- { resource: "EXT:rte_ckeditor_fontawesome/Configuration/RTE/PluginFA4.yaml" }
+  #- { resource: "EXT:rte_ckeditor/Configuration/RTE/Full.yaml" } # Import the image plugin configuration
+  #- { resource: "EXT:rte_ckeditor_fontawesome/Configuration/RTE/PluginFA5.yaml" }
+
+editor:
+
+
+  config:
+    contentsCss: "EXT:t3_glacryl/Resources/Public/Css/RTE/rte.css"
+    format_tags: "p;h1;h2;h3;h4;h5"
+    stylesSet:
+
+      # Blockstyle
+      - { name: "Title", element: "h3", attributes: { 'class': 'title' } }
+      - { name: "Margin bottom - 10px", element: "p", attributes: { 'class': 'mgb10' } }
+      - { name: "Margin bottom - 15px", element: "p", attributes: { 'class': 'mgb15' } }
+      - { name: "Margin bottom - 20px", element: "p", attributes: { 'class': 'mgb20' } }
+      - { name: "Margin bottom - 25px", element: "p", attributes: { 'class': 'mgb25' } }
+      - { name: "Margin bottom - 30px", element: "p", attributes: { 'class': 'mgb30' } }
+      - { name: "Margin bottom - 35px", element: "p", attributes: { 'class': 'mgb35' } }
+      - { name: "Margin bottom - 40px", element: "p", attributes: { 'class': 'mgb40' } }
+      - { name: "Margin bottom - 45px", element: "p", attributes: { 'class': 'mgb45' } }
+      - { name: "Margin bottom - 50px", element: "p", attributes: { 'class': 'mgb50' } }
+      - { name: "Margin bottom - 55px", element: "p", attributes: { 'class': 'mgb55' } }
+      - { name: "Margin bottom - 60px", element: "p", attributes: { 'class': 'mgb60' } }
+      - { name: "Margin bottom - 65px", element: "p", attributes: { 'class': 'mgb65' } }
+      - { name: "Margin bottom - 70px", element: "p", attributes: { 'class': 'mgb70' } }
+      - { name: "Margin bottom - 75px", element: "p", attributes: { 'class': 'mgb75' } }
+      - { name: "Margin bottom - 80px", element: "p", attributes: { 'class': 'mgb80' } }
+
+
+      # Buttons
+      - { name: "Red Button", element: "a", attributes: { 'class': 'btn cbtn btn-red' } }
+      # Badges
+      #- { name: "Badge", element: "span", attributes: { 'class': 'badge' } }
+
+      # Textstyle
+      #- { name: "Important", element: "span", attributes: { 'class': 'important' } }
+      #- { name: "Button", element: "span", attributes: { 'class': 'more_btn' } }
+      #- { name: "Gelöschter Text", element: "del" }
+      #- { name: "Eingefügter Text", element: "ins" }
+      #- { name: "Adresse", element: "address" }
+      #- { name: "Zitat", element: "blockquote" }
+      #- { name: "Zitat rechts ausgerichtet", element: "blockquote" ,attributes: { 'class': 'blockquote-reverse' }}
+
+     # Listen
+      - { name: 'Simple list', element: "ul", attributes: { 'class': 'list' } }
+      - { name: 'Footer contacts', element: "ul", attributes: { 'class': 'footer-contacts' } }
+
+    toolbarGroups:
+      - { name: clipboard, groups: [clipboard, undo] }
+      - { name: editing,   groups: [find, selection, spellchecker] }
+      - { name: links }
+      - { name: insert }
+      - { name: tools }
+      - { name: table }
+      - { name: tabletools }
+      - { name: document,  groups: [ mode, document, doctools ] }
+      - { name: others }
+      - "/"
+      - { name: basicstyles, groups: [ basicstyles, align, cleanup ] }
+      - { name: paragraph,   groups: [ list, indent, blocks, align ] }
+      - "/"
+      - { name: styles }
+      - { name: fontsize }
+
+    justifyClasses:
+      - text-left
+      - text-center
+      - text-right
+      - text-justify
+
+    extraPlugins:
+      - justify
+      - find
+      - copyformatting
+
+    removePlugins:
+      - image
+
+    removeButtons:
+      - Anchor
+
+
+# Allow s and u tag
+processing:
+  allowTags:
+    - s
+    - u
+    - iframe

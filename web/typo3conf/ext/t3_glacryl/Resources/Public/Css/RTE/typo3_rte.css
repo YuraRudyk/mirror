@@ -1,0 +1,16 @@
+/* RTE styles (for TYPO3 BE) */
+p, ul, ol {
+	color: #0b0b0b;
+	font-family: "OpenSans-Regular", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+	font-size: 1.139em;
+	line-height: 23px;
+	padding-bottom: 20px;
+}
+
+a {
+  color: #e21c3c;
+}
+
+blockquote {
+	border-left: 5px solid #4db748!important;
+}

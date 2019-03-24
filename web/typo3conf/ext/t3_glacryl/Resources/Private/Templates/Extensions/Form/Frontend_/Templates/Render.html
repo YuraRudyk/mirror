@@ -1,0 +1,6 @@
+{namespace formvh=TYPO3\CMS\Form\ViewHelpers}
+<f:flashMessages />
+<f:debug>{_all}</f:debug>
+<f:if condition="{formConfiguration}">
+    <formvh:render overrideConfiguration="{formConfiguration}"/>
+</f:if>

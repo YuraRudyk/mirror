@@ -1,0 +1,40 @@
+<f:layout name="Shop" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+    <f:flashMessages />
+
+
+
+
+	<!-- Adressbuch -->
+
+	<div class="mein-konto-adressbuch">
+		<div class="lighting-top"></div>
+		<div class="container-fluid main-title">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+						<h3 style="margin: 0px; color: #33976C; font-family: Arial; font-size: 24pt;">Adressbuch</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom-diver-products"></div>
+		<div class="lighting-bottom"></div>
+
+		<f:render partial="Customer/Adress" arguments="{_all}" />
+
+	</div>
+
+</f:section>

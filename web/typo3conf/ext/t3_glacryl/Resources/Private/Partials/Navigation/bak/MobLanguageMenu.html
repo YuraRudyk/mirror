@@ -1,0 +1,45 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<div id="language_menu_selectmenu" class="example">
+	<input type="hidden" name="" value="">
+	<button>
+		<v:page.languageMenu as="languages" layout="name" hideNotTranslated="0" order="{settings.languagesIDs}" defaultLanguageLabel="" labelOverwrite="{settings.languagesLabels}">
+			<f:for each="{languages}" as="languageMenu" iteration="iteration">
+				<f:if condition="{languageMenu.current} == 1">
+					<f:then>
+						<span>{languageMenu.label}</span>
+					</f:then>
+				</f:if>
+			</f:for>
+		</v:page.languageMenu>
+	</button>
+	<ul>
+		<v:page.languageMenu as="languages" layout="name" hideNotTranslated="0" order="{settings.languagesIDs}" defaultLanguageLabel="" labelOverwrite="{settings.languagesLabels}">
+			<f:for each="{languages}" as="languageMenu" iteration="iteration">
+
+				<f:if condition="{languageMenu.current} == 1">
+					<f:then>
+						<li value="{languageMenu.label}" data-url="{languageMenu.url}">{languageMenu.label}</li>
+					</f:then>
+					<f:else>
+						<f:if condition="{v:page.info(field: 'uid')} == {settings.page.home}">
+							<f:then>
+								<f:if condition="{iteration.index} == 0">
+									<f:then>
+										<li value="{languageMenu.label}" data-url="/">{languageMenu.label}</li>
+									</f:then>
+									<f:else>
+										<li value="{languageMenu.label}" data-url="{languageMenu.url}">{languageMenu.label}</li>
+									</f:else>
+								</f:if>
+							</f:then>
+							<f:else>
+								<li value="{languageMenu.label}" data-url="{languageMenu.url}">{languageMenu.label}</li>
+							</f:else>
+						</f:if>
+					</f:else>
+				</f:if>
+			</f:for>
+		</v:page.languageMenu>
+	</ul>
+</div>

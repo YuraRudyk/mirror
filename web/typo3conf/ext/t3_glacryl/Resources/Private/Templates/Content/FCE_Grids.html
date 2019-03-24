@@ -1,0 +1,446 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+
+    <f:layout name="Content"/>
+
+    <f:comment>
+        Source here:
+        https://gist.githubusercontent.com/misterboe/34018646f84e4c8a81b6/raw/8de52727a33ee1a0755ece5a72eebb4a0de5f216/ColMasterFlex.html
+    </f:comment>
+
+
+    <f:section name="Configuration">
+        <flux:form id="bootstrapGrids"
+                   options="{group: 'FCE', Fluidcontent: {sorting: 10}, icon: '{f:uri.resource(path: \'Icons/Content/NavigationList.png\')}'}"
+                   label="Grids (bootstrap columns)" description="Create 1-6 Columns with advanced Column Settings">
+            <flux:form.sheet name="SectionMasterSheet" label="Section Configuration">
+                <flux:field.select name="tagSection"
+                                   items="{
+                                               0:{0:'Tag SECTION - enabled',1:'section'},
+                                               1:{0:'None',1:'none'}
+                                           }"
+                                   default="none"
+                                   label="Select 'none' if the SECTION is not needed" requestUpdate="1"/>
+                <flux:field.input name="sectionId"
+                                  label="{v:l(key: 'sectionId', extensionName: 't3_glacryl')}" displayCond="FIELD:tagSection:IN:section" />
+                <flux:field.input name="sectionCustomClass"
+                                  label="{v:l(key: 'sectionCustomClass', extensionName: 't3_glacryl')}" displayCond="FIELD:tagSection:IN:section" />
+                <flux:field.input name="sectionCustomAttr"
+                                  label="{v:l(key: 'sectionCustomAttr', extensionName: 't3_glacryl')}" displayCond="FIELD:tagSection:IN:section" />
+
+                <flux:field.checkbox name="backgroundEnable"
+                                     label="{v:l(key: 'sectionBackgroundEnable', extensionName: 't3_glacryl')}"
+                                     requestUpdate="1" displayCond="FIELD:tagSection:IN:section" />
+                <flux:field.input name="backgroundColor"
+                                  label="{v:l(key: 'backgroundColor', extensionName: 't3_glacryl')}"
+                                  displayCond="FIELD:backgroundEnable:>:0">
+                    <flux:wizard.colorPicker label="Choose backround color" hideParent="1" dim="20x20"
+                                             width="400" height="400"
+                                             exampleImg="EXT:flux/Resources/Public/Icons/ColorWheel.png"/>
+                </flux:field.input>
+
+                <f:if condition="{backgroundEnable}">
+                    <flux:field.file name="backgroundImage"
+                                     label="{v:l(key: 'backgroundImage', extensionName: 't3_glacryl')}"
+                                     allowed="png,jpg,jpeg" showThumbnails="1"
+                                     displayCond="FIELD:backgroundEnable:>:0" requestUpdate="1"/>
+
+                    <flux:field.select name="backgroundSize"
+                                       label="{v:l(key: 'backgroundSize', extensionName: 't3_glacryl')}"
+                                       items="auto,cover,contain"
+                                       displayCond="FIELD:backgroundImage:>:0"/>
+                    <flux:field.select name="backgroundRepeat"
+                                       label="{v:l(key: 'backgroundRepeat', extensionName: 't3_glacryl')}"
+                                       items="no-repeat,repeat,repeat-x,repeat-y,inherit"
+                                       displayCond="FIELD:backgroundImage:>:0"/>
+                    <flux:field.select name="backgroundPosition"
+                                       label="{v:l(key: 'backgroundPosition', extensionName: 't3_glacryl')}"
+                                       items="center center, center top, center bottom"
+                                       displayCond="FIELD:backgroundImage:>:0"/>
+                    <flux:field.select name="backgroundAttachment"
+                                       label="{v:l(key: 'backgroundAttachment', extensionName: 't3_glacryl')}"
+                                       items="scroll,fixed,local,inherit"
+                                       displayCond="FIELD:backgroundImage:>:0"/>
+                </f:if>
+
+
+            </flux:form.sheet>
+            <flux:form.sheet name="ContainerMasterSheet" label="Container Configuration">
+                <flux:field.select name="fullWidthContainer"
+                                   items="{
+                                               0:{0:'Fixed width (width - 1170px)',1:'container'},
+                                               1:{0:'Full width (width - 100%)',1:'container-fluid'},
+                                               2:{0:'None',1:'none'}
+                                           }"
+                                   default="none"
+                                   label="{v:l(key: 'fullWidthContainer', extensionName: 't3_glacryl')}" requestUpdate="1"/>
+                <flux:field.input name="containerId"
+                                  label="{v:l(key: 'containerId', extensionName: 't3_glacryl')}" displayCond="FIELD:fullWidthContainer:IN:container,container-fluid" />
+                <flux:field.input name="containerCustomClass"
+                                  label="{v:l(key: 'containerCustomClass', extensionName: 't3_glacryl')}" displayCond="FIELD:fullWidthContainer:IN:container,container-fluid" />
+                <flux:field.input name="containerCustomAttr"
+                                  label="{v:l(key: 'containerCustomAttr', extensionName: 't3_glacryl')}" displayCond="FIELD:fullWidthContainer:IN:container,container-fluid" />
+
+                <flux:field.checkbox name="containerBackgroundEnable"
+                                     label="{v:l(key: 'containerBackgroundEnable', extensionName: 't3_glacryl')}"
+                                     requestUpdate="1" displayCond="FIELD:fullWidthContainer:IN:container,container-fluid" />
+
+                <flux:field.input name="containerBackgroundColor"
+                                  label="{v:l(key: 'backgroundColor', extensionName: 't3_glacryl')}"
+                                  displayCond="FIELD:containerBackgroundEnable:>:0">
+                    <flux:wizard.colorPicker label="Choose backround color" hideParent="1" dim="20x20"
+                                             width="400" height="400"
+                                             exampleImg="EXT:flux/Resources/Public/Icons/ColorWheel.png"/>
+                </flux:field.input>
+
+                <f:if condition="{containerBackgroundEnable}">
+                    <flux:field.file name="containerBackgroundImage"
+                                     label="{v:l(key: 'backgroundImage', extensionName: 't3_glacryl')}"
+                                     allowed="png,jpg,jpeg" showThumbnails="1"
+                                     displayCond="FIELD:containerBackgroundEnable:>:0" requestUpdate="1"/>
+
+                    <flux:field.select name="containerBackgroundSize"
+                                       label="{v:l(key: 'backgroundSize', extensionName: 't3_glacryl')}"
+                                       items="auto,cover,contain"
+                                       displayCond="FIELD:containerBackgroundImage:>:0"/>
+                    <flux:field.select name="containerBackgroundRepeat"
+                                       label="{v:l(key: 'backgroundRepeat', extensionName: 't3_glacryl')}"
+                                       items="no-repeat,repeat,repeat-x,repeat-y,inherit"
+                                       displayCond="FIELD:containerBackgroundImage:>:0"/>
+                    <flux:field.select name="containerBackgroundPosition"
+                                       label="{v:l(key: 'backgroundPosition', extensionName: 't3_glacryl')}"
+                                       items="center center, center top, center bottom"
+                                       displayCond="FIELD:containerBackgroundImage:>:0"/>
+                    <flux:field.select name="containerBackgroundAttachment"
+                                       label="{v:l(key: 'backgroundAttachment', extensionName: 't3_glacryl')}"
+                                       items="scroll,fixed,local,inherit"
+                                       displayCond="FIELD:containerBackgroundImage:>:0"/>
+                </f:if>
+
+            </flux:form.sheet>
+            <flux:form.sheet name="RowMasterSheet" label="Row Configuration">
+
+                <flux:field.select name="rowDisable"
+                                   items="{
+                                               0:{0:'Row - enabled', 1:'0'},
+                                               1:{0:'Row - disabled', 1:'1'}
+                                           }"
+                                   default="0"
+                                   label="Select 'Row - disabled' if the <div class='row'> is not needed" requestUpdate="1"/>
+
+                <flux:field.select name="MarginTop" items="{
+                            0:{0:'select top margin',1:''},
+                            1:{0:'0px',1:'mgt0'},
+				            2:{0:'10px',1:'mgt10'},
+				            3:{0:'15px',1:'mgt15'},
+				            4:{0:'20px',1:'mgt20'},
+				            5:{0:'25px',1:'mgt25'},
+				            6:{0:'30px',1:'mgt30'},
+				            7:{0:'35px',1:'mgt35'},
+				            8:{0:'40px',1:'mgt40'},
+				            9:{0:'45px',1:'mgt45'},
+				            10:{0:'50px',1:'mgt50'},
+				            11:{0:'55px',1:'mgt55'},
+				            12:{0:'60px',1:'mgt60'},
+				            13:{0:'65px',1:'mgt65'},
+				            14:{0:'70px',1:'mgt70'},
+				            15:{0:'75px',1:'mgt75'},
+				            16:{0:'80px',1:'mgt80'},
+				            17:{0:'85px',1:'mgt85'},
+				            18:{0:'90px',1:'mgt90'},
+				            19:{0:'95px',1:'mgt95'},
+				            20:{0:'100px',1:'mgt100'}
+				        }" default="" label="Margin top" displayCond="FIELD:rowDisable:<:1"/>
+                <flux:field.select name="MarginBottom" items="{
+                            0:{0:'select bottom margin',1:''},
+                            1:{0:'0px',1:'mgb0'},
+				            2:{0:'10px',1:'mgb10'},
+				            3:{0:'15px',1:'mgb15'},
+				            4:{0:'20px',1:'mgb20'},
+				            5:{0:'25px',1:'mgb25'},
+				            6:{0:'30px',1:'mgb30'},
+				            7:{0:'35px',1:'mgb35'},
+				            8:{0:'40px',1:'mgb40'},
+				            9:{0:'45px',1:'mgb45'},
+				            10:{0:'50px',1:'mgb50'},
+				            11:{0:'55px',1:'mgb55'},
+				            12:{0:'60px',1:'mgb60'},
+				            13:{0:'65px',1:'mgb65'},
+				            14:{0:'70px',1:'mgb70'},
+				            15:{0:'75px',1:'mgb75'},
+				            16:{0:'80px',1:'mgb80'},
+				            17:{0:'85px',1:'mgb85'},
+				            18:{0:'90px',1:'mgb90'},
+				            19:{0:'95px',1:'mgb95'},
+				            20:{0:'100px',1:'mgb100'}
+				        }" default="" label="Margin bottom" displayCond="FIELD:rowDisable:<:1"/>
+            </flux:form.sheet>
+            <flux:form.sheet name="ColMasterSheet" label="Columns Configuration">
+
+                <flux:field.select name="ColCount" items="{
+                    0:{0:'please select',1:'0'},
+                    1:{0:'1 Column',1:'1'},
+                    2:{0:'2 Columns',1:'2'},
+                    3:{0:'3 Columns',1:'3'},
+                    4:{0:'4 Columns',1:'4'},
+                    6:{0:'6 Columns',1:'6'}
+                }" label="Number of Columns in row" requestUpdate="1" maxItems="1" size="1"/>
+                <f:if condition="{ColCount} > '0'">
+                    <f:then>
+                        <v:iterator.for from="1" to="{ColCount}" iteration="i" step="1">
+                            <flux:field.input name="addCssClassCol{i.index}"
+                                              label="Additional CSS class(es) [Column #{i.index}]"/>
+                        </v:iterator.for>
+                    </f:then>
+                </f:if>
+            </flux:form.sheet>
+            <f:if condition="{ColCount} > '0'">
+                <f:then>
+                    <f:comment>
+                        <flux:field.checkbox name="equalHeight" label="The height of all columns must be the same" default="0" />
+                    </f:comment>
+                    <f:switch expression="{ColCount}">
+                        <f:case value="1">
+                            {v:variable.set(value: 'col-lg-12', name: 'lgDefault')}
+                            {v:variable.set(value: 'col-md-12', name: 'mdDefault')}
+                        </f:case>
+                        <f:case value="2">
+                            {v:variable.set(value: 'col-lg-6', name: 'lgDefault')}
+                            {v:variable.set(value: 'col-md-6', name: 'mdDefault')}
+                        </f:case>
+                        <f:case value="3">
+                            {v:variable.set(value: 'col-lg-4', name: 'lgDefault')}
+                            {v:variable.set(value: 'col-md-4', name: 'mdDefault')}
+                        </f:case>
+                        <f:case value="4">
+                            {v:variable.set(value: 'col-lg-3', name: 'lgDefault')}
+                            {v:variable.set(value: 'col-md-3', name: 'mdDefault')}
+                        </f:case>
+                        <f:case value="6">
+                            {v:variable.set(value: 'col-lg-2', name: 'lgDefault')}
+                            {v:variable.set(value: 'col-md-2', name: 'mdDefault')}
+                        </f:case>
+                        <f:defaultCase>
+                            {v:variable.set(value: 'col-lg-12', name: 'lgDefault')}
+                            {v:variable.set(value: 'col-md-12', name: 'mdDefault')}
+                        </f:defaultCase>
+                    </f:switch>
+
+                    <v:iterator.for from="1" to="{ColCount}" iteration="i" step="1">
+                        <flux:form.sheet name="Column{i.index}Sheet" label="Column #{i.index}">
+                            <flux:field.select name="Collg{i.index}" items="{
+                                     1:{0:'Column width LG: 1 [{v:math.division(a:1, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-lg-1'},
+                                     2:{0:'Column width LG: 2 [{v:math.division(a:2, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-lg-2'},
+                                     3:{0:'Column width LG: 3 [{v:math.division(a:3, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-lg-3'},
+                                     4:{0:'Column width LG: 4 [{v:math.division(a:4, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-lg-4'},
+                                     5:{0:'Column width LG: 5 [{v:math.division(a:5, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-lg-5'},
+                                     6:{0:'Column width LG: 6 [{v:math.division(a:6, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-lg-6'},
+                                     7:{0:'Column width LG: 7 [{v:math.division(a:7, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-lg-7'},
+                                     8:{0:'Column width LG: 8 [{v:math.division(a:8, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-lg-8'},
+                                     9:{0:'Column width LG: 9 [{v:math.division(a:9, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-lg-9'},
+                                     10:{0:'Column width LG: 10 [{v:math.division(a:10, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-lg-10'},
+                                     11:{0:'Column width LG: 11 [{v:math.division(a:11, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-lg-11'},
+                                     12:{0:'Column width LG: 12 [{v:math.division(a:12, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-lg-12'}
+                                }" label="Large devices | Desktops (≥1200px)" maxItems="1" default="{lgDefault}"/>
+
+                            <flux:field.select name="Colmd{i.index}" items="{
+                                     1:{0:'Column width MD: 1 [{v:math.division(a:1, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-md-1'},
+                                     2:{0:'Column width MD: 2 [{v:math.division(a:2, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-md-2'},
+                                     3:{0:'Column width MD: 3 [{v:math.division(a:3, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-md-3'},
+                                     4:{0:'Column width MD: 4 [{v:math.division(a:4, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-md-4'},
+                                     5:{0:'Column width MD: 5 [{v:math.division(a:5, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-md-5'},
+                                     6:{0:'Column width MD: 6 [{v:math.division(a:6, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-md-6'},
+                                     7:{0:'Column width MD: 7 [{v:math.division(a:7, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-md-7'},
+                                     8:{0:'Column width MD: 8 [{v:math.division(a:8, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-md-8'},
+                                     9:{0:'Column width MD: 9 [{v:math.division(a:9, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-md-9'},
+                                     10:{0:'Column width MD: 10 [{v:math.division(a:10, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-md-10'},
+                                    11:{0:'Column width MD: 11 [{v:math.division(a:11, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-md-11'},
+                                    12:{0:'Column width MD: 12 [{v:math.division(a:12, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-md-12'}
+                                }" label="Medium devices | Desktops (≥992px)" maxItems="1" default="{mdDefault}"/>
+
+
+                            <flux:field.select name="Colsm{i.index}" items="{
+                                     1:{0:'Column width SM: 1 [{v:math.division(a:1, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-sm-1'},
+                                     2:{0:'Column width SM: 2 [{v:math.division(a:2, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-sm-2'},
+                                     3:{0:'Column width SM: 3 [{v:math.division(a:3, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-sm-3'},
+                                     4:{0:'Column width SM: 4 [{v:math.division(a:4, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-sm-4'},
+                                     5:{0:'Column width SM: 5 [{v:math.division(a:5, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-sm-5'},
+                                     6:{0:'Column width SM: 6 [{v:math.division(a:6, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-sm-6'},
+                                     7:{0:'Column width SM: 7 [{v:math.division(a:7, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-sm-7'},
+                                     8:{0:'Column width SM: 8 [{v:math.division(a:8, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-sm-8'},
+                                     9:{0:'Column width SM: 9 [{v:math.division(a:9, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-sm-9'},
+                                     10:{0:'Column width SM: 10 [{v:math.division(a:10, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-sm-10'},
+                                     11:{0:'Column width SM: 11 [{v:math.division(a:11, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-sm-11'},
+                                     12:{0:'Column width SM: 12 [{v:math.division(a:12, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-sm-12'}
+                                }" label="Small devices | Tablets (≥768px)" maxItems="1" default="col-sm-12"/>
+
+                            <flux:field.select name="Colxs{i.index}" items="{
+                                     1:{0:'Column width XS: 1  [{v:math.division(a:1, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-xs-1'},
+                                     2:{0:'Column width XS: 2  [{v:math.division(a:2, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-xs-2'},
+                                     3:{0:'Column width XS: 3  [{v:math.division(a:3, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-xs-3'},
+                                     4:{0:'Column width XS: 4  [{v:math.division(a:4, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-xs-4'},
+                                     5:{0:'Column width XS: 5  [{v:math.division(a:5, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-xs-5'},
+                                     6:{0:'Column width XS: 6  [{v:math.division(a:6, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-xs-6'},
+                                     7:{0:'Column width XS: 7  [{v:math.division(a:7, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-xs-7'},
+                                     8:{0:'Column width XS: 8  [{v:math.division(a:8, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-xs-8'},
+                                     9:{0:'Column width XS: 9  [{v:math.division(a:9, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-xs-9'},
+                                     10:{0:'Column width XS: 10 [{v:math.division(a:10, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-xs-10'},
+                                     11:{0:'Column width XS: 11 [{v:math.division(a:11, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-xs-11'},
+                                     12:{0:'Column width XS: 12 [{v:math.division(a:12, b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}%]',1:'col-xs-12'}
+                                }" label="Extra small devices | Phones (<768px)" maxItems="1" default="col-xs-12"/>
+
+                            <flux:field.select name="ColWOW{i.index}" items="{
+                                    0:{0:'please select',1:'none'},
+                                    1:{0:'fadeIn',1:'fadeIn'},
+                                    2:{0:'fadeInDown',1:'fadeInDown'},
+                                    3:{0:'fadeInLeft',1:'fadeInLeft'},
+                                    4:{0:'fadeInRight',1:'fadeInRight'},
+                                    6:{0:'fadeInUp',1:'fadeInUp'}
+                                }" label="CSS animations" maxItems="1" default="none"/>
+
+                            <flux:field.input name="backgroundColor{i.index}"
+                                              label="Background color">
+                                <flux:wizard.colorPicker label="Choose background color" hideParent="1" dim="20x20"
+                                                         width="400" height="400"
+                                                         exampleImg="EXT:flux/Resources/Public/Icons/ColorWheel.png"/>
+                            </flux:field.input>
+
+                            <flux:field.select name="VisibleDevs{i.index}" items="{
+                                     1:{0:'Large devices | Desktops (≥1200px)',1:'visible-lg'},
+                                     2:{0:'Medium devices | Desktops (≥992px)',1:'visible-md'},
+                                     3:{0:'Small devices | Tablets (≥768px)',1:'visible-sm'},
+                                     4:{0:'Extra small devices | Phones (<768px)',1:'visible-xs'}
+                                }" label="Show column on:" size="4" minItems="0" maxItems="4" multiple="1"
+                                               renderType="selectCheckBox"/>
+
+                            <flux:field.select name="HiddenDevs{i.index}" items="{
+                                     1:{0:'Large devices | Desktops (≥1200px)',1:'hidden-lg'},
+                                     2:{0:'Medium devices | Desktops (≥992px)',1:'hidden-md'},
+                                     3:{0:'Small devices | Tablets (≥768px)',1:'hidden-sm'},
+                                     4:{0:'Extra small devices | Phones (<768px)',1:'hidden-xs'}
+                                }" label="Hide column on:" size="4" minItems="0" maxItems="4" multiple="1"
+                                               renderType="selectCheckBox"/>
+
+                        </flux:form.sheet>
+                    </v:iterator.for>
+                </f:then>
+            </f:if>
+            <flux:grid>
+                <flux:grid.row>
+                    <f:if condition="{ColCount} > '0'">
+                        <f:then>
+                            <v:iterator.for from="1" to="{ColCount}" iteration="i" step="1">
+                                <f:if condition="{v:variable.get(name: 'Colmd{i.index}')}">
+                                    {v:variable.get(name: 'Colmd{i.index}') -> v:format.substring(start: 7) -> v:math.division(b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2) -> v:variable.set(name: 'percent')}
+                                </f:if>
+                                <flux:grid.column
+                                        style="width:{percent}%;"
+                                        name="column{i.index}"
+                                        colPos="2{i.index}"
+                                        label="Column {i.index} / Width: {percent}%">
+                                    <flux:form.variable name="allowedContentTypes" value="textmedia,header,list,fluidcontent_content"/>
+                                </flux:grid.column>
+                            </v:iterator.for>
+                        </f:then>
+                    </f:if>
+                </flux:grid.row>
+            </flux:grid>
+        </flux:form>
+    </f:section>
+
+    <f:section name="Preview">
+
+    </f:section>
+
+    <f:section name="Main">
+        <v:variable.set name="varBackgroundColor" value=""/>
+        <v:variable.set name="varBackgroundImage" value=""/>
+        <v:variable.set name="varBackgroundSize" value=""/>
+        <v:variable.set name="varBackgroundRepeat" value=""/>
+        <v:variable.set name="varBackgroundPosition" value=""/>
+        <v:variable.set name="varBackgroundAttachment" value=""/>
+        <f:if condition="{backgroundColor}">
+            <v:variable.set name="varBackgroundColor" value="background-color: {backgroundColor};"/>
+        </f:if>
+        <f:if condition="{backgroundImage}">
+            <v:variable.set name="varBackgroundImage" value="background-image: url({backgroundImage});"/>
+        </f:if>
+        <f:if condition="{backgroundSize}">
+            <v:variable.set name="varBackgroundSize" value="background-size: {backgroundSize};"/>
+        </f:if>
+        <f:if condition="{backgroundRepeat}">
+            <v:variable.set name="varBackgroundRepeat" value="background-repeat: {backgroundRepeat};"/>
+        </f:if>
+        <f:if condition="{backgroundPosition}">
+            <v:variable.set name="varBackgroundPosition" value="background-position: {backgroundPosition};"/>
+        </f:if>
+        <f:if condition="{backgroundAttachment}">
+            <v:variable.set name="varBackgroundAttachment" value="background-attachment: {backgroundAttachment};"/>
+        </f:if>
+
+        <v:variable.set name="varContainerBackgroundColor" value=""/>
+        <v:variable.set name="varContainerBackgroundImage" value=""/>
+        <v:variable.set name="varContainerBackgroundSize" value=""/>
+        <v:variable.set name="varContainerBackgroundRepeat" value=""/>
+        <v:variable.set name="varContainerBackgroundPosition" value=""/>
+        <v:variable.set name="varContainerBackgroundAttachment" value=""/>
+        <f:if condition="{containerBackgroundColor}">
+            <v:variable.set name="varContainerBackgroundColor" value="background-color: {containerBackgroundColor};"/>
+        </f:if>
+        <f:if condition="{containerBackgroundImage}">
+            <v:variable.set name="varContainerBackgroundImage" value="background-image: url({containerBackgroundImage});"/>
+        </f:if>
+        <f:if condition="{containerBackgroundSize}">
+            <v:variable.set name="varContainerBackgroundSize" value="background-size: {containerBackgroundSize};"/>
+        </f:if>
+        <f:if condition="{containerBackgroundRepeat}">
+            <v:variable.set name="varContainerBackgroundRepeat" value="background-repeat: {containerBackgroundRepeat};"/>
+        </f:if>
+        <f:if condition="{containerBackgroundPosition}">
+            <v:variable.set name="varContainerBackgroundPosition" value="background-position: {containerBackgroundPosition};"/>
+        </f:if>
+        <f:if condition="{containerBackgroundAttachment}">
+            <v:variable.set name="varContainerBackgroundAttachment" value="background-attachment: {containerBackgroundAttachment};"/>
+        </f:if>
+
+        <f:if condition="{tagSection} != 'none'">
+            <{tagSection} {f:if(condition: sectionId, then:'id="{sectionId}"')} {f:if(condition: sectionCustomClass, then:'class="{sectionCustomClass}"')}
+            {f:if(condition: '{sectionCustomAttr}', then:' {sectionCustomAttr}')} {f:if(condition: backgroundEnable, then: "style='{varBackgroundColor}{varBackgroundImage}{varBackgroundSize}{varBackgroundRepeat}{varBackgroundPosition}{varBackgroundAttachment}'")}>
+        </f:if>
+        <f:if condition="{fullWidthContainer} != 'none'">
+            <div {f:if(condition: containerId, then:'id="{containerId}"')} class="{fullWidthContainer}{f:if(condition: containerCustomClass, then:' {containerCustomClass}')}"
+            {f:if(condition: '{containerCustomAttr}', then:' {containerCustomAttr}')} {f:if(condition: containerBackgroundEnable, then: "style='{varContainerBackgroundColor}{varContainerBackgroundImage}{varContainerBackgroundSize}{varContainerBackgroundRepeat}{varContainerBackgroundPosition}{varContainerBackgroundAttachment}'")}>
+        </f:if>
+        <f:if condition="{rowDisable} == 0">
+            <div class="row{f:if(condition: MarginTop, then: ' {MarginTop}')}{f:if(condition: MarginBottom, then: ' {MarginBottom}')}">
+        </f:if>
+        <v:iterator.for from="1" to="{ColCount}" iteration="i" step="1">
+
+            {v:variable.get(name: 'VisibleDevs{i.index}') -> v:format.replace(substring: ',', replacement: ' ') -> v:variable.set(name: 'VisibleDevs')}
+            {v:variable.get(name: 'HiddenDevs{i.index}') -> v:format.replace(substring: ',', replacement: ' ') -> v:variable.set(name: 'HiddenDevs')}
+
+            {v:variable.get(name: 'ColWOW{i.index}') -> v:variable.set(name: 'animatedCss')}
+
+
+            {v:variable.get(name: 'addCssClassCol{i.index}') -> v:variable.set(name: 'addCssClassCol')}
+            {v:variable.get(name: 'backgroundColor{i.index}') -> v:variable.set(name: 'ColBackgroundColor')}
+            <div class="{v:variable.get(name: 'Colxs{i.index}')} {v:variable.get(name: 'Colsm{i.index}')} {v:variable.get(name: 'Colmd{i.index}')} {v:variable.get(name: 'Collg{i.index}')}{f:if(condition: VisibleDevs, then: ' {VisibleDevs}')}{f:if(condition: HiddenDevs, then: ' {HiddenDevs}')}{f:if(condition: '{animatedCss} != \'none\'', then: ' {animatedCss}')}{f:if(condition: addCssClassCol, then: ' {addCssClassCol}')}"{f:if(condition:"{ColBackgroundColor}", then:" style='background-color:{ColBackgroundColor};'")}{f:if(condition:"{equalHeight}", then:" data-mh='col-{record.uid}'")}>
+            <flux:content.render area="column{i.index}"/>
+</div>
+</v:iterator.for>
+<f:if condition="{rowDisable} == 0">
+    </div>
+</f:if>
+
+<f:if condition="{fullWidthContainer} != 'none'">
+    </div>
+</f:if>
+<f:if condition="{tagSection} != 'none'">
+</{tagSection}>
+</f:if>
+</f:section>
+
+</div>
+

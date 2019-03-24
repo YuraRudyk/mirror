@@ -1,0 +1,17 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:section name="Default">
+    <!-- Copyright -->
+    <span class="footer-copyrights">
+    <f:format.raw>
+        <v:format.replace substring="%CurrentYear%" replacement="{f:format.date(format:'Y', date:'Y')}" caseSensitive="1">
+            <v:content.render render="1" contentUids="{0:'{settings.content.element.copyright}'}" />
+        </v:format.replace>
+    </f:format.raw>
+    </span>
+
+</f:section>
+
+<f:section name="LibCopyright">
+    <!-- Copyright by lib -->
+    <f:cObject typoscriptObjectPath="lib.copyright" />
+</f:section>

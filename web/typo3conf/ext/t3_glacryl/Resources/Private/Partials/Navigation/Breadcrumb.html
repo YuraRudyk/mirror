@@ -1,0 +1,74 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:section name="Default">
+	<f:if condition="{v:page.info(field: 'uid')} != {settings.page.home}">
+		<div class="breadcrumb">
+			<div class="container">
+				<v:page.breadCrumb class="" linkCurrent="0" classFirst="first" classLast="last" classCurrent="current" classHasSubpages="" classActive="" divider="<span class='divider'></span>" titleFields="title,navtitle" />
+				<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.newsTitle')}">
+					<f:then>
+						<ul class="details-view-title"><li><span class="divider"></span></li><li class="current">{f:cObject(typoscriptObjectPath: 'lib.newsTitle')}</li></ul>
+					</f:then>
+				</f:if>
+			</div>
+			<!-- End Container -->
+		</div>
+	</f:if>
+</f:section>
+
+<f:section name="LibBreadcrumb">
+	<f:cObject typoscriptObjectPath="lib.breadcrumb"/>
+</f:section>
+
+<f:section name="CustomPageBreadcrumb">
+<f:if condition="{v:page.info(field: 'uid')} != {settings.page.home}">
+
+		<v:page.breadCrumb as="breadcrumb" doktypes="1,4" showHiddenInMenu="1" classActive="" classCurrent="current" classFirst="first" classLast="last" classHasSubpages="">
+			<div class="row">
+				<div class="col-xs-12 breadcrumbs">
+					<ul>
+						<f:for each="{breadcrumb}" as="breadcrumbPage">
+							<f:if condition="{breadcrumbPage.doktype} == 199">
+								<f:else>
+									<f:if condition="{breadcrumbPage.tx_realurl_exclude} == 0">
+										<f:if condition="{breadcrumbPage.current} == 1">
+											<f:then>
+												<f:if condition="{breadcrumbPage.php_tree_stop} == 1">
+													<f:else>
+														<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.titleNews')}">
+															<f:then>
+																{f:cObject(typoscriptObjectPath: 'lib.titleNews')}
+															</f:then>
+															<f:else>
+																<li{f:if(then: ' class="{breadcrumbPage.class}"', condition: '{breadcrumbPage.class}')}><span>{breadcrumbPage.nav_title -> v:or(alternative: "{breadcrumbPage.title}")}</span></li>
+															</f:else>
+														</f:if>
+													</f:else>
+												</f:if>
+											</f:then>
+											<f:else>
+												<li{f:if(then: ' class="{breadcrumbPage.class}"', else: '', condition: '{breadcrumbPage.class}')}><a href="{f:uri.page(pageUid: '{breadcrumbPage.uid}')}"{f:if(then: ' title="{breadcrumbPage.subtitle}"', condition: '{breadcrumbPage.subtitle}')}>{breadcrumbPage.nav_title -> v:or(alternative: "{breadcrumbPage.title}")}</a></li>
+												<li><span>//</span></li>
+											</f:else>
+										</f:if>
+									</f:if>
+								</f:else>
+							</f:if>
+						</f:for>
+					</ul>
+				</div>
+			</div>
+		</v:page.breadCrumb>
+
+</f:if>
+</f:section>
+
+
+
+
+
+
+
+
+
+		
+

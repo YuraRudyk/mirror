@@ -1,0 +1,17 @@
+
+<label for="noticeNr">
+	<f:translate key="tx_glshop_domain_model_noticelist.notice_nr" />
+</label><br />
+	<f:form.textfield property="noticeNr" /><br />
+<label for="date">
+	<f:translate key="tx_glshop_domain_model_noticelist.date" />
+</label><br />
+	<f:form.textfield property="date"  value="{noticelist.date->f:format.date()}" /><br />
+<label for="article">
+	<f:translate key="tx_glshop_domain_model_noticelist.article" />
+</label><br />
+	<f:form.textarea property="article" cols="40" rows="15" /><br />
+<label for="expire">
+	<f:translate key="tx_glshop_domain_model_noticelist.expire" />
+</label><br />
+	<f:form.textfield property="expire"  value="{noticelist.expire->f:format.date()}" /><br />

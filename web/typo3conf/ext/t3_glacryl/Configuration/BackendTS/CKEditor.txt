@@ -1,0 +1,5 @@
+RTE.default.preset = t3_glacryl
+#RTE.config.tt_content.bodytext.types.textmedia.preset = t3_glacryl
+#RTE.default.preset = defaultFA4
+#RTE.config.tt_content.bodytext.preset = t3_glacryl
+

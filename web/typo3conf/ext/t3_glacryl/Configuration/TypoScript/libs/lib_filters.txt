@@ -1,0 +1,19 @@
+lib.filters = USER
+lib.filters {
+    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    pluginName = Cases
+    extensionName = T3GlacrylApp
+    vendorName = Glacryl
+    controller = Cases
+    action = filter
+    switchableControllerActions {
+        Cases {
+            1 = filter
+            2 = list
+        }
+    }
+
+    #view < plugin.tx_fitnessapps_exerciselist.view
+    #persistence < plugin.tx_fitnessapps_exerciselist.persistence
+    #settings < plugin.tx_fitnessapps_exerciselist.settings
+}

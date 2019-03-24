@@ -1,0 +1,41 @@
+apache:
+  image: centos/httpd
+  volumes:
+    - .:/var/www/localhost/www/html/
+    - ./etc/apache/glacryl.conf:/etc/httpd/conf.d/welcome.conf
+  links:
+    - php
+  ports:
+    - "80:80"
+  env_file:
+    - .env-docker
+
+mysql:
+  image: mysql:5.7
+  volumes:
+    - ./etc/db/dump.sql:/docker-entrypoint-initdb.d/01-dump.sql
+    - ./etc/db/config.cnf:/etc/mysql/conf.d/config.cnf
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: typo3
+    MYSQL_USER: typo3
+    MYSQL_PASSWORD: root
+  ports:
+    - 3306:3306
+
+php:
+  build: ./etc/php
+  volumes:
+    - .:/var/www/localhost/www/html/:cached
+    - ./etc/php/php.ini:/usr/local/etc/php/php.ini
+  links:
+    - mysql
+#    - mailcatcher
+  env_file:
+    - .env-docker
+
+#mailcatcher:
+#  image: yappabe/mailcatcher
+#  ports:
+#    - 1025:1025
+#    - 1080:1080

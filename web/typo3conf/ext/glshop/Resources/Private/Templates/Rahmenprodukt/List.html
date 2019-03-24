@@ -1,0 +1,49 @@
+
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<h1>Listing for Rahmenprodukt</h1>
+
+<f:flashMessages renderMode="div" />
+
+<table  class="tx_glshop" >
+	<tr>
+		<th><f:translate key="tx_glshop_domain_model_rahmenprodukt.name" /></th>
+		<th><f:translate key="tx_glshop_domain_model_rahmenprodukt.beschreibung" /></th>
+		<th><f:translate key="tx_glshop_domain_model_rahmenprodukt.bild" /></th>
+		<th><f:translate key="tx_glshop_domain_model_rahmenprodukt.art_nr" /></th>
+		<th><f:translate key="tx_glshop_domain_model_rahmenprodukt.frontscheibe" /></th>
+		<th><f:translate key="tx_glshop_domain_model_rahmenprodukt.sicherheit" /></th>
+		<th><f:translate key="tx_glshop_domain_model_rahmenprodukt.preis" /></th>
+		<th> </th>
+		<th> </th>
+	</tr>
+
+	<f:for each="{rahmenprodukts}" as="rahmenprodukt">
+		<tr>
+			<td><f:link.action action="show" arguments="{rahmenprodukt : rahmenprodukt}"> {rahmenprodukt.name}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{rahmenprodukt : rahmenprodukt}"> {rahmenprodukt.beschreibung}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{rahmenprodukt : rahmenprodukt}"> {rahmenprodukt.bild}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{rahmenprodukt : rahmenprodukt}"> {rahmenprodukt.artNr}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{rahmenprodukt : rahmenprodukt}"> {rahmenprodukt.frontscheibe}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{rahmenprodukt : rahmenprodukt}"> {rahmenprodukt.sicherheit}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{rahmenprodukt : rahmenprodukt}"> {rahmenprodukt.preis}</f:link.action></td>
+			<td><f:link.action action="edit" arguments="{rahmenprodukt : rahmenprodukt}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{rahmenprodukt : rahmenprodukt}">Delete</f:link.action></td>
+		</tr>
+	</f:for>
+</table>
+
+<f:link.action action="new">New Rahmenprodukt</f:link.action>
+</f:section>

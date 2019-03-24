@@ -1,0 +1,52 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<f:section name="desktopLogo">
+	<!-- Desktop Logo -->
+	<f:if condition="{v:page.info(field: 'uid')} == {settings.page.home}">
+		<f:then>
+			<span class="header_logo" id="logo">
+				<v:content.render column="90" render="1" pageUid="{settings.page.home}" />
+			</span>
+		</f:then>
+		<f:else>
+			<v:page.link pageUid="{settings.page.home}" class="header_logo" id="logo">
+				<v:content.render column="90" render="1" pageUid="{settings.page.home}" />
+			</v:page.link>
+		</f:else>
+	</f:if>
+</f:section>
+
+<f:section name="mobileLogo">
+	<!-- Mobile Logo -->
+	<f:if condition="{v:page.info(field: 'uid')} == {settings.page.home}">
+		<f:then>
+			<v:page.link pageUid="{settings.page.home}" class="navbar-brand visible-xs">
+				<v:content.render column="92" render="1" pageUid="{settings.page.home}" />
+			</v:page.link>
+		</f:then>
+		<f:else>
+			<v:page.link pageUid="{settings.page.home}" class="navbar-brand visible-xs">
+				<v:content.render column="92" render="1" pageUid="{settings.page.home}" />
+			</v:page.link>
+		</f:else>
+	</f:if>
+</f:section>
+
+<f:section name="footerLogo">
+	<!-- Desktop Logo -->
+	<f:if condition="{v:content.get(column: 101, pageUid:{settings.page.home}) -> f:count()} > 0">
+		<f:if condition="{v:page.info(field: 'uid')} == {settings.page.home}">
+			<f:then>
+				<span class="footer_logo">
+					<v:content.render column="101" render="1" pageUid="{settings.page.home}" />
+				</span>
+			</f:then>
+			<f:else>
+				<v:page.link pageUid="{settings.page.home}" class="footer_logo">
+					<v:content.render column="101" render="1" pageUid="{settings.page.home}" />
+				</v:page.link>
+			</f:else>
+		</f:if>
+	</f:if>
+</f:section>
+

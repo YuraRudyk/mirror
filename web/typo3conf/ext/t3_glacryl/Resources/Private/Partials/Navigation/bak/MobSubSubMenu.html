@@ -1,0 +1,30 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<v:if stack="{0: '{v:page.info(field: \'uid\')}', 1: '==', 2: '{settings.page.profil}', 3: 'AND', 4: '{v:page.info(field: \'fe_group\')}', 5: '==', 6: '-2', 7: 'OR', 8: '{v:page.info(field: \'pid\')}', 9: '==', 10: '{settings.page.profil}', 11: 'OR', 12: '{v:page.info(field: \'fe_group\')}', 13: '==', 14: '-2'}">
+	<f:security.ifAuthenticated>
+		<f:then>
+			<v:asset.style path="files/css/bootstrap-select.css" name="bootstrapSelectCss" external="0" fluid="1" rewrite="0" standalone="1" variables="{_all}" />
+			<v:asset.script path="files/js/bootstrap-select.js" name="bootstrapSelectJs" external="0" fluid="1" rewrite="0" standalone="1" variables="{_all}" />
+			<div class="row visible-xs">
+			<f:if condition="{v:page.menu(entryLevel: '2')}">
+				<f:then>
+				<div class="col-xs-12">
+					<f:if condition="{v:page.info(field: 'pid')} == 11">
+						<f:else>
+							<v:page.menu entryLevel="2" classActive="active" classCurrent="current" classHasSubpages="" classFirst="first" classLast="{v:security.allow(then: 'green-border-bottom', else: 'last', anyFrontendUser: 'TRUE')}">
+								<f:if condition="{menu}">
+								<select id="user-profile-menu" class="selectpicker" data-style="btn-inverse">
+									<f:for each="{menu}" as="menuPages" iteration="i">
+									<option value="{menuPages.link}">{menuPages.nav_title -> v:or(alternative: "{menuPages.title}")}</option>
+									</f:for>
+								</select>
+								</f:if>
+							</v:page.menu>
+						</f:else>
+					</f:if>
+				</div>
+				</f:then>
+			</f:if>
+			</div>
+		</f:then>
+	</f:security.ifAuthenticated>
+</v:if>

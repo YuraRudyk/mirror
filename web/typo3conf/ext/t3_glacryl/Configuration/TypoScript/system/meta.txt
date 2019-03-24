@@ -1,0 +1,46 @@
+###################################################
+# META TAGS #######################################
+###################################################
+page {
+
+    // Abuse headTag to set X-UA-Compatible the original headTag will be set in config.htmlTag_stdWrap
+    // This is sadly needed to get automatic baseurl setting to work
+    #headTag = <meta http-equiv="X-UA-Compatible" content="{$plugin.tx_t3glacryl.settings.meta.compatible}">
+    meta {
+        viewport = {$plugin.tx_t3glacryl.settings.meta.viewport}
+
+        mobile-web-app-capable = {$plugin.tx_t3glacryl.settings.meta.mobile-web-app-capable}
+        apple-mobile-web-app-capable = {$plugin.tx_t3glacryl.settings.meta.apple-mobile-web-app-capable}
+        apple-mobile-web-app-status-bar-style = {$plugin.tx_t3glacryl.settings.meta.apple-mobile-web-app-status-bar-style}
+        format-detection = {$plugin.tx_t3glacryl.settings.meta.format-detection}
+
+        google = {$plugin.tx_t3glacryl.settings.meta.google}
+        X-UA-Compatible = {$plugin.tx_t3glacryl.settings.meta.X-UA-Compatible}
+        X-UA-Compatible.httpEquivalent = {$plugin.tx_t3glacryl.settings.meta.X-UA-Compatible.httpEquivalent}
+
+        ###########################################
+        # SEO fields ##############################
+        ###########################################
+        description >
+        description = {$plugin.tx_t3glacryl.settings.meta.description}
+        description {
+            override.field = description
+        }
+        keywords >
+        keywords = {$plugin.tx_t3glacryl.settings.meta.keywords}
+        keywords {
+            override.field = keywords
+        }
+        author >
+        author = {$plugin.tx_t3glacryl.settings.meta.author}
+        author {
+            override.field = author
+        }
+
+        theme-color = #000
+        msapplication-navbutton-color = #000
+        apple-mobile-web-app-status-bar-style = #000
+
+    }
+
+}

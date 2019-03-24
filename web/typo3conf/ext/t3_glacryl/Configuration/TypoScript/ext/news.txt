@@ -1,0 +1,84 @@
+#######################################
+###  Get news title for breadcrumb  ###
+#######################################
+# Get news title
+[request.getQueryParams()['tx_news_pi1'] > 0]
+    lib.newsTitle = RECORDS
+    lib.newsTitle {
+        dontCheckPid = 1
+        tables = tx_news_domain_model_news
+        source.data = GP:tx_news_pi1|news
+        source.intval = 1
+        conf.tx_news_domain_model_news = TEXT
+        conf.tx_news_domain_model_news {
+            field = title
+            htmlSpecialChars = 1
+        }
+        wrap = |
+    }
+[GLOBAL]
+
+###########################################
+# Show share buttons (shariff)       ######
+###########################################
+plugin.tx_news {
+    settings {
+        detail {
+            showSocialShareButtons = 1
+        }
+    }
+}
+#######################################################
+# Removing controller and action arguments from URL ###
+#######################################################
+# First way
+plugin.tx_news {
+    settings {
+        link {
+            skipControllerAndAction = 1
+        }
+    }
+    features {
+        skipDefaultArguments = 1
+    }
+}
+
+
+###########################################
+# News List and Details on same page ######
+###########################################
+/*
+lib.news = USER
+lib.news {
+    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    pluginName = Pi1
+    vendorName = GeorgRinger
+    extensionName = News
+    controller = News
+    settings =< plugin.tx_news.settings
+    persistence =< plugin.tx_news.persistence
+    view =< plugin.tx_news.view
+}
+
+
+lib.news_list < lib.news
+lib.news_list {
+    action = list
+    switchableControllerActions.News.1 = list
+}
+
+lib.news_detail < lib.news
+lib.news_detail {
+    action = detail
+    switchableControllerActions.News.1 = detail
+}
+*/
+#[globalVar = GP:tx_news_pi1|news > 0]
+#        page.10.marks.content < lib.news_detail
+#[ELSE]
+#        page.10.marks.content < lib.news_list
+#[end]
+
+
+
+

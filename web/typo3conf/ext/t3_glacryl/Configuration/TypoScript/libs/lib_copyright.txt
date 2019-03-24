@@ -1,0 +1,7 @@
+lib.copyright = COA
+lib.copyright.10 = TEXT
+lib.copyright.10 {
+  data = date:U
+  strftime = %Y
+  noTrimWrap = |&copy; 2011 - | {$plugin.tx_t3glacryl.settings.siteName}. All Rights Reserved.|
+}

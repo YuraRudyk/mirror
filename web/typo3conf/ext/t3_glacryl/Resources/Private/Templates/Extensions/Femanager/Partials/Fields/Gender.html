@@ -1,0 +1,14 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<div class="col-xs-12 col-md-6">
+
+	<label class="form-group select">
+		<f:form.select id="femanager_field_gender"
+					   property="gender"
+					   value="{user.gender}"
+					   options="{2:'{f:translate(key: \'tx_femanager_domain_model_user.anrede0\')}',
+					   0:'{f:translate(key: \'tx_femanager_domain_model_user.anrede1\')}',
+					   1:'{f:translate(key: \'tx_femanager_domain_model_user.anrede2\')}'}"
+					   additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'gender')}" />
+	</label>
+
+</div>

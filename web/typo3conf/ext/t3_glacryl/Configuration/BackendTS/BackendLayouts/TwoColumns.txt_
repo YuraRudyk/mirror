@@ -1,0 +1,44 @@
+##################################
+#### BACKENDLAYOUT: 2 COLUMNS ####
+##################################
+mod {
+    web_layout {
+        BackendLayouts {
+            TwoColumns {
+                title = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.TwoColumns
+                config {
+                    backend_layout {
+                        colCount = 6
+                        rowCount = 2
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.normal1
+                                        colPos  = 0
+                                        colspan = 4
+                                    }
+                                    2 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.rightCol
+                                        colPos  = 2
+                                        colspan = 2
+                                    }
+                                }
+                            }
+                            2 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.normal2
+                                        colPos  = 1
+                                        colspan = 4
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                icon = EXT:t3_glacryl/Resources/Public/Images/BackendLayouts/TwoColumns.gif
+            }
+        }
+    }
+}

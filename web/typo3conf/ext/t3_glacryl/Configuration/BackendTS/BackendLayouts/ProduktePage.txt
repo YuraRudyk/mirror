@@ -1,0 +1,117 @@
+######################################
+#### BACKENDLAYOUT: PRODUKTE PAGE ####
+######################################
+mod {
+    web_layout {
+        BackendLayouts {
+            ProduktePage {
+                title = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.ProduktePage
+                config {
+                    backend_layout {
+                        colCount = 8
+                        rowCount = 5
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.banner
+                                        colPos = 99
+                                        colspan = 8
+                                        allowed {
+                                            CType = textmedia
+                                        }
+                                        maxitems = 1
+                                    }
+                                }
+                            }
+                            2 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.description
+                                        colPos = 10
+                                        colspan = 2
+                                        allowed {
+                                            CType = textmedia
+                                        }
+                                    }
+                                    2 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.support
+                                        colPos = 11
+                                        colspan = 2
+                                        allowed {
+                                            CType = textmedia, shortcut
+                                        }
+                                    }
+                                    3 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.refill
+                                        colPos = 12
+                                        colspan = 2
+                                        allowed {
+                                            CType = textmedia
+                                        }
+                                    }
+                                    4 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.reviews
+                                        colPos = 13
+                                        colspan = 2
+                                        allowed {
+                                            CType = textmedia
+                                        }
+                                    }
+                                }
+                            }
+                            3 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.indoor
+                                        colPos = 0
+                                        colspan = 8
+                                        allowed {
+                                            CType = textmedia
+                                        }
+                                        maxitems = 1
+                                    }
+                                }
+                            }
+                            4 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.video
+                                        colPos = 1
+                                        colspan = 8
+                                        allowed {
+                                            CType = textmedia
+                                        }
+                                        maxitems = 1
+                                    }
+                                }
+                            }
+                            5 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.leftCol
+                                        colPos = 4
+                                        colspan = 4
+                                        allowed {
+                                            CType = textmedia
+                                        }
+                                        maxitems = 1
+                                    }
+                                    2 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.rightCol
+                                        colPos = 5
+                                        colspan = 4
+                                        allowed {
+                                            CType = textmedia
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                icon = EXT:t3_glacryl/Resources/Public/Images/BackendLayouts/ProduktePage.gif
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "name": "glacryl/glshop",
+    "type": "typo3-cms-extension",
+    "description": "Dies ist ein Shopsystem f\u00fcr Glacryl Hedel GmbH basierend auf TYPO3 9.5",
+    "authors": [
+        {
+            "name": "Petro Dikij",
+            "role": "Developer"
+        }
+    ],
+    "version": "1.0.0",
+    "require": {
+        "typo3/cms-core": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Glacryl\\Glshop\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Glacryl\\Glshop\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "glshop": "self.version",
+        "typo3-ter/glshop": "self.version"
+    }
+}

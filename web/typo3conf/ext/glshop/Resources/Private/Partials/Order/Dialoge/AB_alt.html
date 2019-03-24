@@ -1,0 +1,102 @@
+<div id="ab-edit-Dialog" title="Auftragsbestätigung" style="display: none;">
+	<input type="hidden" id="order-uid-ab-dialog" value=""/>
+	<input type="hidden" id="werbelandRabatt" value=""/>
+	<div id="ab-edit-Dialog-daten">
+		<form class="form-horizontal">
+			<div class="row">
+				<div class="col-sm-12">
+					<p>Bestellung vom <span id="ab-bestellt-am"></span></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label for="ab-edit-datum" class="col-sm-2 control-label">Lieferdatum<br/>abgehend</label>
+						<div class="col-sm-10">
+							<input id="ab-edit-datum" class="form-control" type="text" placeholder="z.B. 14.04.2014">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="ab-edit-text" class="col-sm-2 control-label">Hinweis</label>
+						<div class="col-sm-10">
+							<textarea id="ab-edit-text" class="form-control" rows="3"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="ab-edit-vk" class="col-sm-2 control-label">Versandkosten</label>
+						<div class="col-sm-10">
+							<input id="ab-edit-vk" class="form-control" type="text" placeholder="z.B. 10,50">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label for="ab-edit-lieferung" class="col-sm-2 control-label">Lieferart</label>
+						<div class="col-sm-10">
+							<select id="ab-edit-lieferung" class="form-control">
+								<option value="none">Bitte Auswählen...</option>
+								<option value="abholung">Selbstabholung</option>
+								<option value="standard">Versand</option>
+								<option value="express">Express</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="ab-edit-zahlung" class="col-sm-2 control-label">Lieferadresse</label>
+						<div class="col-sm-10">
+							<select id="ab-edit-adresse" size="5" multiple class="form-control">
+								<option value="none">Bitte Auswählen...</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="ab-edit-zahlung" class="col-sm-2 control-label">Zahlung</label>
+						<div class="col-sm-10">
+							<select id="ab-edit-zahlung" class="form-control">
+								<option value="none">Bitte Auswählen...</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<p id="werbelandInfo"><b>Werbelandpartner:</b> <span></span></p>
+				</div>
+			</div>
+
+			<div id="ab-edit-Dialog-positionen">
+				<table class="table table-condensed">
+					<colgroup>
+						<col width="10" />
+						<col width="10" />
+						<col width="30" />
+						<col width="10" />
+						<col width="*" />
+						<col width="*" />
+						<col width="*" />
+						<col width="*" />
+						<col width="*" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th style="text-align: center;">Aktion</th>
+							<th style="text-align: center;">Pos.</th>
+							<th style="text-align: center;">Bild</th>
+							<th style="text-align: center;">Anzahl</th>
+							<th style="text-align: left;">Gr&ouml;&szlig;e</th>
+							<th style="text-align: left;">Artikel</th>
+							<th style="text-align: left;">Bearbeitung</th>
+							<th style="text-align: center;">€/Stk.</th>
+							<th style="text-align: right;">Gesamt</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+
+		</form>
+	</div>
+</div>

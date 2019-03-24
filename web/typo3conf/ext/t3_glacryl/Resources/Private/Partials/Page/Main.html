@@ -1,0 +1,498 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+
+<f:section name="Flexpage">
+    <!-- DYNAMIC SECTIONS -->
+    <f:render partial="Page/Content/FlexpageContent" section="GlacrylSections" arguments="{sections:sections, position:1, inner:0}"/>
+</f:section>
+
+<f:section name="Home">
+
+    <!-- PRODUKT -->
+
+        <section class="section-slider-produkte" id="slider-produkte">
+            <v:content.render column="99" render="0" as="ce">
+                <f:if condition="{ce.0.header} && {ce.0.header_layout} < 100">
+                    <h{ce.0.header_layout}>{ce.0.header}</h{ce.0.header_layout}>
+                </f:if>
+                <div class="section-container">
+                <div class="slider-wrapper">
+                    <!-- Slider main container -->
+                    <div class="swiper-container" id="slider_produkte">
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <f:if condition="{v:content.get(column: 99) -> f:count()} > 1">
+                                <f:then>
+                                    <v:content.resources.fal table="tt_content" field="assets" uid="{ce.0.uid}" as="Img">
+                                        <f:for each="{Img}" as="imgItem">
+                                            <div class="swiper-slide" data-slide-name="{imgItem.title}">
+                                                <f:image src="{imgItem.url}" alt="{imgItem.title}" width="290c" height="470c" />
+                                                <f:if condition="{imgItem.title}">
+                                                    <span>{imgItem.title}</span>
+                                                </f:if>
+                                            </div>
+                                        </f:for>
+                                    </v:content.resources.fal>
+                                </f:then>
+                                <f:else>
+                                    <v:menu.directory pages="{settings.page.produkte}">
+                                        <f:for each="{menu}" as="productPage" iteration="iteration">
+                                            <v:content.resources.fal table="pages" field="media" uid="{productPage.uid}" as="imgItem">
+                                                <f:if condition="{imgItem.0}">
+                                                    <div class="swiper-slide" data-slide-name="product-{productPage.uid}">
+                                                        <f:image src="{imgItem.0.url}" alt="{productPage.title}" width="290c" height="470c" />
+                                                        <span>{productPage.title}</span>
+                                                    </div>
+                                                </f:if>
+                                            </v:content.resources.fal>
+                                        </f:for>
+                                    </v:menu.directory>
+
+                                </f:else>
+                            </f:if>
+                        </div>
+
+                        <!-- pagination -->
+                        <!-- <div class="swiper-pagination"></div> -->
+
+                        <!-- navigation buttons -->
+                        <!-- <div class="swiper-button-prev"></div> -->
+                        <!-- <div class="swiper-button-next"></div> -->
+
+                        <!-- scrollbar -->
+                        <!-- <div class="swiper-scrollbar"></div> -->
+                    </div>
+                </div>
+                </div>
+            </v:content.render>
+        </section>
+    <!-- TABS -->
+    <!-- PRODUKT -->
+
+    <v:menu.directory pages="{settings.page.produkte}">
+        <div id="section-tabs">
+        <f:for each="{menu}" as="productPage" iteration="iteration">
+            <f:if condition="{productPage.hasSubPages} == 1">
+
+                <section class="section-tabs" id="product-{productPage.uid}">
+                    <h3>{productPage.title}</h3>
+                    <div class="section-container">
+                        <div class="tabs">
+
+                        <v:menu.directory pages="{productPage.uid}" as="subMenu">
+                            <f:if condition="{subMenu}">
+                                <f:for each="{subMenu}" as="subProductPage" iteration="subIteration">
+                                    <f:if condition="{subProductPage.hasSubPages} == 1">
+                                        <v:menu.directory pages="{subProductPage.uid}" as="productsItems">
+                                            <f:if condition="{productsItems}">
+                                                <f:for each="{productsItems}" as="productItem">
+                                                    <div class="tab">
+                                                        <div class="aspect-ratio-box aspect-ratio-box--1x1">
+                                                            <div class="wrapper">
+                                                                <a class="tab-content" href="{f:uri.page(pageUid:'{productItem.uid}')}">
+                                                                    <span class="product-name">
+                                                                    {productItem.subtitle -> v:or(alternative:'{productItem.title}') -> f:format.raw()}
+                                                                    </span>
+
+                                             
+                                                                    <v:content.resources.fal table="pages" field="media" uid="{subProductPage.uid}" as="imgItem">
+                                                                        <f:if condition="{imgItem.0}">
+                                                                            <f:image src="{imgItem.0.url}" class="product-group" alt="{imgItem.0.title}" title="{imgItem.0.title}" />
+                                                                        </f:if>
+                                                                    </v:content.resources.fal>
+
+
+                                                                    <v:content.resources.fal table="pages" field="media" uid="{productItem.uid}" as="imgItem2">
+                                                                        <f:if condition="{imgItem2.0}">
+                                                                            <f:image src="{imgItem2.0.url}" class="product-image" alt="{imgItem2.0.title}" title="{imgItem2.0.title}" />
+                                                                        </f:if>
+                                                                    </v:content.resources.fal>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </f:for>
+                                            </f:if>
+                                        </v:menu.directory>
+                                    </f:if>
+                                </f:for>
+                            </f:if>
+                        </v:menu.directory>
+
+                        </div>
+                    </div>
+                </section>
+
+            </f:if>
+        </f:for>
+        </div>
+    </v:menu.directory>
+
+
+
+
+    <!-- NEWS -->
+    <f:if condition="{v:content.get(column: 98) -> f:count()} > 0">
+        <section class="section-slider-news" id="slider-news">
+            <v:content.render column="98" render="1" />
+        </section>
+    </f:if>
+
+    <!-- ÜBER UNS -->
+    <section class="section-uber-uns" id="uber-uns">
+        <f:if condition="{v:content.get(column: 2) -> f:count()} > 0">
+            <v:content.render column="2" render="1" />
+        </f:if>
+
+        <div class="section-container">
+
+            <div class="layout">
+                <div class="layout_column">
+
+                    <div class="image-wrapper">
+                        <f:if condition="{v:content.get(column: 0) -> f:count()} > 0">
+                            <v:content.render column="0" render="0" as="Img">
+                                {v:resource.record.fal(table: 'tt_content', field: 'assets', uid: Img.0.uid) -> f:count() -> v:variable.set(name: 'imagesCnt')}
+                                <f:if condition="{imagesCnt} > 0">
+                                    {v:resource.record.fal(table: 'tt_content', field: 'assets',
+                                    uid: Img.0.uid)
+                                    -> v:iterator.first()
+                                    -> v:variable.set(name: 'imageFirst')}
+                                    <div class="image-frame">
+                                        <img src="{imageFirst.url}" alt="{imageFirst.alternative}" title="{imageFirst.title}" />
+                                    </div>
+                                </f:if>
+                                <f:if condition="{imagesCnt} > 1">
+                                    {v:resource.record.fal(table: 'tt_content', field: 'assets',
+                                    uid: Img.0.uid)
+                                    -> v:iterator.last()
+                                    -> v:variable.set(name: 'imageLast')}
+                                    <div class="element-wrapper">
+                                        <div class="red-box">
+                                            <img src="{imageLast.url}" alt="" />
+                                        </div>
+                                    </div>
+                                </f:if>
+                            </v:content.render>
+                        </f:if>
+                    </div>
+
+                </div>
+                <div class="layout_column">
+                    <div class="layout_column__wrapper">
+                        <v:content.render column="1" render="1" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</f:section>
+
+<f:section name="Produkte">
+    <!-- PRODUKT -->
+    <f:if condition="{v:content.get(column: 99) -> f:count()} > 0">
+        <section class="section-slider-produkt-photos">
+            <v:content.render column="99" render="0" as="ce">
+                <f:if condition="{ce.0.header} && {ce.0.header_layout} < 100">
+                    <h{ce.0.header_layout}>{ce.0.header}</h{ce.0.header_layout}>
+                </f:if>
+                <div class="section-container">
+                <div class="slider-wrapper">
+                    <!-- Slider main container -->
+                    <div class="swiper-container" id="slider_produkte-photos">
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+
+                            <v:content.resources.fal table="tt_content" field="assets" uid="{ce.0.uid}" as="Img">
+                                <f:for each="{Img}" as="imgItem">
+                                    <f:if condition="{imgItem.link}">
+                                        <f:then>
+                                            <f:link.typolink parameter="{imgItem.link}" class="swiper-slide" additionalAttributes="{data-slide-name:'{imgItem.title}'}">
+                                                <f:image src="{imgItem.url}" alt="{imgItem.title}" width="1210c" height="690c" />
+                                            </f:link.typolink>
+                                        </f:then>
+                                        <f:else>
+                                            <div class="swiper-slide" data-slide-name="{imgItem.title}">
+                                                <f:image src="{imgItem.url}" alt="{imgItem.title}" width="1210c" height="690c" />
+                                            </div>
+                                        </f:else>
+                                    </f:if>
+                                </f:for>
+                            </v:content.resources.fal>
+
+                        </div>
+
+                        <!-- pagination -->
+                        <!-- <div class="swiper-pagination"></div> -->
+
+                        <!-- navigation buttons -->
+                        <!-- <div class="swiper-button-prev"></div> -->
+                        <!-- <div class="swiper-button-next"></div> -->
+
+                        <!-- scrollbar -->
+                        <!-- <div class="swiper-scrollbar"></div> -->
+                    </div>
+                </div>
+                </div>
+            </v:content.render>
+
+        </section>
+    </f:if>
+
+    <!-- TABS -->
+    <div class="produkte-tabs">
+        <ul>
+            <f:if condition="{v:content.get(column: 10) -> f:count()} > 0">
+                <li><a href="#tab-1"><f:translate key="tab1" extensionName="T3Glacryl" /></a></li>
+            </f:if>
+            <f:if condition="{v:content.get(column: 11) -> f:count()} > 0">
+                <li><a href="#tab-2"><f:translate key="tab2" extensionName="T3Glacryl" /></a></li>
+            </f:if>
+            <f:if condition="{v:content.get(column: 12) -> f:count()} > 0">
+                <li><a href="#tab-3"><f:translate key="tab3" extensionName="T3Glacryl" /></a></li>
+            </f:if>
+            <f:if condition="{v:content.get(column: 13) -> f:count()} > 0">
+                <li><a href="#tab-4"><f:translate key="tab4" extensionName="T3Glacryl" /></a></li>
+            </f:if>
+        </ul>
+        <f:if condition="{v:content.get(column: 10) -> f:count()} > 0">
+            <div id='tab-1'>
+                <section class="section-produkt-info">
+                    <div class="section-container">
+                        <f:comment><v:content.render column="10" render="1" /></f:comment>
+                        <v:content.render column="10" render="0" as="CEs">
+                            <f:for each="{CEs}" as="ce" iteration="ceIteration">
+                                <f:if condition="{ce.header}"><h{ce.header_layout}>{ce.header}</h{ce.header_layout}></f:if>
+                                {ce.bodytext -> f:format.html()}
+                                <v:content.resources.fal table="tt_content" field="assets" uid="{ce.uid}" as="Img">
+                                    <f:if condition="{Img}">
+                                        <div class="produkt-photos-images">
+                                            <f:for each="{Img}" as="imgItem">
+                                                <div class="produkt-photos-image">
+                                                    <a href="{imgItem.url}" class="mpopup-info">
+                                                        <f:image src="{imgItem.url}" alt="{imgItem.title}" width="{f:if(condition:'{ce.imagewidth}',then:'{ce.imagewidth}',else:'')}c" height="{f:if(condition:'{ce.imageheight}',then:'{ce.imageheight}',else:'470')}c" />
+                                                    </a>
+                                                </div>
+                                            </f:for>
+                                        </div>
+                                    </f:if>
+                                </v:content.resources.fal>
+                            </f:for>
+                        </v:content.render>
+                    </div>
+                </section>
+            </div>
+        </f:if>
+        <f:if condition="{v:content.get(column: 11) -> f:count()} > 0">
+            <div id='tab-2'>
+                <section class="section-produkt-info">
+                    <div class="section-container">
+                        <!-- FAQ accordion -->
+                        <f:comment><v:content.render column="11" render="1" /></f:comment>
+                        <v:content.render column="11" render="0" as="FAQs">
+                            <dl class="accordion">
+                            <f:for each="{FAQs}" as="faq" iteration="faqIteration">
+                                <dt>{faq.header}</dt>
+                                <f:if condition="{faq.CType} == 'shortcut'">
+                                    <f:then>
+                                        <dd>
+                                            <f:for each="{faq.records -> v:iterator.explode()}" as="faqPart">
+                                                {faqPart -> v:format.substring(start: '11') -> v:variable.set(name: 'faqUid')}
+                                                <v:content.render contentUids="{0: '{faqUid}'}" render="0" as="faqCE">
+                                                    {faqCE.0.bodytext -> f:format.html()}
+                                                    <v:content.resources.fal table="tt_content" field="assets" uid="{faqUid}" as="Img">
+                                                        <f:if condition="{Img}">
+                                                            <div class="produkt-photos-images">
+                                                                <f:for each="{Img}" as="imgItem">
+                                                                    <div class="produkt-photos-image">
+                                                                        <a href="{imgItem.url}" class="mpopup">
+                                                                            <f:image src="{imgItem.url}" alt="{imgItem.title}" width="{f:if(condition:'{faqCE.0.imagewidth}',then:'{faqCE.0.imagewidth}',else:'')}c" height="{f:if(condition:'{faqCE.0.imageheight}',then:'{faqCE.0.imageheight}',else:'470')}c" />
+                                                                        </a>
+                                                                    </div>
+                                                                </f:for>
+                                                            </div>
+                                                        </f:if>
+                                                    </v:content.resources.fal>
+                                                </v:content.render>
+                                            </f:for>
+                                        </dd>
+                                    </f:then>
+                                    <f:else>
+                                        <dd>
+                                            {faq.bodytext -> f:format.html()}
+                                            <v:content.resources.fal table="tt_content" field="assets" uid="{faq.uid}" as="Img">
+                                                <f:if condition="{Img}">
+                                                    <div class="produkt-photos-images">
+                                                        <f:for each="{Img}" as="imgItem">
+                                                            <div class="produkt-photos-image">
+                                                                <a href="{imgItem.url}" class="mpopup">
+                                                                    <f:image src="{imgItem.url}" alt="{imgItem.title}" width="{f:if(condition:'{faq.imagewidth}',then:'{faq.imagewidth}',else:'')}c" height="{f:if(condition:'{faq.imageheight}',then:'{faq.imageheight}',else:'470')}c" />
+                                                                </a>
+                                                            </div>
+                                                        </f:for>
+                                                    </div>
+                                                </f:if>
+                                            </v:content.resources.fal>
+                                        </dd>
+                                    </f:else>
+                                </f:if>
+
+                            </f:for>
+                            </dl>
+                        </v:content.render>
+                    </div>
+                </section>
+            </div>
+        </f:if>
+        <f:if condition="{v:content.get(column: 12) -> f:count()} > 0">
+            <div id='tab-3'>
+                <section class="section-produkt-info">
+                    <div class="section-container">
+                        <v:content.render column="12" render="1" />
+                    </div>
+                </section>
+            </div>
+        </f:if>
+        <f:if condition="{v:content.get(column: 13) -> f:count()} > 0">
+            <div id='tab-4'>
+                <section class="section-produkt-info">
+                    <div class="section-container">
+                        <v:content.render column="13" render="1" />
+                    </div>
+                </section>
+            </div>
+        </f:if>
+    </div>
+    <!-- INDOOR -->
+    <f:if condition="{v:content.get(column: 0) -> f:count()} > 0">
+        <section class="section-produkt-photos">
+            <div class="section-container">
+                <v:content.render column="0" render="0" as="ce">
+
+                    <f:if condition="{ce.0.header} && {ce.0.header_layout} < 100">
+                        <h{ce.0.header_layout}>{ce.0.header}</h{ce.0.header_layout}>
+                    </f:if>
+                    <ul class="produkt-photos-list">
+                        <li>{f:translate(key: 'indoor1', extensionName: 't3_glacryl')}</li>
+                        <li class="slash">/</li>
+                        <li>{f:translate(key: 'indoor2', extensionName: 't3_glacryl')}</li>
+                        <li class="slash">/</li>
+                        <li>{f:translate(key: 'indoor3', extensionName: 't3_glacryl')}</li>
+                    </ul>
+                    <div class="produkt-photos-images">
+                    <v:content.resources.fal table="tt_content" field="assets" uid="{ce.0.uid}" as="Img">
+                        <f:for each="{Img}" as="imgItem">
+                            <div class="produkt-photos-image">
+                            <f:if condition="{imgItem.link}">
+                                <f:then>
+                                    <f:link.typolink parameter="{imgItem.link}">
+                                        <f:image src="{imgItem.url}" alt="{imgItem.title}" width="{f:if(condition:'{ce.0.imagewidth}',then:'{ce.0.imagewidth}',else:'')}c" height="{f:if(condition:'{ce.0.imageheight}',then:'{ce.0.imageheight}',else:'470')}c" />
+                                    </f:link.typolink>
+                                </f:then>
+                                <f:else>
+                                    <f:image src="{imgItem.url}" alt="{imgItem.title}" width="{f:if(condition:'{ce.0.imagewidth}',then:'{ce.0.imagewidth}',else:'')}c" height="{f:if(condition:'{ce.0.imageheight}',then:'{ce.0.imageheight}',else:'470')}c" />
+                                </f:else>
+                            </f:if>
+                            </div>
+                        </f:for>
+                    </v:content.resources.fal>
+                    </div>
+                </v:content.render>
+            </div>
+        </section>
+    </f:if>
+    <!-- VIDEO -->
+    <f:if condition="{v:content.get(column: 1) -> f:count()} > 0">
+        <section class="section-produkt-video">
+            <div class="section-container">
+                <div class="aspect-ratio-box aspect-ratio-box--16x9">
+                    <div class="aspect-ratio-box-inner">
+                        <v:content.render column="1" render="0" as="ce">
+                            <v:content.resources.fal table="tt_content" field="assets" uid="{ce.0.uid}" as="Video">
+                                {v:iterator.explode(content: '{Video.0.url}', glue: '=') -> v:variable.set(name: 'url')}
+                                <f:comment><div id="player" data-video-url="{Video.0.url}" data-video-id="{url.1}"></div></f:comment>
+                                <iframe
+                                        id="player"
+                                        frameborder="0"
+                                        allowfullscreen="1"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        title="YouTube video player"
+                                        width="640"
+                                        height="360"
+                                        src="https://www.youtube.com/embed/{url.1}?showinfo=0&controls=0&rel=0&loop=1&autoplay=0&mute=0&enablejsapi=1&widgetid=1"></iframe>
+                            </v:content.resources.fal>
+                            <!-- <button class="button-play">
+                              <img src="./images/icons/play-button.svg" alt="play-button">
+                            </button> -->
+                        </v:content.render>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </f:if>
+
+</f:section>
+
+
+<f:section name="Content1">
+    <f:if condition="{v:content.get(column: 1) -> f:count()} > 0">
+        <!-- CONTENT -->
+        <section class="section-content">
+            <div class="section-container">
+                <v:content.render column="1" render="1" />
+            </div>
+        </section>
+    </f:if>
+</f:section>
+
+<f:section name="Content2">
+
+    <section class="content-area">
+        <div class="sidebar jQueryEqualHeight1 hidden-sm hidden-xs">
+            <div class="match">
+
+                {v:content.get(column: 2) -> v:variable.set(name: 'rightContent')}
+                <f:if condition="{rightContent -> f:count()} > 0">
+                    <f:then>
+                        <v:content.render column="2" as="ce" render="0">
+                            <f:for each="{ce}" as="element">
+                                <f:if condition="{element.CType} == 'header'">
+                                <div class="title">
+                                    <h5>{element.header}</h5>
+                                </div>
+                                </f:if>
+                            </f:for>
+                        </v:content.render>
+                    </f:then>
+                    <f:else>
+                        <div class="title">
+                            <h5>{f:translate(key: 'rightSidebar.title', extensionName: 't3_glacryl')}</h5>
+                        </div>
+                    </f:else>
+                </f:if>
+
+                <f:render partial="Navigation/TabsMenu" section="tabsByTyposcript" arguments="{settings:settings}" />
+                <f:render partial="Etc/ScrollToTop" />
+            </div>
+        </div>
+        <!-- End Sidebar -->
+
+        <div class="container jQueryEqualHeight1">
+            <div class="match wrapper">
+                <div class="sidebar-page">
+                    <v:content.render column="0"/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {v:content.get(column: 1) -> v:variable.set(name: 'bottomContent')}
+    <f:if condition="{bottomContent -> f:count()} > 0">
+        <section class="contactinfo grey_bg">
+            <div class="container">
+                <v:content.render column="1"/>
+            </div>
+        </section>
+    </f:if>
+
+</f:section>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-01-27T11:25:00Z" product-name="glshop">
+		<header/>
+		<body>
+			<trans-unit id="firmenname.description">
+				<source>firmenname</source>
+			</trans-unit>
+			<trans-unit id="partnernummer.description">
+				<source>partnernummer</source>
+			</trans-unit>
+			<trans-unit id="bestaetigt.description">
+				<source>bestaetigt</source>
+			</trans-unit>
+			<trans-unit id="partnerliste.description">
+				<source>partnerliste</source>
+			</trans-unit>
+			<trans-unit id="kunde.description">
+				<source>kunde</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

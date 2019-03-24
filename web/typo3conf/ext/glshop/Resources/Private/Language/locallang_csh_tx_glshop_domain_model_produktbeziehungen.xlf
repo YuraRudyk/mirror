@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2017-02-02T15:42:05Z" product-name="glshop">
+		<header/>
+		<body>
+			<trans-unit id="min_anzahl.description">
+				<source>minAnzahl</source>
+			</trans-unit>
+			<trans-unit id="bestellung_von.description">
+				<source>bestellungVon</source>
+			</trans-unit>
+			<trans-unit id="bestellung_mit.description">
+				<source>bestellungMit</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,399 @@
+mod.SHARED {
+	defaultLanguageLabel = Deutsch
+	defaultLanguageFlag = de
+}
+
+##########################
+### PAGE TYPES ###########
+##########################
+TCEFORM.pages.doktype {
+    # Show only standard and "Spacer" page types
+    #keepItems = 1,199
+    # Remove the "Recycler" and "Spacer" page type options:
+    #removeItems = 199, 255
+    # Creates a new page type option:
+    #addItems.123 = New Page type!
+}
+
+####################################
+#### RESPONSIVE IMAGES ARE ENABLE ##
+####################################
+TCEFORM.tt_content {
+    ## LABELS
+    imageborder.disabled = 1
+    imageborder.label = Disable responsive
+    #header_link.label = Button link
+
+    # Disable fields that specify/change image dimensions
+    #imagewidth.disabled = 1
+    #imageheight.disabled = 1
+    ##imageorient.override = 26
+    #imageorient.disabled = 1
+    #imagecols.disabled = 1
+    #image_zoom.disabled = 1
+
+    # Limit column selection
+    ##imagecols.keepItems = 1, 2, 3, 4
+    ##imagecols.types.textpic.keepItems = 1, 2
+
+}
+
+TCEFORM.tt_content.imageorient.removeItems  = 1, 2, 9, 10, 25, 26
+
+####################################
+#### REMOVE UNUSED FIELDS ##########
+####################################
+TCEFORM.tt_content {
+    #space_before_class.types.textmedia.disabled = 1
+    #space_after_class.types.textmedia.disabled = 1
+
+    sectionIndex.disabled = 1
+    linkToTop.disabled = 1
+
+    #sys_language_uid.disabled = 1
+    categories.disabled = 1
+
+    date.disabled = 1
+    starttime.disabled = 1
+    endtime.disabled = 1
+    editlock.disabled = 1
+    #fe_group.disabled = 1
+}
+
+#################
+#### TCEFORM ####
+#################
+TCEFORM {
+    #pages {
+    #    layout.disabled = 1
+    #}
+	pages {
+		layout {
+			#removeItems = 3
+			altLabels {
+			    #1 = Home
+			    #2 = Inner page
+			}
+		}
+	}
+	tx_powermail_domain_model_form {
+		css {
+			removeItems = layout1, layout2, layout3
+			addItems {
+				custom_form  = CUSTOM: Kontakt formular
+			}
+		}
+	}
+	tx_powermail_domain_model_page {
+		css {
+			removeItems = layout1, layout2, layout3
+			addItems {
+				custom_page = CUSTOM PAGE
+			}
+		}
+	}
+	tx_powermail_domain_model_field{
+		css {
+			removeItems = layout1, layout2, layout3
+			addItems {
+				default   = Default (powermail)
+				fullwidth = CUSTOM: 100% of width
+			}
+		}
+	}
+
+    tt_content {
+		#CType.removeItems = textpic,image,text,table,bullets,uploads,mailform,form_formframework,search,login,splash,menu,t3glacrylce_swheader
+		#CType.keepItems = textmedia, header, html, list, shortcut, menu_pages, menu_subpages, bullets, table, uploads
+		#t3glacryl_fce_grids
+        header_layout {
+            altLabels {
+                1 = H1
+                2 = H2
+                3 = H3
+                4 = H4
+                5 = H5
+            }
+            #removeItems = 1,2,3,4,5,6
+            addItems {
+                #--div-- = Glacryl H1:
+                #10 = Glacryl: H1 (divider left)
+            }
+        }
+        tx_t3glacryl_header_css {
+            addItems.title = LLL:EXT:t3_glacryl/Resources/Private/Language/locallang.xlf:tt_content.header_css.200
+            addItems.text-indent = Text indent
+            addItems.text-link   = Text link
+            addItems.btn-red     = Red button
+            addItems.text-red    = Text link (red color)
+            addItems.text-grey   = Text link (grey color)
+            addItems.service     = Service (for H4)
+        }
+
+        frame_class {
+            removeItems = ruler-before,ruler-after,indent,indent-left,indent-right
+            addItems {
+                #jumbotron = TEST
+                #well = LLL:EXT:bsdist/Resources/Private/Language/locallang_db.xlf:tceform.tt_content.frame_class.well
+                #alert-info = LLL:EXT:bsdist/Resources/Private/Language/locallang_db.xlf:tceform.tt_content.frame_class.alert-info
+                #alert-success = LLL:EXT:bsdist/Resources/Private/Language/locallang_db.xlf:tceform.tt_content.frame_class.alert-success
+                #alert-warning = LLL:EXT:bsdist/Resources/Private/Language/locallang_db.xlf:tceform.tt_content.frame_class.alert-warning
+                #alert-danger = LLL:EXT:bsdist/Resources/Private/Language/locallang_db.xlf:tceform.tt_content.frame_class.alert-danger
+            }
+           types {
+               textmedia {
+                   #label = Image size on Desktops, Tables, Phones
+                   addItems {
+                        #--div-- = Glacryl:
+
+                   }
+               }
+           }
+        }
+		layout {
+		    #removeItems = 0,1,2,3
+            #addItems {
+            #	4 = No Wrap
+            #}
+            types {
+                header {
+                    altLabels {
+
+                    }
+                }
+                list {
+                   addItems {
+                        #--div-- = Glacryl:
+
+                   }
+                   altLabels {
+                        #2 = Glacryl: NEUSES : Sort by date
+                        #3 = Glacryl: Searchbox
+                   }
+                }
+                fluidcontent_content {
+                    removeItems = 1,2,3
+                    altLabels {
+
+                    }
+                }
+            }
+        }
+	}
+}
+
+TCEFORM.tt_content {
+    layout {
+        types {
+            textmedia {
+                altLabels {
+                    0 = Default
+                    1 = None
+                    2 = Glacryl: Site logo
+                    3 = Glacryl: Only image
+
+                }
+                #removeItems = 5
+                addItems {
+                    #4 = Glacryl: Download box/boxes
+                    #5 = Glacryl: Download list
+                    #6 = Glacryl: Image gallary
+                }
+            }
+            #list {
+            #}
+        }
+    }
+}
+
+TCEFORM.tt_content {
+    layout {
+        types {
+            fluidcontent_content {
+                altLabels {
+                    0 = Default
+                    1 = None
+                }
+                removeItems = 2,3,4
+            }
+        }
+    }
+}
+TCEFORM.tt_content {
+    layout {
+        types {
+            bullets {
+                altLabels {
+                    0 = Default
+                    1 = None
+                }
+                removeItems = 2,3,4
+            }
+            menu_pages {
+                altLabels {
+                    0 = Default
+                    1 = Footer links
+                    2 = Footer submenu
+                    3 = Header contacts
+
+                }
+                #addItems {
+                #    4 = Left sidebar menu
+                #}
+                removeItems = 2,3
+            }
+        }
+    }
+}
+
+# Space before
+TCEFORM.tt_content.space_before_class {
+    removeItems = extra-small,small,medium,large,extra-large
+    addItems {
+        mgt5  = 5px
+        mgt10 = 10px
+        mgt15 = 15px
+        mgt20 = 20px
+        mgt25 = 25px
+        mgt30 = 30px
+        mgt35 = 35px
+        mgt40 = 40px
+        mgt45 = 45px
+        mgt50 = 50px
+        mgt55 = 55px
+        mgt60 = 60px
+        mgt65 = 65px
+        mgt70 = 70px
+        mgt80 = 80px
+        mgt90 = 90px
+        mgt100 = 100px
+    }
+}
+
+# Space after
+TCEFORM.tt_content.space_after_class {
+    removeItems = extra-small,small,medium,large,extra-large
+    addItems {
+        mgb5  = 5px
+        mgb10 = 10px
+        mgb15 = 15px
+        mgb20 = 20px
+        mgb25 = 25px
+        mgb30 = 30px
+        mgb35 = 35px
+        mgb40 = 40px
+        mgb45 = 45px
+        mgb50 = 50px
+        mgb55 = 55px
+        mgb60 = 60px
+        mgb65 = 65px
+        mgb70 = 70px
+        mgb80 = 80px
+        mgb90 = 90px
+        mgb100 = 100px
+    }
+}
+
+#################
+#### TCEMAIN ####
+#################
+TCEMAIN {
+    #permissions {
+    #    groupid = 1
+    #    user = show, editcontent, edit, new, delete
+    #    group = show, editcontent, edit, new, delete
+    #    everybody =
+    #}
+    #translateToHidden = 1
+    clearCacheCmd = all
+}
+
+##########################
+#### FEMANAGER FIELDS ####
+##########################
+tx_femanager {
+	flexForm {
+		new {
+			addFieldOptions {
+				#somethingElse = LLL:EXT:ext/Resources/Private/Language/locallang_be.xlf:custom
+			}
+		}
+		edit < tx_femanager.flexForm.new
+	}
+}
+
+##########################
+### DEFAULT VALUES #######
+##########################
+TCAdefaults.tt_content {
+	# Number of Columns
+	imagecols = 1
+    # Default header layout is h3
+    header_layout = 3
+    # Default header aligment
+    header_position = left
+
+    # show in section menu
+    #sectionIndex = 1
+    # default Layout -> None
+    layout = 0
+    # default frame_class -> None
+    frame_class = none
+
+    sys_language_uid = 0
+}
+
+#[globalVar = GP : defVals | tt_content | list_type == powermail_pi1]
+#    TCAdefaults.tt_content {
+#        layout = 0
+#    }
+#[END]
+
+##################
+####   NEWS    ####
+###################
+tx_news {
+	templateLayouts {
+        100 = News (list carousel/details)
+	}
+}
+
+######################
+####   POWERMAIL  ####
+######################
+tx_powermail.flexForm.type.addFieldOptions.jhcaptcharecaptcha = reCAPTCHA (jh_captcha)
+
+###################
+####   CS_SEO  ####
+###################
+tx_csseo {
+	# new index and table name of the model
+	1 = tx_news_domain_model_news
+
+	# getText. Returns news uid. If set, news meta tags are shown.
+	1.enable = GP:tx_news_pi1|news
+
+	# if the model already has fields like title etc. define them as fallback
+	1.fallback {
+
+		# cs_seo title field fallback = news title field
+		title = title
+
+		# cs_seo description field fallback = news description field
+		description = description
+	}
+
+	# enable evaluation for news
+	1.evaluation {
+		# additional params to initialize the detail view, the pipe will be replaced by the uid
+		getParams = &tx_news_pi1[controller]=News&tx_news_pi1[action]=detail&tx_news_pi1[news]=|
+
+		# detail pid for the current records, only if set the table will be available
+		detailPid = 15
+	}
+}
+
+####################################
+####   Show tt_content preview  ####
+####################################
+#mod.web_layout.tt_content.preview.textmedia = EXT:t3_glacryl/Resources/Private/Templates/Preview/Textmedia.html

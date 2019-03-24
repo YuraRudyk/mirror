@@ -1,0 +1,119 @@
+<div class="row kasse-adr">  
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		<div class="panel">
+			<div class="content">
+				<h4>Rechnungsadresse</h4>
+				<p><b>{user.company}</b></p>
+				<p>{user.name}</p>
+				<p>{user.adress}</p>
+				<p>{user.zip} {user.city}</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		<div id="kasse-shipping-adress" class="panel">
+			<div class="content">
+				<h4>Lieferadresse 
+					<f:if condition="{userGroup} != '4'" >
+						<span class="sprite-Stift selectDifferentShippingBtn"></span>
+					</f:if>
+				</h4>
+				<p id="kasse-shipping-company"><b>{user.company}</b></p>
+				<p id="kasse-shipping-person">{user.name}</p>
+				<p id="kasse-shipping-street">{user.adress}</p>
+				<p><span id="kasse-shipping-zip">{user.zip}</span> <span id="kasse-shipping-city">{user.city}</span></p>
+				<input type="hidden" name="firma" value="{user.company}">
+				<input type="hidden" name="person" value="{user.name}">
+				<input type="hidden" name="adress" value="{user.adress}">
+				<input type="hidden" name="zip" value="{user.zip}">
+				<input type="hidden" name="city" value="{user.city}">
+			</div>
+		</div>
+		<div id="kasse-different-adress" class="panel">
+			<div class="content">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+						<select id="different-adress-select" name="different-adress-select" size="5">
+							<option value="none" selected="selected">Neue Adresse</option>
+							<option value="eigene">Eigene Adresse</option>
+							<f:for each="{lieferadressen}" as="la">
+								<option value="{la.uid}" title="{la.person}">
+								<f:if condition="{la.company} != ''" >
+									<f:then>
+										{la.company}	
+									</f:then>
+									<f:else>
+										{la.person}
+									</f:else>
+								</f:if>
+								</option>
+							</f:for>
+						</select>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 kasse-diff-adress" >
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<h4>Adresse:</h4>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+								<label for="different-firma">Firma</label>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 kasse-diff-address-input">
+								<input id="different-firma" type="text" value="" placeholder="Firma" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+								<label for="different-person">Kontaktperson</label>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 kasse-diff-address-input">
+								<input id="different-person" type="text" value="" placeholder="Kontaktperson" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+								<label for="different-str">Stra&szlig;e</label>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 kasse-diff-address-input">
+								<input id="different-str" type="text" value="" placeholder="Strasse" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+										<label for="different-plz" class="kasse-diff-adress-plz-label">PLZ</label>
+									</div>
+									<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 kasse-diff-address-input">
+										<input id="different-plz" type="text" value="" placeholder="PLZ" />
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+										<label for="different-ort" class="kasse-diff-adress-ort-label">Ort</label>
+									</div>
+									<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 kasse-diff-address-input">
+										<input id="different-ort" type="text" value="" placeholder="Ort" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<button type="button" id="save-differentAdressBtn" class="btn btn-default glButtonFullWidth">Speichern</button> 
+								<button type="button" id="choose-differentAdressBtn" class="btn btn-default glButtonFullWidth">&Uuml;bernehmen</button> 
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"> 
+								<button type="button" id="abbr-differentAdressBtn" class="btn btn-default glButtonFullWidth">Abbrechen</button> 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

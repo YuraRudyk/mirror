@@ -1,0 +1,71 @@
+###############################################
+# Get pages categories (Categories menu/filters)
+###############################################
+lib.pageCategories = CONTENT
+lib.pageCategories {
+	table = sys_category
+	select {
+	    languageField = sys_category.sys_language_uid
+		pidInList = 3
+		recursive = 1
+		selectFields = DISTINCT uid,title
+		join = sys_category_record_mm ON sys_category.uid = sys_category_record_mm.uid_local
+		where = sys_category_record_mm.tablenames = 'pages' AND sys_category_record_mm.fieldname = 'categories' AND sys_category.parent = 7
+		andWhere {
+			data = page:uid
+			wrap = sys_category_record_mm.uid_foreign = |
+			intval = 1
+		}
+		orderBy = sys_category_record_mm.sorting_foreign ASC
+	}
+	renderObj = COA
+	renderObj {
+		10 = TEXT
+		10.value = <li
+		20 = TEXT
+		20.stdWrap.field = uid
+        20.stdWrap.noTrimWrap = | data-catUid="|">|
+		30 = TEXT
+		30.stdWrap.field = title
+        30.stdWrap.wrap = |</li>
+	}
+}
+
+
+lib.categoriesMenu = CONTENT
+lib.categoriesMenu {
+	table = sys_category
+	select {
+		pidInList.field = startingpoint
+		selectFields = uid
+		where = deleted=0 AND hidden=0 AND sys_language_uid=0 AND uid IN ( SELECT l10n_parent FROM sys_category WHERE deleted=0 AND hidden=0 AND l10n_parent != 0 AND sys_language_uid={GP:L} )
+		where.insertData = 1
+		orderBy = title
+	}
+	renderObj = COA
+	renderObj {
+		10 = TEXT
+		10 {
+			if.value.data = GP:tx_news_pi1|overwriteDemand|categories
+			if.equals.field = uid
+			dataWrap = <option selected="selected" value="{field:uid}">|</option>
+			stdWrap.cObject = CONTENT
+			stdWrap.cObject {
+				table = sys_category
+				select {
+					pidInList = 1
+					selectFields = title
+					where = l10n_parent = {field:uid}
+					where.insertData = 1
+				}
+				renderObj = TEXT
+				renderObj.field = title
+			}
+		}
+		20 < .10
+		20 {
+			if.negate = 1
+			dataWrap = <option value="{field:uid}">|</option>
+		}
+	}
+}

@@ -1,0 +1,314 @@
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+	<div class="bearbeitungHeader">
+		<div class="sprite-Bearbeitung"></div>
+		<h4>Bearbeitung</h4>
+	</div>
+	<div id="konfigurator-view-bearbeitungen" class="panel-group" role="tablist" aria-multiselectable="false"> 
+
+		<!-- Kanten -->
+
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="title-panel_border_editing">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#konfigurator-view-bearbeitungen" href="#panel_border_editing" aria-expanded="true" aria-controls="panel_border_editing">Kantenbearbeitung</a> 
+				</h4>
+				<span class="right info-icon bK">i</span>
+			</div>
+			<div id="panel_border_editing" class="content panel-collapse collapse out" role="tabpanel" aria-labelledby="title-panel_border_editing">
+				<div class="panel-body">
+					<div class="error"></div>
+					<div class="row">
+						<div id="view-kanten-auswahl" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+						</div>
+					</div>
+					<div class="row" id="view-kanten-eigenschaften">
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<a href="" id="view-kanten-img" data-lightbox="kanten" data-title="" >
+								<img class="img-responsive" id="view-kanten-img-preview" src="" />
+							</a>
+						</div>
+					</div>
+					<div class="row" id="view-facetten-eigenschaften">
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"> 
+							<select id="view-kanten-angle">
+								<option value="12">12&deg;</option>
+								<option value="45">45&deg;</option>
+							</select>
+							<label for="view-kanten-angle" style="font-size: 11pt ! important; margin: 7px 0px 10px;">Winkel</label>
+							<input id="view-kanten-facette" type="text" maxlength="2">
+							<label for="view-kanten-facette" style="font-size: 11pt ! important; margin: 0px 0px 5px;">Facette in mm</label>
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<a href="" id="view-facceten-img" data-lightbox="kanten" data-title="" >
+								<img class="img-responsive" id="view-facceten-img-preview" src="" />
+							</a>
+						</div>
+					</div>
+				</div> 
+			</div>
+		</div>
+
+		<!-- Ecken -->			
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="title-panel_corner_editing">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#konfigurator-view-bearbeitungen" href="#panel_corner_editing" aria-expanded="true" aria-controls="panel_corner_editing">Eckenbearbeitung</a> 
+				</h4>
+				<span class="right info-icon bE">i</span>
+			</div>
+			<div id="panel_corner_editing" class="content panel-collapse collapse out" role="tabpanel" aria-labelledby="title-panel_corner_editing">
+				<div class="panel-body">
+					<div class="error"></div>
+					<div class="row">
+						<div id="view-ekcen-auswahl" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<p style="font-family: Arial; font-size: 12pt; color: #444444;margin:4px 0;">Ecke ausw&auml;hlen</p>
+						</div>
+						<div id="view-ecken-eckAuswahl" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+							<div class="row view-eckbearbeitung-rund">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<input id="view-eckbearbeitung-radius" type="text" maxlength="4">
+									<label for="view-eckbearbeitung-radius" style="font-size: 11pt ! important; margin: 0px 0px 5px;">Radius in mm</label>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"></div>
+							</div>
+							<div class="row view-eckbearbeitung-schraeg">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<input id="view-eckbearbeitung-x" type="text" maxlength="4">
+									<label for="view-eckbearbeitung-x" style="font-size: 11pt ! important; margin: 0px 0px 5px;">X in mm</label>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<input id="view-eckbearbeitung-y" type="text" maxlength="4">
+									<label for="view-eckbearbeitung-y" style="font-size: 11pt ! important; margin: 0px 0px 5px;">Y in mm</label>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div class="view-eckbearbeitung-rund" style="margin-top: 6px;">
+									<button  id="view-addEckRadius" type="button" class="glButton btn btn-default btn-lg btn-block">Hinzuf&uuml;gen</button>
+								</div>
+								<div class="view-eckbearbeitung-schraeg" style="margin-top: 6px;">
+									<button  id="view-addEckXY" type="button" class="glButton btn btn-default btn-lg btn-block">Hinzuf&uuml;gen</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<a href="" id="view-ecken-img" data-lightbox="ecken" data-title="" >
+								<img class="img-responsive" src="" id="view-ecken-img-preview" />
+							</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<h6 style="color: #34B07C; font-family: Arial; font-size: 10pt; margin: 0;">Erfasste Eckenbearbeitungen:</h6>
+						</div>
+					</div>
+					<div class="row">
+						<div id="view-ecken-selection" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<table>
+								<colgroup>
+									<col width="1*">
+									<col width="25">
+									<col width="25">
+									<col width="25">
+									<col width="15">
+								</colgroup>
+								<thead>
+									<tr>
+										<th width="20">Ecke(n)</th>
+										<th width="10">X</th>
+										<th width="10">Y</th>
+										<th width="10">Radius</th>
+										<th>Aktion</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bohrungen -->
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="title-panel_drill_editing">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#konfigurator-view-bearbeitungen" href="#panel_drill_editing" aria-expanded="true" aria-controls="panel_drill_editing">Bohrungen</a> 
+				</h4>
+				<span class="right info-icon bB">i</span>
+			</div>
+			<div id="panel_drill_editing" class="content panel-collapse collapse out" role="tabpanel" aria-labelledby="title-panel_drill_editing">
+				<div class="panel-body">
+					<div class="error"></div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<p style="font-family: Arial; font-size: 12pt; color: #444444;margin:4px 0;">Ecke ausw&auml;hlen</p>
+						</div>
+						<div id="view-bohrungen-eckAuswahl" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<input id="view-bohrungen-d" type="text" maxlength="4">
+									<label for="view-bohrungen-d" style="font-size: 9pt ! important; margin: 0px 0px 5px;">Bohr-&Oslash; in mm</label>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"></div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<p style="font-family: Arial; font-size: 12pt; color: #444444;margin:-5px 0;">Abstand zur Ecke</p>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<input id="view-bohrungen-x" type="text" maxlength="4">
+									<label for="view-bohrungen-x" style="font-size: 11pt ! important; margin: 0px 0px 5px;">X in mm</label>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<input id="view-bohrungen-y" type="text" maxlength="4">
+									<label for="view-bohrungen-y" style="font-size: 11pt ! important; margin: 0px 0px 5px;">Y in mm</label>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<button  id="addBohrungenBtn" type="button" class="glButton btn btn-default btn-lg btn-block">Hinzuf&uuml;gen</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+							<a href="" id="view-bohrung-img" data-lightbox="bohrungen" data-title="" >
+								<img class="img-responsive" src="" id="view-bohrung-img-preview" />
+							</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<h6 style="color: #34B07C; font-family: Arial; font-size: 10pt; margin: -13px 0;">Erfasste Bohrungen:</h6>
+						</div>
+					</div>
+					<div class="row">
+						<div id="view-bohrungen-selection" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<table>
+								<colgroup>
+									<col width="1*">
+									<col width="25">
+									<col width="25">
+									<col width="25">
+									<col width="15">
+								</colgroup>
+								<thead>
+									<tr>
+										<th width="20">Ecke(n)</th>
+										<th width="10">X</th>
+										<th width="10">Y</th>
+										<th width="10">&Oslash;</th>
+										<th>Aktion</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div>
+
+		<!-- Senkungen -->
+		<div class="panel panel-default last">
+			<div class="panel-heading" role="tab" id="title-panel_bevel_editing">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#konfigurator-view-bearbeitungen" href="#panel_bevel_editing" aria-expanded="true" aria-controls="panel_bevel_editing">Senkbohrungen</a> 
+				</h4>
+				<span class="right info-icon bS">i</span>
+			</div>
+			<div id="panel_bevel_editing" class="content panel-collapse collapse out" role="tabpanel" aria-labelledby="title-panel_bevel_editing">
+				<div class="panel-body">
+					<div class="error"></div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<p style="font-family: Arial; font-size: 12pt; color: #444444;margin:4px 0;">Ecke ausw&auml;hlen</p>
+						</div>
+						<div id="view-senkungen-eckAuswahl" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+							<div class="row">
+								<div id="view-senkungen-schrauben" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+								</div>		
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<p style="font-family: Arial; font-size: 12pt; color: #444444;margin:0px 0;">Abstand zur Ecke</p> 
+								</div>							
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<input id="view-senkungen-x" type="text" maxlength="4">
+									<label for="view-senkungen-x" style="font-size: 11pt ! important; margin: 0px 0px 5px;">X in mm</label>							
+								</div>		
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<input id="view-senkungen-y" type="text" maxlength="4">
+									<label for="view-senkungen-y" style="font-size: 11pt ! important; margin: 0px 0px 5px;">Y in mm</label>
+								</div>		
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<button  id="addSenkungenBtn" type="button" class="glButton btn btn-default btn-lg btn-block">Hinzuf&uuml;gen</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+							<a href="" id="view-senkung-img" data-lightbox="senkungen" data-title="" >
+								<img class="img-responsive" src="" id="view-senkung-img-preview" />
+							</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<h6 style="color: #34B07C; font-family: Arial; font-size: 10pt; margin: -13px 0;">Erfasste Senkungen:</h6>
+						</div>
+					</div>
+					<div class="row">
+						<div id="view-senkungen-selection" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<table>
+								<colgroup>
+									<col width="1*">
+									<col width="25">
+									<col width="25">
+									<col width="25">
+									<col width="15">
+								</colgroup>
+								<thead>
+									<tr>
+										<th width="20">Ecke(n)</th>
+										<th width="10">X</th>
+										<th width="10">Y</th>
+										<th width="10">M</th>
+										<th>Aktion</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div>
+	</div>
+</div>

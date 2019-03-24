@@ -1,0 +1,60 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<!--
+	=====================
+		Partials/List/Aktuelles2Item.html
+-->
+<n:excludeDisplayedNews newsItem="{newsItem}"/>
+
+<div class="grid_6 {f:if(condition:'{iterator.isOdd}',then:'alpha',else:'omega')}">
+<div class="news-list-item">
+
+    <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}" class="news-list-img">
+        <f:alias map="{mediaElement: '{newsItem.mediaPreviews.0}'}">
+            <f:if condition="{mediaElement.originalResource.type} == 2">
+                <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}"
+                         alt="{mediaElement.originalResource.alternative}"
+                         class="img-responsive"
+                         width="{settings.media.maxWidth}c" height="{settings.media.maxHeight}c" />
+            </f:if>
+            <f:if condition="{mediaElement.originalResource.type} == 4">
+                <f:render partial="Detail/MediaVideo" arguments="{mediaElement: mediaElement}"/>
+            </f:if>
+            <f:if condition="{mediaElement.originalResource.type} == 5">
+                <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}"
+                         alt="{mediaElement.originalResource.alternative}" class="img3"
+                         width="{settings.media.maxWidth}c" height="{settings.media.maxHeight}c" />
+            </f:if>
+        </f:alias>
+    </n:link>
+
+
+    <div class="bodytext">
+        <h3 class="news-title"><n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">{newsItem.title}</n:link></h3>
+        <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+        <span class="news-date">{f:format.date(date:newsItem.datetime, format:'d.m.Y')}</span> |
+        <f:if condition="{newsItem.teaser}">
+            <f:then>
+                {newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.raw()}
+            </f:then>
+            <f:else>
+                {newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.raw()}
+            </f:else>
+        </f:if>
+        </n:link>
+    </div>
+
+
+    <div class="clboth"></div>
+</div>
+</div>
+
+<f:if condition="{iterator.isEven}">
+    <div class="clboth"></div>
+</f:if>
+
+
+
+
+</html>

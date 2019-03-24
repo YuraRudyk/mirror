@@ -1,0 +1,31 @@
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<table class="adressen-table">
+				<thead>
+					<tr>
+						<th>Firma</th>
+						<th>Person</th>
+						<th>Adresse</th>
+						<th class="last">Aktionen</th>
+					</tr>
+				</thead>
+				<tbody>
+				<f:for each="{adresses}" as="adress">
+					<tr>
+						<td class="cell-bottom-border">{adress.company}</td>
+						<td class="cell-bottom-border">{adress.person}</td>
+						<td class="cell-bottom-border">
+							<span class="strasse">{adress.street}</span>
+							<div class="clearer"></div>
+							<span class="plz">{adress.zip}</span> <span class="ort">{adress.city}</span>
+						</td>
+						<td class="cell-bottom-border last"></td>
+					</tr>
+				</f:for>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

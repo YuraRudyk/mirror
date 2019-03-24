@@ -1,0 +1,17 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<f:section name="SearchBox">
+    <f:if condition="{settings.enableSearch}">
+        <form class="navbar-form navbar-right" method="{settings.searchMethod}"
+              action="{f:uri.page(pageUid: settings.searchPageUid)}" role="search">
+            <div class="form-group">
+                <label class="sr-only" for="navbarSearchField">{settings.searchPlaceholder}</label>
+                <input type="text" name="{settings.searchFieldName}" id="navbarSearchField" class="form-control"
+                       tabindex="2" accesskey="s" placeholder="{settings.searchPlaceholder}"/>
+            </div>
+            <button tabindex="3" type="submit" class="btn"><span class="glyphicon glyphicon-search"></span><span
+                    class="sr-only">{settings.searchPlaceholder}</span></button>
+        </form>
+    </f:if>
+</f:section>
+

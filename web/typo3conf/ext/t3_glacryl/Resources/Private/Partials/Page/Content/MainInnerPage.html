@@ -1,0 +1,44 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+	<section class="sektion1{f:if(condition: '{section1Variant} == \'none\'', else:' {section1Variant}')}">
+		<div class="container">
+			<!-- BREADCRUMBS -->
+			<f:if condition="{noBreadcrumb} == 0">
+				<f:render partial="Navigation/Breadcrumb" arguments="{_all}" />
+			</f:if>
+
+			<!-- TABS -->
+			<f:render partial="Navigation/TabsMenu" arguments="{_all}" />
+			<f:if condition="{section1Title}">
+				<f:render partial="Subline" arguments="{sectionTitle:section1Title}" />
+			</f:if>
+			<v:content.render column="0" />
+		</div>
+	</section>
+
+
+	<v:content.render column="1" as="ce" limit="1" render="0">
+		<f:if condition="{ce}">
+			<section class="sektion2{f:if(condition: '{section2Variant} == \'none\'', else:' {section2Variant}')}">
+				<div class="container">
+					<f:if condition="{section2Title}">
+						<f:render partial="Subline" arguments="{sectionTitle:section2Title}" />
+					</f:if>
+					<v:content.render column="1" />
+				</div>
+			</section>
+		</f:if>
+	</v:content.render>
+
+	<v:content.render column="2" as="ce" limit="1" render="0">
+		<f:if condition="{ce}">
+			<section class="sektion3{f:if(condition: '{section3Variant} == \'none\'', else:' {section3Variant}')}">
+				<div class="container">
+					<f:if condition="{section3Title}">
+						<f:render partial="Subline" arguments="{sectionTitle:section3Title}" />
+					</f:if>
+					<v:content.render column="2" />
+				</div>
+			</section>
+		</f:if>
+	</v:content.render>

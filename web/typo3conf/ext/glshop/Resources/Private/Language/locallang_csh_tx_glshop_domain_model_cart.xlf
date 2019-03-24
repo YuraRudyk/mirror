@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2014-10-20T16:54:48Z" product-name="glshop">
+		<header/>
+		<body>
+			<trans-unit id="session_id.description">
+				<source>sessionId</source>
+			</trans-unit>
+			<trans-unit id="position.description">
+				<source>position</source>
+			</trans-unit>
+			<trans-unit id="article.description">
+				<source>article</source>
+			</trans-unit>
+			<trans-unit id="qty.description">
+				<source>qty</source>
+			</trans-unit>
+			<trans-unit id="notice.description">
+				<source>notice</source>
+			</trans-unit>
+			<trans-unit id="price.description">
+				<source>price</source>
+			</trans-unit>
+			<trans-unit id="pic.description">
+				<source>pic</source>
+			</trans-unit>
+			<trans-unit id="user.description">
+				<source>Kunde</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

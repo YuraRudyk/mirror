@@ -1,0 +1,65 @@
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+
+<!-- Menue -->
+<div class="container" id="menue-top-container">
+	<div class="row">
+		<div class="col-md-3 col-lg-3 visible-md-block visible-lg-block">
+			<f:link.page pageUid="{settings.homePage}">
+				<f:image class="logo img-responsive" src="typo3conf/ext/glshop/Resources/Public/Img/100Jahre_Glacryl_Logo_frei.png" alt="Glacryl Logo, link zur Startseite" />
+			</f:link.page>
+		</div>
+		<div class="col-md-9 col-lg-9">
+			<nav class="navbar navbar-inverse" role="navigation"> 
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#glshop-navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand visible-xs-block" href="#">Glacryl Hedel GmbH</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="glshop-navbar"> 
+					<!-- Right Nav Section --> 
+					<ul class="navbar-right nav navbar-nav"> 
+						<li class="<glacryl:Menue page='Cart' subPage='Checkout' />"><f:link.action action="index" controller="Cart"><span class="sprite-Warenkorb<glacryl:Menue page='Cart' subPage='Checkout' icon='true' />"></span><span style="margin-left: 35px;">Warenkorb</span></f:link.action></li> 
+						<li><f:link.page pageUid="31" additionalParams="{logintype:'logout'}" title="Logout"><span style="margin-right: 5px;" class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout</f:link.page></li> 
+					</ul> 
+					<!-- Left Nav Section --> 
+					<ul class="navbar-left nav navbar-nav"> 
+
+<f:comment>
+						<li class="dropdown <glacryl:Menue page='Shop' />"> 
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span class="sprite-Konfigurator<glacryl:Menue page='Shop' icon='true' action='konfigurator,rahmen' />"></span><span style="margin: 0 12px 0 34px;">Konfiguratoren</span><span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu"> 
+								<li class="<glacryl:Menue page='Shop' action='konfigurator' />"><f:link.action action="konfigurator" controller="Shop"><span style="margin-left: -4px;">Schilder</span></f:link.action></li> 
+						<li class="<glacryl:Menue page='Shop' action='rahmen' />"><f:link.action action="rahmen" controller="Shop"><span style="margin-left: -4px;">Leuchtelemente</span></f:link.action></li> 
+					</ul>
+					</li>
+</f:comment>
+					<li class="<glacryl:Menue page='Shop' action='konfigurator' />"><f:link.action action="konfigurator" controller="Shop"><span class="sprite-Konfigurator<glacryl:Menue page='Shop' icon='true' action='konfigurator' />"></span><span style="margin-left: 38px;">Konfigurator</span></f:link.action></li>
+
+					<li class="<glacryl:Menue page='Shop' action='product' />"><f:link.action action="product" controller="Shop"><span class="sprite-Produkte<glacryl:Menue page='Shop' icon='true' action='product'/>"></span><span style="margin-left: 43px;">Produkte</span></f:link.action></li> 
+					<li class="dropdown <glacryl:Menue page='Customer' />"> 
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span class="sprite-MeinKonto<glacryl:Menue page='Customer' icon='true' action='orders,noticelist,adress,customerData' />"></span><span style="margin: 0 12px 0 34px;">Mein Konto</span><span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu"> 
+							<li class="<glacryl:Menue page='Customer' action='orders' />"><f:link.action action="orders" controller="Customer"><span style="margin-left: -4px;">Bestellungen</span></f:link.action></li>
+					<li class="<glacryl:Menue page='Customer' action='noticelist' />"><f:link.action action="noticelist" controller="Customer"><span style="margin-left: -4px;">Merkliste</span></f:link.action></li>
+					<li class="<glacryl:Menue page='Customer' action='adress' />"><f:link.action action="adress" controller="Customer"><span style="margin-left: -4px;">Adressbuch</span></f:link.action></li> 
+					<f:comment><li class="<glacryl:Menue page='Customer' action='customerData' />"><f:link.action action="customerData" controller="Customer"><span style="margin-left: -4px;">Kundendaten</span></f:link.action></li> </f:comment>
+
+					<f:if condition="<glacryl:userGroup /> != '4'" >
+						<li class="<glacryl:Menue page='Customer' action='customerData' />"><f:link.page pageUid="80"><span style="margin-left: -4px;">Kundendaten</span></f:link.page></li>
+					</f:if>
+					</ul> 
+					</li>
+					<f:comment><li class="<glacryl:Menue page='Request' />"><f:link.action action="index" controller="Request"><span class="sprite-Anfrage<glacryl:Menue page='Request' icon='true' />"></span><span style="margin-left: 42px;">Direktanfrage</span></f:link.action></li></f:comment>
+					</ul> 
+				</div> 
+			</nav>
+		</div>
+	</div>
+</div>

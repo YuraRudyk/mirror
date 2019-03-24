@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-03-20T15:38:53Z" product-name="glshop">
+		<header/>
+		<body>
+			<trans-unit id="name.description">
+				<source>name</source>
+			</trans-unit>
+			<trans-unit id="code.description">
+				<source>code</source>
+			</trans-unit>
+			<trans-unit id="wert.description">
+				<source>wert</source>
+			</trans-unit>
+			<trans-unit id="prozent.description">
+				<source>prozent</source>
+			</trans-unit>
+			<trans-unit id="ab.description">
+				<source>ab</source>
+			</trans-unit>
+			<trans-unit id="bis.description">
+				<source>bis</source>
+			</trans-unit>
+			<trans-unit id="anzahl.description">
+				<source>anzahl</source>
+			</trans-unit>
+			<trans-unit id="unbegrenzt.description">
+				<source>unbegrenzt</source>
+			</trans-unit>
+			<trans-unit id="abgelaufen.description">
+				<source>abgelaufen</source>
+			</trans-unit>
+			<trans-unit id="ab_wert.description">
+				<source>abWert</source>
+			</trans-unit>
+			<trans-unit id="kunde_beliebig.description">
+				<source>kundeBeliebig</source>
+			</trans-unit>
+			<trans-unit id="kunde_beliebig_fest.description">
+				<source>kundeBeliebigFest</source>
+			</trans-unit>
+			<trans-unit id="rest_wert.description">
+				<source>restWert</source>
+			</trans-unit>
+			<trans-unit id="user.description">
+				<source>Kunde</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

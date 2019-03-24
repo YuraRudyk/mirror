@@ -1,0 +1,27 @@
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+
+<div class="row kasse-versand">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="panel">
+			<div class="content">
+				<h4>Versand</h4>
+				<div class="row">
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<input id="kasse-versand-abholung" type="radio" name="kasse-versand" checked>
+						<label for="kasse-versand-abholung"><span class="versand-label">Abholung</span></label>
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<input id="kasse-versand-standard" type="radio" name="kasse-versand">
+						<label for="kasse-versand-standard"><span class="versand-label">Standard Versand</span> <span class="versand-label">(<glacryl:price price="{shipping.standard}" />)</span></label>
+						<input type="hidden" id="kasse-standardversand-preis" value="{shipping.standard}" >
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<input id="kasse-versand-express" type="radio" name="kasse-versand">
+						<label for="kasse-versand-express"><span class="versand-label">Express Versand</span> <span class="versand-label">(<glacryl:price price="{shipping.express}" />)</span></label>
+						<input type="hidden" id="kasse-expressversand-preis" value="{shipping.express}" >
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

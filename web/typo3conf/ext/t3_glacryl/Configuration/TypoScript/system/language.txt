@@ -1,0 +1,37 @@
+page {
+	meta{
+		language = de
+	}
+	config {
+		# Setting up the language variable "L" to be passed along with links
+		linkVars = L(int), print
+		# This value points to the uid of a record from the “sys_language” table and if set, this means that various parts of the frontend display code will select records which are assigned to this language.
+		sys_language_uid = 0
+		# Setting various modes of handling localization. (ignore,strict,content_fallback)
+		sys_language_mode = strict
+		#sys_language_mode = content_fallback;0,1
+		# If set, records from certain tables selected
+		sys_language_overlay = hideNonTranslated
+		#sys_language_overlay = 0
+		# !!! htmlTag_setParams is depricated for HTML5 !!! #############################
+		#htmlTag_setParams = xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-DE"
+		language = de
+		# PHP: setlocale("LC_ALL", [value]);
+		locale_all = de_DE
+		locale = de_DE
+		# Allows you to set the language value for the attributes "xml:lang" and "lang" in the <html> tag
+		htmlTag_langKey = de
+		# Tries to clean up the output to make it XHTML compliant and a bit more
+		xhtml_cleaning = all
+	}
+}
+plugin.tx_indexedsearch._DEFAULT_PI_VARS.lang = 0
+plugin.tx_indexedsearch._LOCAL_LANG = de
+### PATCH for searchbox
+plugin.tx_indexedsearch {
+	settings {
+		currentLng = 0
+	}
+}
+
+

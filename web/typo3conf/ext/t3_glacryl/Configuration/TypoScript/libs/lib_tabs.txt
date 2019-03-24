@@ -1,0 +1,55 @@
+lib.tabs = HMENU
+lib.tabs {
+    entryLevel = -1
+    // Set entry level to -2 (this is the parent page),
+    // if the current page has no subpages.
+    entryLevel.override = -2
+    entryLevel.override.if {
+        negate = 1
+        isTrue.numRows {
+            table = pages
+            where = pid=this
+        }
+    }
+    noBlur = 1
+    wrap = <div class="u-vmenu"><ul>|</ul></div>
+    # first level
+    1 = TMENU
+    1 {
+        expAll = 1
+        noBlur = 1
+        wrap = |
+        NO {
+            stdWrap.field = subtitle // title // nav_title
+            ATagTitle.field = subtitle // title // nav_title
+
+            #ATagParams = class="button calibri-style-medium"
+            allWrap = <li>|</li>
+        }
+        CUR = 1
+        CUR {
+            stdWrap.field = subtitle // title // nav_title
+            ATagTitle.field = subtitle // title // nav_title
+
+            #doNotLinkIt = 1
+            wrapItemAndSub = <li class="current">|</li>
+        }
+        ACT = 1
+        ACT {
+            stdWrap.field = subtitle // title // nav_title
+            ATagTitle.field = subtitle // title // nav_title
+            wrapItemAndSub = <li class="active">|</li>
+        }
+        IFSUB=1
+        IFSUB {
+            wrapItemAndSub = <li>|</li>
+            ATagParams = data-option="off"
+        }
+    }
+    # second level
+   2 < .1
+   2.wrap = <ul class="level2">|</ul>
+   3 < .1
+   3.wrap = <ul class="level3">|</ul>
+
+}

@@ -1,0 +1,65 @@
+lib.breadcrumb = COA
+lib.breadcrumb {
+    10 = HMENU
+    10 {
+        special = rootline
+        special.range = 0|-1
+        includeNotInMenu = 1
+        #excludeUidList = 
+        1 = TMENU
+        1 {
+            noBlur = 1
+            NO {
+                wrapItemAndSub = <li class="pointer pointer-first">|</li>|*|<li class="pointer pointer-middle">|</li>|*|<li class="pointer pointer-last current">|</li>
+                stdWrap.htmlSpecialChars = 1
+                doNotLinkIt = 0 |*| 0 |*| 1
+                linkWrap = | |*| | |*| <strong>|</strong>
+                ATagParams = title="{field:subtitle//field:title}"
+                ATagParams.insertData = 1
+                stdWrap.wrap = <i class="fa fa-home" aria-hidden="true"></i><span class="hidden">|</span> |*| | |*| |
+            }
+            CUR=1
+            CUR < .NO
+            ACT=1
+            ACT < .CUR
+
+            wrap = <ul class="breadcrumbs float-fix">|</ul>
+        }
+    }
+}
+
+[page["uid"] == {$plugin.tx_t3glacryl.settings.page.home}]
+    lib.breadcrumb {
+        10.1 {
+            NO {
+                wrapItemAndSub = <li class="pointer pointer-first">|</li>
+                stdWrap.wrap = <i class="fa fa-home" aria-hidden="true"></i><span class="hidden">|</span>
+            }
+        }
+    }
+[GLOBAL]
+
+[request.getQueryParams()['tx_news_pi1'] > 0]
+    lib.breadcrumb {
+        10 {
+            1 {
+                stdWrap {
+                    append {
+                        20 {
+                            stdWrap.if.isTrue.data = GP:tx_news_pi1|news
+                            tables = tx_news_domain_model_news
+                            source.data = GP:tx_news_pi1|news
+                            conf {
+                                tx_news_domain_model_news = TEXT
+                                tx_news_domain_model_news {
+                                    field = title
+                                    htmlSpecialChars = 1
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+[GLOBAL]

@@ -1,0 +1,14 @@
+<div xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers" flux:schemaLocation="http://fluidtypo3.org/schemas/flux-development.xsd"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers" flux:schemaLocation="http://fluidtypo3.org/schemas/vhs-development.xsd"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers" f:schemaLocation="http://fluidtypo3.org/schemas/fluid-master.xsd">
+
+    <flux:form.section name="javascripts">
+        <flux:form.object name="js">
+            <flux:field.select name="typeFileJS" items="{0: '-- select type --', 1: 'Local file', 2: 'External file'}" requestUpdate="1" />
+            <flux:field.file name="fileLocalJS" allowed="js" displayCond="FIELD:typeFileJS:=:1" />
+            <flux:field.input name="fileExternalJS" displayCond="FIELD:typeFileJS:=:2"><flux:wizard.link /></flux:field.input>
+            <flux:field.select name="positionJS" items="{header: '{v:l(key: \'flux.standardpage.objects.js.position.label.1\')}', footer: '{v:l(key: \'flux.standardpage.objects.js.position.label.2\')}'}" displayCond="FIELD:typeFileJS:=:1,2" />
+        </flux:form.object>
+    </flux:form.section>
+
+</div>

@@ -1,0 +1,101 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"	xmlns:f="http://typo3.org/ns/fluid/ViewHelpers" >
+	<f:layout name="Default" />
+
+	User / Edit
+	Available variables:
+	{user}
+	{allUserGroups}
+
+	<f:section name="main">
+		<f:render partial="Misc/FlashMessages" arguments="{_all}" />
+		<f:render partial="Misc/FormErrors" arguments="{object:User}" />
+
+		<script>
+			var ajaxUrl = '<f:uri.action action="searchEmail" controller="Ajax" pluginName="Pi1" extensionName="T3webSite" pageType="123" />';
+			var forgotPasswordPage = '<f:uri.page pageUid="{settings.forgotPassword}" />';
+		</script>
+		<v:asset.script path="files/js/emailValidation.js" name="femanagerValidation" external="0" movable="1" fluid="0" rewrite="0" overwrite="0" standalone="1" />
+		<f:form action="update" controller="Edit" pluginName="" extensionName="Femanager" enctype="multipart/form-data" id="searchbox_form" class="search_form" noCacheHash="1">
+			<f:form.hidden name="storagePid" id="storagePid" value="{storagePid}" />
+			<div class="row">
+				<div class="col-xs-12 col-md-6 bottom_row">
+					<label class="form-group">
+						<f:form.textfield type="email" value="{f:if(condition:'{user}',then:'{user.username}',else:'{currentUser}')}" name="search_email" id="searchbox_email" class="ajax_validation" placeholder="{f:translate(key: 'tx_femanager_domain_model_user.email')}*" required="1" />
+					</label>
+				</div>
+			</div>
+			<f:if condition="{user}">
+				<f:else>
+					<div class="edit-subscribe button_submit margin-bottom-10">
+						<f:form.submit value="Get Status" />
+					</div>
+				</f:else>
+			</f:if>
+		</f:form>
+
+		<f:if condition="{user}">
+			<f:form name="user" object="{user}" action="update" class="form-horizontal contact_form edit_form {f:if(condition:'{settings.edit.validation._enable.client}',then:'feManagerValidation',else:'')}" additionalAttributes="{novalidate:'novalidate'}" noCacheHash="1">
+				<div class="row">
+					<f:if condition="{settings.edit.fields}">
+						<f:then>
+							<f:comment>
+								If some fields are selected in the flexform
+							</f:comment>
+
+							<div class="subscribe-options">
+								<f:for each="{femanager:misc.explode(string:'{settings.edit.fields}')}" as="field">
+									<f:if condition="{field} == 'username'">
+										<f:else>
+											<f:render partial="Fields/{femanager:misc.upper(string:'{field}')}" arguments="{_all}" />
+										</f:else>
+									</f:if>
+								</f:for>
+							</div>
+							</f:then>
+						<f:else>
+							<f:comment>
+								If no fields are selected in the flexform => show all
+							</f:comment>
+							<f:render partial="Fields/Username" arguments="{_all}" />
+							<f:render partial="Fields/Password" arguments="{_all}" />
+							<f:render partial="Fields/Title" arguments="{_all}" />
+							<f:render partial="Fields/Name" arguments="{_all}" />
+							<f:render partial="Fields/FirstName" arguments="{_all}" />
+							<f:render partial="Fields/MiddleName" arguments="{_all}" />
+							<f:render partial="Fields/LastName" arguments="{_all}" />
+							<f:render partial="Fields/Gender" arguments="{_all}" />
+							<f:render partial="Fields/DateOfBirth" arguments="{_all}" />
+							<f:render partial="Fields/Company" arguments="{_all}" />
+							<f:render partial="Fields/Www" arguments="{_all}" />
+							<f:render partial="Fields/Email" arguments="{_all}" />
+							<f:render partial="Fields/Telephone" arguments="{_all}" />
+							<f:render partial="Fields/Fax" arguments="{_all}" />
+							<f:render partial="Fields/Address" arguments="{_all}" />
+							<f:render partial="Fields/Zip" arguments="{_all}" />
+							<f:render partial="Fields/City" arguments="{_all}" />
+							<f:render partial="Fields/Country" arguments="{_all}" />
+							<f:render partial="Fields/Image" arguments="{_all}" />
+							<f:render partial="Fields/Usergroup" arguments="{_all}" />
+							<f:if condition="{femanager:Misc.CaptchaEnabled(settings:'{settings}')}">
+								<f:render partial="Fields/Captcha" arguments="{_all}" />
+							</f:if>
+						</f:else>
+					</f:if>
+				</div>
+				<div class="edit-subscribe button_submit margin-bottom-10">
+					<f:render partial="Fields/SubmitUpdate" arguments="{_all}" />
+				</div>
+				<div class="button_red">
+					<f:render partial="Misc/DeleteLink" arguments="{_all}" />
+				</div>
+
+			</f:form>
+		</f:if>
+
+	</f:section>
+
+</div>
+

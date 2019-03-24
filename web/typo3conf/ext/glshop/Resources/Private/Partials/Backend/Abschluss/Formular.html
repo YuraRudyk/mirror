@@ -1,0 +1,48 @@
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+<form class="form-inline">
+	<div class="row">
+		<div class="col-md-12">	
+			<h3>Zeitraum ausw&auml;hlen</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="row">
+				<div class="col-md-4">
+					<label class="pull-right" for="abschluss-von">Von</label>
+				</div>
+				<div class="col-md-8">
+					<div class="form-group abschluss-range">
+						<div class="input-group date abschluss-von" style="width: 126%;">
+							<input type="text" id="abschluss-von" class="form-control" name="abschluss-von" placeholder="01.12.2015" style="height: 30px;">
+							<span class="input-group-addon" style="cursor: pointer;"><i class="glyphicon glyphicon-th"></i></span>
+						</div>
+					</div>
+				</div>
+			</div>		
+			<div class="row">
+				<div class="col-md-4">
+					<label class="pull-right" for="abschluss-bis">Bis</label>
+				</div>
+				<div class="col-md-8">
+					<div class="form-group">
+						<div class="input-group abschluss-bis"">
+							<input type="text" id="abschluss-bis" class="form-control" disabled="disabled" name="abschluss-bis" placeholder="31.12.2015" style="height: 30px;">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="row">
+				<div class="col-md-12">
+					<button type="button" id="abschluss-bestellungen-btn" class="btn btn-default" style="height: 30px;">Auftr&auml;ge anzeigen</button>
+				</div>
+				<div class="col-md-12">
+					<button type="button" class="btn btn-default" style="height: 30px;" id="create-abschluss-btn">Nach Excel exportieren</button>
+				</div>
+			</div>
+			<f:comment><glacryl:Download type="abschluss" /></f:comment>
+		</div>
+	</div>
+</form>

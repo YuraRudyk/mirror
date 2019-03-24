@@ -1,0 +1,65 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:section name="MenuDirectory">
+    <f:if condition="{by} == 'A'">
+        <f:then>
+            <!-- By A -->
+            <v:page.menu.directory pages="{settings.folder.footerLinks}" showHiddenInMenu="0">
+                <f:for each="{menu}" as="menuPages" iteration="iteration">
+                    <f:if condition="{menuPages.current} == 1">
+                        <f:then>
+                            <span class="footer-menu-item current" {f:if(then: ' title="{menuPages.subtitle
+                            -> f:format.raw()}"', condition:
+                            '{menuPages.subtitle}')}>{menuPages.nav_title -> v:or(alternative: "{menuPages.title}")
+                            -> f:format.raw()}</span> &nbsp;&nbsp;&nbsp;
+                        </f:then>
+                        <f:else>
+                            <a class="footer-menu-item"
+                               href="{menuPages.link}" {f:if(then: ' title="{menuPages.subtitle ->
+                            f:format.raw()}"', condition: '{menuPages.subtitle}')}>{menuPages.nav_title ->
+                            v:or(alternative: "{menuPages.title}") -> f:format.raw()}</a> &nbsp;&nbsp;&nbsp;
+                        </f:else>
+                    </f:if>
+                </f:for>
+            </v:page.menu.directory>
+        </f:then>
+        <f:else>
+            <!-- By Ul/Li -->
+                <ul class="menu-footer float-fix">
+                    <v:menu.directory pages="{settings.folder.footerLinks}" showHiddenInMenu="0">
+                        <f:for each="{menu}" as="menuPages" iteration="iteration">
+                            <li class="{f:if(then: 'first', condition: '{iteration.isFirst}')}{f:if(then: 'last', condition: '{iteration.isLast}')}{f:if(then: ' current', condition: '{menuPages.current} == 1')}">
+                                <f:if condition="{menuPages.current} == 1">
+                                    <f:then>
+                                        <span{f:if(then: ' title="{menuPages.subtitle -> f:format.raw()}"', condition:
+                                        '{menuPages.subtitle}')}>{menuPages.nav_title -> v:or(alternative:
+                                        "{menuPages.title}")
+                                        -> f:format.raw()}</span>
+                                    </f:then>
+                                    <f:else>
+                                        <f:comment>
+                                            <f:link.page pageUid="{menuPages.uid}">{menuPages.linktext}</f:link.page>
+                                        </f:comment>
+                                        <a href="{menuPages.link}" {f:if(then: ' title="{menuPages.subtitle ->
+                                        f:format.raw()}"', condition: '{menuPages.subtitle}')}>{menuPages.nav_title ->
+                                        v:or(alternative: "{menuPages.title}") -> f:format.raw()}</a>
+                                    </f:else>
+                                </f:if>
+                            </li>
+                            <f:if condition="{iteration.isLast}">
+                                <f:else>
+                                    <li class='hr-divider'>|</li>
+                                </f:else>
+                            </f:if>
+                        </f:for>
+                    </v:menu.directory>
+                </ul>
+
+        </f:else>
+    </f:if>
+</f:section>
+
+<f:section name="SpecialMenu">
+    <v:content.render column="{column}" pageUid="{settings.page.home}" render="0" as="ce">
+        <v:menu.list pages="{ce.0.pages}" class="footer-menu" classFirst="first" classLast="last" classActive="" classCurrent="current" classHasSubpages="" linkCurrent="0" titleFields="nav_title,title" as="menu" divider="" />
+    </v:content.render>
+</f:section>

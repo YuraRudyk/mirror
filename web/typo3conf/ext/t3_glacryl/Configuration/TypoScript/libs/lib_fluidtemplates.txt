@@ -1,0 +1,41 @@
+lib.fluidTemplates = FLUIDTEMPLATE
+lib.fluidTemplates {
+
+    templateRootPath = EXT:t3_glacryl/Resources/Private/Templates/Page/
+    partialRootPath = EXT:t3_glacryl/Resources/Private/Partials/
+    layoutRootPath = EXT:t3_glacryl/Resources/Private/Layouts/
+
+    file.stdWrap.cObject = CASE
+    file.stdWrap.cObject {
+
+        key.data = levelfield:-1, backend_layout_next_level, slide
+        key.override.field = backend_layout
+
+        pagets__HomePage = TEXT
+        pagets__HomePage {
+            value = EXT:t3_glacryl/Resources/Private/Templates/Page/Homepage.html
+        }
+
+        pagets__ProduktePage = TEXT
+        pagets__ProduktePage {
+            value = EXT:t3_glacryl/Resources/Private/Templates/Page/Produkte.html
+        }
+
+        pagets__OneColumn = TEXT
+        pagets__OneColumn {
+            value = EXT:t3_glacryl/Resources/Private/Templates/Page/OneColumn.html
+        }
+
+        # Default Layout
+        default = TEXT
+        default {
+            value = EXT:t3_glacryl/Resources/Private/Templates/Page/OneColumn.html
+        }
+
+    }
+
+}
+page.10 < lib.fluidTemplates
+
+
+

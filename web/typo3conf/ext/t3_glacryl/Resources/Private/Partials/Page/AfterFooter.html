@@ -1,0 +1,22 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<v:page.footer>
+    <!-- AFTER FOOTER -->
+    <f:if condition="{settings.content.toTopEnable} > 0">
+        <f:render partial="Etc/ScrollToTop" arguments="{settings:settings}"/>
+    </f:if>
+    <f:if condition="{settings.content.preLoaderEnable} > 0">
+        <f:render partial="Etc/PreLoader" arguments="{settings:settings}"/>
+    </f:if>
+    <f:if condition="{settings.content.element.footerHTML} > 0">
+        <!-- Any custom footer html (from Global content) code here !!! -->
+        <v:content.render contentUids="{0: '{settings.content.element.footerHTML}'}" render="1"/>
+    </f:if>
+    <!-- END AFTER FOOTER -->
+
+    <f:if condition="{settings.manualJS} == 1">
+        <f:else>
+            <v:asset.script path="{settings.jspath}custom.js" name="customJS" external="1" movable="1" standalone="1" fluid="0" variables="" rewrite="0" namedChunks="0" />
+        </f:else>
+    </f:if>
+</v:page.footer>
+

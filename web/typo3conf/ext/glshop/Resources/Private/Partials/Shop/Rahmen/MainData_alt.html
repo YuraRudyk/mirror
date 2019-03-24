@@ -1,0 +1,81 @@
+<div class="lighting-top"></div>
+<div class="container-fluid main-data">
+	<input type="hidden" value="{args.positionNr}" id="edit-position-nr" />
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" style="margin-top: -8px;">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+						<p class="ueGreen konfigurator-headline">Leuchtelemente konfigurieren</p>
+					</div>
+				</div>
+				<div class="error"></div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+						<div id="minusQtyBtn" class="sprite-Minus"></div>
+						<div id="plusQtyBtn" class="sprite-Plus"></div>
+						<div style="display: inline-block; margin: 0 0 0 128px;">
+							<input id="view-configuration-qty" type="text" value="1" maxlength="5">
+							<label for="view-configuration-qty">Anzahl</label>	
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+						<div style="display: inline-block; margin-left: 6px;">
+							<input id="view-configuration-width" type="text" maxlength="4" />
+							<label for="view-configuration-width">Breite <span style="font-family: Arial; font-size: 10pt;">(mm)</span></label>	
+						</div>
+						<div class="sprite-Mal"></div>
+						<div style="display: inline-block; margin: 0 0 0 34px;">
+							<input id="view-configuration-height" type="text" maxlength="4" />
+							<label for="view-configuration-height">H&ouml;he <span style="font-family: Arial; font-size: 10pt;">(mm)</span></label>	
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 visible-md-block visible-lg-block" style="margin-top: 15px; text-align: center;">
+				<canvas width="210" height="210" id="view-konfigurator-img"></canvas>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="left">
+							<div id="view-configuration-rahmen" class="ueGreen"></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<div>
+									<div id="view-configuration-size">Ma&szlig;e <span></span></div>
+									<div id="view-configuration-frontscheibe">Frontscheibe<span class="s"></span><br /> <span class="v"></span></div>
+									<div id="view-configuration-beleuchtung">Beleuchtung<span class="b"></span><br /> <span class="v"></span></div>
+									<div id="view-configuration-streuplatte">Streuplatte<span class="s"></span><br /> <span class="v"></span></div>
+									<div id="view-configuration-netzanschluss">Netzanschluss<span class="n"></span></div>
+									<div id="view-configuration-befestigung">Befestigung<span class="f"></span><br /> <span class="v"></span></div>
+								</div>		
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<div id="view-configuration-priceview" style="margin-top: -13px;">
+									<p style="text-align: right; margin-bottom: 10px;"><span id="cart-configuration-qty">1 Stk.</span>&nbsp;<span id="cart-configuration-onePrice"></span></p>
+									<p style="text-align: right; font-size: 12pt; color: #9A8B56; margin-bottom: -15px;"><span class="cart-configuration-sumPrice"></span> netto</p>
+									<hr style="color: #9A8B56; margin-bottom: 8px;" />
+									<p style="color: #9A8B56; text-align: right; margin-bottom: 24px;">zzgl. MwSt. und Versand</p>
+									<button style="display: inline-block; margin-top: 38px;" id="addToCartBtn" type="button" class="glButtonFullWidth btn btn-default btn-lg btn-block"><span class="sprite-Warenkorb_activeBtn"><span>Hinzuf&uuml;gen</span></span></button>
+									<button style="display: inline-block; margin-top: 38px;" id="editCartBtn" type="button" class="glButtonFullWidth btn btn-default btn-lg btn-block"><span class="sprite-Warenkorb_activeBtn"><span>Aktualisieren</span></span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<div class="bottom-diver-konfigurator"></div>
+<div class="lighting-bottom"></div>

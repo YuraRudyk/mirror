@@ -1,0 +1,49 @@
+
+## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
+
+######################################
+## Mapping for Customer to fe_users ##
+######################################
+config.tx_extbase.persistence.classes {  
+	Glacryl\Glshop\Domain\Model\Customer {
+		mapping {
+			tableName = fe_users
+			columns {
+				ust_id.mapOnProperty = ustId
+				werbeland_id.mapOnProperty = werbelandId
+				tstamp.mapOnProperty = created
+				payCondition.mapOnProperty = payCondition 
+			}
+		}
+	}
+	Glacryl\Glshop\Domain\Model\Orderstatus {
+		mapping {
+			tableName = tx_glshop_domain_model_orderstatus
+			columns {
+				cruser_id.mapOnProperty = cruserId
+			}
+		}
+	} 
+	Glacryl\Glshop\Domain\Model\Rahmenproduktvariante {
+		mapping {
+			tableName = tx_glshop_domain_model_rahmenproduktvariante
+			columns {
+				hidden.mapOnProperty = hidden
+			}
+		}
+	}
+	Glacryl\Glshop\Domain\Model\Rahmenprodukt {
+		mapping {
+			tableName = tx_glshop_domain_model_rahmenprodukt
+			columns {
+				hidden.mapOnProperty = hidden
+			}
+		}
+	}
+}
+
+config.tx_extbase.persistence.classes {
+    TYPO3\CMS\Extbase\Domain\Model\FrontendUser {
+        mapping.recordType >
+    }
+}

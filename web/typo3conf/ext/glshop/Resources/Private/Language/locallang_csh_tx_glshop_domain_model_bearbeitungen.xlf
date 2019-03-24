@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2017-02-18T09:03:09Z" product-name="glshop">
+		<header/>
+		<body>
+			<trans-unit id="taetigkeit.description">
+				<source>taetigkeit</source>
+			</trans-unit>
+			<trans-unit id="haengt_ab_von.description">
+				<source>haengtAbVon</source>
+			</trans-unit>
+			<trans-unit id="zeitvorgabe.description">
+				<source>zeitvorgabe</source>
+			</trans-unit>
+			<trans-unit id="einheit.description">
+				<source>einheit</source>
+			</trans-unit>
+			<trans-unit id="min_berechnung.description">
+				<source>minBerechnung</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

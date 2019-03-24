@@ -1,0 +1,100 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+
+    <f:section name="ByConstants">
+        <!-- SOCIAL & PRINT MENU -->
+
+            <f:comment>
+            <li class="hidden-xs button--print">
+                <a href="">
+                    <i class="fa fa-print" aria-hidden="true"></i>{f:translate(key:'printIco')}</a>
+            </li>
+            </f:comment>
+            <f:if condition="{settings.socialmedia.useYoutube}">
+                <li>
+                    <a class=""
+                       href="{settings.socialmedia.youtubeLink}"
+                       target="_blank" title="LinkedIn"><i class="fab fa-youtube"></i></a>
+                </li>
+            </f:if>
+            <f:if condition="{settings.socialmedia.useInstagram}">
+                <li>
+                    <a class=""
+                       href="{settings.socialmedia.instagramLink}"
+                       target="_blank" title="Instagram"><i class="fab fa-tumblr"></i></a>
+                </li>
+            </f:if>
+            <f:if condition="{settings.socialmedia.useFacebook}">
+                <li>
+                    <a class=""
+                       href="{settings.socialmedia.facebookLink}"
+                       target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </li>
+            </f:if>
+            <f:if condition="{settings.socialmedia.useTwitter}">
+                <li>
+                    <a class="slideout-social__a"
+                       href="{settings.socialmedia.twitterLink}"
+                       target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </li>
+            </f:if>
+            <f:if condition="{settings.socialmedia.useLinkedIn}">
+                <li>
+                    <a class="slideout-social__a"
+                       href="{settings.socialmedia.linkedInLink}"
+                       target="_blank" title="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                </li>
+            </f:if>
+            <f:if condition="{settings.socialmedia.useVimeo}">
+                <li>
+                    <a class="slideout-social__a"
+                       href="{settings.socialmedia.vimeoLink}"
+                       target="_blank" title="LinkedIn"><i class="fa fa-vimeo" aria-hidden="true"></i></a>
+                </li>
+            </f:if>
+            <f:if condition="{settings.socialmedia.useGooglePlus}">
+                <li>
+                    <a class="slideout-social__a"
+                       href="{settings.socialmedia.googlePlusLink}"
+                       target="_blank" title="LinkedIn"><i class="fa fa-googleplus" aria-hidden="true"></i></a>
+                </li>
+            </f:if>
+            <f:if condition="{settings.socialmedia.usePinterest}">
+                <li>
+                    <a class="slideout-social__a"
+                       href="{settings.socialmedia.pinterestLink}"
+                       target="_blank" title="LinkedIn"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                </li>
+            </f:if>
+            <f:if condition="{settings.socialmedia.useXing}">
+                <li class="last">
+                    <a class="slideout-social__a"
+                       href="{settings.socialmedia.xingLink}"
+                       target="_blank" title="Xing"><i class="fa fa-xing" aria-hidden="true"></i></a>
+                </li>
+            </f:if>
+
+
+
+    </f:section>
+
+    <f:section name="ByLinks">
+        <ul class="social_icons">
+            <v:page.menu.directory pages="{settings.folder.socialLinks}">
+                <f:for each="{menu}" as="menuPages" iteration="iteration">
+                    <li class="{f:if(then: 'first', condition: '{iteration.isFirst}')}{f:if(then: 'last', condition: '{iteration.isLast}')}">
+                        <a href="{menuPages.link}" target="_blank">
+                            <v:resource.record.fal table="pages" uid="{menuPages.uid}" as="pageMedia" field="media">
+                                <f:for each="{pageMedia}" as="media" iteration="mediaIteration">
+                                    <img src="{f:uri.image(src: media.uid, treatIdAsReference: 1)}"
+                                         alt="{media.title}"/>
+                                </f:for>
+                            </v:resource.record.fal>
+                        </a>
+                    </li>
+                </f:for>
+            </v:page.menu.directory>
+        </ul>
+    </f:section>
+</div>

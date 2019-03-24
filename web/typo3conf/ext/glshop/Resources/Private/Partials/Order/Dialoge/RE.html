@@ -1,0 +1,89 @@
+<div id="re-edit-Dialog" title="RE-Einstellungen" style="display: none;">
+	<input type="hidden" id="order-uid-re-dialog" value="">
+	<div id="ab-edit-Dialog-daten">
+		<form class="form-horizontal">
+			<div class="row">
+				<div class="col-sm-12">
+					<p>Bestellung vom <span id="re-bestellt-am"></span></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label for="re-edit-datum" class="col-sm-3 control-label">Lieferdatum<br/>abgehend</label>
+						<div class="col-sm-9">
+							<input id="re-edit-datum" class="form-control" type="text" placeholder="z.B. 14.04.2014">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="re-edit-lieferart" class="col-sm-3 control-label">Lieferart</label>
+						<div class="col-sm-9">
+							<select id="re-edit-lieferart" class="form-control" >
+								<option value="choose">Bitte w&auml;hlen</option>
+								<option value="abholung">Abholung</option>
+								<option value="gls">GLS</option>
+								<option value="spedition">Spedition</option>
+								<option value="lieferung">Lieferung</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="re-edit-country" class="col-sm-3 control-label">Ausland</label>
+						<div class="col-sm-5">
+							<input id="re-edit-country" class="form-control" type="checkbox">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label for="re-edit-versandNach" class="col-sm-4 control-label">Versand nach (opt.)</label>
+						<div class="col-sm-8">
+							<input id="re-edit-versandNach" class="form-control" type="text" placeholder="z.B. Berlin">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="re-edit-versandNach" class="col-sm-4 control-label">Nachlass</label>
+						<div class="col-sm-5">
+							<input id="re-edit-nachlass" class="form-control" type="text" placeholder="z.B. 10 für %">
+						</div>
+						<div class="col-sm-3">
+							<select id="re-edit-nachlassEinheit" class="form-control">
+								<option value="none">Bitte w&auml;hlen</option>
+								<option value="EUR">&euro;</option>
+								<option value="PROZ">%</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="ab-edit-Dialog-positionen">
+				<table class="table table-condensed">
+					<colgroup>
+						<col width="10" />
+						<col width="30" />
+						<col width="10" />
+						<col width="*" />
+						<col width="*" />
+						<col width="*" />
+						<col width="*" />
+						<col width="*" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th style="text-align: center;">Pos.</th>
+							<th style="text-align: center;">Bild</th>
+							<th style="text-align: center;">Anzahl</th>
+							<th style="text-align: left;">Gr&ouml;&szlig;e</th>
+							<th style="text-align: left;">Artikel</th>
+							<th style="text-align: left;">Bearbeitung</th>
+							<th style="text-align: center;">€/Stk.</th>
+							<th style="text-align: right;">Gesamt</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,233 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<!-- desktop menu -->
+
+<v:menu.directory pages="{settings.page.home}" excludePages="{settings.page.innoSite}" classActive="menu-item--active" classCurrent="menu-item--active" classHasSubpages="menu-item-has-children" classFirst="" classLast="">
+    <f:if condition="{menu}">
+        <ul class='navigation-header_menu'>
+                <f:comment>################   Home page   ########################</f:comment>
+                <f:if condition="{settings.content.homeInMenu}">
+
+                    <f:if condition="{v:page.info(field: 'uid')} == {settings.page.home}">
+                        <f:then>
+                            <f:comment>
+                            <li class="current active first"><span {f:if(then: '
+                                title="{v:page.info(field: \'subtitle\')}"', condition:
+                                '{v:page.info(field: \'subtitle\')}')}>{v:page.info(field: 'nav_title') -> v:or(alternative:
+                                "{v:page.info(field: 'title')}")}</span></li></f:comment>
+                            <li class="first"><a href="/" {f:if(then: '
+                                title="{v:page.info(field: \'subtitle\', pageUid:\'{settings.page.home}\')}"', condition:
+                                '{v:page.info(field: \'subtitle\', pageUid:\'{settings.page.home}\')}')} class="level-1">{v:page.info(field:
+                                'nav_title', pageUid:'{settings.page.home}') -> v:or(alternative:
+                                "{v:page.info(field: 'title', pageUid:'{settings.page.home}')}")}</a></li>
+                        </f:then>
+                        <f:else>
+                            <li class="first"><a href="/" {f:if(then: '
+                                title="{v:page.info(field: \'subtitle\', pageUid:\'{settings.page.home}\')}"', condition:
+                                '{v:page.info(field: \'subtitle\', pageUid:\'{settings.page.home}\')}')} class="level-1">{v:page.info(field:
+                                'nav_title', pageUid:'{settings.page.home}') -> v:or(alternative:
+                                "{v:page.info(field: 'title', pageUid:'{settings.page.home}')}")}</a></li>
+                        </f:else>
+                    </f:if>
+                </f:if>
+                <f:for each="{menu}" as="menuPages" iteration="iteration">
+                        <li class="menu-item{f:if(then: ' {menuPages.class}', condition: '{menuPages.class}')}{f:if(condition:'{iteration.isLast}', then:'')}">
+                            <f:if condition="{menuPages.uid} == {settings.page.produkte}">
+                                <f:then>
+                                    {v:variable.set(value: '', name: 'dataHref')}
+                                </f:then>
+                                <f:else>
+                                    {v:variable.set(value: '', name: 'dataHref')}
+                                </f:else>
+                            </f:if>
+                            <f:if condition="{menuPages.hasSubPages} == 1">
+                                <f:then>
+                                    <f:if condition="{menuPages.current}">
+                                        <f:then>
+                                            <span{f:if(then: ' title="{menuPages.subtitle -> f:format.raw()}"',
+                                            condition: '{menuPages.subtitle}')}{f:if(condition:'{dataHref}', then:' data-href="{dataHref}"')}{f:if(condition:'{menuPages.rowDescription}',then:' data-scroll-to="#{menuPages.rowDescription}"')} class="level-1">{menuPages.nav_title -> v:or(alternative:
+                                            "{menuPages.title}") -> f:format.raw()}</span>
+                                        </f:then>
+                                        <f:else>
+                                            <a target="{f:if(condition:'{menuPages.target}',then:'{menuPages.target}',else:'_self')}" href="{menuPages.link}" {f:if(then: ' title="{menuPages.subtitle ->
+                                            f:format.raw()}"', condition: '{menuPages.subtitle}')}{f:if(condition:'{dataHref}', then:' data-href="{dataHref}"')}{f:if(condition:'{menuPages.rowDescription}',then:' data-scroll-to="#{menuPages.rowDescription}"')} class="level-1">{menuPages.nav_title ->
+                                            v:or(alternative: "{menuPages.title}") -> f:format.raw()}</a>
+                                        </f:else>
+                                    </f:if>
+                                </f:then>
+                                <f:else>
+
+                                    <f:if condition="{menuPages.current}">
+                                        <f:then>
+                                            <span{f:if(then: ' title="{menuPages.subtitle -> f:format.raw()}"',
+                                            condition: '{menuPages.subtitle}')}{f:if(condition:'{menuPages.rowDescription}',then:' data-scroll-to="#{menuPages.rowDescription}"')} class="level-1">{menuPages.nav_title -> v:or(alternative:
+                                            "{menuPages.title}") -> f:format.raw()}</span>
+                                        </f:then>
+                                        <f:else>
+                                            <a href="{menuPages.link}" target="{f:if(condition:'{menuPages.target}',then:'{menuPages.target}',else:'_self')}" {f:if(then: ' title="{menuPages.subtitle ->
+                                            f:format.raw()}"', condition: '{menuPages.subtitle}')}{f:if(condition:'{menuPages.rowDescription}',then:' data-scroll-to="#{menuPages.rowDescription}"')} class="level-1">{menuPages.nav_title ->
+                                            v:or(alternative: "{menuPages.title}") -> f:format.raw()}</a>
+                                        </f:else>
+                                    </f:if>
+                                </f:else>
+
+                            </f:if>
+                            <f:if condition="{menuPages.hasSubPages} == 1">
+                                <f:render section="subMenuPages" arguments="{uid: menuPages.uid, settings:settings, level:1}"/>
+                            </f:if>
+                        </li>
+
+                </f:for>
+        </ul>
+    </f:if>
+</v:menu.directory>
+
+<f:section name="subMenuPages">
+    {v:math.sum(a: '{level}', b: 1) -> v:variable.set(name: 'level')}
+    <v:page.menu pageUid="{uid}" excludePages="" classActive="menu-item--active" classCurrent="menu-item--active" classHasSubpages="menu-item-has-children" classFirst=""
+                 classLast="">
+        <ul class="sub-menu">
+
+            <f:if condition="{menu}">
+                <f:for each="{menu}" as="menuPages" iteration="iteration">
+                    <f:if condition="{menuPages.pid} == {settings.page.produkte}">
+                        <f:then>
+                            {v:variable.set(value: 'product-{menuPages.uid}', name: 'dataHref')}
+                        </f:then>
+                        <f:else>
+                            {v:variable.set(value: '', name: 'dataHref')}
+                        </f:else>
+                    </f:if>
+                    <li class="menu-item{f:if(then: ' {menuPages.class}', condition: '{menuPages.class}')}">
+                    <f:if condition="{menuPages.current} == 1">
+                        <f:then>
+                            <f:if condition="{menuPages.hasSubPages} == 1">
+                                <f:then>
+                                    <span{f:if(condition:'{dataHref}', then:' data-slider-produkte-slide="{dataHref}"')} class="level-{level}">{menuPages.nav_title -> v:or(alternative: "{menuPages.title}") -> f:format.raw()}</span>
+                                </f:then>
+                                <f:else>
+                                    <span{f:if(condition:'{dataHref}', then:' data-slider-produkte-slide="{dataHref}"')} class="level-{level}">{menuPages.nav_title -> v:or(alternative: "{menuPages.title}") -> f:format.raw()}</span>
+                                </f:else>
+                            </f:if>
+                        </f:then>
+                        <f:else>
+                            <f:if condition="{menuPages.hasSubPages} == 1">
+                                <f:then>
+                                    <a target="{f:if(condition:'{menuPages.target}',then:'{menuPages.target}',else:'_self')}" href="{menuPages.link}" {f:if(then: ' title="{menuPages.subtitle ->
+                                    f:format.raw()}"', condition: '{menuPages.subtitle}')}{f:if(condition:'{dataHref}', then:' data-slider-produkte-slide="{dataHref}"')} class="level-{level}">{menuPages.nav_title ->
+                                    v:or(alternative: "{menuPages.title}") -> f:format.raw()}</a>
+                                </f:then>
+                                <f:else>
+                                    <a href="{menuPages.link}" target="{f:if(condition:'{menuPages.target}',then:'{menuPages.target}',else:'_self')}" {f:if(then: ' title="{menuPages.subtitle ->
+                                    f:format.raw()}"', condition: '{menuPages.subtitle}')}{f:if(condition:'{dataHref}', then:' data-slider-produkte-slide="{dataHref}"')} class="level-{level}">{menuPages.nav_title ->
+                                    v:or(alternative: "{menuPages.title}") -> f:format.raw()}</a>
+                                </f:else>
+                            </f:if>
+                        </f:else>
+                    </f:if>
+                    <f:if condition="{menuPages.hasSubPages} == 1">
+                        <f:render section="subMenuPages" arguments="{uid: menuPages.uid, settings:settings, level:level}"/>
+                    </f:if>
+                    </li>
+                </f:for>
+            </f:if>
+        </ul>
+
+    </v:page.menu>
+</f:section>
+
+<f:section name="subMenuPages2">
+
+    <v:page.menu pageUid="{uid}" classActive="actived" classCurrent="current" classHasSubpages="" classFirst="first" classLast="last">
+        <ul class="dropdown-menu">
+            <f:if condition="{menu}">
+                <f:for each="{menu}" as="menuPages" iteration="iteration">
+
+                        <li{f:if(then: ' class="{menuPages.class}"', condition: '{menuPages.class}')}>
+                        <f:if condition="{menuPages.current} == 1">
+                            <f:then>
+                                <span>{menuPages.nav_title -> v:or(alternative: "{menuPages.title}") -> f:format.raw()}</span>
+                            </f:then>
+                            <f:else>
+                                <f:if condition="{menuPages.doktype} == 3">
+                                    <f:then>
+                                        <f:link.typolink parameter="{menuPages.url}">{menuPages.nav_title ->
+                                            v:or(alternative: "{menuPages.title}") -> f:format.raw()}</f:link.typolink>
+                                    </f:then>
+                                    <f:else>
+                                        <a href="{menuPages.link}"{f:if(then: ' title="{menuPages.subtitle -> f:format.raw()}"', condition: '{menuPages.subtitle}')}>
+                                        {menuPages.nav_title -> v:or(alternative: "{menuPages.title}") -> f:format.raw()}
+                                        </a>
+                                    </f:else>
+
+                                </f:if>
+                            </f:else>
+                        </f:if>
+                        </li>
+
+                </f:for>
+            </f:if>
+        </ul>
+    </v:page.menu>
+</f:section>
+
+
+<f:section name="FooterSiteMenu">
+    <v:menu.directory pages="{settings.folder.footerLinks}" classActive="active" excludePages="" classCurrent="current" classHasSubpages=""
+                 classFirst="first" classLast="last">
+        <f:if condition="{menu}">
+            <ul class="footer-page-links">
+                <f:if condition="{settings.content.homeInMenu}">
+                    <f:comment>################ Home page ########################</f:comment>
+                    <f:if condition="{v:page.info(field: 'uid')} == {settings.page.home}">
+                        <f:then>
+                            <li class="current"><span {f:if(then: '
+                                title="{v:page.info(field: \'subtitle\')}"', condition:
+                                '{v:page.info(field: \'subtitle\')}')}>{v:page.info(field: 'nav_title') -> v:or(alternative:
+                                "{v:page.info(field: 'title')}")}</span></li>
+                        </f:then>
+                        <f:else>
+                            <li><a href="/" {f:if(then: '
+                                title="{v:page.info(field: \'subtitle\', pageUid:\'{settings.page.home}\')}"', condition:
+                                '{v:page.info(field: \'subtitle\', pageUid:\'{settings.page.home}\')}')}>{v:page.info(field:
+                                'nav_title', pageUid:'{settings.page.home}') -> v:or(alternative:
+                                "{v:page.info(field: 'title', pageUid:'{settings.page.home}')}")}</a></li>
+                        </f:else>
+                    </f:if>
+                </f:if>
+                <f:for each="{menu}" as="menuPages" iteration="iteration">
+                    <li {f:if(then:
+                    'class="{menuPages.class}"', condition: '{menuPages.class}')}>
+                    <f:if condition="{menuPages.current} == 1">
+                        <f:then>
+                            <span{f:if(then: ' title="{menuPages.subtitle -> f:format.raw()}"',
+                            condition: '{menuPages.subtitle}')}>{menuPages.nav_title -> v:or(alternative:
+                            "{menuPages.title}") -> f:format.raw()}</span>
+                        </f:then>
+                        <f:else>
+                            <a href="{menuPages.link}" {f:if(then: ' title="{menuPages.subtitle ->
+                            f:format.raw()}"', condition: '{menuPages.subtitle}')}>{menuPages.nav_title ->
+                            v:or(alternative: "{menuPages.title}") -> f:format.raw()}</a>
+                        </f:else>
+                    </f:if>
+                    </li>
+                </f:for>
+            </ul>
+        </f:if>
+    </v:menu.directory>
+</f:section>
+
+
+<f:comment>
+
+    <!--SLIDEOUT SOCIAL-->
+    <f:if condition="{settings.folder.socialLinks} > 0">
+        <f:then>
+            <f:render partial="Navigation/Socialmedia" section="ByLinks"
+                      arguments="{settings:settings}"/>
+        </f:then>
+        <f:else>
+            <f:render partial="Navigation/Socialmedia" section="ByConstants"
+                      arguments="{settings:settings}"/>
+        </f:else>
+    </f:if>
+</f:comment>

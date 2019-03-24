@@ -1,0 +1,29 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<div class="col-md-12 col-sm-12">
+    <div class="list-event">
+        <div class="event-left">
+            <div class="icon">
+                <i class="fa fa-address"></i>
+            </div>
+        </div>
+
+        <div class="event-body">
+            <h5><n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">{newsItem.title}</n:link></h5>
+            <f:if condition="{newsItem.relatedFiles}">
+                <f:for each="{newsItem.relatedFiles}" as="relatedFile">
+                    <p>
+                        <a href="{relatedFile.originalResource.publicUrl -> f:format.htmlspecialchars()}">
+                            {f:if(condition:relatedFile.originalResource.title, then:relatedFile.originalResource.title, else:relatedFile.originalResource.name)} ({relatedFile.originalResource.size -> f:format.bytes()})
+                        </a>
+                    </p>
+                </f:for>
+            </f:if>
+        </div>
+    </div>
+</div>
+
+</html>
+

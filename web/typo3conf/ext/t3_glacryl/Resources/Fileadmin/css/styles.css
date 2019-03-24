@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+mgt0{
+    margin-top:0;
+}
+mgt5{
+    margin-top:5px;
+}
+mgt10{
+    margin-top:10px;
+}
+mgt15{
+    margin-top:15px;
+}
+mgt20{
+    margin-top:20px;
+}
+mgt25{
+    margin-top:25px;
+}
+mgt30{
+    margin-top:30px;
+}
+mgt40{
+    margin-top:40px;
+}
+mgt50{
+    margin-top:50px;
+}
+
+mgt0{
+    margin-top:0;
+}
+
+mgb5{
+    margin-bottom:5px;
+}
+mgb10{
+    margin-bottom:10px;
+}
+mgb15{
+    margin-bottom:15px;
+}
+mgb20{
+    margin-bottom:20px;
+}
+mgb25{
+    margin-bottom:25px;
+}
+mgb30{
+    margin-bottom:30px;
+}
+mgb40{
+    margin-bottom:40px;
+}
+mgb50{
+    margin-bottom:50px;
+}

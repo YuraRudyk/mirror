@@ -1,0 +1,36 @@
+config.tx_extbase{
+    persistence{
+        classes{
+            TYPO3\CMS\Extbase\Domain\Model\FrontendUser {
+                subclasses {
+                    0 = Glacryl\T3Glacryl\Domain\Model\User
+                }
+            }
+            Glacryl\T3Glacryl\Domain\Model\User {
+                mapping {
+                    tableName = fe_users
+                    recordType = 0
+                }
+            }
+
+        }
+    }
+}
+
+config.tx_extbase{
+    persistence {
+        classes {
+            Glacryl\T3Glacryl\Domain\Model\TtContent {
+                mapping {
+                    tableName = tt_content
+                    columns {
+                        altText.mapOnProperty = altText
+                        titleText.mapOnProperty = titleText
+                        colPos.mapOnProperty = colPos
+                        CType.mapOnProperty = CType
+                    }
+                }
+            }
+        }
+    }
+}

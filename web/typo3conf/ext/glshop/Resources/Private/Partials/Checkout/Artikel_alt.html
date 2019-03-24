@@ -1,0 +1,442 @@
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+
+<div class="row kasse-artikel">
+	<div id="gl-shopping-cart" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="table-responsive">
+			<table class="table">
+				<colgroup>
+					<col width="17%">
+					<col width="17%">
+					<col width="45%">
+					<col width="8%">
+					<col width="13%">
+				</colgroup>
+				<thead> 
+					<tr>
+						<th style="text-align: left;">Anzahl</th>
+						<th style="text-align: left;">Format in mm</th>
+						<th style="text-align: left;">Artikel</th>
+						<th style="text-align: right;">&euro;/Stk.</th>
+						<th style="text-align: right;" class="last">Gesamt netto</th>
+					</tr>
+				</thead>
+				<tbody>
+				<f:for each="{cartItems}" as="cartItem">
+					<tr class="odd">
+						<td class="cell-bottom-border" style="text-align: left; padding-left: 12px;">{cartItem.qty}</td>
+						<td class="cell-bottom-border" style="text-align: left;">
+					<f:if condition="{cartItem.article.material}" >
+						<f:then>
+							{cartItem.article.materialConfig.width} x {cartItem.article.materialConfig.height}
+						</f:then>
+						<f:else>
+							<f:if condition="{cartItem.article.profil}" >
+								<f:then>
+									{cartItem.article.rahmenConfig.width} x {cartItem.article.rahmenConfig.height}
+								</f:then>
+								<f:else>
+									&nbsp;		
+								</f:else>											
+							</f:if>
+						</f:else>
+					</f:if>
+					<br /><a href="" class="cartItem-DetailBtn">Details</a>
+					</td>
+					<td class="cell-bottom-border" style="text-align: left;">
+					<f:if condition="{cartItem.article.material}" >
+						<f:then>
+							<f:for each="{material}" as="m">
+								<f:if condition="{0:m.uid} == {0:cartItem.article.material.uid}" >
+									<f:for each="{m.materialoption}" as="v">
+										<f:if condition="{0:v.uid} == {0:cartItem.article.material.vid}" >
+											<b>{m.name} {cartItem.article.material.size} mm {v.name}</b> <br />
+											<span class="cart-materialInfo">
+												inkl. Bearbeitung (siehe <a href="" class="cartItem-DetailBtn">Details</a>)
+											</span>
+										</f:if>	
+									</f:for>
+								</f:if>
+							</f:for>	
+						</f:then>
+						<f:else>
+							<f:if condition="{cartItem.article.halter}" >
+								<f:then>
+									<f:for each="{halter}" as="h">
+										<f:if condition="{0:cartItem.article.halter.uid} == {0:h.uid}">
+											<b>{h.name}</b> <br />
+											<span class="cart-materialInfo">
+												<f:for each="{h.fixingoption}" as="v">
+													<f:if condition="{0:cartItem.article.halter.vid} == {0:v.uid}">
+														{v.name}
+													</f:if>
+												</f:for>
+											</span>
+										</f:if>
+									</f:for>
+								</f:then>
+							</f:if>
+						</f:else>
+					</f:if>
+					<f:if condition="{cartItem.article.profil}" >
+						<f:then>
+							<f:for each="{rahmen}" as="r">
+								<f:if condition="{0:r.uid} == {0:cartItem.article.profil.uid}" >
+									<f:for each="{r.variante}" as="v">
+										<f:if condition="{0:v.uid} == {0:cartItem.article.profil.vid}" >
+											<b>{r.name} {v.name}</b>  <br />
+											<span class="cart-materialInfo">
+												inkl. Bearbeitung (siehe <a href="" class="cartItem-DetailBtn">Details</a>)
+											</span>
+										</f:if>	
+									</f:for>
+								</f:if>
+							</f:for>
+						</f:then>
+						<f:else>
+							&nbsp;
+						</f:else>
+					</f:if>
+					</td>
+					<td class="cell-bottom-border" style="text-align: right;"> 
+					<f:for each="{prices.positionen}" as="p">
+						<f:if condition="{0:p.positionNr} == {0:cartItem.position}" >
+							<glacryl:price price="{p.stk}" />
+						</f:if>
+					</f:for>
+					</td>
+					<td class="cell-bottom-border last" style="text-align: right;">
+					<f:for each="{prices.positionen}" as="p">
+						<f:if condition="{0:p.positionNr} == {0:cartItem.position}" >
+							<glacryl:price price="{p.summe}" />
+						</f:if>
+					</f:for>
+					</td>
+					</tr>
+					<tr class="odd cart-detail" style="display: none;">
+						<td colspan="5" class="last">
+							<div class="row">
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+									<f:if condition="{cartItem.pic}" >
+										<p class="cart-detailImg">
+										<f:if condition="{cartItem.article.material}">
+											<f:then>
+												<img src="typo3conf/ext/glshop/Resources/Public/Zeichnungen/{cartItem.pic}" />	
+											</f:then>
+											<f:else>
+												<f:if condition="{cartItem.article.halter}">
+													<f:then>
+														<f:for each="{halter}" as="h">
+															<f:if condition="{0:h.uid} == {0:cartItem.article.halter.uid}">
+																<f:for each="{h.fixingoption}" as="v">
+																	<f:if condition="{0:v.uid} == {0:cartItem.article.halter.vid}">
+																		<img width="120" height="120" src="<glacryl:ProductImage url='<f:base />' mini='true' img='{v.pic}' />" />
+																	</f:if>
+																</f:for>		
+															</f:if>
+														</f:for>
+													</f:then>
+												</f:if>
+											</f:else>
+										</f:if>
+										<f:if condition="{cartItem.article.profil}">
+											<f:then>
+												<f:if condition="{cartItem.pic}" >
+													<img src="typo3conf/ext/glshop/Resources/Public/Zeichnungen/{cartItem.pic}" />	
+												</f:if>
+											</f:then>
+											<f:else>
+												&nbsp;														
+											</f:else>
+										</f:if>
+										</p>
+									</f:if>
+								</div>
+								<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+									<f:if condition="{cartItem.article.bearbeitungen}">
+										<f:then>
+											<dl>
+												<dt class="cart-detail-header">Kantenbearbeitung</dt>
+												<dd>
+													<span>
+														<f:for each="{kanten}" as="k">
+															<f:if condition="{0:k.uid} == {0:cartItem.article.bearbeitungen.kanten.uid}" >
+																<span><b>{k.name}</b></span>
+																<f:if condition="{0:cartItem.article.bearbeitungen.kanten.angle} != {0:''}" >
+																	<span> - <b>Facette:</b> {cartItem.article.bearbeitungen.kanten.facette} mm, <b>Facettenwinkel:</b> {cartItem.article.bearbeitungen.kanten.angle}&deg;</span>
+																</f:if>
+															</f:if>
+														</f:for>
+													</span>
+												</dd>
+											</dl>
+
+											<f:if condition="{cartItem.article.bearbeitungen.tempern}" >
+												<dl>
+													<dt class="cart-detail-header">Tempern</dt>
+													<dd>
+														<span>
+															<b>
+																<f:if condition="{0:cartItem.article.bearbeitungen.tempern.tempern} == {0:'true'}" >
+																	<f:then>
+																		Ja
+																	</f:then>
+																	<f:else>
+																		Nein
+																	</f:else>
+																</f:if>
+															</b>
+														</span>
+													</dd>
+												</dl>
+											</f:if>
+
+											<f:if condition="{cartItem.article.bearbeitungen.ecken}" >
+												<dl>
+													<dt class="cart-detail-header">Eckbearbeitungen</dt>
+													<f:for each="{ecken}" as="e">
+														<f:for each="{cartItem.article.bearbeitungen.ecken}" as="bE">
+															<f:if condition="{0:e.uid} == {0:bE.uid}" >
+																<dd>
+																	<span><b>Ecke:</b> {bE.corner} - <b>{e.name}</b>,</span> 
+																<f:if condition="{0:bE.radius} != {0:''}" >
+																	<f:then>
+																		<span><b>Radius:</b> {bE.radius} mm</span>
+																	</f:then>
+																	<f:else>
+																		<span><b>X:</b> {bE.x} mm <b>Y:</b> {bE.y} mm</span>
+																	</f:else>
+																</f:if>
+																</dd>
+															</f:if>
+														</f:for>
+													</f:for>
+												</dl>
+											</f:if>
+											<f:if condition="{cartItem.article.bearbeitungen.bohrungen}" >
+												<dl>
+													<dt class="cart-detail-header">Bohrungen</dt>
+													<f:for each="{cartItem.article.bearbeitungen.bohrungen}" as="bB">
+														<dd>
+															<span><b>Ecke:</b> {bB.corner}</span>
+															<span><b>X:</b> {bB.x} mm</span>
+															<span><b>Y:</b> {bB.y} mm</span>
+															<span><b>&Oslash;-Bohrung:</b> {bB.dB} mm</span>
+														</dd>
+													</f:for>
+												</dl>
+											</f:if>
+											<f:if condition="{cartItem.article.bearbeitungen.senkungen}" >
+												<dl>
+													<dt class="cart-detail-header">Senkbohrungen</dt>
+													<f:for each="{cartItem.article.bearbeitungen.senkungen}" as="bS">
+														<dd>
+															<span><b>Ecke:</b> {bS.corner}</span>
+															<span><b>X:</b> {bS.x} mm</span>
+															<span><b>Y:</b> {bS.y} mm</span>
+															<span><b>&Oslash;-Bohrung:</b> {bS.dB} mm</span>
+															<span><b>&Oslash;-Senkung:</b> {bS.dS} mm</span>
+														</dd>
+													</f:for>
+												</dl>
+											</f:if>
+											<f:if condition="{cartItem.article.halter}" >
+												<glacryl:Cart halter="true" obj="{cartItem.article.halter}" dbData="{halter}" />
+											</f:if>
+										</f:then>
+										<f:else>
+											<f:if condition="{cartItem.article.halter}">
+												<f:then>
+													<dl>
+														<dt class="cart-detail-header">Befestigung</dt>
+														<dd>
+														<f:for each="{halter}" as="h">
+															<f:if condition="{0:h.uid} == {0:cartItem.article.halter.uid}" >
+																<f:for each="{h.fixingoption}" as="v">
+																	<f:if condition="{0:v.uid} == {0:cartItem.article.halter.vid}" >
+																		<span><b>Art.Nr.:</b> </span><span>{v.articleNr}</span><br />
+																		<span><b>Material:</b> </span><span>{v.material}</span><br />
+																		<span><b>Wandabst.:</b> </span><span>{v.projection}mm</span><br />
+																		<f:if condition="{v.drillDownside} != 0">
+																			<span><b>Bohr-&Oslash;:</b> </span><span>{v.drillDownside}mm</span><br />
+																		</f:if>
+																		<span><b>Passend für Materialstärken:</b> </span><span>von {v.fromSize}mm bis {v.toSize}mm</span><br />
+																		<span><b>Haltermaße:</b> </span><span>
+																			<f:if condition="{v.borderLength} == 0">
+																				<f:then>
+																					&Oslash; {v.diameter}mm
+																				</f:then>
+																				<f:else>
+																					{v.borderLength} x {v.borderLength}mm
+																				</f:else>
+																			</f:if>
+																		</span><br />
+																	</f:if>
+																</f:for>
+															</f:if>
+														</f:for>
+														</dd>
+													</dl>
+												</f:then>
+											</f:if>
+										</f:else>
+									</f:if>
+
+
+									<f:if condition="{cartItem.article.profil}">
+										<f:then>
+											<dl>
+												<dt class="cart-detail-header">Rahmenau&szlig;enma&szlig;</dt>
+												<dd>
+													<span><b>Gesamtaußenmaß: </b>{cartItem.article.rahmenConfig.width} x {cartItem.article.rahmenConfig.height} mm</span><br/>
+													<span><b>Sichtbereich: </b><glacryl:rahmeninnenmass w="{cartItem.article.rahmenConfig.width}" h="{cartItem.article.rahmenConfig.height}" b="13" /></span>
+												</dd>
+											</dl>
+											<f:if condition="{0:cartItem.article.frontscheibe.uid} != {0:''}" >
+												<f:then> 
+													<dl>
+														<dt class="cart-detail-header">Frontscheibe</dt>
+														<dd>
+														<f:for each="{produktart}" as="art">
+															<f:if condition="{0:art.name} == {0:'Frontscheibe'}" >
+																<f:for each="{art.produkt}" as="produkt">
+																	<f:if condition="{0:produkt.uid} == {0:cartItem.article.frontscheibe.uid}" >
+																		<span><b>Material:</b>{produkt.name}
+																			<f:for each="{produkt.variante}" as="v">
+																				<f:if condition="{0:v.uid} == {0:cartItem.article.frontscheibe.vid}" >
+																					- {v.name}
+																					</span><br />
+																					<f:if condition="{0:v.sicherheit} == {0:1}" >
+																						<f:then>
+																							<span>
+																								<b>Sicherheitseigenschaften:</b> Ja
+																							</span>
+																						</f:then>
+																						<f:else>
+																							<span>
+																								<b>Sicherheitseigenschaften:</b> Nein
+																							</span>
+																						</f:else>
+																					</f:if>
+																				</f:if>		
+																			</f:for>
+																			<span><br/><b>Zuschnittsma&szlig;: </b></span><br/>
+																			<glacryl:kundenzuschnitt w="{cartItem.article.rahmenConfig.width}" h="{cartItem.article.rahmenConfig.height}" artNr="{produkt.artNr}" />
+																	</f:if>		
+																</f:for>		
+															</f:if>
+														</f:for>
+														</dd>
+													</dl>
+												</f:then>
+											</f:if>
+											<dl>
+												<dt class="cart-detail-header">Beleuchtung</dt>
+												<dd>
+													<span>
+														<f:for each="{produktart}" as="art">
+															<f:if condition="{0:art.name} == {0:'LED'}" >
+																<f:for each="{art.produkt}" as="produkt">
+																	<f:if condition="{0:produkt.uid} == {0:cartItem.article.led.uid}" >
+																		<b>Lichtfarbe:</b>{produkt.name}<br/>
+																		<f:for each="{produkt.variante}" as="v">
+																			<f:if condition="{0:v.uid} == {0:cartItem.article.led.vid}" >
+																				<b>Steuerung:</b>{v.name}<br/>
+																			</f:if>
+																		</f:for>
+																	</f:if>
+																</f:for>
+															</f:if>
+														</f:for>
+													</span>
+													<span>
+														<b>LED's werden verbaut in folenden Rahmen:</b>
+														<f:for each="{cartItem.article.kanten}" as="k" key="kante" >
+															<f:if condition="{0:k} == {0:'true'}" >
+																{kante}
+															</f:if>
+														</f:for>
+													</span>
+												</dd>
+											</dl>
+											<dl>
+												<dt class="cart-detail-header">Lichtstreuplatte</dt>
+												<dd>
+													<span>
+														<f:for each="{produktart}" as="art">
+															<f:if condition="{0:art.name} == {0:'Streuplatte'}" >
+																<f:for each="{art.produkt}" as="produkt">
+																	<f:if condition="{0:produkt.uid} == {0:cartItem.article.streuplatte.uid}" >
+																		<f:for each="{produkt.variante}" as="v">
+																			<f:if condition="{0:v.uid} == {0:cartItem.article.streuplatte.vid}" >
+																				<b>Material:</b>{v.name}<br/>
+																			</f:if>
+																		</f:for>
+																		{produkt.name}<br/>
+																	</f:if>
+																</f:for>
+															</f:if>
+														</f:for>
+													</span>
+												</dd>
+											</dl>
+											<dl>
+												<dt class="cart-detail-header">Netzanschluss</dt>
+												<dd>
+													<span>
+														<f:for each="{produktart}" as="art">
+															<f:if condition="{0:art.name} == {0:'Anschluss'}" >
+																<f:for each="{art.produkt}" as="produkt">
+																	<f:if condition="{0:produkt.uid} == {0:cartItem.article.netzanschluss.uid}" >
+																		<f:for each="{produkt.variante}" as="v">
+																			<f:if condition="{0:v.uid} == {0:cartItem.article.netzanschluss.vid}" >
+																				<b>Einbausituation:</b> {v.name}<br/>
+																				<b>Leuchtfeldausf&uuml;hrung:</b> {v.beschreibung}
+																			</f:if>
+																		</f:for>
+																	</f:if>
+																</f:for>
+															</f:if>
+														</f:for>
+													</span>
+												</dd>
+											</dl>
+											<dl>
+												<dt class="cart-detail-header">Befestigung</dt>
+												<dd>
+													<span>
+														<f:for each="{produktart}" as="art">
+															<f:if condition="{0:art.name} == {0:'Montage'}" >
+																<f:for each="{art.produkt}" as="produkt">
+																	<f:if condition="{0:produkt.uid} == {0:cartItem.article.befestigung.uid}" >
+																		<f:for each="{produkt.variante}" as="v">
+																			<f:if condition="{0:v.uid} == {0:cartItem.article.befestigung.vid}" >
+																				<b>Montageart:</b> {produkt.name}<br/>
+																				<b>Zubeh&ouml;r:</b> {produkt.beschreibung}<br/>
+																				<b>Vertiefung:</b> {v.name}<br/>
+																			</f:if>
+																		</f:for>
+																	</f:if>
+																</f:for>
+															</f:if>
+														</f:for>
+													</span>
+												</dd>
+											</dl>
+										</f:then>
+										<f:else>
+											&nbsp;
+										</f:else>
+									</f:if>
+
+
+
+								</div>
+							</div>
+						</td>
+					</tr>
+				</f:for>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

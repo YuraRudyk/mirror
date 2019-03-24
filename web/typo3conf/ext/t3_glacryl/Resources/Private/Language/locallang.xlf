@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" product-name="t3_glacryl">
+		<header/>
+			
+		<body>
+			<trans-unit id="flux.standard">
+				<source>Example page</source>
+			</trans-unit>
+			<trans-unit id="flux.standard.description">
+				<source>Description can be entered in LLL file locallang.xlf of extension test</source>
+			</trans-unit>
+
+			<!-- Flexible page (Flexpage.html) -->
+			<trans-unit id="flux.flexpage">
+				<source>Flexible page (many sections)</source>
+			</trans-unit>
+			<trans-unit id="flux.flexpage.description">
+				<source>Page with a flexible number of sections. Suitable for most pages of the site.</source>
+			</trans-unit>
+
+
+			<!-- Empty page (Empty.html) -->
+			<trans-unit id="flux.empty">
+				<source>Empty page</source>
+			</trans-unit>
+			<trans-unit id="flux.empty.description">
+				<source>No header and no footer, only content area</source>
+			</trans-unit>
+
+			<trans-unit id="flux.newContentWizard.fce">
+				<source>Flexible Inhaltselemente</source>
+			</trans-unit>
+
+			<!-- Page configuration fields -->
+			<trans-unit id="noBreadcrumb">
+				<source>No breadcrumbs on page</source>
+			</trans-unit>
+			<trans-unit id="anchorsMenu">
+				<source>Anchors menu on page</source>
+			</trans-unit>
+			<trans-unit id="sectionsList">
+				<source>Sections:</source>
+			</trans-unit>
+			<trans-unit id="sectionTitle">
+				<source>Section title (in BE only)</source>
+			</trans-unit>
+			<trans-unit id="sectionId">
+				<source>Section ID</source>
+			</trans-unit>
+			<trans-unit id="sectionHidden">
+				<source>Hide section</source>
+			</trans-unit>
+			<trans-unit id="sectionRows">
+				<source>Column number (TYPO3 colPos)</source>
+			</trans-unit>
+			<trans-unit id="sectionMenu">
+				<source>Sections menu enable?</source>
+			</trans-unit>
+			<trans-unit id="sectionBack">
+				<source>Back to top section enable?</source>
+			</trans-unit>
+
+			<trans-unit id="responsiveFont">
+				<source>Responsive fonts inside section?</source>
+			</trans-unit>
+			<trans-unit id="fullHeightSection">
+				<source>Fullheight section? (Yes: section height is 100% of screen)</source>
+			</trans-unit>
+			<trans-unit id="sliderSection">
+				<source>Section is slider? If YES - select type of slider</source>
+			</trans-unit>
+			<trans-unit id="sectionBackgroundEnable">
+				<source>Section background enable?</source>
+			</trans-unit>
+			<trans-unit id="backgroundColor">
+				<source>Background color</source>
+			</trans-unit>
+			<trans-unit id="backgroundImage">
+				<source>Background image</source>
+			</trans-unit>
+			<trans-unit id="backgroundSize">
+				<source>Background size (css: background-size)</source>
+			</trans-unit>
+			<trans-unit id="backgroundRepeat">
+				<source>Background repeat (css: background-repeat)</source>
+			</trans-unit>
+			<trans-unit id="backgroundPosition">
+				<source>Background position (css: background-position)</source>
+			</trans-unit>
+			<trans-unit id="backgroundAttachment">
+				<source>Background attachment (css: background-attachment)</source>
+			</trans-unit>
+			<trans-unit id="sectionCustomClass">
+				<source>Custom CSS class/classes (for example: red-bg white-color)</source>
+			</trans-unit>
+			<trans-unit id="sectionCustomAttr">
+				<source>Custom attributes (for example: style, data...)</source>
+			</trans-unit>
+			<trans-unit id="pageCustomClass">
+				<source>Custom CSS class/classes for this page</source>
+			</trans-unit>
+			<trans-unit id="pageColor">
+				<source>Select page color in menu</source>
+			</trans-unit>
+
+			<trans-unit id="fullWidthContainer">
+				<source>Fixed width container? (Yes: div.container)</source>
+			</trans-unit>
+			<trans-unit id="containerBackgroundEnable">
+				<source>Container background enable?</source>
+			</trans-unit>
+			<trans-unit id="chooseBackgroundColor">
+				<source>Choose background color</source>
+			</trans-unit>
+			<trans-unit id="containerCustomClass">
+				<source>Custom CSS class/classes (for example: text-center text-uppercase)</source>
+			</trans-unit>
+			<trans-unit id="containerId">
+				<source>Container ID</source>
+			</trans-unit>
+			<trans-unit id="containerCustomAttr">
+				<source>Custom attributes (for example: style, data...)</source>
+			</trans-unit>
+
+
+
+			<!-- Content page (Contentpage.html) -->
+			<trans-unit id="flux.contentpage">
+				<source>Content page (2 columns)</source>
+			</trans-unit>
+			<trans-unit id="flux.contentpage.description">
+				<source>Content page with two columns (30% x 70%)</source>
+			</trans-unit>
+			<trans-unit id="left.column">
+				<source>Left content</source>
+			</trans-unit>
+			<trans-unit id="right.column">
+				<source>Right content</source>
+			</trans-unit>
+
+			<!-- Content page (Contentpage1.html) -->
+			<trans-unit id="flux.contentpage1">
+				<source>Content page (1 column)</source>
+			</trans-unit>
+			<trans-unit id="flux.contentpage1.description">
+				<source>Content page with one section (width is 100%)</source>
+			</trans-unit>
+			<trans-unit id="content.column">
+				<source>Main content</source>
+			</trans-unit>
+
+			<!-- 2 col page (Contentpage2.html) -->
+			<trans-unit id="flux.contentpage2">
+				<source>2 Columns (80x20)</source>
+			</trans-unit>
+			<trans-unit id="flux.contentpage2.description">
+				<source>Page with 2 columns (80x20). Suitable for most pages of the site.</source>
+			</trans-unit>
+
+
+			<!-- Page columns -->
+			<trans-unit id="header.logo">
+				<source>Site logo</source>
+			</trans-unit>
+			<trans-unit id="header.mobileLogo">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="header.slogan">
+				<source>Telefon</source>
+			</trans-unit>
+			<trans-unit id="header.burger">
+				<source>Burger btn</source>
+			</trans-unit>
+			<trans-unit id="header.subnavLeft">
+				<source>Address, contacts</source>
+			</trans-unit>
+			<trans-unit id="header.subnavRight">
+				<source>Top navigation</source>
+			</trans-unit>
+			<trans-unit id="banner.slider">
+				<source>Banner / Slider</source>
+			</trans-unit>
+
+			<trans-unit id="footer.1">
+				<source>Footer (column #1)</source>
+			</trans-unit>
+			<trans-unit id="footer.2">
+				<source>Footer (column #2)</source>
+			</trans-unit>
+			<trans-unit id="footer.3">
+				<source>Footer (column #3)</source>
+			</trans-unit>
+			<trans-unit id="footer.4">
+				<source>Footer (column #4)</source>
+			</trans-unit>
+			<trans-unit id="footer.5">
+				<source>Copyright</source>
+			</trans-unit>
+			<trans-unit id="footer.6">
+				<source>Footer menu</source>
+			</trans-unit>
+			<trans-unit id="footer.7">
+				<source>Logos</source>
+			</trans-unit>
+
+			<trans-unit id="flux.fluidpage.content.0">
+				<source>Content (section #1)</source>
+			</trans-unit>
+			<trans-unit id="flux.fluidpage.content.1">
+				<source>Content (section #2)</source>
+			</trans-unit>
+			<trans-unit id="flux.fluidpage.content.2">
+				<source>Content (section #3)</source>
+			</trans-unit>
+			<trans-unit id="flux.fluidpage.content.3">
+				<source>Content (section #4)</source>
+			</trans-unit>
+			<trans-unit id="flux.fluidpage.content.4">
+				<source>Content (section #5)</source>
+			</trans-unit>
+			<trans-unit id="flux.fluidpage.content.5">
+				<source>Content (section #6)</source>
+			</trans-unit>
+			<trans-unit id="flux.fluidpage.content.6">
+				<source>Content (section #7)</source>
+			</trans-unit>
+			<trans-unit id="flux.fluidpage.content.7">
+				<source>Content (section #8)</source>
+			</trans-unit>
+			<trans-unit id="flux.fluidpage.content.8">
+				<source>Content (section #9)</source>
+			</trans-unit>
+			<trans-unit id="flux.fluidpage.content.9">
+				<source>Content (section #10)</source>
+			</trans-unit>
+
+
+			<!-- Example CE -->
+			<trans-unit id="flux.tslib">
+				<source>Typoscript LIB</source>
+			</trans-unit>
+			<trans-unit id="flux.tslib.description">
+				<source>Typoscript LIB as content element</source>
+			</trans-unit>
+			<trans-unit id="flux.tslib.fields.tslib">
+				<source>Lib name (for example: lib.specialMenu)</source>
+			</trans-unit>
+			<trans-unit id="flux.tslib.fields.outputType">
+				<source>Layout</source>
+			</trans-unit>
+
+			<!-- FCE_OwlCarousel.html -->
+			<trans-unit id="flux.owlCarousel">
+				<source>Carousel/Slider</source>
+			</trans-unit>
+			<trans-unit id="flux.owlCarousel.description">
+				<source>Several types of carousels</source>
+			</trans-unit>
+			<trans-unit id="flux.item.slider.css" xml:space="preserve">
+				<source>Additional CSS class for owl carousel</source>
+			</trans-unit>
+			<trans-unit id="flux.item.slider.bgimage" xml:space="preserve">
+				<source>Select image for background</source>
+			</trans-unit>
+			<trans-unit id="flux.item.slider.image" xml:space="preserve">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="flux.item.slider.media" xml:space="preserve">
+				<source>Media (ID of youtube video)</source>
+			</trans-unit>
+			<trans-unit id="flux.item.slider.dateText" xml:space="preserve">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="flux.item.slider.headerText" xml:space="preserve">
+				<source>Headline</source>
+			</trans-unit>
+			<trans-unit id="flux.item.slider.bottomText" xml:space="preserve">
+				<source>Shorttext</source>
+			</trans-unit>
+			<trans-unit id="flux.item.slider.link" xml:space="preserve">
+				<source>Link</source>
+			</trans-unit>
+			<trans-unit id="flux.item.slider.buttonText" xml:space="preserve">
+				<source>Button text</source>
+			</trans-unit>
+			<trans-unit id="flux.slider.type.1">
+				<source>Home page carousel</source>
+			</trans-unit>
+			<trans-unit id="flux.slider.type.2">
+				<source>Logos carousel</source>
+			</trans-unit>
+			<!-- /FCE_OwlCarousel.html -->
+
+			<!-- FCE_BootstrapSlider.html -->
+			<trans-unit id="flux.glacrylSlider">
+				<source>Slider</source>
+			</trans-unit>
+			<trans-unit id="flux.bootstrapSlider">
+				<source>Bootstrap Slider</source>
+			</trans-unit>
+
+			<trans-unit id="flux.glacrylSlider.description">
+				<source>Create dotty or numeric slider</source>
+			</trans-unit>
+
+			<trans-unit id="slider.type">
+				<source>Select slider type</source>
+			</trans-unit>
+
+			<trans-unit id="slider.srcset">
+				<source>Images size on Desktops, Tables, Phones</source>
+			</trans-unit>
+			<trans-unit id="slider.customArrows" xml:space="preserve">
+				<source>Unusual position of the arrows</source>
+			</trans-unit>
+			<trans-unit id="slider.equalizeSlides" xml:space="preserve">
+				<source>The same height for all frames</source>
+			</trans-unit>
+			<trans-unit id="slider.gridContent" xml:space="preserve">
+				<source>The slider contains a grid</source>
+			</trans-unit>
+			<trans-unit id="slider.headerText" xml:space="preserve">
+				<source>Top headline</source>
+			</trans-unit>
+			<trans-unit id="slider.subheaderText" xml:space="preserve">
+				<source>Bottom headline</source>
+			</trans-unit>
+			<trans-unit id="slider.headerColor" xml:space="preserve">
+				<source>Headlines color. Corporate red: rgb (226;9;19)</source>
+			</trans-unit>
+
+			<trans-unit id="slider.interval" xml:space="preserve">
+				<source>The amount of time to delay between automatically cycling an item (milliseconds).</source>
+			</trans-unit>
+			<trans-unit id="slider.arrows" xml:space="preserve">
+				<source>Show controls</source>
+			</trans-unit>
+			<trans-unit id="slider.bullets" xml:space="preserve">
+				<source>Show indicators</source>
+			</trans-unit>
+			<trans-unit id="slider.pause" xml:space="preserve">
+				<source>Pause on mouse hovering</source>
+			</trans-unit>
+
+			<trans-unit id="slider.responsiveBg" xml:space="preserve">
+				<source>Images as background (for better adaptability). Select aspect ratio below!!!</source>
+			</trans-unit>
+			<trans-unit id="slider.aspectRatio" xml:space="preserve">
+				<source>Aspect ratio (proportions)</source>
+			</trans-unit>
+			<trans-unit id="slider.image" xml:space="preserve">
+				<source>Slider image</source>
+			</trans-unit>
+			<trans-unit id="slider.video" xml:space="preserve">
+				<source>Slider video (format: https://youtu.be/zs0ggItb9L4)</source>
+			</trans-unit>
+			<trans-unit id="slider.imageW" xml:space="preserve">
+				<source>Image width (for example: 1500 or 1700c)</source>
+			</trans-unit>
+			<trans-unit id="slider.imageH" xml:space="preserve">
+				<source>Image height (for example: 800 or 850c)</source>
+			</trans-unit>
+
+			<trans-unit id="slider.columns" xml:space="preserve">
+				<source>Text columns</source>
+			</trans-unit>
+
+
+			<trans-unit id="slider.text" xml:space="preserve">
+				<source>Slider text</source>
+			</trans-unit>
+
+			<trans-unit id="slider.headerText2" xml:space="preserve">
+				<source>Top headline (second column)</source>
+			</trans-unit>
+			<trans-unit id="slider.text2" xml:space="preserve">
+				<source>Slider text (second column)</source>
+			</trans-unit>
+
+			<trans-unit id="slider.headerText3" xml:space="preserve">
+				<source>Top headline (third column)</source>
+			</trans-unit>
+			<trans-unit id="slider.text3" xml:space="preserve">
+				<source>Slider text (third column)</source>
+			</trans-unit>
+
+			<trans-unit id="slider.buttonText" xml:space="preserve">
+				<source>Button text</source>
+			</trans-unit>
+			<trans-unit id="slider.link" xml:space="preserve">
+				<source>Link</source>
+			</trans-unit>
+			<trans-unit id="slider.buttonLink" xml:space="preserve">
+				<source>Button link</source>
+			</trans-unit>
+			<trans-unit id="slider.backgroundColor" xml:space="preserve">
+				<source>Background color. Corporate red: rgb (226;9;19)</source>
+			</trans-unit>
+
+			<trans-unit id="slider.xAlignment" xml:space="preserve">
+				<source>Horizontal alignment</source>
+			</trans-unit>
+			<trans-unit id="slider.yAlignment" xml:space="preserve">
+				<source>Vertical alignment</source>
+			</trans-unit>
+
+			<trans-unit id="slider.hide">
+				<source>Hide</source>
+			</trans-unit>
+
+			<trans-unit id="splitTo4">
+				<source>Split cell to 4 cells</source>
+			</trans-unit>
+
+			<!-- /FCE_BootstrapSlider.html -->
+
+			<!-- FCE_Glossary.html -->
+			<trans-unit id="glossary.rootPage">
+				<source>Select glossary root page</source>
+			</trans-unit>
+			<trans-unit id="glossary.id">
+				<source>ID attribute</source>
+			</trans-unit>
+			<!-- /FCE_Glossary.html -->
+
+			<!-- FCE_Header.html -->
+			<trans-unit id="flux.headingRow">
+				<source>Header with image</source>
+			</trans-unit>
+			<trans-unit id="teaser.title">
+				<source>Header with image</source>
+			</trans-unit>
+			<trans-unit id="teaser.text">
+				<source>Header text</source>
+			</trans-unit>
+			<trans-unit id="teaser.image">
+				<source>Image</source>
+			</trans-unit>
+			<!-- /FCE_Header.html -->
+
+
+			<!-- FCE_Cards.html -->
+			<trans-unit id="flux.card.type.1">
+				<source>Icon box</source>
+			</trans-unit>
+			<trans-unit id="flux.card.type.2">
+				<source>Person card</source>
+			</trans-unit>
+			<trans-unit id="flux.card.type.3">
+				<source>Person slide box</source>
+			</trans-unit>
+			<trans-unit id="card.header">
+				<source>Header</source>
+			</trans-unit>
+			<trans-unit id="card.text">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="card.icon">
+				<source>Icon</source>
+			</trans-unit>
+			<trans-unit id="card.zurVisitenkarte">
+				<source>zur Visitenkarte</source>
+			</trans-unit>
+
+			<!-- /FCE_Cards.html -->
+
+			<trans-unit id="nahere-infos">
+				<source>Nahere Infos zum Projekt</source>
+			</trans-unit>
+			<trans-unit id="mehr">
+				<source>mehr</source>
+			</trans-unit>
+			<trans-unit id="mehr-news">
+				<source>Mehr News</source>
+			</trans-unit>
+			<trans-unit id="mehr-termine">
+				<source>Zur Terminubersicht</source>
+			</trans-unit>
+			<trans-unit id="mehr-neuses">
+				<source>Mehr Neues</source>
+			</trans-unit>
+
+			<trans-unit id="kontaktperson">
+				<source>Kontaktperson</source>
+			</trans-unit>
+
+
+
+
+
+			<trans-unit id="more-details">
+				<source>Weiterlesen</source>
+			</trans-unit>
+			<trans-unit id="back">
+				<source>Zurück</source>
+			</trans-unit>
+
+			<trans-unit id="paginate_previous">
+				<source>vorheriges</source>
+			</trans-unit>
+			<trans-unit id="paginate_next">
+				<source>nächstes</source>
+			</trans-unit>
+
+			<trans-unit id="printIco">
+				<source>Seiten drucken</source>
+			</trans-unit>
+
+			<trans-unit id="tt_content.header_css">
+				<source>Header CSS style</source>
+			</trans-unit>
+			<trans-unit id="tt_content.header_css.0">
+				<source>Select CSS style</source>
+			</trans-unit>
+			<trans-unit id="tt_content.header_css.200">
+				<source>Title</source>
+			</trans-unit>
+
+
+
+			<trans-unit id="flux.teaser.type.1">
+				<source>Teaser (icon image + headline)</source>
+			</trans-unit>
+			<trans-unit id="flux.teaser.type.2">
+				<source>Image gallery</source>
+			</trans-unit>
+			<trans-unit id="flux.teaser.type.3">
+				<source>Teaser (without image)</source>
+			</trans-unit>
+
+			<trans-unit id="mobileMenuHeader">
+				<source>Glacryl &amp; Glacryl</source>
+			</trans-unit>
+
+			<trans-unit id="rightSidebar.title">
+				<source>Nebennavigation</source>
+			</trans-unit>
+
+			<!-- Tables -->
+			<trans-unit id="theader-veranstaltung">
+				<source>Veranstaltung</source>
+			</trans-unit>
+			<trans-unit id="theader-zeit">
+				<source>Zeit</source>
+			</trans-unit>
+			<trans-unit id="theader-haus">
+				<source>Haus</source>
+			</trans-unit>
+			<trans-unit id="theader-stock">
+				<source>Stock</source>
+			</trans-unit>
+			<trans-unit id="theader-raum">
+				<source>Raum</source>
+			</trans-unit>
+
+			<trans-unit id="suche">
+				<source>Suche</source>
+			</trans-unit>
+
+
+			<!-- Tabs -->
+			<trans-unit id="tab1">
+				<source>BESCHREIBUNG</source>
+			</trans-unit>
+			<trans-unit id="tab2">
+				<source>HILFE &amp; SUPPORT</source>
+			</trans-unit>
+			<trans-unit id="tab3">
+				<source>NACHFÜLLEN</source>
+			</trans-unit>
+			<trans-unit id="tab4">
+				<source>REZENSIONEN</source>
+			</trans-unit>
+
+			<!-- Indoor -->
+			<trans-unit id="indoor1">
+				<source>GIFTFREI</source>
+			</trans-unit>
+			<trans-unit id="indoor2">
+				<source>UMWELTFREUNDLICH</source>
+			</trans-unit>
+			<trans-unit id="indoor3">
+				<source>EFFEKTIV</source>
+			</trans-unit>
+
+		</body>
+	</file>		
+</xliff>

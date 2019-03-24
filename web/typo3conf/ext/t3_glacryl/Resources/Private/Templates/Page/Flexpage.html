@@ -1,0 +1,218 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+    <f:layout name="Defaultpage"/>
+
+    <f:section name="Configuration">
+        <flux:form id="flexpage">
+            <flux:form.sheet name="pageProp" label="Page properties">
+                <flux:field.checkbox name="noBreadcrumb" default="0"
+                                         label="{v:l(key: 'noBreadcrumb', extensionName: 't3_glacryl')}"/>
+
+                <flux:field.select name="pageColorClass"
+                                   items=",green-page,red-page,blue-page,grey-page,orange-page"
+                                   default=""
+                                   label="{v:l(key: 'pageColor', extensionName: 't3_glacryl')}"/>
+                <flux:field.input name="pageCustomClass"
+                                  label="{v:l(key: 'pageCustomClass', extensionName: 't3_glacryl')}"/>
+
+                <flux:field.input name="pageCustomClass"
+                                  label="{v:l(key: 'pageCustomClass', extensionName: 't3_glacryl')}"/>
+            </flux:form.sheet>
+
+            <f:if condition="{settings.manualCSS} == 1">
+                <flux:form.sheet name="resourcesCSS" label="CSS files">
+                    <f:render partial="PageResources/Stylesheets" arguments="{_all}"/>
+                </flux:form.sheet>
+            </f:if>
+
+            <f:if condition="{settings.manualJS} == 1">
+                <flux:form.sheet name="resourcesJS" label="JavaScript files">
+                    <f:render partial="PageResources/Javascripts" arguments="{_all}"/>
+                </flux:form.sheet>
+            </f:if>
+
+            <flux:form.sheet name="sections" label="Page sections">
+                <f:comment>
+                    <!--
+                    <flux:field.select name="radio" label="Category" items="{
+                                       0:{0:'On the left side',1:'left', 2: '{v:extension.path.resources(path: \'Icons/Page/TopContentSidebarContent.svg\')}'},
+                                       1:{0:'On the right side',1:'right',2: '{v:extension.path.resources(path: \'Icons/Page/TopContentMenuContentSidebar.svg\')}'}
+                    }" />
+                    -->
+                </f:comment>
+
+                <flux:form.section name="sections" label="{v:l(key: 'sectionsList', extensionName: 't3_glacryl')}">
+                    <flux:form.object name="section" label="{sectionTitle}">
+                        <flux:field.checkbox name="sectionHidden" default="0"
+                                             label="{v:l(key: 'sectionHidden', extensionName: 't3_glacryl')}"/>
+                        <flux:field.input name="sectionTitle"
+                                          label="{v:l(key: 'sectionTitle', extensionName: 't3_glacryl')}"/>
+                        <flux:field.input name="sectionId"
+                                          label="{v:l(key: 'sectionId', extensionName: 't3_glacryl')}"/>
+                        <flux:field.input name="sectionCustomClass"
+                                          label="{v:l(key: 'sectionCustomClass', extensionName: 't3_glacryl')}"/>
+
+                        <flux:field.select name="sectionRows"
+                                           items="{
+                           0:{0:'colPos=0',1:'0'},
+                           1:{0:'colPos=1',1:'1'},
+                           2:{0:'colPos=2',1:'2'},
+                           3:{0:'colPos=3',1:'3'},
+                           4:{0:'colPos=4',1:'4'},
+                           5:{0:'colPos=5',1:'5'},
+                           6:{0:'colPos=6',1:'6'},
+                           7:{0:'colPos=7',1:'7'},
+                           8:{0:'colPos=8',1:'8'},
+                           9:{0:'colPos=9',1:'9'},
+                           10:{0:'colPos=10',1:'10'},
+                           12:{0:'colPos=12',1:'12'},
+                           20:{0:'colPos=20',1:'20'},
+                           21:{0:'colPos=21',1:'21'},
+                           25:{0:'colPos=25',1:'25'}
+                           }"
+                                           default="0"
+                                           label="{v:l(key: 'sectionRows', extensionName: 't3_glacryl')}"/>
+
+                        <flux:field.select name="fullWidthContainer"
+                                           items="{
+                                               0:{0:'Fixed width (div.container)',1:'container'},
+                                               1:{0:'Full width (div.container-fluid)',1:'container-fluid'},
+                                               2:{0:'None',1:'none'}
+                                           }"
+                                           default="container"
+                                           label="{v:l(key: 'fullWidthContainer', extensionName: 't3_glacryl')}" requestUpdate="1"/>
+
+                        <f:comment>
+                            <!--
+                            <flux:field.checkbox name="sectionMenu" default="0"
+                                             label="{v:l(key: 'sectionMenu', extensionName: 't3_glacryl')}"/>
+                            <flux:field.checkbox name="sectionBack" default="0"
+                                             label="{v:l(key: 'sectionBack', extensionName: 't3_glacryl')}"/>
+                            <flux:field.checkbox name="fullHeightSection"
+                                                 label="{v:l(key: 'fullHeightSection', extensionName: 't3_glacryl')}"/>
+                             -->
+                        </f:comment>
+
+                        <flux:field.checkbox name="backgroundEnable"
+                                             label="{v:l(key: 'sectionBackgroundEnable', extensionName: 't3_glacryl')}"
+                                             requestUpdate="1"/>
+                        <flux:field.input name="backgroundColor"
+                                          label="{v:l(key: 'backgroundColor', extensionName: 't3_glacryl')}"
+                                          displayCond="FIELD:backgroundEnable:>:0">
+                            <flux:wizard.colorPicker label="Choose backround color" hideParent="1" dim="20x20"
+                                                     width="400" height="400"
+                                                     exampleImg="EXT:flux/Resources/Public/Icons/ColorWheel.png"/>
+                        </flux:field.input>
+                        <flux:field.file name="backgroundImage"
+                                         label="{v:l(key: 'backgroundImage', extensionName: 't3_glacryl')}"
+                                         allowed="png,jpg,jpeg" showThumbnails="1"
+                                         displayCond="FIELD:backgroundEnable:>:0" requestUpdate="1"/>
+
+                        <flux:field.select name="backgroundSize"
+                                           label="{v:l(key: 'backgroundSize', extensionName: 't3_glacryl')}"
+                                           items="auto,cover,contain"
+                                           displayCond="FIELD:backgroundImage:>:0"/>
+                        <flux:field.select name="backgroundRepeat"
+                                           label="{v:l(key: 'backgroundRepeat', extensionName: 't3_glacryl')}"
+                                           items="no-repeat,repeat,repeat-x,repeat-y,inherit"
+                                           displayCond="FIELD:backgroundImage:>:0"/>
+                        <flux:field.select name="backgroundPosition"
+                                           label="{v:l(key: 'backgroundPosition', extensionName: 't3_glacryl')}"
+                                           items="center center, center top, center bottom"
+                                           displayCond="FIELD:backgroundImage:>:0"/>
+                        <flux:field.select name="backgroundAttachment"
+                                           label="{v:l(key: 'backgroundAttachment', extensionName: 't3_glacryl')}"
+                                           items="scroll,fixed,local,inherit"
+                                           displayCond="FIELD:backgroundImage:>:0"/>
+
+
+
+                        <flux:field.input name="containerCustomClass"
+                                          label="Custom container CSS class(es) (for example: text-center )" displayCond="FIELD:fullWidthContainer:IN:container,container-fluid" />
+                        <flux:field.checkbox name="containerBackgroundEnable"
+                                             label="{v:l(key: 'containerBackgroundEnable', extensionName: 't3_glacryl')}"
+                                             requestUpdate="1" displayCond="FIELD:fullWidthContainer:IN:container,container-fluid" />
+                        <flux:field.input name="containerBackgroundColor"
+                                          label="{v:l(key: 'backgroundColor', extensionName: 't3_glacryl')}"
+                                          displayCond="FIELD:containerBackgroundEnable:>:0">
+                        <flux:wizard.colorPicker
+                                    label="{v:l(key: 'chooseBackgroundColor', extensionName: 't3_glacryl')}"
+                                    hideParent="1" dim="20x20"
+                                    width="400" height="400"
+                                    exampleImg="EXT:flux/Resources/Public/Icons/ColorWheel.png"/>
+                        </flux:field.input>
+                        <flux:field.file name="containerBackgroundImage"
+                                         label="{v:l(key: 'backgroundImage', extensionName: 't3_glacryl')}"
+                                         allowed="png,jpg,jpeg" showThumbnails="1"
+                                         displayCond="FIELD:containerBackgroundEnable:>:0" requestUpdate="1"/>
+                        <flux:field.select name="containerBackgroundSize"
+                                           label="{v:l(key: 'backgroundSize', extensionName: 't3_glacryl')}"
+                                           items="auto,cover,contain"
+                                           displayCond="FIELD:containerBackgroundImage:>:0"/>
+                        <flux:field.select name="containerBackgroundRepeat"
+                                           label="{v:l(key: 'backgroundRepeat', extensionName: 't3_glacryl')}"
+                                           items="no-repeat,repeat,repeat-x,repeat-y,inherit"
+                                           displayCond="FIELD:containerBackgroundImage:>:0"/>
+                        <flux:field.select name="containerBackgroundPosition"
+                                           label="{v:l(key: 'backgroundPosition', extensionName: 't3_glacryl')}"
+                                           items="center center, center top, center bottom"
+                                           displayCond="FIELD:containerBackgroundImage:>:0"/>
+                        <flux:field.select name="containerBackgroundAttachment"
+                                           label="{v:l(key: 'backgroundAttachment', extensionName: 't3_glacryl')}"
+                                           items="scroll,fixed,local,inherit"
+                                           displayCond="FIELD:containerBackgroundImage:>:0"/>
+
+
+                        <f:comment>
+                            <!--
+                            <flux:field.input name="containerPaddingTop" size="3"
+                                              label="Padding TOP INSIDE of container"/>
+                            <flux:field.input name="containerPaddingBottom" size="3"
+                                              label="Padding BOTTOM INSIDE of container"/>
+                            <flux:field.select name="containerColumns" label="How many columns in container"
+                                               items="0,1,2,3,4,5,6,7,8,9,10,11,12"/>
+                            -->
+                        </f:comment>
+                    </flux:form.object>
+                </flux:form.section>
+            </flux:form.sheet>
+
+        </flux:form>
+
+        <flux:grid>
+            <!-- #####################  Site header: logo and etc (on root page only) ################ -->
+            <f:render partial="Page/HeaderBE" arguments="{_all}"/>
+
+            <!-- #####################  Banner/Slider   ######################## -->
+            <f:render partial="Page/BannerSliderBE" arguments="{_all}"/>
+
+            <!-- Body sections -->
+            <f:if condition="{record.layout} == 2">
+            </f:if>
+
+            <!-- ###################  Dynamic content sections  ################################ -->
+            <f:if condition="{sections} && {sections -> f:count()} > 0">
+                <f:for each="{sections}" as="beSection" iteration="iteration">
+                    <!-- Every section that has been configured in the sheet above will be output as a column in the backend layout -->
+                    <flux:grid.row>
+                        <flux:grid.column name="content.{iteration.cycle}" colPos="{beSection.section.sectionRows}"
+                                          label="{f:if(condition: '{beSection.section.sectionTitle}', then: '{beSection.section.sectionTitle}', else: '{v:l(key: \'flux.fluidpage.content.{iteration.index}\', extensionName: \'t3_glacryl\')}')} (colPos={beSection.section.sectionRows})"
+                                          colspan="4">
+                            <flux:form.variable name="allowedContentTypes" value="header,bullets,textmedia,list,fluidcontent_content,html"/>
+                        </flux:grid.column>
+                    </flux:grid.row>
+                </f:for>
+            </f:if>
+
+            <!-- #################### Site footer on root page only #######################  -->
+            <f:render partial="Page/FooterBE" arguments="{_all}"/>
+
+        </flux:grid>
+    </f:section>
+
+    <f:section name="Main">
+        <f:render partial="Page/Main" section="Flexpage" arguments="{_all}"/>
+    </f:section>
+
+</div>

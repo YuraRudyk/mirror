@@ -1,0 +1,53 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:comment>
+<v:condition.page.hasSubpages pageUid="{v:page.info(field: 'uid')}">
+     <f:if condition="{lib.tabs}"></f:if>
+</v:condition.page.hasSubpages>
+</f:comment>
+
+<f:section name="tabsByTyposcript">
+    <f:if condition="{f:cObject(typoscriptObjectPath: 'lib.tabs')}">
+        <f:cObject typoscriptObjectPath="lib.tabs" />
+    </f:if>
+</f:section>
+
+<f:section name="tabsByFluid">
+    <v:menu.directory pages="{v:page.info(field: 'uid')}" classActive="" excludePages="" classCurrent="" classHasSubpages="">
+        <f:if condition="{menu}">
+            <div class="statics margin-bottom3">
+                <div class="row">
+                    <f:for each="{menu}" as="menuPages" iteration="iteration">
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 col">
+                            <div class="widget">
+                                <div class="widget-top box-4x3">
+                                    <div class="box-4x3-content" data-responsive-background-image="">
+                                        <f:for each="{v:page.resources.fal(uid: '{menuPages.uid}')}" as="image" iteration="item">
+                                            <f:if condition="{item.cycle} == 1">
+                                                <f:image src="{image.uid}" alt="" treatIdAsReference="1" height="334" maxHeight="334" minHeight="334" class="img-responsive" />
+                                            </f:if>
+                                        </f:for>
+                                        <div class="info">
+                                            <div class="info-content">
+                                                {menuPages.abstract}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-link">
+                                    <a href="{menuPages.link}" {f:if(then: ' title="{menuPages.subtitle ->
+                                    f:format.raw()}"', condition: '{menuPages.subtitle}')}>{menuPages.nav_title ->
+                                    v:or(alternative: "{menuPages.title}") -> f:format.raw()}</a>
+                                </div>
+                            </div>
+                            <!-- End Widget -->
+                        </div>
+                    </f:for>
+                </div>
+            </div>
+        </f:if>
+    </v:menu.directory>
+</f:section>
+
+
+
+

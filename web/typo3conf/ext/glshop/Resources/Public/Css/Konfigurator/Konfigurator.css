@@ -1,0 +1,760 @@
+/** Bootstrap Config **/
+
+
+.row {
+    margin-left: -6px !important;
+    margin-right: -6px !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+
+.btn-default {
+    border: 1px solid #FFFFFF !important;
+    color: #444444 !important;
+    font-family: Arial !important;
+    background-color: #CCCCCC !important;
+}
+.btn-glacryl {
+    border: 1px solid #FFFFFF !important;
+    color: #444444 !important;
+    font-family: Arial !important;
+    background-color: #CCCCCC !important;
+}
+
+.btn {
+    border-radius: 0px !important;
+    padding: 6px 10px !important;
+}
+
+.btn-glacryl.active {
+    color: #FFFFFF !important;
+    background: #666666 !important;
+}
+.btn-glacryl.hover {
+    color: #FFFFFF !important;
+    background: #666666 !important;
+}
+
+.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.breadcrumb { background: none !important; margin-bottom: 0 !important; padding: 6px 0 !important; }
+.breadcrumb li a { color: #444444 !important; text-decoration: none; }
+
+/** Shop Config **/
+
+#mobile-footer-data, #mobile-img-area {
+    display: none;
+}
+
+#mobile-footer-data div.container { background-color: #f5f5f5; border-color: #ddd; padding: 6px 12px 12px 12px !important;}
+
+body {
+    background-image: url('../Glacryl-Hintergrund-desktop.jpg') !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 100% 100% !important;
+    height: 100% !important;
+    width: 100% !important;
+    min-width: 350px !important;
+}
+
+.logo {
+    margin-top: 13px;
+}
+
+#view-configuration-priceview, #view-ecken-img {
+    display: none;
+}
+
+.inputError {
+    color: red !important;
+}
+
+.goldText {
+
+}
+
+.ueGreen {
+    font-size: 19pt !important;
+    font-family: Arial !important;
+    color: #34B07C !important;
+}
+
+
+/** Konfigurator View **/
+#view-configuration-size, #view-configuration-kanten, #view-configuration-bohrungen, #view-configuration-ecken, #view-configuration-halter, #view-configuration-senkungen, #view-configuration-tempern {
+    display: block;
+    font-size: 10pt;
+    line-height: 120%;
+    font-family: Arial;
+    color: #9A8B56;
+    white-space: pre;
+}
+#view-configuration-size span, #view-configuration-kanten span, #view-configuration-bohrungen span, #view-configuration-ecken span, #view-configuration-halter span, #view-configuration-senkungen span, #view-configuration-tempern span {
+    font-size: 8pt;
+    left: 88px;
+    position: absolute;
+    color: #333333;
+}
+
+#view-configuration-tempern span label {
+    vertical-align: middle;
+    margin-top: 3px;
+    font-size: 16px !important;
+}
+#view-configuration-tempern span label input{
+    margin-right: 4px;
+    vertical-align: middle;
+    margin-top: -1px;
+}
+
+#view-configuration-material, .konfigurator-headline {
+    font-size:	20pt;
+    font-family: Arial;
+    margin-bottom: 0px;
+    text-shadow: 2px 3px 6px #666666 !important;
+}
+.view-material-size p label {
+    color: #444444 !important;
+    font-family: Arial;
+    font-size: 11pt !important;
+    margin-left: 12px !important;
+    text-align: right;
+    width: 100px;
+    height: 20px;
+    padding: 4px 12px 0 4px;
+    margin: 0 !important;
+    cursor: pointer;
+}
+.view-material-size p {
+    height: 1.2em;
+    line-height: 0.1em;
+    margin-bottom: 0.2em;
+    padding-left: 12px;
+}
+
+#view-halterMitBohrung-auswahl select, #view-halterOhneBohrung-auswahl select, #view-halterMitBohrungMobile-eckAuswahl select {
+    width: 80%;
+}
+
+#view-halterMitBohrungMobile-eckAuswahl select{
+    height: 108px !important;
+}
+
+#view-halterMitBohrungMobile-eckAuswahl{
+    margin-bottom: 12px;
+}
+
+#view-konfigurator-img {
+    width: 210px;
+    height: 210px;
+}
+
+#view-configuration-qty, #view-configuration-height, #view-configuration-width {
+    display: inline-block;
+    width: 82px;
+    height: 36px;
+}
+
+#cart-configuration-qty {
+    font-family: Arial;
+    font-size: 17pt;
+    color: #9A8B56;
+}
+#cart-configuration-onePrice {
+    font-family: Arial;
+    font-size: 12pt;
+    color: #9A8B56;
+}
+.cart-configuration-sumPrice {
+    font-family: Arial;
+    font-size: 18pt;
+}
+
+/** Konfigurator View - Ende **/
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea{
+    margin: 0px 0px 8px 0px !important;
+    text-align: center !important;
+    font-family: Arial !important;
+    font-size: 12pt !important;
+    color: #666666 !important;
+    border: 1px solid;
+    border-color: #343434 !important;
+}
+
+label {
+    line-height: 0.7em !important;
+    font-family: Arial !important;
+    font-size: 14pt !important;
+    color: #9A8B56 !important;
+    display: block !important;
+    font-weight: 500 !important;
+}
+
+/** Navigation **/
+.navbar, .navbar-inverse {
+    /*height: 47px !important;*/
+    border-radius: 0px !important;
+    border: 0px important;
+    margin-bottom: 0px !important;
+}
+
+@media only screen and (min-width: 768px) {
+    #glshop-navbar {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .navbar-nav {
+        margin: -1px !important;
+    }
+}
+
+/*@media (min-width: 768px) and (max-width: 979px) {
+	#glshop-navbar {
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+	.navbar-nav {
+		margin: -1px !important;
+	}
+}*/
+
+#glshop-navbar ul li > a {
+    font-family: Arial !important;
+    font-size: 11pt !important;
+    background: #222 !important;
+    color: #ffffff;
+}
+#glshop-navbar ul li.active > a {
+    background: #9A8B56 !important;
+    height: 50px !important;
+}
+#glshop-navbar ul li.active > a:hover, #glshop-navbar ul li > a:hover {
+    background: #A49D71 !important;
+    height: 50px !important;
+}
+
+
+.main-data {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.lighting-top {
+    width: 100%;
+    height: 5px;
+    margin-top: 25px;
+    background-image: -webkit-linear-gradient(top, white 0%, #666666 100%);
+    background-image: -moz-linear-gradient(top, white 0%, #666666 100%);
+    background-image: -o-linear-gradient(top, white 0%, #666666 100%);
+    background-image: linear-gradient(top, white 0%, #666666 100%);
+    opacity: 0.3;
+}
+.lighting-bottom {
+    width: 100%;
+    height: 5px;
+    background-image: -webkit-linear-gradient(bottom, white 0%, #666666 100%);
+    background-image: -moz-linear-gradient(bottom, white 0%, #666666 100%);
+    background-image: -o-linear-gradient(bottom, white 0%, #666666 100%);
+    background-image: linear-gradient(bottom, white 0%, #666666 100%);
+    opacity: 0.3;
+    z-index: 10;
+    margin-top: -1px;
+}
+.bottom-diver-products { background-color: #9A8B56; height: 2px; width: 100%; z-index: 99; opacity: 0.5; margin-top: 0px; }
+.bottom-diver-konfigurator { background-color: #9A8B56; height: 2px; width: 100%; z-index: 99; opacity: 0.5; margin-top: 0px; }
+.bgConfigurationLeft { background-color: #FFFFFF; opacity: 0.34; }
+.bgConfigurationRight {
+    /* Fallback for web browsers that doesn't support RGBa */
+    background: rgb(0, 0, 0);
+    /* RGBa with 0.6 opacity */
+    background: rgba(0, 0, 0, 0.15);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+
+    /*	background-color: #FFFFFF;*/
+    /*	opacity: 0.15;*/
+}
+
+.panel-group { background-color: rgba(255,255,255,0.4) !important; }
+.panel-group > div { border-bottom: 1px solid #B4A97F;}
+.panel-group div { background: none repeat scroll 0 0 rgba(255,255,255,0) !important; padding:0 !important; }
+/*.panel-group div.last { border-bottom: medium none; }*/
+.panel-group .content.in { background: rgba(255,255,255,0.6) !important; }
+
+.panel-group .panel-heading+.panel-collapse>.panel-body {
+    border-top: none !important;
+}
+.panel-default>.panel-heading {
+    height: 35px;
+}
+.panel div > h4 { background: none repeat scroll 0 0 #efefef; padding: 4px 0 !important; }
+.panel div > h4 > a { color: #444444 !important; font-family: Arial !important; font-size: 12pt !important; font-weight: bold; padding: 5px 5px 5px 24px !important; text-decoration: none; height: 100%; width: 90%; display: inline-block;}
+
+.panel-body div.row {
+    margin: 10px 0 !important;
+}
+
+.bearbeitungHeader { background-color: #444444; padding-top: 5px !important; cursor: pointer;}
+.bearbeitungHeader h4 { color: #FFFFFF; display: inline-block; margin-left: 68px; font-weight: bold; font-family: Arial;}
+
+.no-padding { padding: 0px !important; }
+
+input[type="file"], input[type="checkbox"], input[type="radio"], select {
+    margin: 0 0 1rem;
+}
+ul, ol, dl {
+    line-height: 1.6;
+}
+
+select {
+    width: 100%;
+    border: 1px solid;
+    height: 23px !important;
+    color: #333333 !important;
+    padding: 0 !important;
+    font-family: Arial !important;
+    font-size: 11pt !important;
+    border-color: #343434 !important;
+    margin-top:10px !important;
+}
+
+.glButton {
+    padding: 4px 0 !important;
+    font-family: Arial !important;
+    color: #FFFFFF !important;
+    background-color: #34B07C !important;
+    opacity: 0.6;
+    border: none !important;
+    width: 95% !important;
+    border-radius: 0 !important;
+}
+.glButtonFullWidth {
+    padding: 4px 0 !important;
+    font-family: Arial !important;
+    color: #FFFFFF !important;
+    background-color: #34B07C !important;
+    opacity: 0.6;
+    border: none !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+}
+
+.glButton:hover, .glButtonFullWidth:hover {
+    opacity: 1;
+}
+
+.panel .content {
+    padding: 0px 1.5em !important;
+}
+.panel-group .panel {
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    border-left: none;
+    border-top: none;
+}
+.panel-group .panel + .panel {
+    margin-top: 0px !important;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+    .info-icon {
+        color: #9A8B56;
+        font-family: Times New Roman;
+        font-size: 3rem;
+        font-weight: bold;
+        font-style: italic;
+        display: inline-block;
+        width: 10%;
+        padding: 6px;
+        margin-top: -44px;
+        opacity: 0.6;
+        cursor: pointer;
+    }
+    .info-halterMit-icon {
+        color: #9A8B56;
+        font-family: Times New Roman;
+        font-size: 3rem;
+        font-weight: bold;
+        font-style: italic;
+        display: inline-block;
+        opacity: 0.6;
+        cursor: pointer;
+        margin: 2px 4px 2px 5px;
+    }
+    .info-halterOhne-icon {
+        color: #9A8B56;
+        font-family: Times New Roman;
+        font-size: 3rem;
+        font-weight: bold;
+        font-style: italic;
+        display: inline-block;
+        opacity: 0.6;
+        cursor: pointer;
+        margin: 2px 4px 2px 5px;
+    }
+}
+
+
+@media only screen and (max-width: 767px) {
+    .info-icon {
+        /*background-color: #666666;*/
+        /*border: 1px solid;*/
+        border-radius: 4px;
+        color: #9a8b56;
+        cursor: pointer;
+        font-family: Times New Roman;
+        font-size: 3rem;
+        font-style: italic;
+        font-weight: bold;
+        line-height: 1;
+        margin-right: 5px;
+        margin-top: -33px;
+        opacity: 0.6;
+        text-align: center;
+        width: 30px;
+    }
+    .info-halterMit-icon {
+        border-radius: 4px;
+        color: #9a8b56;
+        cursor: pointer;
+        font-family: Times New Roman;
+        font-size: 3rem;
+        font-style: italic;
+        font-weight: bold;
+        opacity: 0.6;
+        text-align: center;
+        margin: 2px 4px 2px 5px;
+    }
+    .info-halterOhne-icon {
+        border-radius: 4px;
+        color: #9a8b56;
+        cursor: pointer;
+        font-family: Times New Roman;
+        font-size: 3rem;
+        font-style: italic;
+        font-weight: bold;
+        opacity: 0.6;
+        text-align: center;
+        margin: 2px 4px 2px 5px;
+    }
+}
+.info-icon-products {
+    color: #9A8B56;
+    font-family: Times New Roman;
+    font-size: 26px;
+    font-style: italic;
+    margin-right: 10px;
+    margin-top: -5px;
+    opacity: 0.6;
+    cursor: pointer;
+}
+.info-icon-halter {
+    color: #9A8B56;
+    font-family: Times New Roman;
+    font-size: 28px;
+    font-style: italic;
+    margin-left: 0;
+    opacity: 0.6;
+    cursor: pointer;
+    text-align: center;
+    padding: 0 12px;
+    display: inline-block;
+    /*border: 1px solid;*/
+}
+.info-icon:hover, .info-icon-products:hover, .info-icon-halter, .info-halterMit-icon:hover, .info-halterOhne-icon:hover {
+    /* opacity: 1; */
+}
+.right {
+    float: right !important;
+}
+
+#close-detailMitHalter, #close-detailOhneHalter {
+    cursor: pointer;
+    font-size: 20px !important;
+    padding: 0px !important;
+    opacity: 0.6;
+    text-align: center;
+    vertical-align: middle;
+}
+#close-detailMitHalter:hover, #close-detailOhneHalter:hover {
+    opacity: 1;
+}
+
+/** Konfigurator - Bearbeitungen **/
+
+#konfigurator-view-bearbeitungen, #view-material-auswahl, #konfigurator-view-halter {
+    border-right: 1px solid #C1CBC5;
+    border-bottom: 1px solid #C1CBC5;
+}
+
+.ueGreen {
+    font-size: 19pt !important;
+    font-family: Arial !important;
+    color: #34B07C !important;
+}
+
+#eckenAuswahlBox label{
+    width: 50%;
+}
+#eckenAuswahlBox {
+    font-size: 0.8em;
+}
+
+.view-halterMitBohrung-selection, .view-halterOhneBohrung-selection {
+    display: none;
+}
+
+#view-ecken-selection table, #view-senkungen-selection table, #view-bohrungen-selection table, #view-halterMitBohrung-selection table, .view-halterMitBohrung-selection table, #view-halterOhneBohrung-selection table, .view-halterOhneBohrung-selection table, div.view-halterAuswahl-mBohrung div table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #B4A97F;
+}
+#view-ecken-selection table tbody tr td, #view-senkungen-selection table tbody tr td, #view-bohrungen-selection table tbody tr td, #view-halterMitBohrung-selection table tbody tr td, .view-halterMitBohrung-selection table tbody tr td, .view-halterMitBohrung-selection table tfoot tr td, #view-halterOhneBohrung-selection table tbody tr td, .view-halterOhneBohrung-selection table tbody tr td, .view-halterOhneBohrung-selection table tfoot tr td, div.view-halterAuswahl-mBohrung div table tbody tr td {
+    border: 1px solid #B4A97F;
+    font-family: Arial !important;
+    font-size: 12px !important;
+    color: #444444 !important;
+    height: 24px;
+    padding: 2px 0 !important;
+    text-align: center;
+}
+#view-ecken-selection table thead tr th, #view-senkungen-selection table thead tr th, #view-bohrungen-selection table thead tr th, #view-halterMitBohrung-selection table thead tr th, .view-halterMitBohrung-selection table thead tr th, .view-halterMitBohrung-selection table tfoot tr th, #view-halterOhneBohrung-selection table thead tr th,  .view-halterOhneBohrung-selection table thead tr th,  .view-halterOhneBohrung-selection table tfoot tr th, div.view-halterAuswahl-mBohrung div table thead tr th {
+    color: #998B55;
+    border: 1px solid #B4A97F;
+    font-family: Arial !important;
+    font-size: 12px !important;
+    height: 24px;
+    padding: 2px 0 !important;
+    text-align: center;
+}
+
+#view-facetten-eigenschaften, .view-eckbearbeitung-rund, .view-eckbearbeitung-schraeg {
+    display: none;
+}
+
+
+/** Icons **/
+.sprite-Aktualisieren, .sprite-Aktualisieren_hover, .sprite-Anfrage, .sprite-Anfrage_active, .sprite-Bearbeitung, .sprite-Bestaetigen, .sprite-Bestaetigen_hover, .sprite-Halterung,
+.sprite-Kachel, .sprite-Konfigurator, .sprite-Konfigurator_active, .sprite-Liste, .sprite-Loeschen, .sprite-Loeschen_hover, .sprite-Mal, .sprite-Mal_hover, .sprite-Matrial, .sprite-MeinKonto,
+.sprite-MeinKonto_active, .sprite-Menue-smartphone, .sprite-Minus, .sprite-Minus_hover, .sprite-Plus, .sprite-Plus_hover, .sprite-Produkte, .sprite-Produkte_active, .sprite-Stift, .sprite-Stift_hover,
+.sprite-Warenkorb, .sprite-Warenkorb_active, .sprite-Warenkorb_activeBtn{
+    background: url(../csg-5319a00d030ed.png) no-repeat top left;
+    display: inline-block;
+    cursor: pointer;
+}
+.sprite-Aktualisieren{ background-position: 0 0; width: 25px; height: 25px; position: absolute; margin: 5px 0 0 12px;}
+.sprite-Aktualisieren:hover{ background-position: 0 -75px; width: 25px; height: 25px; position: absolute; margin: 5px 0 0 12px; opacity: 0.6;}
+.sprite-Anfrage{ background-position: 0 -150px; width: 31px; height: 25px; }
+.sprite-Anfrage:hover, .sprite-Anfrage_active{ background-position: 0 -225px; width: 31px; height: 25px; }
+.sprite-Bearbeitung{ background-position: 0 -300px; width: 25px; height: 30px; }
+.sprite-Bestaetigen{ background-position: 0 -380px; width: 20px; height: 16px; opacity: 0.6; margin: 0 7px;}
+.sprite-Bestaetigen:hover{ background-position: 0 -446px; width: 20px; height: 16px; opacity: 0.4; margin: 0 7px;}
+.sprite-Halterung{ background-position: 0 -512px; width: 28px; height: 30px; }
+.sprite-Kachel{background-position: 0 -592px;height: 25px;margin-left: -60px;padding-top: 3px;width: 28px;}
+.sprite-Kachel span{padding-left: 39px;}
+.sprite-Konfigurator{ background-position: 0 -667px; width: 28px; height: 25px; }
+.sprite-Konfigurator:hover, .sprite-Konfigurator_active{ background-position: 0 -742px; width: 28px; height: 25px; }
+.sprite-Liste{ background-position: 0 -817px;height: 25px;margin-left: -42px !important;padding-top: 3px;width: 25px;}
+.sprite-Liste span {padding-left: 35px;}
+.sprite-Loeschen{ background-position: 0 -892px; width: 16px; height: 16px; opacity: 0.6; margin: 0 4px;}
+.sprite-Loeschen:hover{ background-position: 0 -958px; width: 16px; height: 16px; opacity: 0.4; margin: 0 4px;}
+.sprite-Mal{ background-position: 0 -1024px; width: 20px; height: 20px; position: absolute; margin: 8px 0 0 5px; cursor: default;}
+/*.sprite-Mal:hover{ background-position: 0 -1094px; width: 20px; height: 20px; position: absolute; margin: 8px 0 0 5px; opacity: 0.6; } */
+.sprite-Matrial{ background-position: 0 -1164px; width: 28px; height: 30px; }
+.sprite-MeinKonto{ background-position: 0 -1244px; width: 23px; height: 25px; }
+.sprite-MeinKonto:hover, .sprite-MeinKonto_active{ background-position: 0 -1319px; width: 23px; height: 25px; }
+.sprite-Menue-smartphone{ background-position: 0 -1394px; width: 16px; height: 15px; }
+.sprite-Minus{ background-position: 0 -1459px; width: 20px; height: 5px; position: absolute; margin: 16px 0 0 69px; }
+.sprite-Minus:hover{ background-position: 0 -1514px; width: 20px; height: 5px; position: absolute; margin: 16px 0 0 69px; opacity: 0.6; }
+.sprite-Plus{ background-position: 0 -1569px; width: 20px; height: 20px; position: absolute; margin: 9px 0 0 99px; }
+.sprite-Plus:hover{ background-position: 0 -1639px; width: 20px; height: 20px; position: absolute; margin: 9px 0 0 99px; opacity: 0.6; }
+.sprite-Produkte{ background-position: 0 -1709px; width: 32px; height: 25px; }
+.sprite-Produkte:hover, .sprite-Produkte_active{ background-position: 0 -1784px; width: 32px; height: 25px; }
+.sprite-Stift{ background-position: 0 -1859px; width: 16px; height: 16px; opacity: 0.6; margin: 0 4px;}
+.sprite-Stift:hover{ background-position: 0 -1925px; width: 16px; height: 16px; opacity: 0.4; margin: 0 4px;}
+.sprite-Warenkorb{ background-position: -82px 0; width: 25px; height: 27px; }
+.sprite-Warenkorb:hover, .sprite-Warenkorb_active, .sprite-Warenkorb_activeBtn{ background-position: -82px -77px; width: 25px; height: 27px; }
+
+.aktualisieren-greenBtn{
+    background: url(../Aktualisieren_green.png) no-repeat top left;
+    display: inline-block;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    opacity: 0.6;
+}
+.aktualisieren-greenBtn:hover { opacity: 1; }
+
+.sprite-Konfigurator, .sprite-Konfigurator_active, .sprite-Anfrage, .sprite-Anfrage_active, .sprite-MeinKonto, .sprite-MeinKonto_active, .sprite-Warenkorb, .sprite-Warenkorb_active, .sprite-Produkte, .sprite-Produkte_active {
+    position: absolute;
+}
+.sprite-Warenkorb_activeBtn { margin-left: 10px; padding-left: 12px; padding-top: 5px; width: 100%; }
+.sprite-Bearbeitung, .sprite-Halterung, .sprite-Matrial { margin: 1px 0 0 24px; position: absolute; }
+
+.produktNormalBtn { background-color: #444444 !important; float: right; margin: 5px 0px 5px 12px !important; opacity: 0.8; width: 100px; }
+.produktActiveBtn { background-color: #34B07C !important; float: right; margin: 5px 0px 5px 12px !important; opacity: 0.8; width: 100px; }
+
+.addMaterialBtn { cursor: pointer; }
+
+input[type="radio"] { position: absolute;  clip: rect(0,0,0,0); }
+input[type="radio"]:focus + label{ font-weight: bold; }
+input[type="radio"] + label { background: transparent url("../htmlStyle.png") no-repeat 0 -21px; }
+input[type="radio"] + label { background-position: 0 -21px; }
+input[type="radio"]:checked + label { background-position: 0 0px; }
+
+#view-kanten-facette, #view-eckbearbeitung-radius, #view-eckbearbeitung-x, #view-eckbearbeitung-y, #view-bohrungen-d, #view-bohrungen-x, #view-bohrungen-y, #view-senkungen-x, #view-senkungen-y, #view-halterMitBohrung-x, #view-halterMitBohrung-y, #view-halterOhneBohrung-qty {
+    height: 24px !important;
+    padding: 2px 14px;
+    color: #444444;
+    font-size: 11pt !important;
+    text-align: left !important;
+    width: 90%;
+}
+#filter-halterMitBohrung-artikel, #filter-halterOhneBohrung-artikel {
+    height: 24px !important;
+    padding: 2px 14px;
+    color: #444444;
+    font-size: 11pt !important;
+    text-align: left !important;
+    width: 100%;
+}
+
+#view-halterMitBohrung-x, #view-halterMitBohrung-y, #view-halterOhneBohrung-qty {width: 62px; margin:4px !important;}
+#addHalterMitBohrungBtn, #editHalterMitBohrungBtn, #addHalterOhneBohrungBtn, #editHalterOhneBohrungBtn {text-align: center; display: inline-block; margin: 2px;}
+
+#addBohrungenBtn, #addSenkungenBtn{margin-bottom: 0 !important;}
+#view-senkungen-schrauben {margin-top: -12px !important;}
+#view-bohrungen-d {margin-top: -11px !important;}
+#view-bohrungen-x, #view-bohrungen-y {margin-top: 5px !important;}
+#view-facceten-img {margin-top: -5px !important;}
+#view-eckbearbeitung-x, #view-eckbearbeitung-y,  #view-eckbearbeitung-radius {margin-top: -11px !important;}
+#view-halterMitBohrung-auswahl {margin-top: -19px;}
+#view-halterOhneBohrung-auswahl {margin-top: -18px;}
+#view-halterOhneBohrung-qty {width: 60px !important; display: inline-block;}
+
+
+#view-halterOhneBohrung-selection table tbody tr td input,
+#view-halterOhneBohrung-selection table tbody tr td select,
+#view-ecken-selection table tbody tr td input,
+#view-ecken-selection table tbody tr td select,
+#view-bohrungen-selection table tbody tr td input,
+#view-bohrungen-selection table tbody tr td select,
+#view-senkungen-selection table tbody tr td input,
+#view-senkungen-selection table tbody tr td select{
+    font-size: 10pt !important;
+    height: 22px;
+    margin: 0 auto !important;
+    padding: 2px;
+    vertical-align: middle !important;
+    width: 80%;
+}
+
+/* Tooltips */
+.konfiguratorTooltip {
+    display: none;
+    width: 600px;
+    height: auto;
+    /*position: absolute;
+    //left: 50%;
+    background-color: #ffffff;
+    //background-color: rgba(255,255,255,0.8);
+
+    margin-left: -200px;
+    z-index: 9999;
+    padding: 12px;*/
+}
+.konfiguratorTooltip p, .qtip-content p {
+    font-family: Arial;
+    font-size: 8pt;
+    line-height: 1.2;
+    margin-bottom: 5px;
+}
+
+.konfiguratorTooltip dl, .qtip-content dl {
+    font-family: Arial;
+    font-size: 8pt;
+    line-height: 1.2;
+    margin-bottom: 5px;
+}
+.konfiguratorTooltip dl dd, .qtip-content dl dd {
+    margin-left: 50px;
+}
+
+/* Fehlermeldungen */
+.error {color: #A51107;font-size: 10pt;padding-left: 16px;font-family: Arial;}
+
+.ui-buttonset {
+    margin-right: 0 !important;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl, .ui-corner-right, .ui-corner-br {
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background: #CCCCCC !important;
+    border: 1px solid #FFFFFF !important;
+    color: #444444 !important;
+    font-family: Arial !important;
+    font-size: 12px !important;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    color: #FFFFFF !important;
+    background: #666666 !important;
+    font-family: Arial !important;
+    font-size: 12px !important;
+}
+.ui-button:hover, .ui-button:active {
+    color: #FFFFFF !important;
+    background: #666666 !important;
+}
+
+.ecken-info-btn {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 6px;
+    cursor: pointer ! important;
+    background-image: url("../smoothness/images/ui-icons_cd0a0a_256x240.png") !important;
+    /*background-position: -16px -144px;*/
+    opacity: 0.6;
+}
+.ecken-info-btn:hover {
+    opacity: 1;
+}
+
+/* Menü */
+
+.dropdown-menu {
+    background-color: #222 !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border: none !important;
+    border-right: 1px solid rgba(0,0,0,.15) !important;
+    padding: 0px !important;
+}
+
+.dropdown-menu li a {
+    line-height: 45px !important;
+    color: #FFFFFF !important;
+}
+
+/* Produkt filter */
+.product-filter-header {
+    color: #34B07C; font-family: Arial; font-size: 10pt; margin-bottom: -12px;
+}
+#close-product-ohneB-Filter, #close-product-mitB-Filter {cursor: pointer;}

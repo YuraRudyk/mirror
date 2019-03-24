@@ -1,0 +1,11 @@
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+	<div class="bearbeitungHeader">
+		<div class="sprite-Halterung"></div>
+		<h4>Befestigung</h4>
+	</div>
+	<div id="konfigurator-view-befestigung" class="panel-group" role="tablist" aria-multiselectable="false"> 
+		<glacryl:Rahmen montagen="{montagen}" edit="{edit}" imgPath="<glacryl:configValue config='{shopConfig}' key='rahmenImgPath' />" />
+	</div>
+</div>

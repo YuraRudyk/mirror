@@ -1,0 +1,64 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+<f:switch expression="{field.css}">
+	<f:case value="halfwidth">
+		<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="form-group">
+				<f:form.textfield
+						type="{vh:Validation.FieldTypeFromValidation(field:field)}"
+						property="{field.marker}"
+						placeholder="{field.placeholder}"
+						value="{vh:Misc.PrefillField(field:field, mail:mail)}"
+						class="powermail_input {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}"
+						additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+						id="powermail_field_{field.marker}" />
+			</div>
+		</div>
+	</f:case>
+	<f:case value="fullwidth">
+		<div class="csc-mailform-field">
+			<div class="frmlbl">
+				<f:render partial="Form/FieldLabel" arguments="{_all}" />
+			</div>
+			<div class="frminp">
+				<vh:Form.SelectField
+						options="{field.modifiedSettings}"
+						property="{field.marker}"
+						class="powermail_select {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}"
+						id="powermail_field_{field.marker}"
+						additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+						multiple="{field.multiselectForField}"
+						value="{vh:Misc.PrefillField(field:field, mail:mail)}" />
+			</div>
+			<div class="clboth"></div>
+		</div>
+	</f:case>
+	<f:case default="TRUE">
+		<div class="powermail_fieldwrap powermail_fieldwrap_type_select powermail_fieldwrap_{field.marker} {field.css} {settings.styles.framework.fieldAndLabelWrappingClasses}">
+			<f:render partial="Form/FieldLabel" arguments="{_all}" />
+
+			<div class="{settings.styles.framework.fieldWrappingClasses}">
+				<vh:Form.SelectField
+						options="{field.modifiedSettings}"
+						property="{field.marker}"
+						class="powermail_select {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}"
+						id="powermail_field_{field.marker}"
+						additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+						multiple="{field.multiselectForField}"
+						value="{vh:Misc.PrefillField(field:field, mail:mail)}" />
+
+				<f:if condition="{field.multiselect}">
+					<f:if condition="{settings.validation.client}">
+						<div class="powermail_field_error_container powermail_field_error_container_{field.marker}"></div>
+					</f:if>
+				</f:if>
+			</div>
+		</div>
+	</f:case>
+</f:switch>
+
+
+
+
+
+
+

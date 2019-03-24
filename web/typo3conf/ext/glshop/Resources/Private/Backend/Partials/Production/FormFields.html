@@ -1,0 +1,13 @@
+
+<label for="file">
+	<f:translate key="tx_glshop_domain_model_production.file" />
+</label><br />
+	<f:form.textarea property="file" cols="40" rows="15" /><br />
+<label for="date">
+	<f:translate key="tx_glshop_domain_model_production.date" />
+</label><br />
+	<f:form.textfield property="date"  value="{production.date->f:format.date()}" /><br />
+<label for="send">
+	<f:translate key="tx_glshop_domain_model_production.send" />
+</label><br />
+	<f:form.textfield property="send" /><br />

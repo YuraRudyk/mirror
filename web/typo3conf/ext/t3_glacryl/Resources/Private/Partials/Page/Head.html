@@ -1,0 +1,32 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<v:page.header>
+
+    <f:if condition="{settings.content.element.headerHTML} > 0">
+        <v:content.render contentUids="{0: '{settings.content.element.headerHTML}'}" render="1"/>
+    </f:if>
+
+    <f:if condition="{settings.manualCSS} == 1">
+        <f:if condition="{stylesheets -> f:count()} > 0">
+            <f:for each="{stylesheets}" as="stylesheet" iteration="iteration">
+                <v:asset.style path="{stylesheet.css.fileLocalCSS}" name="css{iteration.cycle}" overwrite="1" external="1" standalone="1" rewrite="0" fluid="0" variables="" namedChunks="0" />
+            </f:for>
+        </f:if>
+    </f:if>
+
+    <f:comment>
+    <f:if condition="{v:page.info(field: 'uid')} == {settings.page.home}">
+        <!-- Start Cookie Plugin -->
+        <script type="text/javascript">
+            window.cookieconsent_options = {
+                message: 'Diese Website nutzt Cookies, um bestmögliche Funktionalität bieten zu können.',
+                dismiss: 'Ok, verstanden',
+                learnMore: '<a href=/datenschutz/>Mehr Infos ...</a> ',
+                link: '/datenschutz/',
+                theme: 'dark-bottom'
+            };
+        </script>
+        <script type="text/javascript" src="//s3.amazonaws.com/valao-cloud/cookie-hinweis/script.js"></script>
+        <!-- Ende Cookie Plugin -->
+    </f:if>
+    </f:comment>
+</v:page.header>

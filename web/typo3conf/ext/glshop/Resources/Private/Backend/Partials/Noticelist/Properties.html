@@ -1,0 +1,35 @@
+
+<table class="tx-glshop" >
+	<tr>
+		<td>
+			<f:translate key="tx_glshop_domain_model_noticelist.notice_nr" />
+		</td>
+		<td>
+			{noticelist.noticeNr}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_glshop_domain_model_noticelist.date" />
+		</td>
+		<td>
+			{noticelist.date -> f:format.date()}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_glshop_domain_model_noticelist.article" />
+		</td>
+		<td>
+			{noticelist.article}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_glshop_domain_model_noticelist.expire" />
+		</td>
+		<td>
+			{noticelist.expire -> f:format.date()}
+		</td>
+	</tr>
+</table>

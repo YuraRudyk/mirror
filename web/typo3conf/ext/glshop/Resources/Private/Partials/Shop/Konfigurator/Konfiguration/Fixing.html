@@ -1,0 +1,298 @@
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+	<div class="bearbeitungHeader">
+		<div class="sprite-Halterung"></div>
+		<h4>Halterungen</h4>
+	</div>
+	<div id="konfigurator-view-halter" class="panel-group" role="tablist" aria-multiselectable="false"> 
+
+		<!-- Halter mit Bohrungen -->
+
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="title-panel-fixing-var1">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#konfigurator-view-halter" href="#panel-fixing-var1" aria-expanded="true" aria-controls="panel-fixing-var1">Befestigung inkl. Bohrungen</a> 
+				</h4>
+				<span class="right info-icon hMb">i</span>
+			</div>
+			<div id="panel-fixing-var1" class="content panel-collapse collapse out" role="tabpanel" aria-labelledby="title-panel-fixing-var1">
+				<div class="panel-body">
+					<div class="error"></div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<p style="font-family: Arial; font-size: 12pt; color: #444444;margin:4px 0;">Ecke ausw&auml;hlen</p>
+						</div>
+						<div id="view-halterMitBohrung-eckAuswahl" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+						</div>
+					</div>
+					<div class="row view-vorschau-mBohrung">
+						<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+							<button type="button" class="glButton btn btn-default btn-lg btn-block" id="filter-view" style="width:95% !important;">Halter ausw&auml;hlen</button>
+						</div>
+						<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5"></div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 view-halterMitBohrung-selection">
+							<input type="hidden" id="view-halterMitBohrung-auswahlHId" value="" />
+							<input type="hidden" id="view-halterMitBohrung-variantenId" value="" />
+							<input type="hidden" id="view-halterMitBohrung-configIndex" value="" />
+							<table>
+								<thead>
+									<tr>
+										<th colspan="4" style="text-align: left; padding: 6px !important;"><b>Halter:</b> <span class="view-halterMitBohrung-HalterAuswahlPreview" style="color:#444444;"></span></th>
+										<th id="close-detailMitHalter" title="Schlie&szlig;en">X</th>
+									</tr>
+									<tr>
+										<th colspan="5" style="text-align: left; padding: 6px !important;"><b>Material:</b> <span class="view-halterMitBohrung-HalterAuswahlMaterial" style="color:#444444;"></span></th>
+									</tr>
+									<tr>
+										<th colspan="5" style="text-align: left; padding: 6px !important;"><b>Art.Nr.:</b> <span class="view-halterMitBohrung-HalterAuswahlArtNr" style="color:#444444;"></span></th>
+									</tr>
+									<tr>
+										<th width="10">Wandabst. (mm)</th>
+										<th width="10">Gr&ouml;&szlig;e (mm)</th>					
+										<th width="10">Kopfform</th>
+										<th width="10">Preis &euro;/Stk.</th>
+										<th width="10">Bild</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="view-halterMitBohrung-HalterAuswahlWand" style="vertical-align: middle;"></td>
+										<td class="view-halterMitBohrung-HalterAuswahlSize" style="vertical-align: middle;"></td>
+										<td class="view-halterMitBohrung-HalterAuswahlKopf" style="vertical-align: middle;"></td>
+										<td class="view-halterMitBohrung-HalterAuswahlPreis" style="vertical-align: middle;"></td>
+										<td>
+											<a href="" class="view-halterMitBohrung-Img" data-lightbox="halterMBohrungDetail" data-title="">
+												<img width="50" height="50" class="img-responsive view-halterMitBohrung-Img-preview" src="" />
+											</a>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot id="halter-mitBohrung-AbstandEdit">
+									<tr>
+										<th colspan="5">Abstand zur Ecke</th>
+									</tr>
+									<tr>
+										<th>X in mm</th>
+										<th>Y in mm</th>
+										<th colspan="3" style="text-align: center;">Aktion</th>
+									</tr>
+									<tr>
+										<td><input id="view-halterMitBohrung-x" type="text" maxlength="4"></td>
+										<td><input id="view-halterMitBohrung-y" type="text" maxlength="4"></td>
+										<td colspan="3" style="padding:4px 0;">
+											<button id="addHalterMitBohrungBtn" type="button" class="glButton btn btn-default btn-lg btn-block">Hinzuf&uuml;gen</button>
+											<button style="display: none;" id="editHalterMitBohrungBtn" type="button" class="glButton btn btn-default btn-lg btn-block">&Auml;ndern</button>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+					<div class="view-halterAuswahl-mBohrung" style="display: none;">
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<h6 class="product-filter-header">Filter:</h6>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<h6 id="close-product-mitB-Filter" class="product-filter-header right">Schlie&szlig;en</h6>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+								<select id="filter-halterMitBohrung-verwendung">
+
+								</select>
+								<label for="filter-halterMitBohrung-verwendung" style="font-size: 11pt ! important; margin: 5px 0px 5px;">Verwendung</label>
+							</div>
+							<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+								<select id="filter-halterMitBohrung-material">
+
+								</select>
+								<label for="filter-halterMitBohrung-material" style="font-size: 11pt ! important; margin: 5px 0px 5px;">Material</label>
+							</div>
+							<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+								<input type="text" id="filter-halterMitBohrung-artikel" >
+								<label for="filter-halterMitBohrung-artikel" style="font-size: 11pt ! important; margin: 0px 0px 5px;">Art.Nr.</label>
+							</div>
+						</div>
+						<div class="row">
+							<div id="filter-halterMitBohrung-Container" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="border: 1px solid #B4A97F; padding: 0 12px 12px 12px !important; margin: 6px 0 12px 0 !important;">
+
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<h6 style="color: #34B07C; font-family: Arial; font-size: 10pt; margin: 0;">Erfasste Halterungen:</h6>
+						</div>
+					</div>
+					<div class="row">
+						<div id="view-halterMitBohrung-selection" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<table>
+								<colgroup>
+									<col width="1*">
+									<col width="30">
+									<col width="30">
+									<col width="1*">
+									<col width="65">
+								</colgroup>
+								<thead>
+									<tr>
+										<th width="20">Ecke(n)</th>
+										<th width="10">X</th>					
+										<th width="10">Y</th>
+										<th width="10">Halter </th>
+										<th>Aktion</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div> 
+		</div> 
+
+		<!-- Halter ohne Bohrungen -->
+
+		<div class="panel panel-default last">
+			<div class="panel-heading" role="tab" id="title-panel-fixing-var2">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#konfigurator-view-halter" href="#panel-fixing-var2" aria-expanded="false" aria-controls="panel-fixing-var2">Befestigung am Plattenrand</a> 
+				</h4>
+				<span class="right info-icon hOb">i</span>
+			</div>
+			<div id="panel-fixing-var2" class="panel-collapse collapse out content" role="tabpanel" aria-labelledby="title-panel-fixing-var2">
+				<div class="panel-body">
+					<div class="error"></div>
+
+					<div class="row view-vorschau-oBohrung" >
+						<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+							<button type="button" class="glButton btn btn-default btn-lg btn-block" id="filter-view-ohne" style="width:95% !important;">Halter ausw&auml;hlen</button>
+						</div>
+						<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5"></div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 view-halterOhneBohrung-selection">
+							<input type="hidden" id="view-halterOhneBohrung-auswahlHId" value="" />
+							<input type="hidden" id="view-halterOhneBohrung-variantenId" value="" />
+							<input type="hidden" id="view-halterOhneBohrung-configIndex" value="" />
+							<table>
+								<thead>
+									<tr>
+										<th colspan="4" style="text-align: left; padding: 6px !important;"><b>Halter:</b> <span class="view-halterOhneBohrung-HalterAuswahlPreview" style="color:#444444;"></span></th>
+										<th id="close-detailOhneHalter" title="Schlie&szlig;en">X</th>
+									</tr>
+									<tr>
+										<th colspan="5" style="text-align: left; padding: 6px !important;"><b>Material:</b> <span class="view-halterOhneBohrung-HalterAuswahlMaterial" style="color:#444444;"></span></th>
+									</tr>
+									<tr>
+										<th colspan="5" style="text-align: left; padding: 6px !important;"><b>Art.Nr.:</b> <span class="view-halterOhneBohrung-HalterAuswahlArtNr" style="color:#444444;"></span></th>
+									</tr>
+									<tr>
+										<th width="10">Wandabst. (mm)</th>
+										<th width="10">Gr&ouml;&szlig;e (mm)</th>					
+										<th width="10">Kopfform</th>
+										<th width="10">Preis &euro;/Stk.</th>
+										<th width="10">Bild</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="view-halterOhneBohrung-HalterAuswahlWand" style="vertical-align: middle;"></td>
+										<td class="view-halterOhneBohrung-HalterAuswahlSize" style="vertical-align: middle;"></td>
+										<td class="view-halterOhneBohrung-HalterAuswahlKopf" style="vertical-align: middle;"></td>
+										<td class="view-halterOhneBohrung-HalterAuswahlPreis" style="vertical-align: middle;"></td>
+										<td>
+											<a href="" class="view-halterOhneBohrung-Img" data-lightbox="halterOBohrungDetail" data-title="">
+												<img width="50" height="50" class="img-responsive view-halterOhneBohrung-Img-preview" src="" />
+											</a>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot id="halter-ohneBohrung-qtyEdit">
+									<tr>
+										<th colspan="5">Anzahl</th>
+									</tr>
+									<tr>
+										<th colspan="2">St&uuml;ck</th>
+										<th colspan="3" style="text-align: center;">Aktion</th>
+									</tr>
+									<tr>
+										<td colspan="2"><input id="view-halterOhneBohrung-qty" type="text" maxlength="4"></td>
+										<td colspan="3" style="padding:4px 0;">
+											<button  id="addHalterOhneBohrungBtn" type="button" class="glButton btn btn-default btn-lg btn-block">Hinzuf&uuml;gen</button>
+											<button style="display: none;" id="editHalterOhneBohrungBtn" type="button" class="glButton btn btn-default btn-lg btn-block">&Auml;ndern</button>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+
+
+					<div class="view-halterAuswahl-oBohrung" style="display: none;">
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<h6 class="product-filter-header">Filter:</h6>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<h6 id="close-product-ohneB-Filter" class="product-filter-header right">Schlie&szlig;en</h6>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+								<select id="filter-halterOhneBohrung-verwendung">
+
+								</select>
+								<label for="filter-halterOhneBohrung-verwendung" style="font-size: 11pt ! important; margin: 5px 0px 5px;">Verwendung</label>
+							</div>
+							<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+								<select id="filter-halterOhneBohrung-material">
+
+								</select>
+								<label for="filter-halterOhneBohrung-material" style="font-size: 11pt ! important; margin: 5px 0px 5px;">Material</label>
+							</div>
+							<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+								<input type="text" id="filter-halterOhneBohrung-artikel" >
+								<label for="filter-halterOhneBohrung-artikel" style="font-size: 11pt ! important; margin: 0px 0px 5px;">Art.Nr.</label>
+							</div>
+						</div>
+						<div class="row">
+							<div id="filter-halterOhneBohrung-Container" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="border: 1px solid #B4A97F; padding: 0 12px 12px 12px !important; margin: 6px 0 12px 0 !important;">
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<h6 style="color: #34B07C; font-family: Arial; font-size: 10pt; margin:0;">Erfasste Halterungen:</h6>
+						</div>
+					</div>
+					<div class="row">
+						<div id="view-halterOhneBohrung-selection" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<table>
+								<colgroup>
+									<col width="30">
+									<col width="1*">
+									<col width="65">
+								</colgroup>
+								<thead>
+									<tr>
+										<th width="10">Stk.</th>
+										<th width="10">Halter </th>
+										<th>Aktion</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div> 
+			</div> 
+		</div> 
+	</div>
+</div>

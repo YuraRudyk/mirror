@@ -1,0 +1,108 @@
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+
+
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" xmlns:f="http://www.w3.org/1999/html">
+	<div class="bearbeitungHeader">
+		<div class="sprite-Matrial"></div>
+		<h4>Material</h4>
+	</div>
+	<div id="view-material-auswahl" class="panel-group" role="tablist" aria-multiselectable="false">
+		<f:for each="{material}" as="m" key="i" iteration="type">
+			<div class="panel panel-default
+				 <f:if condition="{type.isLast}">
+				<f:then>last</f:then>
+				</f:if>
+				">
+				<div class="panel-heading" role="tab" id="title_material_panel_{m.uid}">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#view-material-auswahl" href="#material_panel_{m.uid}" aria-expanded="true" aria-controls="material_panel_{m.uid}">{m.name}</a>
+					</h4>
+					<span class="right info-icon mat">i</span>
+				</div>
+				<div id="material_panel_{m.uid}" 
+					 <f:if condition="{edit}">
+						<f:then>
+							<f:if condition="{edit.material.uid} == {m.uid}">
+								<f:then>
+									class="content panel-collapse collapse out in"
+								</f:then>
+								<f:else>
+									class="content panel-collapse collapse out"
+								</f:else>
+							</f:if>
+						</f:then>
+						<f:else>
+							class="content panel-collapse collapse out"
+						</f:else>
+					</f:if>
+					role="tabpanel" aria-labelledby="title_material_panel_{m.uid}">
+					<div class="panel-body">
+						<div class="error"></div>
+						<input type="hidden" name="materialUid" value="{m.uid}" />
+						<f:if condition="{m.materialoption -> f:count()} == 1">
+							<f:then>
+								<input type="hidden" value="{m.materialoption.0.uid}" name="variantenUid" />
+								<p style="padding: 0 0 0 16px; margin-bottom: 0px;">{m.materialoption.0.name}</p>
+							</f:then>
+							<f:else>
+								<select>
+									<f:for each="{m.materialoption}" as="o" key="j" iteration="oType">
+										<option value="{o.uid}"
+									<f:if condition="{edit}">
+										<f:if condition="{edit.material.uid} == {m.uid}">
+											<f:if condition="{edit.material.vid} == {o.uid}">
+												selected
+											</f:if>
+										</f:if>	
+									</f:if>
+									>{o.name}</option>
+								</f:for>
+							</select>
+						</f:else>
+					</f:if>
+					<div class="row">
+						<div id="sizeAuswahl_{m.uid}" class="col-sm-6 col-md-6 col-lg-6 view-material-size">
+							<f:if condition="{edit}">
+								<f:then>
+									<f:if condition="{edit.material.uid} == {m.uid}">
+										<f:then>
+											<f:for each="{m.materialoption}" as="o" key="j" iteration="oType">
+												<f:if condition="{o.uid} == {edit.material.vid}">
+													<f:for each="{o.materialoptiontype}" as="t" key="k" iteration="tType">
+														<p><input
+														<f:if condition="{edit.material.size} == {t.size}">
+															checked="checked"
+														</f:if>
+														class="addMaterialBtn" id="size_{m.uid}_{o.uid}_{t.uid}" type="radio" name="dicke" value="{t.size}"><label for="size_{m.uid}_{o.uid}_{t.uid}">{t.size} mm</label></p>																									
+													</f:for>
+												</f:if>
+											</f:for>
+										</f:then>
+										<f:else>
+											<f:for each="{m.materialoption.0.materialoptiontype}" as="t" key="k" iteration="tType">
+												<p><input class="addMaterialBtn" id="size_{m.uid}_{m.materialoption.0.uid}_{t.uid}" type="radio" name="dicke" value="{t.size}"><label for="size_{m.uid}_{m.materialoption.0.uid}_{t.uid}">{t.size} mm</label></p>										
+											</f:for>											
+										</f:else>
+									</f:if>
+								</f:then>
+								<f:else>
+									<f:for each="{m.materialoption.0.materialoptiontype}" as="t" key="k" iteration="tType">
+										<p><input class="addMaterialBtn" id="size_{m.uid}_{m.materialoption.0.uid}_{t.uid}" type="radio" name="dicke" value="{t.size}"><label for="size_{m.uid}_{m.materialoption.0.uid}_{t.uid}">{t.size} mm</label></p>										
+									</f:for>
+								</f:else>
+							</f:if>
+						</div>
+						<div class="col-sm-6 col-md-6 col-lg-6 materialImg">
+							<f:comment>
+								<a href="<glacryl:configValue config='{shopConfig}' key='materialImgPath' />{m.materialoption.0.pic}" data-lightbox="material{m.uid}" data-title="{m.name}" >
+									<img class="img-responsive" src="<glacryl:configValue config='{shopConfig}' key='materialImgPath' /><glacryl:img type='path' /><glacryl:img type='name' imgName='{m.materialoption.0.pic}' />" />
+								</a>
+							</f:comment>
+						</div>
+					</div>
+				</div> 
+			</div>
+		</div>
+	</f:for>
+</div>
+</div>

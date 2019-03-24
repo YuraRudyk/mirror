@@ -1,0 +1,33 @@
+plugin.tx_powermail {
+	view {
+		templateRootPaths {
+			1 = {$plugin.tx_powermail.view.templateRootPath}
+			0 = {$plugin.tx_powermail.view.templateRootPath}
+		}
+		partialRootPaths {
+			1 = {$plugin.tx_powermail.view.partialRootPath}
+			0 = {$plugin.tx_powermail.view.partialRootPath}
+			20 = {$plugin.tx_powermail.view.partialRootPath}Jhcaptcharecaptcha
+		}
+		layoutRootPaths {
+			1 = {$plugin.tx_powermail.view.layoutRootPath}
+			0 = {$plugin.tx_powermail.view.layoutRootPath}
+		}
+	}
+}
+
+# Recommended settings for Cleverreach
+plugin.tx_powermail.settings.spamshield.enable = 0
+plugin.tx_powermail.settings.validation.client = 0
+
+#plugin.tx_powermail.settings.setup.misc.ajaxSubmit = 1
+
+#plugin.tx_jhcaptcha {
+#    settings {
+#        reCaptcha {
+#              siteKey = 6LcsCUIUAAAAANKS1ewsOQHifQSqchPx5VrK2Fmi
+#              secretKey = 6LcsCUIUAAAAAGVGvGZr24v8io6CGneQLIIRtrgw
+#              lang = de
+#        }
+#    }
+#}

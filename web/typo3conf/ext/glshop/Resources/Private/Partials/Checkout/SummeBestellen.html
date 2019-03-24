@@ -1,0 +1,79 @@
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+
+<div class="row">
+	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
+	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+		<div class="row cart-summary">
+			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+				<p><b>Summe netto</b></p>
+				<f:if condition="{prices.rabatt} != '0'" >
+					<p>- Sondernachlass</p>
+				</f:if>
+				<f:if condition="{prices.ewPalette} != '0'" >
+					<p>+ Aufpreis f&uuml;r Einwegpalette</p>
+				</f:if>
+				<f:if condition="{prices.ewPalette} != '0'" >
+					<f:then>
+						<p><b>Zwischensumme</b></p>	
+					</f:then>
+					<f:else>
+						<f:if condition="{prices.rabatt} != '0'">
+							<p><b>Zwischensumme</b></p>		
+						</f:if>
+					</f:else>
+				</f:if>
+				<f:if condition="{prices.werbelandRabatt} != '0'" >
+					<p>- Werbelandrabatt ({prices.werbelandRabatt}%)</p>
+				</f:if>
+				<p>+ Versand netto</p>
+				<p><b>Zwischensumme</b></p>
+				<p>+ MwSt. (19%)</p>
+				<p style="padding-top: 5px;"><b>Gesamtbetrag</b></p>
+			</div>
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+				<p id="kasse-netto"><b><glacryl:price price="{prices.netto}" /></b></p>
+				<f:if condition="{prices.rabatt} != '0'" >
+					<p><glacryl:price price="{prices.rabatt}" /></p>
+				</f:if>
+				<f:if condition="{prices.ewPalette} != '0'" >
+					<p><glacryl:price price="{prices.ewPalette}" /></p>
+				</f:if>
+				<f:if condition="{prices.ewPalette} != '0'" >
+					<f:then>
+						<p id="kasse-zwischen"><b><glacryl:price price="{prices.zwischen}" /></b></p>	
+					</f:then>
+					<f:else>
+						<f:if condition="{prices.rabatt} != '0'">
+							<p id="kasse-zwischen"><b><glacryl:price price="{prices.zwischen}" /></b></p>		
+						</f:if>
+					</f:else>
+				</f:if>
+				<f:if condition="{prices.werbelandRabatt} != '0'" >
+					<p id="kasse-werbeland"><glacryl:price price="{prices.werbelandRabattSumme}" /></p>
+				</f:if>
+				<p id="kasse-versand"><glacryl:price price="{prices.versand}" /></p>
+
+				<f:if condition="{prices.zwischenNachWerbeland} != '0'" >
+					<f:then>
+						<p id="kasse-zwischenSumme"><b><glacryl:price price="{prices.zwischenNachWerbeland}" /></b></p>
+					</f:then>
+					<f:else>
+						<p id="kasse-zwischenSumme"><b><glacryl:price price="{prices.zwischen}" /></b></p>
+					</f:else>
+				</f:if>
+				<p id="kasse-mwst"><glacryl:price price="{prices.mwst}" /></p>
+				<p id="kasse-brutto" style="padding-top: 5px;"><b><glacryl:price price="{prices.brutto}" /></b></p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row kasse-placeorder" style="margin-top: -12px;">
+	<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+		<p>Ich habe die AGB's und Widerrufsbelehrung gelesen und bin damit einverstanden</p>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+		<f:if condition="{userGroup} != '4'" >
+			<button type="button" id="kasse-bestellenBtn" class="btn btn-default glButtonFullWidth">Zahlungspflichtig bestellen</button>
+		</f:if>
+	</div>
+</div>

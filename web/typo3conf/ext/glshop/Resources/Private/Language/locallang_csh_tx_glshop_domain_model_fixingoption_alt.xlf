@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2014-10-20T16:54:48Z" product-name="glshop">
+		<header/>
+		<body>
+			<trans-unit id="article_nr.description">
+				<source>articleNr</source>
+			</trans-unit>
+			<trans-unit id="name.description">
+				<source>name</source>
+			</trans-unit>
+			<trans-unit id="material.description">
+				<source>material</source>
+			</trans-unit>
+			<trans-unit id="fix.description">
+				<source>fixing</source>
+			</trans-unit>
+			<trans-unit id="head.description">
+				<source>head</source>
+			</trans-unit>
+			<trans-unit id="leange.description">
+				<source>length</source>
+			</trans-unit>
+			<trans-unit id="headsize.description">
+				<source>headsize</source>
+			</trans-unit>
+			<trans-unit id="sandwitch.description">
+				<source>sandwitch</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="projection.description">
+				<source>projection</source>
+			</trans-unit>
+			<trans-unit id="from_size.description">
+				<source>fromSize</source>
+			</trans-unit>
+			<trans-unit id="to_size.description">
+				<source>toSize</source>
+			</trans-unit>
+			<trans-unit id="drill_downside.description">
+				<source>drillDownside</source>
+			</trans-unit>
+			<trans-unit id="border_length.description">
+				<source>borderLength</source>
+			</trans-unit>
+			<trans-unit id="position.description">
+				<source>position</source>
+			</trans-unit>
+			<trans-unit id="diameter.description">
+				<source>diameter</source>
+			</trans-unit>
+			<trans-unit id="price.description">
+				<source>price</source>
+			</trans-unit>
+			<trans-unit id="pic.description">
+				<source>pic</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

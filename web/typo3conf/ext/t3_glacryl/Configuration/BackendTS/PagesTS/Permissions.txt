@@ -1,0 +1,10 @@
+TCEMAIN{
+  permissions.userid = 6 # Backend user - Administrator
+  permissions.groupid = 4 # Backend user group - Editor
+
+  permissions.user = show, editcontent, edit, new, delete
+  permissions.group = show, editcontent, edit, new, delete
+
+  # no permissions for 'other'
+  permissions.everybody = 1
+}

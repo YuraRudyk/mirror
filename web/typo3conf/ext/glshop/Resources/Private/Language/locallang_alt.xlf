@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2014-10-20T16:54:47Z" product-name="glshop">
+		<header/>
+		<body>
+			<trans-unit id="tx_glshop_domain_model_material">
+				<source>Material</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_material.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_material.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_material.pic">
+				<source>Pic</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_material.materialoption">
+				<source>Materialoption</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_materialoption">
+				<source>Materialoption</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_materialoption.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_materialoption.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_materialoption.pic">
+				<source>Pic</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_materialoption.materialoptiontype">
+				<source>Materialoptiontype</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_materialoptiontype">
+				<source>Materialoptiontype</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_materialoptiontype.size">
+				<source>Size</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_materialoptiontype.price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_conditions">
+				<source>Conditions</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_conditions.days">
+				<source>Days</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_conditions.reduction">
+				<source>Reduction</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_conditions.netto">
+				<source>Netto</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_conditions.user">
+				<source>User</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixing">
+				<source>Fixing</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixing.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixing.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixing.usefixing">
+				<source>Verwendung</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixing.mounting">
+				<source>Montage</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixing.pic">
+				<source>Pic</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixing.fixingoption">
+				<source>Fixingoption</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption">
+				<source>Fixingoption</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.article_nr">
+				<source>Article Nr</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.material">
+				<source>Material</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.fix">
+				<source>Befestigung</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.head">
+				<source>Kopfform</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.leange">
+				<source>Länge</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.headsize">
+				<source>Kopfstärke</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.sandwitch">
+				<source>Sandwitch</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.projection">
+				<source>Projection</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.from_size">
+				<source>From Size</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.to_size">
+				<source>To Size</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.drill_downside">
+				<source>Drill Downside</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.border_length">
+				<source>Border Length</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.position">
+				<source>Position</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.diameter">
+				<source>Diameter</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.weight">
+				<source>Weight</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_fixingoption.pic">
+				<source>Pic</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_borderediting">
+				<source>Borderediting</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_borderediting.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_borderediting.price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_borderediting.a_max">
+				<source>Max. Aufschlag</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_borderediting.pic">
+				<source>Pic</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_borderediting.bordereditingoption">
+				<source>Bordereditingoption</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bordereditingoption">
+				<source>Bordereditingoption</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bordereditingoption.form_size">
+				<source>Form Size</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bordereditingoption.to_size">
+				<source>To Size</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bordereditingoption.price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_noticelist">
+				<source>Noticelist</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_noticelist.notice_name">
+				<source>Notice Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_noticelist.position">
+				<source>Position</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_noticelist.qty">
+				<source>Qty</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_noticelist.price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_noticelist.pic">
+				<source>Picture</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_noticelist.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_noticelist.article">
+				<source>Article</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_noticelist.details">
+				<source>Details</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_noticelist.expire">
+				<source>Expire</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_noticelist.user">
+				<source>User</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cornerediting">
+				<source>Cornerediting</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cornerediting.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cornerediting.form">
+				<source>Form</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cornerediting.price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cornerediting.pic">
+				<source>Pic</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cornerediting.cornereditingoption">
+				<source>Cornereditingoption</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cornereditingoption">
+				<source>Cornereditingoption</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cornereditingoption.from_size">
+				<source>From Size</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cornereditingoption.to_size">
+				<source>To Size</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cornereditingoption.price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bevel">
+				<source>Bevel</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bevel.thread">
+				<source>Thread</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bevel.drill">
+				<source>Drill</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bevel.bevel">
+				<source>Bevel</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bevel.depth">
+				<source>Depth</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_drill">
+				<source>Drill</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_drill.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_drill.price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_drill.pic">
+				<source>Pic</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_drill.drilloption">
+				<source>Drilloption</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_drilloption">
+				<source>Drilloption</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_drilloption.from_size">
+				<source>From Size</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_drilloption.to_size">
+				<source>To Size</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_drilloption.price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_order">
+				<source>Order</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_order.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_order.article">
+				<source>Article</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_order.comment">
+				<source>Comment</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_order.formular">
+				<source>Formular</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_order.user">
+				<source>User</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_order.confirmation">
+				<source>Confirmation</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_order.production">
+				<source>Production</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_order.delivery">
+				<source>Delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_order.invoice">
+				<source>Invoice</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_order.shippingaddress">
+				<source>Shippingaddress</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_order.orderstatus">
+				<source>Orderstatus</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_order.conditions">
+				<source>Conditions</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_orderstatus">
+				<source>Orderstatus</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_orderstatus.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_orderstatus.orderstate">
+				<source>Orderstate</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_orderstate">
+				<source>Orderstate</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_orderstate.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_orderstate.value">
+				<source>Value</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_orderstate.acr">
+				<source>Acr</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_orderstate.prefix">
+				<source>Prefix</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_orderstate.label">
+				<source>Backend-Label</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_shippingaddress">
+				<source>Shippingaddress</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_shippingaddress.company">
+				<source>Company</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_shippingaddress.person">
+				<source>Person</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_shippingaddress.street">
+				<source>Street</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_shippingaddress.zip">
+				<source>Zip</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_shippingaddress.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_shippingaddress.user">
+				<source>User</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_confirmation">
+				<source>Confirmation</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_confirmation.file">
+				<source>File</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_confirmation.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_confirmation.send">
+				<source>Send</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_production">
+				<source>Production</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_production.file">
+				<source>File</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_production.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_production.send">
+				<source>Send</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_delivery">
+				<source>Delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_delivery.file">
+				<source>File</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_delivery.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_delivery.send">
+				<source>Send</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_invoice">
+				<source>Invoice</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_invoice.file">
+				<source>File</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_invoice.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_invoice.send">
+				<source>Send</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cart">
+				<source>Cart</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cart.session_id">
+				<source>Session Id</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cart.position">
+				<source>Position</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cart.article">
+				<source>Article</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cart.qty">
+				<source>Qty</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cart.notice">
+				<source>Notice</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cart.price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cart.pic">
+				<source>Pic</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_cart.user">
+				<source>User</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_price">
+				<source>Price building</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_price.from_ek">
+				<source>From</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_price.to_ek">
+				<source>To</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_price.factor">
+				<source>Factor</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_price.fe_group">
+				<source>Customer group</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_request">
+				<source>Request</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_request.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_request.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_request.text">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_request.files">
+				<source>Files</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_request.done">
+				<source>Done</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_request.user">
+				<source>User</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_shop">
+				<source>Shop</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_shop.a_key">
+				<source>Key</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_shop.a_value">
+				<source>Value</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_product">
+				<source>Product</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_product.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_product.pic">
+				<source>Pic</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_product.productoption">
+				<source>Productoption</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_productoption">
+				<source>Productoption</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_productoption.article_nr">
+				<source>Article Nr</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_productoption.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_productoption.pic">
+				<source>Pic</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_productoption.price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_productoption.from_size">
+				<source>From Size</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_productoption.to_size">
+				<source>To Size</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_productoption.width">
+				<source>Width</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_productoption.length">
+				<source>Length</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_productoption.height">
+				<source>Height</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_productoption.size">
+				<source>Size</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenprodukt">
+				<source>Rahmenprodukt</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenprodukt.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenprodukt.beschreibung">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenprodukt.bild">
+				<source>Bild</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenprodukt.art_nr">
+				<source>Art Nr</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenprodukt.frontscheibe">
+				<source>Frontscheibe</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenprodukt.preis">
+				<source>Preis</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenprodukt.variante">
+				<source>Variante</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktart">
+				<source>Produktart</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktart.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktart.beschreibung">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktart.produkt">
+				<source>Produkt</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenproduktvariante">
+				<source>Rahmenproduktvariante</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenproduktvariante.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenproduktvariante.beschreibung">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenproduktvariante.bild">
+				<source>Bild</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenproduktvariante.art_nr">
+				<source>Art Nr</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenproduktvariante.laenge">
+				<source>Laenge</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenproduktvariante.dicke">
+				<source>Dicke</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenproduktvariante.sonder">
+				<source>Sonder</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenproduktvariante.sicherheit">
+				<source>Sicherheit</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rahmenproduktvariante.preis">
+				<source>Preis</source>
+			</trans-unit>
+
+			<trans-unit id="tx_glshop_domain_model_rechnungsbuch">
+				<source>Rechnungsbuch</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rechnungsbuch.status">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rechnungsbuch.bestellung">
+				<source>Bestellung</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rechnungsbuch.termin">
+				<source>Termin</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rechnungsbuch.netto">
+				<source>netto</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rechnungsbuch.steuer">
+				<source>steuer</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rechnungsbuch.brutto">
+				<source>brutto</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rechnungsbuch.eingangZahlung">
+				<source>Eingang Zahlung</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rechnungsbuch.abschluss">
+				<source>Abschluss</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_rechnungsbuch.arbeitszeit">
+				<source>Arbeitszeit</source>
+			</trans-unit>
+						
+			<trans-unit id="tx_glshop_domain_model_status">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_status.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_status.farbe">
+				<source>Farbe</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_status.bereich">
+				<source>Bereich</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bereich">
+				<source>Bereich</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bereich.name">
+				<source>Name</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_glshop_domain_model_kategorie">
+				<source>Kategorie</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_kategorie.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_kategorie.bild">
+				<source>Bild</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_kategorie.produkte">
+				<source>Produkte</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_kategorie.shopbereiche">
+				<source>Shopbereiche</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produkt">
+				<source>Produkt</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produkt.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produkt.anzeige_name">
+				<source>Anzeige Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produkt.bild">
+				<source>Bild</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produkt.einzel_verkauf">
+				<source>Einzel Verkauf</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produkt.eigenschaften">
+				<source>Eigenschaften</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produkt.produktvarianten">
+				<source>Produktvarianten</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktvarianten">
+				<source>Produktvarianten</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktvarianten.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktvarianten.anzeige_name">
+				<source>Anzeige Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktvarianten.bilder">
+				<source>Bilder</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktvarianten.eingeschaftenset">
+				<source>Eingeschaftenset</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktvarianten.bearbeitungen">
+				<source>Bearbeitungen</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktvarianten.ausschluss_kategorie">
+				<source>Ausschluss Kategorie</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktvarianten.ausschluss_produkt">
+				<source>Ausschluss Produkt</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktvarianten.ausschluss_variante">
+				<source>Ausschluss Variante</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktvarianten.zubehoer">
+				<source>Zubehoer</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_eigenschaften">
+				<source>Eigenschaften</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_eigenschaften.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_eigenschaften.anzeige_name">
+				<source>Anzeige Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_eigenschaften.einheit">
+				<source>Einheit</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_eigenschaften.datentyp">
+				<source>Datentyp</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_eigenschaftenset">
+				<source>Eigenschaftenset</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_eigenschaftenset.wert">
+				<source>Wert</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_eigenschaftenset.eigenschaften">
+				<source>Eigenschaften</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktbeziehungen">
+				<source>Produktbeziehungen</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktbeziehungen.min_anzahl">
+				<source>Min Anzahl</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktbeziehungen.bestellung_von">
+				<source>Bestellung Von</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktbeziehungen.bestellung_mit">
+				<source>Bestellung Mit</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_shopbereiche">
+				<source>Shopbereiche</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_shopbereiche.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_shopbereiche.anzeige_name">
+				<source>Anzeige Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktsets">
+				<source>Produktsets</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktsets.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktsets.anzeige_name">
+				<source>Anzeige Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktsets.produkte">
+				<source>Produkte</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktsets.eigenschaften">
+				<source>Eigenschaften</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_produktsets.eigenschaftenset">
+				<source>Eigenschaftenset</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_datentypen">
+				<source>Datentypen</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_datentypen.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_datentypen.cast">
+				<source>Cast</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bearbeitungen">
+				<source>Bearbeitungen</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bearbeitungen.taetigkeit">
+				<source>Taetigkeit</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bearbeitungen.haengt_ab_von">
+				<source>Haengt Ab Von</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bearbeitungen.zeitvorgabe">
+				<source>Zeitvorgabe</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bearbeitungen.einheit">
+				<source>Einheit</source>
+			</trans-unit>
+			<trans-unit id="tx_glshop_domain_model_bearbeitungen.min_berechnung">
+				<source>Min Berechnung</source>
+			</trans-unit>
+			
+		</body>
+	</file>
+</xliff>

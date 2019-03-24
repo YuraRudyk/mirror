@@ -1,0 +1,284 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<!-- FOOTER -->
+<f:section name="Home">
+    <footer>
+        <f:render section="Default" arguments="{settings:settings}" />
+    </footer>
+</f:section>
+
+<f:section name="Produkte">
+    <footer>
+    <!-- NACHFULLEN -->
+    <section class="section-nachfullen">
+        <div class="section-container">
+            <div class="layout">
+
+                <div class="layout_column">
+                    <div class="image-wrapper">
+                        <f:if condition="{v:content.get(column: 4) -> f:count()} > 0">
+                            <v:content.render column="4" render="0" as="Img">
+                                {v:resource.record.fal(table: 'tt_content', field: 'assets', uid: Img.0.uid) -> f:count() -> v:variable.set(name: 'imagesCnt')}
+                                <f:if condition="{imagesCnt} > 0">
+                                    {v:resource.record.fal(table: 'tt_content', field: 'assets',
+                                    uid: Img.0.uid)
+                                    -> v:iterator.first()
+                                    -> v:variable.set(name: 'imageFirst')}
+                                    <div class="image-frame">
+                                        <f:image src="{imageFirst.url}" class="image" alt="{imageFirst.alternative}" title="{imageFirst.title}" width="{f:if(condition:'{Img.0.imagewidth}',then:'{Img.0.imagewidth}',else:'463')}c" height="{f:if(condition:'{Img.0.imageheight}',then:'{Img.0.imageheight}',else:'')}c" />
+                                    </div>
+                                    <div class="element-wrapper">
+                                        <div class="red-box">
+                                            <f:if condition="{imagesCnt} == 1">
+                                                <f:then>
+                                                    <img src="/files/images/template-parts/uber_uns/Red_Cross.png" alt="" />
+                                                </f:then>
+                                                <f:else>
+                                                    <f:if condition="{imagesCnt} > 1">
+                                                        {v:resource.record.fal(table: 'tt_content', field: 'assets',
+                                                        uid: Img.0.uid)
+                                                        -> v:iterator.last()
+                                                        -> v:variable.set(name: 'imageLast')}
+                                                        <f:image src="{imageLast.url}" alt="" />
+                                                    </f:if>
+                                                </f:else>
+                                            </f:if>
+                                        </div>
+                                    </div>
+                                </f:if>
+                            </v:content.render>
+                        </f:if>
+                    </div>
+                </div>
+
+                <div class="layout_column">
+                    <div class="layout_column__wrapper">
+                        <v:content.render column="5" render="1" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <f:render section="Default" arguments="{settings:settings}" />
+    </footer>
+</f:section>
+
+<f:section name="Default">
+    <div class="footer-wrapper">
+        <div class="menu-footer">
+
+            <div class="layout">
+                <div class="layout_column">
+                    <f:render partial="Etc/Logo" section="footerLogo" arguments="{settings:settings}" />
+                </div>
+                <div class="layout_column">
+                    <div class="footer-address">
+                        <v:content.render column="102" render="1" pageUid="{settings.page.home}" />
+                    </div>
+                    <ul class="footer-social">
+                        <f:render partial="Navigation/Socialmedia" section="ByConstants"
+                                  arguments="{settings:settings}"/>
+                    </ul>
+                </div>
+                <div class="layout_column">
+                    <v:content.render column="103" render="1" pageUid="{settings.page.home}" />
+                </div>
+                <div class="layout_column">
+                    <f:render partial="Navigation/Sitemenu" section="FooterSiteMenu" arguments="{settings:settings}" />
+                    <f:if condition="{settings.content.copyrightEnable} == 1">
+                        <f:render partial="Etc/Copyright" section="Default" arguments="{settings:settings}"/>
+                    </f:if>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</f:section>
+
+<f:comment>
+<footer class="footer">
+    <div class="container">
+        <div class="row d-flex align-items-end">
+            <div class="col-lg-2 col-md-2">
+                <div class="widget hidden-xs hidden-sm">
+                    <v:content.render column="101" render="1" pageUid="{settings.page.siteMap}" />
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-7">
+                <div class="widget">
+
+                    <f:render partial="Navigation/Sitemenu" section="FooterSiteMenu" arguments="{settings:settings}" />
+
+                    <div class="row">
+                        <div class="col-md-8 col-sm-9">
+                            <v:content.render column="103" render="1" pageUid="{settings.page.siteMap}" />
+                        </div>
+
+                        <div class="col-md-4 col-sm-3">
+                            <f:if condition="{settings.folder.socialLinks} > 0">
+                                <ul class="social-links list-unstyled hidden-xs">
+                                    <f:render partial="Navigation/Socialmedia" section="ByConstants"
+                                          arguments="{settings:settings}"/>
+                                </ul>
+                            </f:if>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End Widget -->
+
+                <div class="widget visible-xs">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <f:if condition="{settings.folder.socialLinks} > 0">
+                                <ul class="social-links list-unstyled">
+                                    <f:render partial="Navigation/Socialmedia" section="ByConstants"
+                                              arguments="{settings:settings}"/>
+                                </ul>
+                            </f:if>
+                        </div>
+
+                        <div class="col-xs-6 text-right">
+                            <div class="links">
+                                <v:content.render column="105" render="1" pageUid="{settings.page.siteMap}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Widget -->
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="widget text-right hidden-xs footer-links">
+                    <v:content.render column="105" render="1" pageUid="{settings.page.siteMap}" />
+                </div>
+                <!-- End Widget -->
+            </div>
+        </div>
+    </div>
+</f:comment>
+<f:comment>
+    <!--
+        <div class="row">
+            <div class="col-md-2 col-sm-6">
+                <f:render partial="Navigation/FooterLinks" section="SpecialMenu"
+                          arguments="{settings:settings, column:'101'}"/>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <f:render partial="Navigation/FooterLinks" section="SpecialMenu"
+                          arguments="{settings:settings, column:'102'}"/>
+            </div>
+            <div class="col-md-5 col-sm-6">
+                <v:content.render column="25" render="1" slide="-1" />
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <v:content.render column="104" render="1" slide="-1" />
+                <f:if condition="{settings.folder.socialLinks} > 0">
+                    <f:render partial="Navigation/Socialmedia" section="ByConstants"
+                                  arguments="{settings:settings}"/>
+                </f:if>
+
+            </div>
+        </div>
+        <div class="row copyright">
+            <div class="col-md-12">
+                <f:if condition="{settings.content.copyrightEnable} == 1">
+                    <f:render partial="Etc/Copyright" section="Default" arguments="{settings:settings}"/>
+                </f:if>
+            </div>
+        </div>
+    </div>
+    -->
+</f:comment>
+
+</footer>
+    <!--
+    <div class="rbox">
+        <div class="abs33"></div>
+        <div class="mfblock">
+
+        </div>
+        <div class="mfblock">
+
+        </div>
+        <div class="mfblock">
+
+        </div>
+        <div class="mfblock"></div>
+        <div class="mfblock">
+
+        </div>
+
+        <div class="clboth"></div>
+        <div class="txtfooter"></div>
+        <div class="adrfooter">
+
+        </div>
+    </div>
+    <div class="clboth"></div>
+    -->
+
+    <f:comment>
+    <!--
+    <div class="footer_priv">
+        <div class="container_12">
+            <div class="grid_12">
+                <div class="soc_icons">
+
+                    <ul class="soc_icons">
+                        <li>
+                            <a href="https://de-de.facebook.com/glacryl.lebensmittelhandelnurnberg" target="_blank"><i
+                                class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="http://b2b.glacrylgroup.de/customer/account/login/" target="_blank"><i
+                                class="fa fa-shopping-cart"></i></a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="txt_priv">
+                    <div id="c1" class="csc-default">
+                        <div class="indent">
+
+                                <f:if condition="{settings.content.copyrightEnable} == 1">
+                                    <f:render partial="Etc/Copyright" section="Default" arguments="{settings:settings}"/>
+                                </f:if>
+                                <f:render partial="Navigation/FooterLinks" section="MenuDirectory"
+                                          arguments="{by:'A', settings:settings}"/>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+    </f:comment>
+
+
+<f:comment><f:render partial="Navigation/Socialmedia" section="ByConstants" arguments="{settings:settings}"/></f:comment>
+<f:comment>
+    <f:if condition="{settings.folder.socialLinks} > 0">
+        <f:render partial="Navigation/Socialmedia" section="ByLinks" arguments="{settings:settings}"/>
+    </f:if>
+    <div class="row row-copyright">
+        <div class="col-sm-12 col-sm-offset-0 col-md-8 col-md-offset-2">
+            <hr/>
+            <div class="col-xs-12 col-sm-5 col-md-6 mgt15 mgb15">
+                <f:if condition="{settings.content.copyrightEnable} == 1">
+                    <f:render partial="Etc/Copyright" section="Default" arguments="{settings:settings}"/>
+                </f:if>
+            </div>
+            <div class="col-xs-12 col-sm-7 col-md-6 footer-nav text-right mgt15 mgb15 text-left-xs mgt0-xs">
+                <f:render partial="Navigation/FooterLinks" section="SpecialMenu"
+                          arguments="{settings:settings, column:'106'}"/>
+            </div>
+            <hr/>
+        </div>
+    </div>
+</f:comment>
+<!-- END FOOTER -->
+
+

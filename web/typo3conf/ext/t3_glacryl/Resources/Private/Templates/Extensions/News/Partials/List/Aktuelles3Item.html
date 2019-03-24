@@ -1,0 +1,52 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<!--
+	=====================
+		Partials/List/Aktuelles2Item.html
+-->
+<n:excludeDisplayedNews newsItem="{newsItem}"/>
+<div class="col-md-4" data-mh="news-item">
+
+    <div class="wrap-news news-item onStep" data-animation="fadeIn{f:if(condition:'{iterator.isEven}',then:'Left',else:'Right')}" data-time="{iterator.cycle -> v:math.product( b: 100)}">
+		<f:comment>
+        <n:link newsItem="{newsItem}">
+            <f:alias map="{mediaElement: '{newsItem.mediaPreviews.0}'}">
+                <f:if condition="{mediaElement.originalResource.type} == 2">
+                    <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}"
+                             alt="{mediaElement.originalResource.alternative}"
+                             class="img-responsive"
+                             width="{settings.media.maxWidth}c" height="{settings.media.maxHeight}c" />
+                </f:if>
+                <f:if condition="{mediaElement.originalResource.type} == 4">
+                    <f:render partial="Detail/MediaVideo" arguments="{mediaElement: mediaElement}"/>
+                </f:if>
+                <f:if condition="{mediaElement.originalResource.type} == 5">
+                    <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}"
+                             alt="{mediaElement.originalResource.alternative}" class="img-responsive"
+                             width="{settings.media.maxWidth}c" height="{settings.media.maxHeight}c" />
+                </f:if>
+            </f:alias>
+        </n:link>
+		</f:comment>
+        <n:link newsItem="{newsItem}"><h3>{newsItem.title -> f:format.raw()}</h3></n:link>
+        <f:if condition="{noDate} == 0">
+            <p class="news-date"><strong>{f:format.date(date:newsItem.datetime, format:'d.m.Y')}</strong></p>
+        </f:if>
+        <n:removeMediaTags>
+            <f:if condition="{newsItem.teaser}">
+                <f:then>
+                    {newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+                </f:then>
+                <f:else>
+                    {newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+                </f:else>
+            </f:if>
+        </n:removeMediaTags>
+        <n:link newsItem="{newsItem}" settings="{settings}" class="link-class upper-case" title="{newsItem.title}">
+            {f:translate(key: 'more-details', extensionName: 't3_glacryl')}<span class="devider"></span>
+        </n:link>
+    </div>
+</div>
+
+</html>

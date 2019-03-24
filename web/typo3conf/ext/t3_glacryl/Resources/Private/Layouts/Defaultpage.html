@@ -1,0 +1,68 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:layout name="Defaultpage" />
+
+<v:variable.set name="settings" value="{v:variable.typoscript(path:'plugin.tx_t3glacryl.settings')}"/>
+
+<f:render partial="Page/Head"
+          arguments="{settings:settings, stylesheets:stylesheets, javascripts:javascripts}"/>
+
+<f:render partial="Page/BeforeHeader" arguments="{settings:settings}"/>
+
+<f:if condition="{v:page.info(field: 'uid')} == {settings.page.home}">
+    <f:then>
+        {v:variable.set(value: 'home-page', name: 'pageAutoCSS')}
+    </f:then>
+    <f:else>
+        {v:variable.set(value: 'inner-page', name: 'pageAutoCSS')}
+    </f:else>
+</f:if>
+
+<f:comment>
+<div class="page-wrapper {pageAutoCSS}{f:if(condition:'{pageCustomClass}', then: ' {pageCustomClass}')}"><f:spaceless></f:spaceless></div><!-- /page-wrapper -->
+</f:comment>
+
+
+<f:render partial="Page/Header" arguments="{settings:settings,noBreadcrumb:noBreadcrumb}"/>
+
+<f:comment>
+<f:if condition="{v:page.info(field: 'uid')} == {settings.page.home}">
+    <f:then>
+        <!-- CAROUSEL -->
+        <v:content.render column="99" render="1" slide="0" />
+    </f:then>
+    <f:else>
+        <f:if condition="{settings.content.breadcrumbEnable} == 1">
+            <f:then>
+                <!-- BREADCRUMBS -->
+                <f:render partial="Navigation/Breadcrumb" section="Default" arguments="{settings:settings}" />
+                <!-- END BREADCRUMBS -->
+            </f:then>
+        </f:if>
+    </f:else>
+</f:if>
+</f:comment>
+
+
+<!--TYPO3SEARCH_begin-->
+<main>
+<f:render section="Main" arguments="{_all}"/>
+</main>
+<!--TYPO3SEARCH_end-->
+
+
+
+
+
+
+<f:comment>
+    <f:render partial="Navigation/Sitemenu" arguments="{settings:settings}"/>
+    <!-- menu mobile display -->
+
+    <!-- mp-menu -->
+    <f:render partial="Navigation/MobSitemenu" section="MultiLevelPushMenu" arguments="{settings:settings}"/>
+    <!-- /mp-menu -->
+    <f:render partial="Etc/ModalWindow" arguments="{settings:settings}"/>
+
+
+</f:comment>
+<f:render partial="Page/AfterFooter" arguments="{settings:settings}"/>

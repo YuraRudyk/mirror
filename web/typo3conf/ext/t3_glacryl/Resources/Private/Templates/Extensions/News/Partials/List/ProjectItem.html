@@ -1,0 +1,72 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+	  
+<f:if condition="{layout} == 2">
+	<div class="row-container" data-sort="{f:format.date(date:newsItem.datetime, format:'Ymd')}">
+</f:if>
+<div class="row item">
+    <div class="col-md-12">
+        <f:if condition="{layout} == 2">
+            <f:then>
+                <div class="neuses-date">{f:format.date(date:newsItem.datetime, format:'d. m. Y')} <i class="fa fa-arrow-circle-up"> </i> </div><div class="neuses-delimeter">&nbsp;|&nbsp;&nbsp;</div><h4>{newsItem.title}</h4>
+            </f:then>
+            <f:else>
+                <h4>{newsItem.title}</h4>
+            </f:else>
+        </f:if>
+    </div>
+
+    <div class="col-md-4 col-sm-5 col-xs-5 col">
+        <div class="img">
+            <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+            <f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+                <f:if condition="{mediaElement.originalResource.type} == 2">
+                    <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="{f:if(condition: settings.media.maxWidth, then: settings.media.maxWidth, else: settings.list.media.image.maxWidth)}" maxHeight="{f:if(condition: settings.media.maxHeight, then: settings.media.maxHeight, else: settings.list.media.image.maxHeight)}"/>
+                </f:if>
+                <f:if condition="{mediaElement.originalResource.type} == 4">
+                    <f:render partial="Detail/MediaVideo" arguments="{mediaElement: mediaElement}"/>
+                </f:if>
+                <f:if condition="{mediaElement.originalResource.type} == 5">
+                    <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="{f:if(condition: settings.media.maxWidth, then: settings.media.maxWidth, else: settings.list.media.image.maxWidth)}" maxHeight="{f:if(condition: settings.media.maxHeight, then: settings.media.maxHeight, else: settings.list.media.image.maxHeight)}"/>
+                </f:if>
+            </f:alias>
+            </n:link>
+        </div>
+    </div>
+
+    <div class="col-md-8 col-sm-7 col-xs-7 col">
+        <div class="projectInfo">
+            <f:if condition="{newsItem.author}">
+                <h5>{f:translate(key: 'kontaktperson', extensionName: 't3_glacryl')}: <u>{newsItem.author}</u></h5>
+            </f:if>
+            <n:removeMediaTags>
+                <f:if condition="{newsItem.teaser}">
+                    <f:then>
+                        <f:comment>{newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}</f:comment>
+                        {newsItem.teaser -> f:format.html()}
+                    </f:then>
+                    <f:else>
+                        {newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+                    </f:else>
+                </f:if>
+            </n:removeMediaTags>
+            <f:if condition="{layout} == 2">
+                <f:then>
+                    <n:link newsItem="{newsItem}" settings="{settings}" class="text-link text-red" title="{newsItem.title}">
+                        {f:translate(key: 'mehr-neuses', extensionName: 't3_glacryl')}
+                    </n:link>
+                </f:then>
+                <f:else>
+                    <n:link newsItem="{newsItem}" settings="{settings}" class="text-link text-red" title="{newsItem.title}">
+                        {f:translate(key: 'nahere-infos', extensionName: 't3_glacryl')}
+                    </n:link>
+                </f:else>
+            </f:if>
+        </div>
+    </div>
+</div>
+<f:if condition="{layout} == 2">
+	</div>
+</f:if>
+</html>

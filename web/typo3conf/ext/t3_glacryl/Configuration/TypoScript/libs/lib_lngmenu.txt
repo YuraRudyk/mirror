@@ -1,0 +1,26 @@
+lib.lngmenu = HMENU
+lib.lngmenu{
+   special = language
+   addQueryString = 1
+   addQueryString.exclude = id, L, cHash
+   special.value = 0,1,2,3,4,5,6,7,8,9
+   special.normalWhenNoLanguage = 0
+
+   wrap = <div class="lang-select"><span></span><div class="lang-option">|</div></div>
+
+   1 = TMENU
+   1{
+    noBlur = 1
+
+    NO = 1
+    NO{
+      linkWrap = |
+#      stdWrap.override = DE || EN || FR || CZ || PL || RU || NL || DK || SE || IT || ES || PT
+      stdWrap.override = DE || EN || FR || CZ || PL || RU || NL || DK || SE || IT
+    }
+
+    CUR < .NO
+    CUR.ATagParams = class="sel-lang"
+    ACT < .CUR
+   }
+}

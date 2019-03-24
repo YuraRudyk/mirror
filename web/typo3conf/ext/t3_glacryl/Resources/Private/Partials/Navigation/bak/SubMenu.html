@@ -1,0 +1,28 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+			  
+<nav id="left-menu">
+<f:if condition="{v:page.menu(entryLevel: '1')}">
+
+
+	<v:page.menu entryLevel="1" classActive="active" classCurrent="current" classHasSubpages="" classFirst="first" classLast="last">
+		<f:if condition="{menu}">
+		<ul class="nav">
+			<f:for each="{menu}" as="menuPages" iteration="iteration">
+			<li{f:if(then: ' class="{menuPages.class}"', else: '', condition: '{menuPages.class}')}>
+				<f:if condition="{menuPages.current} == 1">
+					<f:then>
+						<span{f:if(then: ' title="{menuPages.nav_title}"', else: '', condition: '{menuPages.nav_title}')}>{menuPages.nav_title -> v:or(alternative: "{menuPages.title}")}</span>
+					</f:then>
+					<f:else>
+						<a href="{menuPages.link}"{f:if(then: ' title="{menuPages.nav_title}"', else: '', condition: '{menuPages.nav_title}')}>{menuPages.nav_title -> v:or(alternative: "{menuPages.title}")}</a>
+					</f:else>
+				</f:if>
+			</li>
+			</f:for>
+		</ul>
+		</f:if>
+	</v:page.menu>
+
+
+</f:if>
+</nav>

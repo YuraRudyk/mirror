@@ -1,0 +1,19 @@
+[applicationContext == "Development"]
+    page {
+        config {
+            compressCss = 0
+            concatenateCss = 0
+            compressJs = 0
+            concatenateJs = 0
+        }
+    }
+[ELSE]
+    page {
+        config {
+            compressCss = {$plugin.tx_t3glacryl.settings.performance.enableCSSCompression}
+            concatenateCss = {$plugin.tx_t3glacryl.settings.performance.enableCSSMerging}
+            compressJs = {$plugin.tx_t3glacryl.settings.performance.enableJSCompression}
+            concatenateJs = {$plugin.tx_t3glacryl.settings.performance.enableJSMerging}
+        }
+    }
+[GLOBAL]

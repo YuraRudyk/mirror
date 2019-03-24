@@ -1,0 +1,227 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<f:section name="GlacrylSections">
+
+    <f:comment>######################### PAGE SECTIONS #######################</f:comment>
+    {v:variable.set(value: '0', name: 'cnt')}
+    {v:variable.set(value: '1', name: 'cnt1')}
+
+    <f:for each="{sections}" as="sectionObject" iteration="iteration">
+        <v:variable.set name="section" value="{sectionObject.section}"/>
+        <f:if condition="{section.sectionPosition} == {position} || !{section.sectionPosition}">
+            <v:variable.set name="backgroundColor" value=""/>
+            <v:variable.set name="backgroundImage" value=""/>
+            <v:variable.set name="backgroundSize" value=""/>
+            <v:variable.set name="backgroundRepeat" value=""/>
+            <v:variable.set name="backgroundPosition" value=""/>
+            <v:variable.set name="backgroundAttachment" value=""/>
+            <f:if condition="{section.backgroundColor}">
+                <v:variable.set name="backgroundColor" value="background-color: {section.backgroundColor};"/>
+            </f:if>
+            <f:if condition="{section.backgroundImage}">
+                <v:variable.set name="backgroundImage" value="background-image: url({section.backgroundImage});"/>
+            </f:if>
+            <f:if condition="{section.backgroundSize}">
+                <v:variable.set name="backgroundSize" value="background-size: {section.backgroundSize};"/>
+            </f:if>
+            <f:if condition="{section.backgroundRepeat}">
+                <v:variable.set name="backgroundRepeat" value="background-repeat: {section.backgroundRepeat};"/>
+            </f:if>
+            <f:if condition="{section.backgroundPosition}">
+                <v:variable.set name="backgroundPosition" value="background-position: {section.backgroundPosition};"/>
+            </f:if>
+            <f:if condition="{section.backgroundAttachment}">
+                <v:variable.set name="backgroundAttachment" value="background-attachment: {section.backgroundAttachment};"/>
+            </f:if>
+
+            <v:variable.set name="containerClass" value="{section.fullWidthContainer}"/>
+            <v:variable.set name="containerBackgroundColor" value=""/>
+            <v:variable.set name="containerBackgroundImage" value=""/>
+            <v:variable.set name="containerBackgroundSize" value=""/>
+            <v:variable.set name="containerBackgroundRepeat" value=""/>
+            <v:variable.set name="containerBackgroundPosition" value=""/>
+            <v:variable.set name="containerBackgroundAttachment" value=""/>
+            <f:if condition="{section.containerBackgroundColor}">
+                <v:variable.set name="containerBackgroundColor"
+                                value="background-color: {section.containerBackgroundColor};"/>
+            </f:if>
+            <f:if condition="{section.containerBackgroundImage}">
+                <v:variable.set name="containerBackgroundImage"
+                                value="background-image: url({section.containerBackgroundImage});"/>
+            </f:if>
+            <f:if condition="{section.containerBackgroundSize}">
+                <v:variable.set name="containerBackgroundSize" value="background-size: {section.containerBackgroundSize};"/>
+            </f:if>
+            <f:if condition="{section.containerBackgroundRepeat}">
+                <v:variable.set name="containerBackgroundRepeat"
+                                value="background-repeat: {section.containerBackgroundRepeat};"/>
+            </f:if>
+            <f:if condition="{section.containerBackgroundPosition}">
+                <v:variable.set name="containerBackgroundPosition"
+                                value="background-position: {section.containerBackgroundPosition};"/>
+            </f:if>
+            <f:if condition="{section.containerBackgroundAttachment}">
+                <v:variable.set name="containerBackgroundAttachment"
+                                value="background-attachment: {section.containerBackgroundAttachment};"/>
+            </f:if>
+            <f:if condition="{section.sectionHidden} != 1">
+                <v:tag name="section" class="{section.sectionCustomClass}" id="{section.sectionId}" style="{backgroundColor}{backgroundImage}{backgroundSize}{backgroundRepeat}{backgroundPosition}{backgroundAttachment}">
+                <div class="{section.fullWidthContainer}{f:if(condition: section.containerCustomClass, then:' {section.containerCustomClass}')}">
+                    <div class="inner-container">
+                        <f:if condition="{inner} == 0">
+                            <f:then>
+                                <f:if condition="{section.sectionRows} == 0">
+                                    <f:then>
+                                        <v:content.render column="{iteration.index}"/>
+                                    </f:then>
+                                    <f:else>
+                                        <v:content.render column="{section.sectionRows}"/>
+                                    </f:else>
+                                </f:if>
+                            </f:then>
+                            <f:else>
+                                <f:if condition="{section.sectionRows} == 0">
+                                    <f:then>
+                                        <f:if condition="{section.sectionPosition} == 1">
+                                            <f:then>
+                                                {cnt1 -> v:math.sum(b: 40) -> v:variable.set(name: 'sectionColPos')}
+                                            </f:then>
+                                            <f:else>
+                                                {cnt1 -> v:math.sum(b: 30) -> v:variable.set(name: 'sectionColPos')}
+                                            </f:else>
+                                        </f:if>
+                                        <v:content.render column="{sectionColPos}"/>
+                                    </f:then>
+                                    <f:else>
+                                        <v:content.render column="{section.sectionRows}"/>
+                                    </f:else>
+                                </f:if>
+                            </f:else>
+                        </f:if>
+                        {cnt -> v:math.sum(b: 1) -> v:variable.set(name: 'cnt')}
+                    </div>
+                </div>
+                <f:comment>
+                <!--
+                <f:if condition="{section.sectionBack}">
+                    <f:render partial="Etc/ScrollToTopSection" arguments="{sectionTitle:section.sectionTitle}"/>
+                </f:if>
+                -->
+                </f:comment>
+                </v:tag>
+            </f:if>
+            {cnt1 -> v:math.sum(b: 1) -> v:variable.set(name: 'cnt1')}
+        </f:if>
+    </f:for>
+    <f:comment>###############################################################</f:comment>
+
+</f:section>
+
+<f:section name="AnchorsMenu">
+    <div class="row">
+        <nav class="inner-navi text-center">
+            <ul class="list-inline">
+                {v:variable.set(value: 0, name: 'sectionsCnt')}
+                <f:for each="{sections}" as="sectionObject" iteration="itr">
+                    <f:if condition="{itr.index} > 0">
+                        <v:variable.set name="section" value="{sectionObject.section}"/>
+                        {sectionsCnt -> v:math.sum(b: 1) -> v:variable.set(name: 'sectionsCnt')}
+                        <li {f:if(condition:'{sectionTitle} == {sectionObject.section.sectionTitle}', then:"class='active'")}><a href="{f:uri.page()}#{sectionObject.section.sectionTitle}">{sectionObject.section.sectionTitle}</a></li>
+                    </f:if>
+                </f:for>
+            </ul>
+        </nav>
+    </div>
+</f:section>
+
+<f:section name="Default">
+    <f:for each="{sections}" as="sectionObject" iteration="iteration">
+        <f:if condition="{section.sectionHidden} != 1">
+            <v:variable.set name="section" value="{sectionObject.section}"/>
+            <v:variable.set name="backgroundColor" value=""/>
+            <v:variable.set name="backgroundImage" value=""/>
+            <v:variable.set name="backgroundSize" value=""/>
+            <v:variable.set name="backgroundRepeat" value=""/>
+            <v:variable.set name="backgroundPosition" value=""/>
+            <v:variable.set name="backgroundAttachment" value=""/>
+            <f:if condition="{section.backgroundColor}">
+                <v:variable.set name="backgroundColor" value="background-color: {section.backgroundColor};"/>
+            </f:if>
+            <f:if condition="{section.backgroundImage}">
+                <v:variable.set name="backgroundImage" value="background-image: url({section.backgroundImage});"/>
+            </f:if>
+            <f:if condition="{section.backgroundSize}">
+                <v:variable.set name="backgroundSize" value="background-size: {section.backgroundSize};"/>
+            </f:if>
+            <f:if condition="{section.backgroundRepeat}">
+                <v:variable.set name="backgroundRepeat" value="background-repeat: {section.backgroundRepeat};"/>
+            </f:if>
+            <f:if condition="{section.backgroundPosition}">
+                <v:variable.set name="backgroundPosition" value="background-position: {section.backgroundPosition};"/>
+            </f:if>
+            <f:if condition="{section.backgroundAttachment}">
+                <v:variable.set name="backgroundAttachment" value="background-attachment: {section.backgroundAttachment};"/>
+            </f:if>
+
+            <v:variable.set name="containerClass" value="{section.fullWidthContainer}"/>
+            <v:variable.set name="containerBackgroundColor" value=""/>
+            <v:variable.set name="containerBackgroundImage" value=""/>
+            <v:variable.set name="containerBackgroundSize" value=""/>
+            <v:variable.set name="containerBackgroundRepeat" value=""/>
+            <v:variable.set name="containerBackgroundPosition" value=""/>
+            <v:variable.set name="containerBackgroundAttachment" value=""/>
+            <f:if condition="{section.containerBackgroundColor}">
+                <v:variable.set name="containerBackgroundColor"
+                                value="background-color: {section.containerBackgroundColor};"/>
+            </f:if>
+            <f:if condition="{section.containerBackgroundImage}">
+                <v:variable.set name="containerBackgroundImage"
+                                value="background-image: url({section.containerBackgroundImage});"/>
+            </f:if>
+            <f:if condition="{section.containerBackgroundSize}">
+                <v:variable.set name="containerBackgroundSize" value="background-size: {section.containerBackgroundSize};"/>
+            </f:if>
+            <f:if condition="{section.containerBackgroundRepeat}">
+                <v:variable.set name="containerBackgroundRepeat"
+                                value="background-repeat: {section.containerBackgroundRepeat};"/>
+            </f:if>
+            <f:if condition="{section.containerBackgroundPosition}">
+                <v:variable.set name="containerBackgroundPosition"
+                                value="background-position: {section.containerBackgroundPosition};"/>
+            </f:if>
+            <f:if condition="{section.containerBackgroundAttachment}">
+                <v:variable.set name="containerBackgroundAttachment"
+                                value="background-attachment: {section.containerBackgroundAttachment};"/>
+            </f:if>
+
+            <v:tag name="section" class="{section.sectionCustomClass}{f:if(condition: section.fullHeightSection, then:' full-height')}" id="{section.sectionId}" style="{backgroundColor}{backgroundImage}{backgroundSize}{backgroundRepeat}{backgroundPosition}{backgroundAttachment}">
+                <f:if condition="{containerClass} == 'none'">
+                    <f:else>
+                        <v:tag name="div" forceClosingTag="0" class="{containerClass}{f:if(condition: section.containerCustomClass, then:' {section.containerCustomClass}')}" style="{containerBackgroundColor}{containerBackgroundImage}{containerBackgroundSize}{containerBackgroundRepeat}{containerBackgroundPosition}{containerBackgroundAttachment}" />
+                    </f:else>
+                </f:if>
+                <f:comment>
+                    <!--
+                    <f:if condition="{section.sectionTitle}">
+                        <f:render partial="Subline" arguments="{sectionTitle:section.sectionTitle}"/>
+                    </f:if>
+                    -->
+                </f:comment>
+                <f:if condition="{section.sectionRows} == 0">
+                    <f:then>
+                        <v:content.render column="{iteration.cycle}"/>
+                    </f:then>
+                    <f:else>
+                        <v:content.render column="{section.sectionRows}"/>
+                    </f:else>
+                </f:if>
+                <f:if condition="{containerClass} == 'none'">
+                    <f:else>
+                        </div>
+                    </f:else>
+                </f:if>
+            </v:tag>
+
+        </f:if>
+    </f:for>
+</f:section>

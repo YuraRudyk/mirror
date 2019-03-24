@@ -1,0 +1,67 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace sw=Glacryl\T3Glacryl\ViewHelpers}
+{namespace languageMenu=SJBR\SrLanguageMenu\ViewHelpers}
+
+<f:section name="Plugin">
+<languageMenu:widget.menu languages="{siteConfig.languagesIDs}" layout="Select" languageTitle="2" />
+</f:section>
+
+<f:section name="Selectbox">
+<f:debug>{v:page.language(languages: 'DE,EN,IT', pageUid: '0', normalWhenNoLanguage: 'DE')}</f:debug>
+	<f:debug>{sw:getCurrentLanguage()}</f:debug>
+	{v:iterator.explode(content: '{siteConfig.languagesIDs}', glue: ',') ->  v:variable.set(name: 'siteLngIDs')}
+	{v:iterator.explode(content: '{siteConfig.languagesLabels}', glue: ',') ->  v:variable.set(name: 'siteLngLabels')}
+
+
+<select name="language" id="language" class="language">
+
+
+		<v:iterator.for from="0" to="{siteLngIDs -> f:count()}" iteration="i">
+			<f:if condition="{languageMenu.current} == 1">
+				<f:then>
+					<option value="{iteration.index}" data-url="{languageMenu.url}" selected>{languageMenu.label}</option>
+				</f:then>
+				<f:else>
+					<f:if condition="{v:page.info(field: 'uid')} == {settings.page.home}">
+						<f:then>
+							<f:if condition="{iteration.index} == 0">
+								<f:then>
+									<option value="{iteration.index}" data-url="/">{languageMenu.label}</option>
+								</f:then>
+								<f:else>
+									<option value="{iteration.index}" data-url="{languageMenu.url}">{languageMenu.label}</option>
+								</f:else>
+							</f:if>
+						</f:then>
+						<f:else>
+							<option value="{iteration.index}" data-url="{languageMenu.url}">{languageMenu.label}</option>
+						</f:else>
+					</f:if>
+				</f:else>
+			</f:if>
+		</v:iterator.for>
+
+
+</select>
+</f:section>
+
+<f:section name="ListInline">
+<ul class="lng-menu list-inline">
+
+	<f:for each="{languages}" as="languageMenu" iteration="iteration">
+		<f:if condition="{languageMenu.current} == 1">
+			<f:then>
+				<li class="{languageMenu.label} current{f:if(then: ' first', condition: '{iteration.isFirst}')}{f:if(then: ' last', condition: '{iteration.isLast}')}"><span>{languageMenu.label}</span></li>
+			</f:then>
+			<f:else>
+				<li class="{languageMenu.label}{f:if(then: ' first', condition: '{iteration.isFirst}')}{f:if(then: ' last', condition: '{iteration.isLast}')}">
+					<f:link.page pageUid="{languageMenu.url}">{languageMenu.label}</f:link.page>
+				</li>
+			</f:else>
+		</f:if>
+    </f:for>
+
+</ul>
+</f:section>
+
+

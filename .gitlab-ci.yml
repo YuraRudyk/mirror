@@ -1,0 +1,41 @@
+image: registry.gitlab.com/skalotskiy/docker-ci-images:7.1
+
+stages:
+  - deploy
+
+before_script:
+  # Run ssh-agent (inside the build environment)
+  - eval $(ssh-agent -s)
+
+  # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
+  - ssh-add <(echo "$SSH_PRIVATE_KEY")
+
+  # For Docker builds disable host key checking. Be aware that by adding that
+  # you are suspectible to man-in-the-middle attacks.
+  # WARNING: Use this only with the Docker executor, if you use it with shell
+  # you will overwrite your user's SSH config.
+  - mkdir -p ~/.ssh
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+
+  - export COMPOSER_HOME=`pwd`/.composer
+  - composer install
+  - composer dump-autoload
+cache:
+  paths:
+    - .composer/
+.deploy_template: &deploy_definition
+  variables:
+    DEPLOYER_ENVIRONMENT: dev
+  script:
+    - ./bin/build.sh
+    - php bin/deployer.phar deploy $DEPLOYER_ENVIRONMENT -vvv
+  stage: deploy
+
+deploy:dev:
+  <<: *deploy_definition
+  variables:
+    DEPLOYER_ENVIRONMENT: dev
+  environment:
+    name: Development
+  only:
+    - develop

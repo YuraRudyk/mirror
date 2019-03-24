@@ -1,0 +1,103 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<!-- HEADER -->
+<header>
+	<f:comment>
+	<div class="top_line hidden-xs">
+		<div class="container">
+			<f:if condition="{settings.folder.topLinks} > 0">
+				<f:render partial="Navigation/HeaderLinks" section="MenuDirectory" arguments="{settings:settings}"/>
+			</f:if>
+		</div>
+	</div>
+	<nav class="navbar mainmenu yamm">
+		<div class="container">
+			<div class="navbar-header">
+				<f:render partial="Etc/BurgerButton" section="BackendBurger" arguments="{settings:settings}" />
+
+				<div class="logo">
+					<f:render partial="Etc/Logo" section="desktopLogo" arguments="{settings:settings}" />
+				</div>
+			</div>
+			<div id="navbarCollapse" class="collapse navbar-collapse">
+				<f:render partial="Navigation/Sitemenu" arguments="{settings:settings}" />
+			</div>
+		</div>
+	</nav>
+	<div class="container top-container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-4">
+				<div class="logo-container">
+					<f:render partial="Etc/Logo" section="desktopLogo" arguments="{settings:settings}" />
+					<v:content.render column="93" render="1" slide="-1" />
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-8">
+
+				<f:if condition="{settings.folder.topLinks} > 0">
+					<f:render partial="Navigation/HeaderLinks" section="MenuDirectory" arguments="{settings:settings}"/>
+				</f:if>
+
+			</div>
+		</div>
+	</div>
+	<!-- SLIDER -->
+	<div class="slider-container box-16x9">
+		<div class="box-16x9-content">
+			<v:content.render column="99" render="1" slide="-1" />
+		</div>
+	</div>
+</f:comment>
+	<f:render partial="Etc/Logo" section="desktopLogo" arguments="{settings:settings}" />
+	<div class="header-bg">
+		<f:if condition="{v:page.info(field: 'uid')} == {settings.page.home}">
+			<f:then>
+				<img src="./files/images/template-parts/header/Mouse1.png" alt="" />
+			</f:then>
+			<f:else>
+				<f:comment><img src="./files/images/template-parts/header/Mouse2.png" alt="" /></f:comment>
+			</f:else>
+		</f:if>
+
+	</div>
+</header>
+
+
+
+<f:comment>
+	<div class="slideshow">
+		<v:content.render column="99" render="1" slide="-1" />
+	</div>
+	<!-- Header Banner -->
+	<f:if condition="{v:page.info(field: 'uid')} == {settings.page.home}">
+		<v:content.render column="99" render="0" pageUid="{settings.page.home}" as="ce">
+			<f:for each="{ce}" as="item">
+				{item.bodytext -> f:format.raw()}
+			</f:for>
+		</v:content.render>
+	</f:if>
+
+	<f:if condition="{settings.multiLng} > 0">
+		<!-- LANGUAGES MENU -->
+		<f:render partial="Navigation/LanguageMenu" section="Selectbox" arguments="{settings:settings}" />
+	</f:if>
+
+	<f:if condition="{noBreadcrumb} == 0">
+		<!-- BREADCRUMBS -->
+		<f:render partial="Navigation/Breadcrumb" section="Default" arguments="{settings:settings}" />
+		<!-- END BREADCRUMBS -->
+	</f:if>
+
+	<!-- TABS (subpages menu) -->
+	<f:render partial="Navigation/TabsMenu" />
+	<!-- END TABS (subpages menu) -->
+</f:comment>
+<!-- END HEADER -->
+
+
+
+
+
+
+
+
+

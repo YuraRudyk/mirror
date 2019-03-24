@@ -1,0 +1,4 @@
+########################
+#### BACKENDLAYOUTS ####
+########################
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:t3_glacryl/Configuration/BackendTS/BackendLayouts" extensions="txt,ts">

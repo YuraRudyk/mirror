@@ -1,0 +1,12 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<!-- message buttons -->
+<v:resource.record.fal table="pages" uid="{settings.page.home}" as="pageMedia" field="media" >
+    <div class="button_fixed">
+        <f:for each="{pageMedia}" as="media" iteration="mediaIteration">
+            <f:link.page pageUid="{media.link}"><img src="{f:uri.image(src: media.uid, treatIdAsReference: 1)}" alt="{media.title}" /></f:link.page>
+        </f:for>
+    </div>
+</v:resource.record.fal>
+
+

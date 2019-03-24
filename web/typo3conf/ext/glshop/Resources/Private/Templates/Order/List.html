@@ -1,0 +1,102 @@
+<f:layout name="Backend" />
+
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+
+	<f:comment><f:debug>{_all}</f:debug></f:comment>
+
+	<f:flashMessages />
+
+    <h1>Bestellungen-Übersicht <f:link.action action="list" class="reloadList" controller="Order">Aktualisieren</f:link.action></h1>
+	<table  class="glshop_table" >
+		<thead>
+			<tr>
+				<th>Bestell/Rechnung Nr.</th>
+				<th>Kunde</th>
+				<th>Datum</th>
+				<th>Lieferart / Bemerkung</th>
+				<th>Aktionen</th>
+			</tr>
+		</thead>
+		<tbody>
+		<f:for each="{orders}" as="order">
+			<f:cycle values="{0: 'even', 1: 'odd'}" as="zebraClass">
+				<tr class="{zebraClass}">
+					<td>
+				<f:if condition="{order.confirmation}" >
+					<f:for each="{order.confirmation}" as="confirmation">
+						<b>AB Nr.:</b> <f:link.action action="show" arguments="{order : order}">I{confirmation.uid}</f:link.action><br/>
+						vom <glacryl:date format="d.m.Y H:i" date="{confirmation.date}" />
+					</f:for>
+				</f:if>
+				<f:if condition="{order.invoice}" >
+					<br />
+					<f:for each="{order.invoice}" as="invoice">
+						<b>Re.Nr.:</b> I{invoice.uid}<br/>
+						vom <glacryl:date format="d.m.Y H:i" date="{invoice.date}" />
+					</f:for>
+				</f:if>
+				</td>
+				<td>
+				<f:for each="{feUser}" as="user">
+					<f:if condition="{0:order.user} == {0:user.uid}" >
+						<f:link.action action="show" arguments="{order : order}">
+							{user.company}
+							<f:if condition="{user.name}" >
+								<br />{user.name}
+							</f:if>
+						</f:link.action>
+						<br />{user.email}<br/>
+						<p><b>Partner:</b> <glacryl:partner userId="{order.user}" allePartner="{partner}" /></p>
+						<glacryl:timdata user="{user}" confirmation="{order.confirmation}" />
+
+						<f:comment>
+							<f:if condition="{order.confirmation}" >
+								<f:for each="{order.confirmation}" as="confirmation">
+									<button class="glButton btn showTimDataBtn">Daten f&uuml;r TIM</button>
+									<div class="show-tim-data-area" style="background-color: rgba(235,235,235,0.4);padding: 12px;display:none;">
+										Auftrag;I{confirmation.uid};I{confirmation.uid};{user.company};{user.adress};{user.zip};{user.city};{user.uid};Shop
+									</div>
+								</f:for>
+							</f:if>
+						</f:comment>
+					</f:if>
+				</f:for>
+				</td>
+				<td>
+				<glacryl:date format="d.m.Y H:i" date="{order.date}" />
+				</td>
+				<td>
+				<glacryl:noticeOrder order="{order}" />
+				</td>
+				<td>
+				<glacryl:statusButton states="{orderstates}" order="{order}" />
+				</td>
+				</tr>
+			</f:cycle>
+		</f:for>
+		</tbody>
+	</table>
+
+
+	<f:render partial="Order/Dialoge/Allgemein" />
+
+	<f:render partial="Order/Dialoge/AB" />
+	<f:render partial="Order/Dialoge/FE" />
+	<f:render partial="Order/Dialoge/LS" />
+	<f:render partial="Order/Dialoge/RE" />
+	<f:render partial="Order/Dialoge/Dxf" />
+
+</f:section> 

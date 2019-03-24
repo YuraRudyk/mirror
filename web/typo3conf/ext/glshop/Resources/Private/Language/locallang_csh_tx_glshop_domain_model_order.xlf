@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2014-11-03T17:21:12Z" product-name="glshop">
+		<header/>
+		<body>
+			<trans-unit id="date.description">
+				<source>date</source>
+			</trans-unit>
+			<trans-unit id="article.description">
+				<source>article</source>
+			</trans-unit>
+			<trans-unit id="comment.description">
+				<source>comment</source>
+			</trans-unit>
+			<trans-unit id="formular.description">
+				<source>formular</source>
+			</trans-unit>
+			<trans-unit id="user.description">
+				<source>Kunde</source>
+			</trans-unit>
+			<trans-unit id="confirmation.description">
+				<source>Auftragsbestätigung</source>
+			</trans-unit>
+			<trans-unit id="production.description">
+				<source>Fertigungsschein</source>
+			</trans-unit>
+			<trans-unit id="delivery.description">
+				<source>Lieferschein</source>
+			</trans-unit>
+			<trans-unit id="invoice.description">
+				<source>Rechnung</source>
+			</trans-unit>
+			<trans-unit id="shippingaddress.description">
+				<source>shippingaddress</source>
+			</trans-unit>
+			<trans-unit id="orderstatus.description">
+				<source>Bestellstatus</source>
+			</trans-unit>
+			<trans-unit id="conditions.description">
+				<source>conditions</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

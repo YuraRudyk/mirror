@@ -1,0 +1,18 @@
+<f:comment><f:debug>{_all}</f:debug></f:comment>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<f:if condition="{info.error}">
+				<f:then>
+					<div class="alert alert-danger" role="alert">
+				</f:then>
+				<f:else>
+					<div class="alert alert-success" role="alert">
+				</f:else>
+			</f:if>
+			{info.text}
+			</div>
+		</div>
+	</div>
+</div>

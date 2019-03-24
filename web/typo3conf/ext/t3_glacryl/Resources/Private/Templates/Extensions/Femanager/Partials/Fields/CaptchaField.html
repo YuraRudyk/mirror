@@ -1,0 +1,53 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+{namespace freeCap=SJBR\SrFreecap\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<v:variable.set name="asterisk" value="" />
+<f:if condition="{femanager:Validation.IsRequiredField(fieldName:'captcha')}">
+	<v:variable.set name="asterisk" value="*" />
+</f:if>
+
+<div class="col-xs-12 col-md-6">
+	<div class="row">
+		<div class="col-md-6 bottom_row">
+			<label class="form-group">
+				<span>{f:translate(key: 'tx_femanager_domain_model_user.captcha_title')}</span>
+				<f:form.textfield
+						id="femanager_field_captcha"
+						name="captcha"
+						placeholder="{f:translate(key: 'tx_femanager_domain_model_user.captcha')}{asterisk}"
+						class="input-block-level"
+						additionalAttributes="{data-validation:'required'}"
+						title="{freeCap:translate(key:'notice')} {freeCap:translate(key:'explain')}" />
+			</label>
+		</div>
+		<div class="col-md-6 bottom_row">
+			<div class="image_wrapper captcha_container">
+				<freeCap:image />
+				<f:comment><freeCap:audio /></f:comment>
+			</div>
+		</div>
+	</div><!-- */row -->
+</div>
+
+<f:comment>==============USER REGISTRATION==============</f:comment>
+<f:if condition="{v:content.info(field: 'layout')} == 0">
+	<f:then>
+		<div class="col-xs-12 col-md-6 bottom_row">
+			<div class="form-group-checkbox">
+				<f:form.checkbox property="agreement" value="1" id="agree-checkbox" additionalAttributes="{data-validation:'required'}" />
+				<label for="agree-checkbox">{f:translate(key: 'tx_femanager_domain_model_user.agreement') -> f:format.raw()}</label>
+			</div>
+			<div class="form-group-checkbox">
+				<f:form.checkbox property="private" value="1" id="private-checkbox" additionalAttributes="{data-validation:'required'}" />
+				<label for="private-checkbox">{f:translate(key: 'tx_femanager_domain_model_user.private') -> f:format.raw()}</label>
+			</div>
+		</div>
+	</f:then>
+</f:if>
+<f:comment>================SUBSCRIBE===============</f:comment>
+<f:if condition="{v:content.info(field: 'layout')} == 2">
+	<div class="col-xs-12 col-md-6 bottom_row">
+		<span class="bottom pflichtfelder">{f:translate(extensionName:'T3webSite', key: 'tx_femanager_domain_model_user.pflichtfelder') -> f:format.raw()}</span>
+	</div>
+</f:if>

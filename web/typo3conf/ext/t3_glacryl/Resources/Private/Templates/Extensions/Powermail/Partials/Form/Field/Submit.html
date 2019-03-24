@@ -1,0 +1,40 @@
+<f:switch expression="{field.css}">
+	<f:case value="redbtn">
+		<div class="csc-mailform-field">
+			<div class="frmcc">
+				<div class="frmctxt">
+					<div class="powermail_fieldwrap powermail_fieldwrap_type_submit powermail_fieldwrap_{field.marker} {field.css} {settings.styles.framework.fieldAndLabelWrappingClasses}">
+						<div class="{settings.styles.framework.fieldWrappingClasses} {settings.styles.framework.offsetClasses}">
+							<f:form.submit value="{field.title}" class="frmbtn {settings.styles.framework.submitClasses}" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</f:case>
+	<f:case default="TRUE">
+		<div class="csc-mailform-field">
+			<div class="frmlbl"><label for="captcha"></label></div>
+			<div class="frmcc">
+				<div class="frmcpic">
+					<!-- img -->
+				</div>
+				<div class="frmctxt">
+					<div class="powermail_fieldwrap powermail_fieldwrap_type_submit powermail_fieldwrap_{field.marker} {field.css} {settings.styles.framework.fieldAndLabelWrappingClasses}">
+						<div class="{settings.styles.framework.fieldWrappingClasses} {settings.styles.framework.offsetClasses}">
+							<f:form.submit value="{field.title}" class="frmbtn g-recaptcha {settings.styles.framework.submitClasses}" data="{sitekey:'6Lfk9E0UAAAAADBhBvQgd_qfTKq59u0Hu5tLZhmX', callback:'onSubmit'}" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</f:case>
+</f:switch>
+
+
+
+
+
+

@@ -1,0 +1,143 @@
+.clearer {
+    clear: both;
+}
+html {
+    margin: 0pt;
+    padding: 0pt;
+}
+body {
+    font-size: 10pt;
+    font-family: 'trebuchet ms',Arial, Verdana,times new roman,sans-serif;
+}
+.content {
+    padding: 0 25px 0 0;
+}
+.logo {
+    width: 80mm;
+    float: right;
+    margin-top: 10pt;
+    padding-top: 10pt;
+    margin-right: -18px;
+}
+.barcode {
+    float: right;
+    width: 200px;    
+    margin-right: -18px;
+}
+.barcode span {
+    float: left;
+    width: 5mm;
+    font-size: 3.2em;
+}
+.barcode barcode {
+    float:right;
+    width:36mm;
+    height: 6mm;
+}
+.header {
+    padding: 0 25px 0 0;
+}
+.adresse {
+    width: 55%;
+    float: left;
+    padding-top: 10px;
+}
+.adresse p {
+    margin: 0px;
+}
+.infoDaten {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    width: 100%;
+}
+.infoDaten p {
+    line-height: 0.3em;
+}
+.infoDaten table thead tr th, .infoDaten table thead tr td {
+    text-align: left; 
+    width: 25%;
+    font-size: 1.1em;
+    line-height: 0.5em;
+    padding: 0px 5px 0px 0px;
+}
+.infoDaten table tbody tr td {
+    font-size: 1.1em;
+    line-height: 0.5em;
+    padding: 0px 5px 0px 0px;
+    width: 25%;
+}
+.tRight {
+    font-size: 1.1em;
+    text-align: right !important;
+}
+.content {
+    margin-top: 60pt;
+}
+.content div p {
+    font-size: 10pt;
+    line-height: 1.1em;
+    margin: 0.5em 0;
+}
+.positionenTabelle table {
+    border-collapse: collapse; 
+    border: 0; 
+    margin-left:-1px;
+	margin-top: 15px;
+}
+.positionenTabelle table thead tr th {
+    border-bottom: 1px solid !important;
+}
+.positionenTabelle table tbody tr {
+	border-bottom: 1px dotted;
+}
+.positionenTabelle table tbody tr td.last {
+    border-bottom: 1px solid;
+}
+.positionenTabelle table tfoot tr td {
+    border-bottom: 1px solid;
+}
+
+.positionenTabelle table thead tr th, .positionenTabelle table tbody tr td{
+    font-size: 10pt;
+    font-weight: normal;
+    padding: 5px;
+}
+.positionenTabelle table tbody tr td {
+    vertical-align: top;
+}
+.position {
+    
+}
+.deatail1 {
+    font-size: 9pt;
+	padding: -8px 0 -8px 20px;
+}
+.deatail2 {
+    font-size: 8pt;
+	padding: -8px 0 -8px 40px;
+}
+.deatail3 {
+    font-size: 7pt;
+	padding: -8px 0 -8px 60px;
+}
+.footerDaten {
+    margin-top: 25px;
+    width: 100%;
+}
+.footerDaten table {
+    width: 100%;
+}
+.footerDaten table thead th {
+    width: 33%;
+    background-color: #898989;
+}
+
+/* Anlage */
+.row {width: 100%; margin-top: -10px;}
+.imgCol {width: 39.0804%; float: left; position: relative;}
+.textCal {width: 60.6196%; float: right; position: relative;}
+.cart-detailInfo, .cart-detailImg { text-align: center; }
+.cart-detail-span {font-weight: normal; font-size: 8pt; }
+.cart-detail-dl { margin: 0 0 10px 0; padding: 0;}
+.cart-detail-dt { margin: 0; padding: 0; font-weight: bold; font-size: 10pt; }
+.cart-detail-dd { margin: 0px; padding: 0; font-size: 8pt;}

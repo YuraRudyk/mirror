@@ -1,0 +1,59 @@
+
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+<h1>Listing for Fixingoption</h1>
+
+<f:flashMessages />
+
+<table  class="tx_glshop" >
+	<tr>
+		<th><f:translate key="tx_glshop_domain_model_fixingoption.article_nr" /></th>
+		<th><f:translate key="tx_glshop_domain_model_fixingoption.name" /></th>
+		<th><f:translate key="tx_glshop_domain_model_fixingoption.description" /></th>
+		<th><f:translate key="tx_glshop_domain_model_fixingoption.projection" /></th>
+		<th><f:translate key="tx_glshop_domain_model_fixingoption.from_size" /></th>
+		<th><f:translate key="tx_glshop_domain_model_fixingoption.to_size" /></th>
+		<th><f:translate key="tx_glshop_domain_model_fixingoption.drill_downside" /></th>
+		<th><f:translate key="tx_glshop_domain_model_fixingoption.border_length" /></th>
+		<th><f:translate key="tx_glshop_domain_model_fixingoption.position" /></th>
+		<th><f:translate key="tx_glshop_domain_model_fixingoption.diameter" /></th>
+		<th><f:translate key="tx_glshop_domain_model_fixingoption.price" /></th>
+		<th><f:translate key="tx_glshop_domain_model_fixingoption.pic" /></th>
+		<th> </th>
+		<th> </th>
+	</tr>
+
+	<f:for each="{fixingoptions}" as="fixingoption">
+		<tr>
+			<td><f:link.action action="show" arguments="{fixingoption : fixingoption}"> {fixingoption.articleNr}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{fixingoption : fixingoption}"> {fixingoption.name}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{fixingoption : fixingoption}"> {fixingoption.description}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{fixingoption : fixingoption}"> {fixingoption.projection}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{fixingoption : fixingoption}"> {fixingoption.fromSize}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{fixingoption : fixingoption}"> {fixingoption.toSize}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{fixingoption : fixingoption}"> {fixingoption.drillDownside}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{fixingoption : fixingoption}"> {fixingoption.borderLength}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{fixingoption : fixingoption}"> {fixingoption.position}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{fixingoption : fixingoption}"> {fixingoption.diameter}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{fixingoption : fixingoption}"> {fixingoption.price}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{fixingoption : fixingoption}"> {fixingoption.pic}</f:link.action></td>
+			<td><f:link.action action="edit" arguments="{fixingoption : fixingoption}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{fixingoption : fixingoption}">Delete</f:link.action></td>
+		</tr>
+	</f:for>
+</table>
+
+<f:link.action action="new">New Fixingoption</f:link.action>
+</f:section>

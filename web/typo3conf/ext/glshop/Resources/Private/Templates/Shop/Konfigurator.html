@@ -1,0 +1,43 @@
+<f:layout name="Shop" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        Index.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+	
+	<div class="glshop-main" style="display: block;">
+
+		<f:render partial="Shop/Konfigurator/MainData" arguments="{args:args, tempern:tempern}" />
+		
+		<f:render partial="Shop/Tooltips/Tooltips" />		
+		
+		<f:render partial="Shop/Konfigurator/Konfiguration" arguments="{_all}" />
+	
+		<f:render partial="Shop/Konfigurator/Dialoge/Dialoge" />
+		
+		<f:render partial="Shop/Konfigurator/MobileMainData" />
+		
+		
+	</div>
+	<f:comment><div id="debugTail" style="background-color: #E2E2E2; border: 1px solid; padding: 12px; width: 100%; height: 100%;">
+		<pre class="pre1">
+			
+		</pre>
+		<pre class="pre2">
+			
+		</pre>
+		
+		<pre class="pre3">
+			
+		</pre>
+</div></f:comment>
+
+</f:section>

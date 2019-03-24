@@ -1,0 +1,30 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<n:excludeDisplayedNews newsItem="{newsItem}"/>
+<div class="col-md-6 col-sm-12">
+    <div class="list-event">
+        <div class="event-left">
+            <div class="date">
+                <span class="month">{f:format.date(date:newsItem.datetime, format:'F')}</span>
+                <span class="date clr">{f:format.date(date:newsItem.datetime, format:'d')}</span>
+            </div>
+        </div>
+
+        <div class="event-body">
+            <h5><n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">{newsItem.title}</n:link></h5>
+            <f:if condition="{newsItem.teaser}">
+                <f:then>
+                    {newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+                </f:then>
+                <f:else>
+                    {newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+                </f:else>
+            </f:if>
+        </div>
+    </div>
+</div>
+
+</html>
+

@@ -1,0 +1,45 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+
+    <flux:grid.row label="Footer1">
+        <flux:grid.column name="footer.1"
+                          label="{v:l(key: 'footer.1', extensionName: 't3_glacryl')}"
+                          colPos="101" variables="{allowedContentTypes: 'menu_pages'}" colspan="1"/>
+        <flux:grid.column name="footer.2"
+                          label="{v:l(key: 'footer.2', extensionName: 't3_glacryl')}"
+                          colPos="102" variables="{allowedContentTypes: 'menu_pages'}"/>
+        <flux:grid.column name="footer.3"
+                          label="{v:l(key: 'footer.3', extensionName: 't3_glacryl')}"
+                          colPos="25" variables="{allowedContentTypes: 'textmedia'}"/>
+        <flux:grid.column name="footer.4"
+                                     label="{v:l(key: 'footer.4', extensionName: 't3_glacryl')}"
+                                     colPos="104" variables="{allowedContentTypes: 'textmedia'}" />
+
+    </flux:grid.row>
+<f:if condition="{record.uid} == {settings.page.home}">
+    <flux:grid.row label="Footer2">
+        <flux:grid.column name="footer.5"
+                          label="{v:l(key: 'footer.5', extensionName: 't3_glacryl')}"
+                          colPos="105" colspan="4" variables="{allowedContentTypes: 'textmedia'}"/>
+    </flux:grid.row>
+</f:if>
+<f:comment>
+<!-- Second level of footer
+<flux:grid.row label="Footer2">
+    <flux:grid.column name="footer.5"
+                      label="{v:l(key: 'footer.5', extensionName: 't3_glacryl')}"
+                      colPos="105" colspan="2" variables="{allowedContentTypes: 'textmedia'}"/>
+    <flux:grid.column name="footer.6"
+                      label="{v:l(key: 'footer.6', extensionName: 't3_glacryl')}"
+                      colPos="106" colspan="2" variables="{allowedContentTypes: 'menu_pages'}"/>
+</flux:grid.row>
+<flux:grid.row label="Footer3">
+    <flux:grid.column name="footer.7"
+                      label="{v:l(key: 'footer.7', extensionName: 't3_glacryl')}"
+                      colPos="107" colspan="4" variables="{allowedContentTypes: 'textmedia'}"/>
+</flux:grid.row>
+-->
+    </f:comment>
+
+</div>

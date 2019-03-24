@@ -1,0 +1,29 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<!-- BEFORE HEADER -->
+<!-- NAV -->
+<f:render partial="Etc/BurgerButton" section="BackendBurger" arguments="{settings:settings}" />
+<nav class="navigation-header">
+
+    <!-- SEARCH -->
+    <div class="search-wrapper">
+        <v:content.render column="92" pageUid="{settings.page.home}" slide="-1" />
+        <img src="./files/images/icons/search.svg" alt="search-icons" width="32" height="32" />
+    </div>
+
+    <!-- MENU -->
+    <f:render partial="Navigation/Sitemenu" arguments="{settings:settings}"/>
+
+    <a class="external-link" target="_blank" href="{f:uri.page(pageUid: '{settings.page.innoSite}')}">
+        <img src="./files/images/icons/Inno.svg" alt="Inno" width="74" />
+    </a>
+
+    <!-- BURGER -->
+</nav>
+
+<!-- SELECT LANGUAGE -->
+<f:if condition="{settings.multiLng} > 0">
+    <!-- LANGUAGES MENU -->
+    <f:render partial="Navigation/LanguageMenu" section="Plugin" arguments="{settings:settings}" />
+</f:if>
+
+<!-- END BEFORE HEADER -->

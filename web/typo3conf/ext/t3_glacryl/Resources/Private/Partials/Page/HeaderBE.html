@@ -1,0 +1,28 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+<f:if condition="{record.uid} == {settings.page.home}">
+    <flux:grid.row>
+        <flux:grid.column name="header.logo" colPos="90"
+                          label="{v:l(key: 'header.logo', extensionName: 't3_glacryl')}"
+                          variables="{allowedContentTypes: 'textmedia'}" colspan="1"/>
+        <f:comment><flux:grid.column name="header.mobileLogo" colPos="92"
+                          label="{v:l(key: 'header.mobileLogo', extensionName: 't3_glacryl')}"
+                          variables="{allowedContentTypes: 'textmedia'}" colspan="1"/></f:comment>
+        <flux:grid.column name="header.slogan" colPos="93"
+                          label="{v:l(key: 'header.slogan', extensionName: 't3_glacryl')}"
+                          variables="{allowedContentTypes: 'textmedia'}" colspan="2"/>
+        <flux:grid.column name="header.burger" colPos="91"
+                          label="{v:l(key: 'header.burger', extensionName: 't3_glacryl')}"
+                          variables="{allowedContentTypes: 'html,textmedia'}" colspan="1"/>
+        <f:comment>
+        <flux:grid.column name="header.address" colPos="92"
+                          label="{v:l(key: 'header.subnavLeft', extensionName: 't3_glacryl')}"
+                          variables="{allowedContentTypes: 'menu_pages'}" colspan="1"/>
+        <flux:grid.column name="header.subnav" colPos="93"
+                          label="{v:l(key: 'header.subnavRight', extensionName: 't3_glacryl')}"
+                          variables="{allowedContentTypes: 'menu_pages'}" colspan="1"/>
+        </f:comment>
+    </flux:grid.row>
+</f:if>
+</div>

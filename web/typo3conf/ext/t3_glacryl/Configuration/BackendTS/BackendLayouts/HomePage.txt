@@ -1,0 +1,160 @@
+##################################
+#### BACKENDLAYOUT: HOME PAGE ####
+##################################
+mod {
+    web_layout {
+        BackendLayouts {
+            HomePage {
+                title = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.HomePage
+                config {
+                    backend_layout {
+                        colCount = 6
+                        rowCount = 6
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.logo
+                                        colPos = 101
+                                        colspan = 1
+                                        allowed {
+                                            CType = image
+                                        }
+                                        maxitems = 1
+                                    }
+                                    2 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.phone
+                                        colPos = 108
+                                        colspan = 2
+                                        allowed {
+                                            CType = text
+                                        }
+                                        maxitems = 1
+                                    }
+                                    3 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.searchBox
+                                        colPos = 103
+                                        colspan = 3
+                                        allowed {
+                                            CType = list
+                                            list_type =
+                                        }
+                                        maxitems = 1
+                                    }
+                                }
+                            }
+                            2 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.info
+                                        colPos = 105
+                                        colspan = 6
+                                        allowed {
+                                            CType = text
+                                        }
+                                        maxitems = 1
+                                    }
+                                }
+                            }
+                            3 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.slider
+                                        colPos = 110
+                                        colspan = 6
+                                        allowed {
+                                            CType = t3glacryl_fce_grids
+                                        }
+                                        maxitems = 1
+                                    }
+                                }
+                            }
+                            4 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.normal
+                                        colPos = 0
+                                        colspan = 6
+                                    }
+                                }
+                            }
+                            5 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.footer1
+                                        colPos = 111
+                                        colspan = 1
+                                        allowed {
+                                            CType = menu_pages
+                                        }
+                                        maxitems = 1
+
+                                    }
+                                    2 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.footer2
+                                        colPos = 112
+                                        colspan = 1
+                                        allowed {
+                                            CType = menu_pages
+                                        }
+                                        maxitems = 1
+                                    }
+                                    3 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.footer3
+                                        colPos = 113
+                                        colspan = 1
+                                        allowed {
+                                            CType = menu_pages
+                                        }
+                                        maxitems = 1
+                                    }
+                                    4 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.footer4
+                                        colPos = 114
+                                        colspan = 1
+                                        allowed {
+                                            CType = menu_pages
+                                        }
+                                        maxitems = 1
+                                    }
+                                    5 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.footer5
+                                        colPos = 115
+                                        colspan = 1
+                                        allowed {
+                                            CType = menu_pages
+                                        }
+                                        maxitems = 1
+                                    }
+                                    6 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.footer6
+                                        colPos = 116
+                                        colspan = 1
+                                        allowed {
+                                            CType = text
+                                        }
+                                        maxitems = 1
+                                    }
+                                }
+                            }
+                            6 {
+                                columns {
+                                    1 {
+                                        name = LLL:EXT:t3_glacryl/Resources/Private/Language/backend.xlf:backend_layout.column.copyright
+                                        colPos = 119
+                                        colspan = 6
+                                        allowed {
+                                            CType = text
+                                        }
+                                        maxitems = 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                icon = EXT:t3_glacryl/Resources/Public/Images/BackendLayouts/HomePage.gif
+            }
+        }
+    }
+}

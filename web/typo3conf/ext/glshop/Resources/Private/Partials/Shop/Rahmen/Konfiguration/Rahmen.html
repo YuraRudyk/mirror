@@ -1,0 +1,142 @@
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+
+
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+	<div class="bearbeitungHeader">
+		<div class="sprite-Matrial"></div>
+		<h4>Leuchtrahmen</h4>
+	</div>
+	<div id="view-material-auswahl" class="panel-group" role="tablist" aria-multiselectable="false">
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="title_rahmen_panel">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#view-material-auswahl" href="#rahmen_panel" aria-expanded="true" aria-controls="rahmen_panel">Profilserie</a>
+				</h4>
+				<span class="right info-icon profil">i</span>
+			</div>
+			<div id="rahmen_panel" class="content panel-collapse collapse out" role="tabpanel" aria-labelledby="title_rahmen_panel">
+				<div class="panel-body">
+					<div class="error"></div>
+					<div class="row">
+						<div id="rahmenAuswahl" class="col-sm-12 col-md-12 col-lg-12">
+							<select id="rahmenId">
+								<option value="choose">Bitte ausw&auml;hlen</option>
+								<f:for each="{rahmen}" as="r" key="j" iteration="rType">
+									<option value="{r.uid}"
+								<f:if condition="{edit}">
+									<f:if condition="{edit.rahmen.uid} == {r.uid}">
+										selected
+									</f:if>	
+								</f:if>
+								>{r.name}</option>
+							</f:for>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div id="rahmenVariantenAuswahl" class="col-sm-6 col-md-6 col-lg-6 view-leuchtrahmen">
+						<f:if condition="{edit}">
+							<f:then>
+								<f:for each="{rahmen}" as="r" key="j" iteration="rType">
+									<f:if condition="{edit.rahmen.uid} == {r.uid}">
+										<f:then>
+											<f:for each="{r.varianten}" as="v" key="j" iteration="vType">
+												<p><input
+												<f:if condition="{v.uid} == {edit.rahmen.vid}">
+													checked="checked"
+												</f:if>
+												class="addProfilBtn" id="farbe_{r.uid}_{v.uid}" type="radio" name="farbe" value="{v.uid}"><label for="farbe_{r.uid}_{v.uid}">{v.name} mm</label></p>																									
+											</f:for>
+										</f:then>
+									</f:if>
+								</f:for>
+							</f:then>
+							<f:else>
+								<f:comment><f:for each="{rahmen.0.variante}" as="v" key="k" iteration="vType">
+										<p><input class="addProfilBtn" id="farbe_{r.uid}_{v.uid}" type="radio" name="farbe" value="{v.uid}"><label for="farbe_{r.uid}_{v.uid}">{v.name}</label></p>										
+									</f:for>
+								</f:comment>
+							</f:else>
+						</f:if>
+					</div>
+					<div class="col-sm-6 col-md-6 col-lg-6 materialImg">
+						<f:if condition="{edit}">
+							<f:then>
+								<f:for each="{rahmen}" as="r" key="j" iteration="rType">
+									<f:if condition="{edit.rahmen.uid} == {r.uid}">
+										<f:then>
+											<f:for each="{r.varianten}" as="v" key="j" iteration="vType">
+												<a href="<glacryl:configValue config='{shopConfig}' key='materialImgPath' />{v.bild}" data-lightbox="rahmen_farbe_{v.uid}" data-title="{r.name} - {v.name}" >
+													<img class="img-responsive" src="<glacryl:configValue config='{shopConfig}' key='materialImgPath' /><glacryl:img type='path' /><glacryl:img type='name' imgName='{v.bild}' />" />
+												</a>
+											</f:for>								
+										</f:then>
+									</f:if>
+								</f:for>
+							</f:then>
+							<f:else>
+								<a href="<glacryl:configValue config='{shopConfig}' key='rahmenImgPath' />{rahmen.0.bild}" data-lightbox="rahmen{rahmen.0.uid}" data-title="{rahmen.0.name}" >
+									<img class="img-responsive" src="<glacryl:configValue config='{shopConfig}' key='rahmenImgPath' /><glacryl:img type='path' /><glacryl:img type='name' imgName='{rahmen.0.bild}' />" />
+								</a>
+							</f:else>	
+						</f:if>
+					</div>
+				</div>
+			</div> 
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="title_frontscheibe_panel">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#view-material-auswahl" href="#frontscheibe_panel" aria-expanded="true" aria-controls="frontscheibe_panel">Frontscheibe</a>
+			</h4>
+			<span class="right info-icon front">i</span>
+		</div>
+		<div id="frontscheibe_panel" class="content panel-collapse collapse out" role="tabpanel" aria-labelledby="title_frontscheibe_panel">
+			<div class="panel-body">
+				<div class="error"></div>
+				<div class="row">
+					<div id="frontscheibenAuswahl" class="col-sm-12 col-md-12 col-lg-12">
+						<select id="frontscheibenId">
+							<option value="choose">Bitte w&auml;hlen</option>
+							<f:for each="{frontscheiben}" as="f" key="j" iteration="fType">
+								<option value="{f.uid}"
+							<f:if condition="{edit}">
+								<f:if condition="{edit.fonrtscheibe.uid} == {f.uid}">
+									selected
+								</f:if>	
+							</f:if>
+							>{f.name}</option>
+						</f:for>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 col-md-12 col-lg-12">
+					<p style="font-weight: bold; font-size: 16pt;">Sicherheitseigenschaften</p>
+				</div>
+			</div>
+			<div class="row">
+				<div id="sicherheitAuswahl" class="col-sm-12 col-md-12 col-lg-12 view-leuchtrahmen">
+					<glacryl:Rahmen frontscheiben="{frontscheiben}" edit="{edit}" sicherheit="true" />
+				</div>
+			</div>
+			<div class="row view-frontscheiben-varianten">
+				<div class="col-sm-12 col-md-12 col-lg-12">
+					<hr style="color: #9A8B56; margin-bottom: 8px;height: 2px;">
+					<div id="frontscheiben-varianten">
+
+					</div>
+				</div>
+				<f:comment><div class="col-sm-12 col-md-12 col-lg-12 frontscheibeImg">
+						<a href="#" data-lightbox="frontscheibe" data-title="" >
+							<img class="img-responsive" src="#"/>
+						</a>
+					</div>
+				</f:comment>
+			</div>
+		</div> 
+	</div>
+</div>
+</div>
+</div>

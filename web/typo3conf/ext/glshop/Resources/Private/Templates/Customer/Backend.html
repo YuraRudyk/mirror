@@ -1,0 +1,98 @@
+<f:layout name="Backend" />
+
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+    <f:flashMessages />
+
+	<!-- Kundenverwaltung -->
+
+	<div class="mein-konto-adressbuch">
+
+	<f:comment>	<f:debug>{_all}</f:debug></f:comment>
+
+		<h1>Kundenliste <f:link.action action="backend" controller="Customer">Aktualisieren</f:link.action></h1>
+		<table  class="glshop_table" >
+			<thead>
+				<tr>
+					<th>Kunden Nr.</th>
+					<th>Firma / Name</th>
+					<th>Kontakt</th>
+					<th>Status</th>
+					<th>Konditionen</th>
+					<th>Aktionen</th>
+				</tr>
+			</thead>
+			<tbody>
+			<f:for each="{customers}" as="customer">
+				<f:cycle values="{0: 'even', 1: 'odd'}" as="zebraClass">
+					<tr class="{zebraClass}">
+						<td>
+							{customer.uid}
+						</td>
+						<td>
+					<f:if condition="{customer.company}" >
+						{customer.company}<br />
+					</f:if>
+					<f:if condition="{customer.name}" >
+						<f:if condition="{customer.gender} == 0" >
+							<f:then>Herr</f:then>
+							<f:else>Frau</f:else>
+						</f:if>	
+						{customer.name}
+					</f:if>
+					</td>
+					<td>
+						<span>{customer.adress}</span><br />
+						<span>{customer.zip} {customer.city}</span><br />
+						<span>Tel: {customer.telephone}</span><br />
+						<span>Fax: {customer.fax}</span><br />
+						<span>E-Mail: {customer.email}</span><br />
+					<f:if condition="{customer.ustId}" >
+						<span>Ust.Id: {customer.ustId}</span><br />
+					</f:if>	
+					</td>
+					<td>
+					<f:if condition="{customer.created}" >
+						<span>Angemeldet seit: <glacryl:date format="d.m.Y H:i" date="{customer.created}" /></span><br />
+					</f:if>
+					<f:if condition="{customer.lastlogin}" >
+						<span>Letzter Login: <glacryl:date format="d.m.Y H:i" date="{customer.lastlogin}" /></span><br />
+					</f:if>
+						<span><b>Umsatz: </b></span>					
+					</td>
+					<td>
+					<f:if condition="{customer.payCondition.days} == 0" >
+						<f:then>
+							Zahlung innerhalb von {customer.payCondition.netto} Tagen ohne Abzug!
+						</f:then>
+						<f:else>
+							Zahlung innerhalb von {customer.payCondition.days} Tagen - {customer.payCondition.reduction}% Skonto, <br />
+							sonst {customer.payCondition.netto} Tage Netto
+						</f:else>
+					</f:if>
+					</td>
+					<td>
+					<f:link.action action="edit" arguments="{customer : customer}">Edit</f:link.action>
+					<f:link.action action="delete" arguments="{customer : customer}">Delete</f:link.action>
+					</td>
+					</tr>
+				</f:cycle>
+			</f:for>
+			</tbody>
+		</table>
+
+	</div>
+
+</f:section>

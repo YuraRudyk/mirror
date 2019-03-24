@@ -1,0 +1,163 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+
+<flux:form.sheet name="sections" label="Page sections">
+    <f:comment>
+        <!--
+        <flux:field.select name="radio" label="Category" items="{
+                           0:{0:'On the left side',1:'left', 2: '{v:extension.path.resources(path: \'Icons/Page/TopContentSidebarContent.svg\')}'},
+                           1:{0:'On the right side',1:'right',2: '{v:extension.path.resources(path: \'Icons/Page/TopContentMenuContentSidebar.svg\')}'}
+        }" />
+        -->
+    </f:comment>
+    <flux:form.section name="sections" label="{v:l(key: 'sectionsList', extensionName: 't3_website')}">
+        <flux:form.object name="section" label="{sectionTitle}">
+            <flux:field.checkbox name="sectionHidden" default="0"
+                                 label="{v:l(key: 'sectionHidden', extensionName: 't3_website')}"/>
+            <flux:field.input name="sectionTitle"
+                              label="{v:l(key: 'sectionTitle', extensionName: 't3_website')}"/>
+            <flux:field.input name="sectionId"
+                              label="{v:l(key: 'sectionId', extensionName: 't3_website')}"/>
+            <flux:field.input name="sectionCustomClass"
+                              label="{v:l(key: 'sectionCustomClass', extensionName: 't3_website')}"/>
+
+            <flux:field.select name="sectionPosition"
+                               items="{
+                           0:{0:'Top (above left and right columns)',1:'0'},
+                           1:{0:'Bottom (below left and right columns)',1:'1'}
+                           }"
+                               default="1"
+                               label="Section position"/>
+
+            <flux:field.select name="sectionRows"
+                               items="{
+                           0:{0:'Auto',1:'0'},
+                           1:{0:'colPos=31',1:'31'},
+                           2:{0:'colPos=32',1:'32'},
+                           3:{0:'colPos=33',1:'33'},
+                           4:{0:'colPos=34',1:'34'},
+                           5:{0:'colPos=35',1:'35'},
+                           6:{0:'colPos=36',1:'36'},
+                           7:{0:'colPos=37',1:'37'},
+                           8:{0:'colPos=38',1:'38'},
+                           9:{0:'colPos=39',1:'39'},
+                           10:{0:'colPos=40',1:'40'},
+                           11:{0:'colPos=41',1:'41'},
+                           12:{0:'colPos=42',1:'42'},
+                           13:{0:'colPos=43',1:'43'},
+                           14:{0:'colPos=44',1:'44'},
+                           15:{0:'colPos=45',1:'45'},
+                           16:{0:'colPos=46',1:'46'},
+                           17:{0:'colPos=47',1:'47'},
+                           18:{0:'colPos=48',1:'48'},
+                           19:{0:'colPos=49',1:'49'}
+                           }"
+                               default="0"
+                               label="{v:l(key: 'sectionRows', extensionName: 't3_website')}"/>
+
+            <flux:field.select name="fullWidthContainer"
+                               items="{
+                                               0:{0:'Fixed width (div.container)',1:'container'},
+                                               1:{0:'Full width (div.container-fluid)',1:'container-fluid'},
+                                               2:{0:'None',1:'none'}
+                                           }"
+                               default="container"
+                               label="{v:l(key: 'fullWidthContainer', extensionName: 't3_website')}" requestUpdate="1"/>
+
+            <f:comment>
+                <!--
+                <flux:field.checkbox name="sectionMenu" default="0"
+                                 label="{v:l(key: 'sectionMenu', extensionName: 't3_website')}"/>
+                <flux:field.checkbox name="sectionBack" default="0"
+                                 label="{v:l(key: 'sectionBack', extensionName: 't3_website')}"/>
+                <flux:field.checkbox name="fullHeightSection"
+                                     label="{v:l(key: 'fullHeightSection', extensionName: 't3_website')}"/>
+                 -->
+            </f:comment>
+
+            <flux:field.checkbox name="backgroundEnable"
+                                 label="{v:l(key: 'sectionBackgroundEnable', extensionName: 't3_website')}"
+                                 requestUpdate="1"/>
+            <flux:field.input name="backgroundColor"
+                              label="{v:l(key: 'backgroundColor', extensionName: 't3_website')}"
+                              displayCond="FIELD:backgroundEnable:>:0">
+                <flux:wizard.colorPicker label="Choose backround color" hideParent="1" dim="20x20"
+                                         width="400" height="400"
+                                         exampleImg="EXT:flux/Resources/Public/Icons/ColorWheel.png"/>
+            </flux:field.input>
+            <flux:field.file name="backgroundImage"
+                             label="{v:l(key: 'backgroundImage', extensionName: 't3_website')}"
+                             allowed="png,jpg,jpeg" showThumbnails="1"
+                             displayCond="FIELD:backgroundEnable:>:0" requestUpdate="1"/>
+
+            <flux:field.select name="backgroundSize"
+                               label="{v:l(key: 'backgroundSize', extensionName: 't3_website')}"
+                               items="auto,cover,contain"
+                               displayCond="FIELD:backgroundImage:>:0"/>
+            <flux:field.select name="backgroundRepeat"
+                               label="{v:l(key: 'backgroundRepeat', extensionName: 't3_website')}"
+                               items="no-repeat,repeat,repeat-x,repeat-y,inherit"
+                               displayCond="FIELD:backgroundImage:>:0"/>
+            <flux:field.select name="backgroundPosition"
+                               label="{v:l(key: 'backgroundPosition', extensionName: 't3_website')}"
+                               items="center center, center top, center bottom"
+                               displayCond="FIELD:backgroundImage:>:0"/>
+            <flux:field.select name="backgroundAttachment"
+                               label="{v:l(key: 'backgroundAttachment', extensionName: 't3_website')}"
+                               items="scroll,fixed,local,inherit"
+                               displayCond="FIELD:backgroundImage:>:0"/>
+
+
+
+            <flux:field.input name="containerCustomClass"
+                              label="Custom container CSS class(es) (for example: text-center )" displayCond="FIELD:fullWidthContainer:IN:container,container-fluid" />
+            <flux:field.checkbox name="containerBackgroundEnable"
+                                 label="{v:l(key: 'containerBackgroundEnable', extensionName: 't3_website')}"
+                                 requestUpdate="1" displayCond="FIELD:fullWidthContainer:IN:container,container-fluid" />
+            <flux:field.input name="containerBackgroundColor"
+                              label="{v:l(key: 'backgroundColor', extensionName: 't3_website')}"
+                              displayCond="FIELD:containerBackgroundEnable:>:0">
+                <flux:wizard.colorPicker
+                        label="{v:l(key: 'chooseBackgroundColor', extensionName: 't3_website')}"
+                        hideParent="1" dim="20x20"
+                        width="400" height="400"
+                        exampleImg="EXT:flux/Resources/Public/Icons/ColorWheel.png"/>
+            </flux:field.input>
+            <flux:field.file name="containerBackgroundImage"
+                             label="{v:l(key: 'backgroundImage', extensionName: 't3_website')}"
+                             allowed="png,jpg,jpeg" showThumbnails="1"
+                             displayCond="FIELD:containerBackgroundEnable:>:0" requestUpdate="1"/>
+            <flux:field.select name="containerBackgroundSize"
+                               label="{v:l(key: 'backgroundSize', extensionName: 't3_website')}"
+                               items="auto,cover,contain"
+                               displayCond="FIELD:containerBackgroundImage:>:0"/>
+            <flux:field.select name="containerBackgroundRepeat"
+                               label="{v:l(key: 'backgroundRepeat', extensionName: 't3_website')}"
+                               items="no-repeat,repeat,repeat-x,repeat-y,inherit"
+                               displayCond="FIELD:containerBackgroundImage:>:0"/>
+            <flux:field.select name="containerBackgroundPosition"
+                               label="{v:l(key: 'backgroundPosition', extensionName: 't3_website')}"
+                               items="center center, center top, center bottom"
+                               displayCond="FIELD:containerBackgroundImage:>:0"/>
+            <flux:field.select name="containerBackgroundAttachment"
+                               label="{v:l(key: 'backgroundAttachment', extensionName: 't3_website')}"
+                               items="scroll,fixed,local,inherit"
+                               displayCond="FIELD:containerBackgroundImage:>:0"/>
+
+
+            <f:comment>
+                <!--
+                <flux:field.input name="containerPaddingTop" size="3"
+                                  label="Padding TOP INSIDE of container"/>
+                <flux:field.input name="containerPaddingBottom" size="3"
+                                  label="Padding BOTTOM INSIDE of container"/>
+                <flux:field.select name="containerColumns" label="How many columns in container"
+                                   items="0,1,2,3,4,5,6,7,8,9,10,11,12"/>
+                -->
+            </f:comment>
+        </flux:form.object>
+    </flux:form.section>
+</flux:form.sheet>
+
+</div>

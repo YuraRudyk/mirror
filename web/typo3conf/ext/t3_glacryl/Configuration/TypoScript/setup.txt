@@ -1,0 +1,116 @@
+plugin.tx_t3glacryl {
+	view {
+		templateRootPaths.0 = {$plugin.tx_t3glacryl.view.templateRootPaths.0}
+		partialRootPaths.0  = {$plugin.tx_t3glacryl.view.partialRootPaths.0}
+		layoutRootPaths.0   = {$plugin.tx_t3glacryl.view.layoutRootPaths.0}
+		#widget {
+		#	TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper {
+		#		templateRootPath >
+		#		templateRootPath = {$plugin.tx_t3glacryl.view.widget.templateRootPath}
+		#		templateRootPaths >
+		#		templateRootPaths.0 = {$plugin.tx_t3glacryl.view.widget.templateRootPath}
+		#		templateRootPaths.1 = {$plugin.tx_t3glacryl.view.widget.templateRootPath}
+		#	}
+		#}
+		widget.TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper.templateRootPath = {$plugin.tx_t3glacryl.view.widget.templateRootPath}
+	}
+}
+
+plugin.tx_t3glacryl.settings {
+	underConstraction = {$underConstraction}
+	siteName          = {$plugin.tx_t3glacryl.settings.siteName}
+	csspath           = {$plugin.tx_t3glacryl.settings.csspath}
+	jspath            = {$plugin.tx_t3glacryl.settings.jspath}
+	imgpath           = {$plugin.tx_t3glacryl.settings.imgpath}
+
+	protocol          = {$plugin.tx_t3glacryl.settings.protocol}
+	domain            = {$plugin.tx_t3glacryl.settings.domain}
+	baseUrl           = {$plugin.tx_t3glacryl.settings.protocol}://{$plugin.tx_t3glacryl.settings.domain}/
+	adminEmail        = {$plugin.tx_t3glacryl.settings.adminEmail}
+	manualCSS         = {$plugin.tx_t3glacryl.settings.manualCSS}
+	manualJS          = {$plugin.tx_t3glacryl.settings.manualJS}
+	multiLng          = {$plugin.tx_t3glacryl.settings.multiLng}
+	searchEnable      = {$plugin.tx_t3glacryl.settings.searchEnable}
+	languagesIDs      = {$plugin.tx_t3glacryl.settings.languagesIDs}
+	languagesLabels   = {$plugin.tx_t3glacryl.settings.languagesLabels}
+	page {
+		home          = {$plugin.tx_t3glacryl.settings.page.home}
+		searchResults = {$plugin.tx_t3glacryl.settings.page.searchResults}
+		error404      = {$plugin.tx_t3glacryl.settings.page.error404}
+		siteMap       = {$plugin.tx_t3glacryl.settings.page.siteMap}
+		shop          =	{$plugin.tx_t3glacryl.settings.page.produkte}
+		contacts      =	{$plugin.tx_t3glacryl.settings.page.contacts}
+	}
+	folder {
+		globalcontent = {$plugin.tx_t3glacryl.settings.folder.globalContent}
+		topLinks      = {$plugin.tx_t3glacryl.settings.folder.topLinks}
+		footerLinks   = {$plugin.tx_t3glacryl.settings.folder.footerLinks}
+		socialLinks   = {$plugin.tx_t3glacryl.settings.folder.socialLinks}
+	}
+	content {
+		toTopEnable        = {$plugin.tx_t3glacryl.settings.content.toTopEnable}
+		preLoaderEnable    = {$plugin.tx_t3glacryl.settings.content.preLoaderEnable}
+		copyrightEnable    = {$plugin.tx_t3glacryl.settings.content.copyrightEnable}
+		breadcrumbEnable   = {$plugin.tx_t3glacryl.settings.content.breadcrumbEnable}
+		homeInMenu         = {$plugin.tx_t3glacryl.settings.content.homeInMenu}
+		element {
+			headerHTML = {$plugin.tx_t3glacryl.settings.content.element.headerHTML}
+			footerHTML = {$plugin.tx_t3glacryl.settings.content.element.footerHTML}
+			loginForm  = {$plugin.tx_t3glacryl.settings.content.element.loginForm}
+			copyright  = {$plugin.tx_t3glacryl.settings.content.element.copyright}
+			searchbox  = {$plugin.tx_t3glacryl.settings.content.element.searchbox}
+		}
+	}
+	performance {
+		enableCSSCompression = {$plugin.tx_t3glacryl.settings.performance.enableCSSCompression}
+		enableJSCompression  = {$plugin.tx_t3glacryl.settings.performance.enableJSCompression}
+		enableCSSMerging     = {$plugin.tx_t3glacryl.settings.performance.enableCSSMerging}
+		enableJSMerging      = {$plugin.tx_t3glacryl.settings.performance.enableJSMerging}
+	}
+	meta {
+		description = {$plugin.tx_t3glacryl.settings.meta.description}
+		keywords    = {$plugin.tx_t3glacryl.settings.meta.keywords}
+		author      = {$plugin.tx_t3glacryl.settings.meta.author}
+		robots      = {$plugin.tx_t3glacryl.settings.meta.robots}
+		viewport    = {$plugin.tx_t3glacryl.settings.meta.viewport}
+
+		mobile-web-app-capable                = {$plugin.tx_t3glacryl.settings.meta.mobile-web-app-capable}
+		apple-mobile-web-app-capable          = {$plugin.tx_t3glacryl.settings.meta.apple-mobile-web-app-capable}
+		apple-mobile-web-app-status-bar-style = {$plugin.tx_t3glacryl.settings.meta.apple-mobile-web-app-status-bar-style}
+		format-detection                      = {$plugin.tx_t3glacryl.settings.meta.format-detection}
+
+		google                         = {$plugin.tx_t3glacryl.settings.meta.google}
+		X-UA-Compatible                = {$plugin.tx_t3glacryl.settings.meta.X-UA-Compatible}
+		X-UA-Compatible.httpEquivalent = {$plugin.tx_t3glacryl.settings.meta.X-UA-Compatible.httpEquivalent}
+	}
+	socialmedia {
+		useFacebook    = {$plugin.tx_t3glacryl.settings.socialmedia.useFacebook}
+		facebookLink   = {$plugin.tx_t3glacryl.settings.socialmedia.facebookLink}
+		useTwitter     = {$plugin.tx_t3glacryl.settings.socialmedia.useTwitter}
+		twitterLink    = {$plugin.tx_t3glacryl.settings.socialmedia.twitterLink}
+		useLinkedIn    = {$plugin.tx_t3glacryl.settings.socialmedia.useLinkedIn}
+		linkedInLink   = {$plugin.tx_t3glacryl.settings.socialmedia.linkedInLink}
+		useYoutube     = {$plugin.tx_t3glacryl.settings.socialmedia.useYoutube}
+		youtubeLink    = {$plugin.tx_t3glacryl.settings.socialmedia.youtubeLink}
+		useVimeo       = {$plugin.tx_t3glacryl.settings.socialmedia.useVimeo}
+		vimeoLink      = {$plugin.tx_t3glacryl.settings.socialmedia.vimeoLink}
+		useGooglePlus  = {$plugin.tx_t3glacryl.settings.socialmedia.useGooglePlus}
+		googlePlusLink = {$plugin.tx_t3glacryl.settings.socialmedia.googlePlusLink}
+		useInstagram   = {$plugin.tx_t3glacryl.settings.socialmedia.useInstagram}
+		instagramLink  = {$plugin.tx_t3glacryl.settings.socialmedia.instagramLink}
+		useXing        = {$plugin.tx_t3glacryl.settings.socialmedia.useXing}
+		xingLink       = {$plugin.tx_t3glacryl.settings.socialmedia.xingLink}
+		usePinterest   = {$plugin.tx_t3glacryl.settings.socialmedia.usePinterest}
+		pinterestLink  = {$plugin.tx_t3glacryl.settings.socialmedia.pinterestLink}
+	}
+	paginate {
+		itemsPerPage         = 2
+		maximumNumberOfLinks = 10
+		insertBelow = 1
+	}
+}
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:t3_glacryl/Configuration/TypoScript/util/helpers.txt">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:t3_glacryl/Configuration/TypoScript/system/" extensions="txt">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:t3_glacryl/Configuration/TypoScript/libs/" extensions="txt">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:t3_glacryl/Configuration/TypoScript/ext/" extensions="txt">

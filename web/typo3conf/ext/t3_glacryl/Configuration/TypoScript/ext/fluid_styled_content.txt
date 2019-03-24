@@ -1,0 +1,4 @@
+#####################################################
+# allow html-Tags in headers of content-elements (for example, <br/>)
+#####################################################
+lib.stdheader.10.setCurrent.htmlSpecialChars = 0

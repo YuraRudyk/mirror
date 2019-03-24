@@ -1,0 +1,15 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+
+<v:content.render column="93" render="0" pageUid="{settings.page.home}" as="slogan">
+    {v:resource.record.fal(table: 'tt_content', field: 'assets',
+    uid: slogan.0.uid)
+    -> v:iterator.first()
+    -> v:variable.set(name: 'imageFirst')}
+    <img src="{imageFirst.url}" class="img-responsive desktop-slogan hidden-xs" alt="" />
+    {v:resource.record.fal(table: 'tt_content', field: 'assets',
+    uid: slogan.0.uid)
+    -> v:iterator.last()
+    -> v:variable.set(name: 'imageLast')}
+    <img src="{imageLast.url}" class="img-responsive mobile-slogan hidden-sm hidden-md hidden-lg" alt="" />
+</v:content.render>

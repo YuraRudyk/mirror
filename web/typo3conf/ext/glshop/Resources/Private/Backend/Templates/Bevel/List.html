@@ -1,0 +1,43 @@
+
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+<h1>Listing for Bevel</h1>
+
+<f:flashMessages />
+
+<table  class="tx_glshop" >
+	<tr>
+		<th><f:translate key="tx_glshop_domain_model_bevel.thread" /></th>
+		<th><f:translate key="tx_glshop_domain_model_bevel.drill" /></th>
+		<th><f:translate key="tx_glshop_domain_model_bevel.bevel" /></th>
+		<th><f:translate key="tx_glshop_domain_model_bevel.depth" /></th>
+		<th> </th>
+		<th> </th>
+	</tr>
+
+	<f:for each="{bevels}" as="bevel">
+		<tr>
+			<td><f:link.action action="show" arguments="{bevel : bevel}"> {bevel.thread}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{bevel : bevel}"> {bevel.drill}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{bevel : bevel}"> {bevel.bevel}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{bevel : bevel}"> {bevel.depth}</f:link.action></td>
+			<td><f:link.action action="edit" arguments="{bevel : bevel}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{bevel : bevel}">Delete</f:link.action></td>
+		</tr>
+	</f:for>
+</table>
+
+<f:link.action action="new">New Bevel</f:link.action>
+</f:section>

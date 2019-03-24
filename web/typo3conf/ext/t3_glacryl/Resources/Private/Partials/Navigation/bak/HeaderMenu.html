@@ -1,0 +1,17 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<v:content.render column="1" pageUid="{settings.page.header}" render="0" as="ce">
+	<f:for each="{ce}" as="iterator">
+		<v:page.menu.list pages="{iterator.pages}" showHidden="1" class="" classCurrent="current" classFirst="first" classLast="last">
+			<f:for each="{menu}" as="menuItem">
+				<f:if condition="{menuItem.current} == 1">
+					<f:then>
+						<li{f:if(then: ' class="{menuItem.class}"', condition: '{menuItem.class}')}><span>{menuItem.nav_title -> v:or(alternative: "{menuItem.title}")}</span></li>
+					</f:then>
+					<f:else>
+						<li{f:if(then: ' class="{menuItem.class}"', condition: '{menuItem.class}')}><a href="{menuItem.link}">{menuItem.nav_title -> v:or(alternative: "{menuItem.title}")}</a></li>
+					</f:else>
+				</f:if>						
+			</f:for>
+		</v:page.menu.list>
+	</f:for>
+</v:content.render>

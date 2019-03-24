@@ -1,0 +1,115 @@
+###################################################
+# Page configuration ##############################
+###################################################
+page = PAGE
+page {
+    typeNum = 0
+    10 < lib.fluidTemplates
+	config {
+		#absRefPrefix = auto
+		#baseURL = {$plugin.tx_t3glacryl.settings.protocol}://{$plugin.tx_t3glacryl.settings.domain}/
+		baseURL = /
+		#headerComment = {$plugin.tx_t3glacryl.settings.siteName}
+		headerComment(
+		)
+		baseUrlOn = 1
+		doctype = html5
+		xmlprologue = none
+		removeDefaultJS = 1
+		#removeDefaultJS = external
+		#removeDefaultCSS = 1
+		#removePageCss = 1
+		inlineStyle2TempFile = 1
+		disableBaseWrap = 1
+		disablePrefixComment = 1
+		# Administrator settings ########################################
+		#admPanel = {$underConstraction}
+		debug = {$underConstraction}
+		# Config Search #################################################
+		index_enable = 1
+		index_externals = 1
+		index_metatags = 1
+		# Cache settings ################################################
+		#cache_period = 43200
+		#sendCacheHeaders = 1
+		simulateStaticDocuments = 0
+		uniqueLinkVars = 0
+		# If set, then every “typolink” is checked whether it's linking to a page within the current rootline of the site.
+		#typolinkCheckRootline = 1
+		# This option enables to create links across domains using current domain's linking scheme.
+		#typolinkEnableLinksAcrossDomains = 1
+		# If set, then all email addresses in typolinks
+		# will be encrypted so spam bots cannot detect them.
+		spamProtectEmailAddresses = -3
+		# Substitute label for the at-sign
+		spamProtectEmailAddresses_atSubst = @
+		# Substitute label for the last dot in the email address.
+		spamProtectEmailAddresses_lastDotSubst = .
+		# SEO (base configurations)
+		#noPageTitle = 2
+		#pageTitleFirst = 1
+		#pageTitleSeparator = |
+		#pageTitleSeparator.noTrimWrap = | | |
+        extTarget = _blank
+		frontend_editing = 0
+	}
+}
+
+#page {
+#	config {
+#		typolinkLinkAccessRestrictedPages = 9
+#		typolinkLinkAccessRestrictedPages_addParams = &redirect_url=###RETURN_URL###
+#	}
+#}
+
+###################################################
+# NO_CACHE ########################################
+###################################################
+[applicationContext == "Development"]
+	page.config.no_cache = 1
+[ELSE]
+    page.config.no_cache = 0
+[GLOBAL]
+
+###################################################
+#### EXCLUDE PAGE FROM EXTERNAL SEARCH RESULTS ####
+#### IF NO SEARCH IS SET FOR THIS PAGE         ####
+###################################################
+[page["no_search"] == 1]
+	page.meta.robots = noindex,nofollow
+[ELSE]
+    page.meta.robots = {$plugin.tx_t3glacryl.settings.meta.robots}
+[GLOBAL]
+
+###################################################
+# BODY TAG ########################################
+###################################################
+page {
+	bodyTag >
+	bodyTagCObject = COA
+    bodyTagCObject {
+        10 = TEXT
+        10.data = TSFE:id
+        10.noTrimWrap = | id="p-|"|
+        20 =< lib.page.class
+        20.stdWrap.noTrimWrap = | class="|"|
+        30 =< lib.page.background
+        30.stdWrap.noTrimWrap = | style="|"|
+        wrap = <body|>
+    }
+    bodyTagCObject >
+}
+
+###################################################
+# Error messages ###################################
+###################################################
+[backend.user.isLoggedIn]
+page {
+	config {
+		contentObjectExceptionHandler = 0
+	}
+}
+[GLOBAL]
+
+
+

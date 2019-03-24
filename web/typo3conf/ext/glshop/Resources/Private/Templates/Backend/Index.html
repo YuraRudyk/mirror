@@ -1,0 +1,37 @@
+<f:layout name="Backend" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+Index.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+	<h1>Shop &Uuml;bersicht</h1>
+
+	<f:flashMessages />
+
+	<div class="glBeOverviewContainer">
+		<f:render partial="Backend/Actions" />
+	</div>
+
+	<div class="glBeOverviewContainer">
+		<f:render partial="Backend/Customer" />
+	</div>
+	<f:comment>
+		<div class="glBeOverviewContainer">
+			<f:render partial="Backend/NewOrder" />
+		</div>
+
+		<div class="glBeOverviewContainer">
+			<f:render partial="Backend/OrderInProduction" />
+		</div>
+	</f:comment>
+
+
+</f:section> 

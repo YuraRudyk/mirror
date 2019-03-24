@@ -1,0 +1,36 @@
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<f:render partial="Shop/Product/Elements/PA" />
+		</div>
+		<div class="row tailView">
+			<f:for each="{Halter}" as="H">
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" data-hid="{H.uid}">
+					<div style="background-color: #444444;">
+						<h5 style="display: inline-block; margin-left: 24px; color: #FFFFFF; font-family: Arial; font-size: 13pt;">{H.name}</h5>
+					</div>
+					<div class="row product-tail-info">
+						<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+							<a href="<glacryl:productImage mini='false' img='{H.pic}' />" data-lightbox="halter{H.uid}" data-title="{H.name}">
+								<img width="120" height="120" src="<glacryl:productImage mini='true' img='{H.pic}' />" />
+							</a>
+						</div>
+
+						<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+							<div style="font-size: 10pt; padding-left:12px;">
+								{H.usefixing}
+							</div>
+						</div>
+
+					</div>
+					<div class="row product-tail-button-area">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color: rgba(255,255,255,0); margin: 0 12px !important;">
+							<button value="{H.uid}" type="button" class="show-product-detail-Tail-Btn glButtonFullWidth btn btn-default btn-lg btn-block"><span>Zum Produkt</span></button>
+						</div>
+					</div>
+				</div>
+			</f:for>
+		</div>
+	</div>
+</div>

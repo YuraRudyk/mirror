@@ -1,0 +1,261 @@
+#############
+#### RTE ####
+#############
+RTE.default.defaultContentLanguage = de
+
+RTE {
+	colors {
+		color1 {
+			name = Red
+			value = #E3000E
+		}
+		color2 {
+			name = Grey
+			value = #a5a5a5
+		}
+	}
+	classes {
+		tal {
+			name = Left aligment
+		}
+		tar {
+			name = Right aligment
+		}
+		tac {
+			name = Center aligment
+		}
+		custom-scroll {
+			name = Scrollable paragraph
+		}
+		#button_red {
+		#	name = Red button
+		#	#requires = button button-center
+		#}
+		button {
+			name = Button
+			#requires = button button-center
+		}
+		button-wrapper {
+			name = Buttons container
+		}
+		marked {
+			name = Underline
+		}
+		link-tel {
+		    name = Telefone
+		}
+		no-bullets{
+			name = No bullets
+		}
+		red_list{
+			name = Red bullets
+		}
+	}
+	classesAnchor {
+        button {
+            class = button
+            type = file
+            titleText = Gray button
+        }
+        link-email {
+            class = link-email
+            type = mail
+            titleText = Email address
+        }
+	}
+	fontSizes {
+		1 {
+			name = Font size: 8px
+			value = 8px
+		}
+		2 {
+			name = Font size: 9px
+			value = 9px
+		}
+		3 {
+			name = Font size: 10px
+			value = 10px
+		}
+		4 {
+			name = Font size: 11px
+			value = 11px
+		}
+		5 {
+			name = Font size: 12px
+			value = 12px
+		}
+		6 {
+			name = Font size: 14px
+			value = 14px
+		}
+		7 {
+			name = Font size: 16px
+			value = 16px
+		}
+		8 {
+			name = Font size: 22px
+			value = 22px
+		}
+	}
+    // Default RTE configuration (all tables)
+    default {
+		ignoreMainStyleOverride = 1
+		showTagFreeClasses = 1
+        // Disable contextual menu
+        contextMenu.disabled = 1
+
+        showStatusBar = 1
+        removeTagsAndContents =
+        useCSS = 0
+		contentCSS = typo3conf/ext/t3_glacryl/Resources/Public/Css/RTE/typo3_rte.css
+
+		// Add custom colors
+		colors = color1,color2
+
+        // Default target for links
+        defaultLinkTarget = _top
+
+		# User Elements
+		userElements {
+			10 = User Elements
+			10 {
+				10 = Scroll
+				10 {
+					description = Scrollable text area
+					#mode = default
+					mode = wrap
+					content = <div class="custom-scroll">|</div>
+				}
+			}
+		}
+
+        // Buttons to show
+        showButtons = *
+		#showButtons := addToList(user,textcolor)
+		#hideButtons := removeFromList(underline)
+		#removeTags  := removeFromList(user)
+		buttons {
+		    pastetoggle.setActiveOnRteOpen = 1
+			//hide / show HTML tag
+			formatblock.orderItems = h1, h2, h3, h4, p
+			//formatblock.removeItems
+			//textstyle.tags.span.allowedClasses >
+			//textstyle.tags.REInlineTags >
+			//textstyle.REInlineTags >
+			//blockstyle.tags.table.allowedClasses >
+			left.useClass = tal
+			center.useClass = tac
+			right.useClass = tar
+			fontsize {
+				removeItems = *
+				#addItems := addToList(1,2,3,4,5,6,7,8)
+			}
+			fontstyle {
+			    removeItems = *
+			}
+
+			#blockstyle.tags.p.allowedClasses   := addToList(green-bullet,gray-bg,mb-0)
+			#blockstyle.tags.div.allowedClasses := addToList(button_red)
+			#blockstyle.tags.ul.allowedClasses := addToList(no-bullets, red_list)
+
+			#blockstyle.tags.h1.allowedClasses  := addToList(green-bullet)
+			#blockstyle.tags.h2.allowedClasses  := addToList(green-bullet)
+			#blockstyle.tags.h3.allowedClasses  := addToList(small,subject)
+			#blockstyle.tags.h4.allowedClasses  := addToList(green-bullet)
+			#blockstyle.tags.a.allowedClasses   := addToList(btn,btn-default,btn-primary,pdf,more)
+			#blockstyle.tags.table.allowedClasses := addToList(table, table-bordered, table-arrangement)
+
+			textstyle.tags.span.allowedClasses := addToList(marked,link-tel)
+			blockstyle.tags.p.allowedClasses := addToList(tal,tar,tac,button,button-wrapper,custom-scroll)
+
+			#textstyle.tags.b.allowedClasses    := addToList(marked)
+
+			link.properties.class.allowedClasses := addToList(button, link-email)
+			link.file.properties.class.default = button
+            link.mail.properties.class.default = link-email
+
+		}
+
+        // Toolbar order
+        toolbarOrder = formatblock, blockstyle, textstyle, linebreak, bold, italic, underline, strikethrough, bar, orderedlist, unorderedlist, bar, left, center, right, bar, link, unlink, linkcreator, bar, imageeditor, bar, line, insertparagraphbefore, insertparagraphafter, bar, chMode, bar, textcolor, bgcolor, bar, insertcharacter, bar, copy, cut, paste, bar, pastetoggle, bar, undo, redo, removeformat, linebreak, table, tableproperties, tablerestyle, bar, rowproperties, rowinsertabove, rowinsertunder, rowdelete, rowsplit, bar, columnproperties, columninsertbefore, columninsertafter, columndelete, columnsplit, bar, cellproperties, cellinsertbefore, cellinsertafter, celldelete, cellsplit, cellmerge
+
+        RTEHeightOverride = 400
+        RTEWidthOverride = 700
+
+        allowTags := addToList(span)
+		removeTags := removeFromList (span,u)
+
+        // Processing rules
+        proc {
+            overruleMode = ts_css
+            dontConvBRtoParagraph = 1
+            remapParagraphTag = p
+            allowTags = a, abbr, acronym, address, blockquote, b, br, caption, cite, code, div, em, font, h1, h2, h3, h4, h5, h6, hr, i, img, li, link, ol, p, pre, q, sdfield, span, strike, strong, sub, sup, u, ul
+            #allowTags := addToList(picture)
+			#removeTags := removeFromList (picture)
+			denyTags >
+            keepPDIVattribs = xml:lang,class,style,align
+            #allowTagsOutside = img,hr,h1,h2,h3,h4,h5,h6,br,ul,ol,li,pre,address,span,blockquote
+			#allowTagsOutside := addToList(picture)
+            allowTagsInTypolists = br,font,b,i,u,a,img,span
+            dontRemoveUnknownTags_db = 1
+            #preserveTables = 0
+
+            #allowedClasses  < RTE.default.classesCharacter
+			allowedClasses := addToList(tal,tar,tac,button,button-wrapper,custom-scroll,link-email,link-tel)
+
+            entryHTMLparser_db = 1
+            entryHTMLparser_db {
+                allowTags < RTE.default.proc.allowTags
+				allowTags := addToList(img,span,form,fieldset,input,select,option,label,blockquote,picture,u)
+                denyTags >
+                htmlSpecialChars = 0
+                tags.img >
+                tags.div.allowedAttribs = class,style,align
+                tags.p.allowedAttribs = class,style,align
+				tags.span.allowedAttribs = class,style
+				tags.table.allowedAttribs = class,style,align
+                removeTags = center, font, o:p, sdfield, strike
+				removeTags := removeFromList(u)
+                keepNonMatchedTags = protect
+            }
+
+            exitHTMLparser_db = 1
+            exitHTMLparser_db {
+				allowTags < RTE.default.proc.allowTags
+                tags {
+					b.remap = strong
+					i.remap = em
+				}
+                keepNonMatchedTags = 1
+                htmlSpecialChars = 0
+            }
+
+            HTMLparser_db {
+                noAttrib = br
+                xhtml_cleaning = 1
+				allowTags < RTE.default.proc.allowTags
+            }
+
+
+			HTMLparser_rte {
+				allowTags < RTE.default.proc.allowTags
+			}
+
+			exitHTMLparser_rte = 1
+			exitHTMLparser_rte {
+				allowTags < RTE.default.proc.allowTags
+				tags {
+					#strong.remap = b
+					#em.remap = i
+				}
+			}
+        }
+
+
+
+    }
+}
+
+// Frontend RTE configuration
+RTE.default.FE < RTE.default

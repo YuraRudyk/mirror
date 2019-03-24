@@ -1,0 +1,46 @@
+###################################################
+# User TypoScript
+###################################################
+options {
+	# RTE
+	RTESmallHeight = 500
+	RTESmallWidth = 900
+
+	saveDocNew = 1
+	saveDocNew.tt_content = 1
+	saveDocNew.pages = 1
+
+	# page tree option
+	#pageTree.showDomainNameWithTitle = 1
+	pageTree.showPageIdWithTitle = 1
+
+	# Makes sure the clipboard doesn't clear:
+	saveClipboard = 0
+
+	# Reduces the amount of clipboards from 4 to 1:
+	clipboardNumberPads = 1
+	
+	clearCache.clearLangCache = 1
+	clearCache.pages = 1
+	clearCache.all = 1	
+	clearCache.system = 1
+	
+	#hideModules = file, help
+	#hideModules.web := addToList(func,info)
+	#hideModules.system = BelogLog	
+
+	# Default page tree toolbar
+	# 1: standard # 3: link to external # 4: shortcut # 6: backend user section # 7: mountpoint # 199: spacer # 254: sysfolder # 255: recycler
+	#pageTree.doktypesToShowInNewPageDragArea = 1,6,4,7,3,254,255,199
+	# 157: file page -> plugin filepage
+	# pageTree.doktypesToShowInNewPageDragArea := addToList(157)
+}
+
+admPanel {
+	enable.edit = 1
+
+	# Force re-loading the cache for external TS
+	override.tsdebug.forceTemplateParsing = 1
+}
+
+

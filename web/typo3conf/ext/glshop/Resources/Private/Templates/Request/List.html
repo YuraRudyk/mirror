@@ -1,0 +1,45 @@
+
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<h1>Listing for Request</h1>
+
+<f:flashMessages renderMode="div" />
+
+<table  class="tx_glshop" >
+	<tr>
+		<th><f:translate key="tx_glshop_domain_model_request.date" /></th>
+		<th><f:translate key="tx_glshop_domain_model_request.title" /></th>
+		<th><f:translate key="tx_glshop_domain_model_request.text" /></th>
+		<th><f:translate key="tx_glshop_domain_model_request.files" /></th>
+		<th><f:translate key="tx_glshop_domain_model_request.done" /></th>
+		<th> </th>
+		<th> </th>
+	</tr>
+
+	<f:for each="{requests}" as="request">
+		<tr>
+			<td><f:link.action action="show" arguments="{request : request}"> {request.date -> f:format.date()}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{request : request}"> {request.title}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{request : request}"> {request.text}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{request : request}"> {request.files}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{request : request}"> {request.done}</f:link.action></td>
+			<td><f:link.action action="edit" arguments="{request : request}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{request : request}">Delete</f:link.action></td>
+		</tr>
+	</f:for>
+</table>
+
+<f:link.action action="new">New Request</f:link.action>
+</f:section>

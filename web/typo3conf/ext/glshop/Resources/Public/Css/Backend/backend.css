@@ -1,0 +1,62 @@
+/* Übersichtsseite */
+.glBeOverviewContainer {
+	border: 1px solid;
+	padding: 1.2em;
+	width: 300px;
+	margin: 5px;
+}
+
+/* Bestellungenübersicht */
+.glBeOrderTable {
+    border-collapse: collapse;  
+    border-spacing: 0px;
+    margin: 0px;
+	width:  100%;
+}
+.glBeOrderTable thead tr {
+    background-color: #CCCCCC;
+}
+.glBeOrderTable tbody tr td, .glBeOrderTable thead tr th {
+    border: 1px solid #666666;    
+    padding: 5px;
+}
+.glBeOrderTable tbody tr.odd { 
+    background-color: #FFFFCC;
+}
+.glBeOrderTable tbody tr.even { 
+    background-color: #FFFFFF;
+}
+.dataTables_length {
+	float: left;
+}
+.dataTables_filter {
+	float: right;
+}
+.fg-toolbar {
+	padding: 5px;
+}
+.dataTables_paginate, .dataTables_info {
+	display: inline-block;
+	margin-right: 5px;
+}
+.DataTables_sort_icon {
+	display: inline-block;
+	float: right;
+}
+
+/* Dialoge */
+
+#ab-edit-Dialog-daten { width: 385px; display: none;}
+#ab-edit-Dialog-daten div { height: auto; margin-bottom: 12px; clear: both;}
+#ab-edit-Dialog-daten div label{ display: inline-block; width: 130px; text-align: right; padding-top: 7px;}
+#ab-edit-Dialog-daten div input, #ab-edit-Dialog-daten div textarea { width: 220px; display: inline-block; margin-bottom: 12px; float: right; padding: 4px; border: 1px solid #444444;}
+#ab-edit-Dialog-daten div select { width: 230px; display: inline-block; margin-bottom: 12px; float: right; padding: 4px; border: 1px solid #444444;}
+
+#ab-edit-Dialog-positionen { margin-top: 24px;}
+#ab-edit-Dialog-positionen table {width: 100%; border: 1px solid #CCCCCC; border-collapse: collapse;}
+#ab-edit-Dialog-positionen table thead tr th {color: #444444; font-weight: bold; font-size: 10pt; padding: 2px; border-bottom: 1px solid #CCCCCC;}
+#ab-edit-Dialog-positionen table tbody tr td {color: #666666; font-size: 8pt; padding: 2px; border-bottom: 1px solid #CCCCCC; vertical-align: middle;}
+#ab-edit-Dialog-positionen table tbody tr td input { width: 35px; text-align: center; padding: 2px; color: #666666; vertical-align: middle;}
+
+.Formular-edit {width: 180px; margin: 0 auto; margin-bottom: 20px;}
+.Formular-edit label {display: inline-block !important; margin-left: -1px !important;}

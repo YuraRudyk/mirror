@@ -1,0 +1,276 @@
+[applicationContext == "Development"]
+	underConstraction = 1
+[ELSE]
+	underConstraction = 0
+[GLOBAL]
+
+plugin.tx_t3glacryl.view {
+	templateRootPaths.0 = EXT:t3_glacryl/Resources/Private/Templates/
+	partialRootPaths.0 = EXT:t3_glacryl/Resources/Private/Partials/
+	layoutRootPaths.0 = EXT:t3_glacryl/Resources/Private/Layouts/
+}
+
+[request.getNormalizedParams().isHttps() == true]
+	plugin.tx_t3glacryl.settings.protocol = https
+[ELSE]
+	plugin.tx_t3glacryl.settings.protocol = http
+[GLOBAL]
+plugin.tx_t3glacryl{
+	settings {
+		siteName = Glacryl # for meta tag - application-name
+		csspath = typo3conf/ext/t3_glacryl/Resources/Public/Css/
+		jspath  = typo3conf/ext/t3_glacryl/Resources/Public/JavaScript/
+		imgpath = typo3conf/ext/t3_glacryl/Resources/Public/Images/
+		# cat=Glacryl: settings/001/002; type=string; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.domain
+		domain = www.domain.com
+		# cat=Glacryl: settings/001/003; type=string; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.adminEmail
+		adminEmail = gvv100@gmail.com
+		# cat=Glacryl: settings/001/004; type=options[No=0,Yes=1]; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.manualCSS
+		manualCSS = 0
+		# cat=Glacryl: settings/001/005; type=options[No=0,Yes=1]; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.manualJS
+		manualJS = 0
+		# cat=Glacryl: settings/001/008; type=options[No=0,Yes=1]; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.multiLng
+		multiLng = 0
+		# cat=Glacryl: settings/001/009; type=options[No=0,Yes=1]; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.searchEnable
+		searchEnable = 0
+		# cat=Glacryl: settings/001/010; type=string; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.languagesIds
+		languagesIDs = 0
+		# cat=Glacryl: settings/001/011; type=string; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.languagesLabels
+		languagesLabels = De
+
+		page {
+			# cat=Glacryl: settings/002/011; type=int; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.page.home
+			home = 1
+			# cat=Glacryl: settings/002/012; type=int; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.page.searchResults
+			searchResults = 4
+			# cat=Glacryl: settings/002/013; type=int; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.page.error404
+			error404 = 3
+			# cat=Glacryl: settings/002/014; type=int; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.page.siteMap
+			siteMap =
+			# cat=Glacryl: settings/002/021; type=int; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.page.shop
+			shop = 5
+			# Contacts page
+			contacts = 6
+		}
+		folder {
+			# cat=Glacryl: settings/003/021; type=int; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.folder.globalContent
+			globalContent = 2
+			# cat=Glacryl: settings/003/022; type=int; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.folder.topLinks
+			topLinks      =
+			# cat=Glacryl: settings/003/023; type=int; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.folder.footerLinks
+			footerLinks   =
+			# cat=Glacryl: settings/003/024; type=int; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.folder.socialLinks
+			socialLinks   =
+		}
+		content {
+			# cat=Glacryl: settings/005/001; type=options[No=0,Yes=1]; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.content.toTopEnable
+			toTopEnable = 0
+			# cat=Glacryl: settings/005/002; type=options[No=0,Yes=1]; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.content.preLoader
+			preLoaderEnable = 0
+			# cat=Glacryl: settings/005/003; type=options[No=0,Yes=1]; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.content.copyrightEnable
+			copyrightEnable = 1
+			# cat=Glacryl: settings/005/004; type=options[No=0,Yes=1]; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.content.breadcrumbEnable
+			breadcrumbEnable = 0
+			# cat=Glacryl: settings/005/005; type=options[No=0,Yes=1]; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.content.homeinMenu
+			homeInMenu = 0
+
+			element {
+				# cat=Glacryl: settings/005/090; type=int; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.content.headerHTML
+				headerHTML = 1
+				# cat=Glacryl: settings/005/091; type=int; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.content.footerHTML
+				footerHTML = 2
+				# cat=Glacryl: settings/005/092; type=int; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.content.loginForm
+				loginForm =
+				# cat=Glacryl: settings/005/093; type=int; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.content.copyright
+				copyright =
+				# cat=Glacryl: settings/005/094; type=int; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:settings.content.searchbox
+				searchbox =
+			}
+		}
+		performance {
+			# Only when applicationContext == "Production" !!!
+			enableCSSCompression = 0
+			enableJSCompression = 0
+			enableCSSMerging = 1
+			enableJSMerging = 1
+		}
+		meta {
+			#############################################
+			# Meta tags constants
+			#############################################
+			# cat=Glacryl: meta/010/001; type=string; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:meta.description
+			description = Default page description (look in system constants or constants.txt)
+			# cat=Glacryl: meta/010/002; type=string; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:meta.keywords
+			keywords = default,keyword1,keyword2,(look in system constants or constants.txt)
+			# cat=Glacryl: meta/010/003; type=string; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:meta.author
+			author = Glacryl
+			# cat=Glacryl: meta/010/004; type=string; label=LLL:EXT:t3_glacryl/Resources/Private/Language/settings.xlf:meta.robots
+			robots = all
+
+			viewport = width=device-width, initial-scale=1, maximum-scale=1
+			mobile-web-app-capable = yes
+			apple-mobile-web-app-capable = yes
+			apple-mobile-web-app-status-bar-style = black
+			format-detection = telephone=no
+
+			google = notranslate
+			X-UA-Compatible = ie=edge
+			X-UA-Compatible.httpEquivalent = 1
+		}
+		socialmedia {
+			##################################################################################################################
+			# Socialmedia constants. Note: All icons in CSS! Other method for editable icons is socialLinks constant (above)!
+			##################################################################################################################
+
+			# Facebook
+			#############################################
+			# cat=Glacryl: socialmedia/020/001; type=options[No=0,Yes=1]; label= Facebook: Activate? Note: Icon in CSS!
+			useFacebook = 1
+			# cat=Glacryl: socialmedia/020/002; type=string; label= Facebook: Pagelink
+			facebookLink = https://www.facebook.com/typo3
+
+			# Twitter
+			#############################################
+			# cat=Glacryl: socialmedia/010/003; type=options[No=0,Yes=1]; label= Twitter: Activate? Note: Icon in CSS!
+			useTwitter = 1
+			# cat=Glacryl: socialmedia/010/004; type=string; label= Twitter: Pagelink
+			twitterLink = https://twitter.com/typo3
+
+			# LinkedIn
+			#############################################
+			# cat=Glacryl: socialmedia/010/005; type=options[No=0,Yes=1]; label= LinkedIn: Activate? Note: Icon in CSS!
+			useLinkedIn = 0
+			# cat=Glacryl: socialmedia/010/006; type=string; label= LinkedIn: Pagelink
+			linkedInLink = https://www.linkedin.com/company/typo3-association
+
+			# Youtube
+			#############################################
+			# cat=Glacryl: socialmedia/010/007; type=options[No=0,Yes=1]; label= Youtube: Activate? Note: Icon in CSS!
+			useYoutube = 1
+			# cat=Glacryl: socialmedia/010/008; type=string; label= Youtube: Pagelink
+			youtubeLink = https://www.youtube.com/user/typo3/
+
+			# Vimeo
+			#############################################
+			# cat=Glacryl: socialmedia/010/009; type=options[No=0,Yes=1]; label= Vimeo: Activate? Note: Icon in CSS!
+			useVimeo = 0
+			# cat=Glacryl: socialmedia/010/010; type=string; label= Vimeo: Pagelink
+			vimeoLink = https://vimeo.com/135225809
+
+			# Google plus
+			#############################################
+			# cat=Glacryl: socialmedia/010/011; type=options[No=0,Yes=1]; label= Google+: Activate? Note: Icon in CSS!
+			useGooglePlus = 0
+			# cat=Glacryl: socialmedia/010/012; type=string; label= Google+: Pagelink
+			googlePlusLink = https://plus.google.com/communities/104410053692531620800
+
+			# Instagram
+			# #############################################
+			# cat=Glacryl: socialmedia/010/013; type=options[No=0,Yes=1]; label= Instagram: Activate? Note: Icon in CSS!
+			useInstagram = 1
+			# cat=Glacryl: socialmedia/010/014; type=string; label= Instagram: Pagelink
+			instagramLink = https://instagram.com/explore/tags/typo3/
+
+			# Xing
+			# #############################################
+			# cat=Glacryl: socialmedia/010/015; type=options[No=0,Yes=1]; label= Xing: Activate? Note: Icon in CSS!
+			useXing =
+			# cat=Glacryl: socialmedia/010/016; type=string; label= Xing: Pagelink
+			xingLink = https://www.xing.com/
+
+			# Pinterest
+			# #############################################
+			# cat=Glacryl: socialmedia/010/017; type=options[No=0,Yes=1]; label= Pinterest: Activate? Note: Icon in CSS!
+			usePinterest = 0
+			# cat=Glacryl: socialmedia/010/018; type=string; label= Pinterest: Pagelink
+			pinterestLink = https://www.pinterest.com/
+		}
+	}
+}
+plugin.tx_t3glacryl.view.widget {
+	templateRootPath = typo3conf/ext/t3_glacryl/Resources/Private/Templates/ViewHelpers/Widget/Paginate/
+}
+
+###################################################
+# TYPO3 content render constants (fluid_styled_content)
+###################################################
+styles {
+	content {
+		defaultHeaderType = 3
+		textmedia.borderWidth = 0
+		textmedia.maxW = 1170
+		textmedia.maxWInText = 1170
+		textmedia.linkWrap.width = 1170
+		textmedia.linkWrap.lightboxEnabled = 1
+		#image-popup-vertical-fit, image-popup-no-margins
+		textmedia.linkWrap.lightboxCssClass = image-popup-fit-width
+		textmedia.linkWrap.lightboxRelAttribute = magnificpopup[{field:uid}]
+		#textmedia.linkWrap.lightboxRelAttribute = fancybox[{field:uid}]
+		loginform.templateFile = EXT:t3_glacryl/Resources/Private/Templates/Extensions/Felogin/FrontendLogin.html
+	}
+	templates {
+		templateRootPath = EXT:t3_glacryl/Resources/Private/Templates/Extensions/FluidStyledContent/Templates/
+		partialRootPath  = EXT:t3_glacryl/Resources/Private/Templates/Extensions/FluidStyledContent/Partials/
+		layoutRootPath   = EXT:t3_glacryl/Resources/Private/Templates/Extensions/FluidStyledContent/Layouts/
+	}
+}
+###################################################
+# Plugin magnificpopup
+###################################################
+plugin.tx_jhmagnificpopup.includeMagnificpopupJs =
+plugin.tx_jhmagnificpopup.includeFilterIsImageFileJs =
+plugin.tx_jhmagnificpopup.includeMagnificpopupCss =
+plugin.tx_jhmagnificpopup.magnificpopup.support.user = .image-popup-fit-width
+
+###################################################
+# Plugin News
+###################################################
+plugin.tx_news {
+	view {
+		templateRootPath = EXT:t3_glacryl/Resources/Private/Templates/Extensions/News/Templates/
+		partialRootPath  = EXT:t3_glacryl/Resources/Private/Templates/Extensions/News/Partials/
+		layoutRootPath   = EXT:t3_glacryl/Resources/Private/Templates/Extensions/News/Layouts/
+		paginateRootPath = EXT:t3_glacryl/Resources/Private/Templates/Extensions/News/Templates/ViewHelpers/Widget/Paginate/Index.html
+	}
+}
+
+###################################################
+# Plugin Powermail
+###################################################
+plugin.tx_powermail.view {
+	layoutRootPath   = EXT:t3_glacryl/Resources/Private/Templates/Extensions/Powermail/Layouts/
+	templateRootPath = EXT:t3_glacryl/Resources/Private/Templates/Extensions/Powermail/Templates/
+	partialRootPath  = EXT:t3_glacryl/Resources/Private/Templates/Extensions/Powermail/Partials/
+}
+plugin.tx_powermail.settings {
+	validation {
+		native = 0
+		client = 1
+		server = 1
+	}
+	javascript {
+		# Look assets.txt (manual includes)
+		addAdditionalJavaScript = 0
+	}
+	misc {
+		ajaxSubmit = 0
+		uploadFolder = files/upload/
+		uploadSize = 10485760
+		uploadFileExtensions = pdf,doc,docx,jpg,png
+	}
+	db {
+		enable = 0
+		hidden = 0
+	}
+}
+
+###################################################
+# Plugin Femanager
+###################################################
+plugin.tx_femanager {
+	view {
+		templateRootPath = EXT:t3_glacryl/Resources/Private/Templates/Extensions/Femanager/Templates/
+		partialRootPath  = EXT:t3_glacryl/Resources/Private/Templates/Extensions/Femanager/Partials/
+		layoutRootPath   = EXT:t3_glacryl/Resources/Private/Templates/Extensions/Femanager/Layouts/
+	}
+}

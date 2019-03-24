@@ -1,0 +1,171 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+
+    <f:section name="glacrylVersion">
+        {v:page.info(field: 'pid') -> v:variable.set(name: 'pid')}
+        {v:content.get(column: 99) -> v:variable.set(name: 'slider')}
+
+        <div class="banner_wrapper tx-imagecycle-pi11">
+            <div class="container">
+                <v:content.render column="99" render="1" pageUid="{settings.page.home}"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+
+    </f:section>
+
+    <f:section name="Default">
+        <!-- Header Banner/Slider -->
+        {v:page.info(field: 'pid') -> v:variable.set(name: 'pid')}
+        {v:content.get(column: 99) -> v:variable.set(name: 'slider')}
+        <f:if condition="{v:page.info(field: 'uid')} == {settings.page.home}">
+            <f:then>
+                <section aria-label="home" class="mainbg" id="home" data-responsive-background-image="">
+                    <f:if condition="{slider -> f:count()} == 1 && {slider.0.CType} == 'textmedia'">
+                        <f:then>
+                            <!-- intro -->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="overlay-main v-align">
+                                        <div class="col-md-10 col-xs-11">
+                                            <f:if condition="{slider -> f:count()} == 1">
+                                                <v:content.render column="99" as="ce" render="0">
+                                                    <f:alias map="{banner: ce.0}">
+                                                        {v:resource.record.fal(table: 'tt_content', field: 'assets',
+                                                        uid: banner.uid)
+                                                        -> v:iterator.first()
+                                                        -> v:variable.set(name: 'image')}
+                                                        <f:if condition="{image}">
+                                                            <f:image treatIdAsReference="1" src="{image.id}"
+                                                                     title="{image.title}" alt="{image.alternative}"/>
+                                                        </f:if>
+                                                        <f:if condition="{banner.header}">
+                                                            <h1 class="onStep" data-animation="animbouncefall"
+                                                                data-time="300">{banner.header -> f:format.raw()}</h1>
+                                                        </f:if>
+                                                        <f:if condition="{banner.subheader}">
+                                                            <div class="onStep" data-animation="fadeInUp"
+                                                                 data-time="600">
+                                                                <h3>{banner.subheader -> f:format.raw()}</h3>
+                                                            </div>
+                                                        </f:if>
+                                                        <f:if condition="{banner.bodytext}">
+                                                            <p class="onStep" data-animation="animbouncefall"
+                                                               data-time="900">
+                                                                {banner.bodytext -> f:format.raw()}
+                                                            </p>
+                                                        </f:if>
+                                                        <f:if condition="{banner.header_link}">
+                                                            <div class="tp-caption sfb"
+                                                                 data-x="50"
+                                                                 data-y="370"
+                                                                 data-speed="400"
+                                                                 data-start="800"
+                                                                 data-easing="easeInOutExpo">
+                                                                <div class="btn-slider">
+                                                                    <f:link.typolink parameter="{banner.header_link}"
+                                                                                     class="link-class">
+                                                                        {f:translate(key: 'mehr', extensionName:
+                                                                        't3_glacryl')}
+                                                                    </f:link.typolink>
+                                                                </div>
+                                                            </div>
+                                                        </f:if>
+                                                    </f:alias>
+                                                </v:content.render>
+                                            </f:if>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- intro end -->
+                        </f:then>
+                        <f:else>
+                            <v:content.render column="99"/>
+                        </f:else>
+                    </f:if>
+                </section>
+            </f:then>
+            <f:else>
+                <!-- subheader INNER PAGE -->
+                <f:if condition="{slider -> f:count()} == 1 && {slider.0.CType} == 'textmedia'">
+                    <f:alias map="{banner: slider.0}">
+                        {v:variable.set(value: '{banner.header}', name: 'header')}
+                        {v:resource.record.fal(table: 'tt_content', field: 'assets', uid: banner.uid)
+                        -> v:iterator.first()
+                        -> v:variable.set(name: 'image')}
+                    </f:alias>
+                </f:if>
+                <f:comment>
+                    ######################### Get bg image from parent page ###########################
+                </f:comment>
+                <f:if condition="{image}">
+                    <f:else>
+                        {v:content.get(column: 99, pageUid: pid) -> v:variable.set(name: 'parentSlider')}
+                        <f:if condition="{parentSlider -> f:count()} == 1 && {parentSlider.0.CType} == 'textmedia'">
+                            <f:then>
+                                {v:resource.record.fal(table: 'tt_content', field: 'assets', uid: parentSlider.0.uid)
+                                -> v:iterator.first()
+                                -> v:variable.set(name: 'image')}
+                            </f:then>
+                            <f:else>
+                                {v:page.info(field: 'pid', pageUid: pid) -> v:variable.set(name: 'parentPid')}
+                                {v:content.get(column: 99, pageUid: '{parentPid}') -> v:variable.set(name:
+                                'parentSlider')}
+                                <f:if condition="{parentSlider -> f:count()} == 1 && {parentSlider.0.CType} == 'textmedia'">
+                                    {v:resource.record.fal(table: 'tt_content', field: 'assets', uid:
+                                    parentSlider.0.uid)
+                                    -> v:iterator.first()
+                                    -> v:variable.set(name: 'image')}
+                                </f:if>
+                            </f:else>
+                        </f:if>
+                    </f:else>
+                </f:if>
+                <section id="subheader">
+                    <div class="black-veil" {f:if(condition:
+                    '{image.url}',then:' style="background-image:url({image.url})"')}>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>
+                <f:if condition="{header}">
+                    <f:then>
+                        {header}
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{f:cObject(typoscriptObjectPath: 'lib.newsTitle')}">
+                            <f:then>
+                                <f:cObject typoscriptObjectPath="lib.newsTitle"/>
+                            </f:then>
+                            <f:else>
+                                {v:page.info(field: 'subtitle') -> v:or(alternative:"{v:page.info(field: 'nav_title')}")
+                                -> v:or(alternative:"{v:page.info(field: 'title')}") -> f:format.raw()}
+                            </f:else>
+                        </f:if>
+                    </f:else>
+                </f:if>
+            </h1>
+        </div>
+
+        <!-- devider -->
+        <div class="col-md-12">
+            <div class="devider-page">
+                <div class="devider-img-right">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+</section>
+<!-- subheader end -->
+</f:else>
+</f:if>
+</f:section>
+
+</div>

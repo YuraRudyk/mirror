@@ -1,0 +1,73 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<ul class="nav navbar-nav">
+	<v:page.menu classActive="active" classCurrent="current" classHasSubpages="dropdown" classFirst="first" classLast="last">
+	<f:if condition="{menu}">
+		<f:for each="{menu}" as="menuPages" iteration="iteration">
+		<li{v:if(then: ' class="{f:if(then: \'{menuPages.class} \', condition: \'{menuPages.class}\')}"', stack: {0: '{iteration.isLast}', 1: 'OR', 2: '{menuPages.class}'})}>
+			<f:if condition="{menuPages.current} == 1">
+				<f:then>
+					<span{f:if(then: ' title="{menuPages.nav_title}"', else: '', condition: '{menuPages.nav_title}')}>{menuPages.nav_title -> v:or(alternative: "{menuPages.title}")}{f:if(then: '', condition: '{menuPages.hasSubPages} == 1')}</span>
+				</f:then>
+				<f:else>
+					<a href="{menuPages.link}"{f:if(then: ' title="{menuPages.nav_title}"', else: '', condition: '{menuPages.nav_title}')}>{menuPages.nav_title -> v:or(alternative: "{menuPages.title}")}{f:if(then: '', condition: '{menuPages.hasSubPages} == 1')}</a>
+				</f:else>
+			</f:if>
+			<f:comment>
+			<f:if condition="{menuPages.hasSubPages} == 1">
+				<f:render section="subMenuPages" arguments="{uid: menuPages.uid, subtitle: menuPages.subtitle}"/>
+			</f:if>
+			</f:comment>
+		</li>
+		</f:for>
+	</f:if>
+	</v:page.menu>
+</ul>
+
+
+
+<f:section name="subMenuPages">
+	<v:page.menu pageUid="{uid}" classActive="active" classCurrent="current" classHasSubpages="" classFirst="first" classLast="last">
+		<ul class="dropdown-menu" role="menu">
+			<f:if condition="{menu}">
+				<f:for each="{menu}" as="subMenuPages" iteration="iteration">
+					<li{f:if(then: ' class="{subMenuPages.class}"', condition: '{subMenuPages.class}')}>
+						<f:if condition="{subMenuPages.current} == 1">
+						  <f:then>
+							<a href="{subMenuPages.link}" title="{f:if(then: '{subMenuPages.subtitle}', else: '{subMenuPages.title}', condition: '{subMenuPages.subtitle}')}">{subMenuPages.nav_title -> v:or(alternative: "{subMenuPages.title}")}</a>
+						  </f:then>
+						  <f:else>
+							<a href="{subMenuPages.link}" title="{f:if(then: '{subMenuPages.subtitle}', else: '{subMenuPages.title}', condition: '{subMenuPages.subtitle}')}">{subMenuPages.nav_title -> v:or(alternative: "{subMenuPages.title}")}</a>
+						  </f:else>
+						</f:if>
+					</li>
+				</f:for>
+			</f:if>
+		</ul>
+	</v:page.menu>
+</f:section>
+
+<f:section name="headerMenu">
+	<v:content.render column="1" pageUid="{settings.page.header}" render="0" as="ce">
+		<f:for each="{ce}" as="iterator">
+			<v:page.menu.list pages="{iterator.pages}" showHidden="0" showHiddenInMenu="1" classActive="active" classHasSubpages="" classCurrent="current" classFirst="" classLast="last">
+				<f:for each="{menu}" as="menuItem" iteration="i">
+					<f:if condition="{menuItem.nav_hide} == 1">
+						<f:else>
+							<li{f:if(then: ' class="{menuItem.class}"', condition: '{menuItem.class}')}>
+								<f:if condition="{menuItem.current} == 1">
+									<f:then>
+										<span>{menuItem.nav_title -> v:or(alternative: "{menuItem.title}")}</span>
+									</f:then>
+									<f:else>
+										<a href="{menuItem.link}">{menuItem.nav_title -> v:or(alternative: "{menuItem.title}")}</a>
+									</f:else>
+								</f:if>
+							</li>
+						</f:else>
+					</f:if>
+				</f:for>
+			</v:page.menu.list>
+		</f:for>
+	</v:content.render>
+</f:section>

@@ -1,0 +1,129 @@
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+	<div class="bearbeitungHeader">
+		<div class="sprite-Bearbeitung"></div>
+		<h4>Beleuchtung</h4>
+	</div>
+	<div id="konfigurator-view-beleuchtung" class="panel-group" role="tablist" aria-multiselectable="false"> 
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="title-panel_led">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#konfigurator-view-beleuchtung" href="#panel_led" aria-expanded="true" aria-controls="panel_led">LED's</a> 
+				</h4>
+				<span class="right info-icon bK">i</span>
+			</div>
+			<div id="panel_led" class="content panel-collapse collapse out" role="tabpanel" aria-labelledby="title-panel_led">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<p style="font-family: Arial; font-size: 12pt; color: #444444;margin:4px 0;">Lichtfarbe ausw&auml;hlen</p>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="error"></div>
+							<div id="view-led-farbe-auswahl">
+								<f:for each="{leds}" as="l" key="j" iteration="lType">
+									<p><input
+									<f:if condition="{l.uid} == {edit.rahmen.led.uid}">
+										checked="checked"
+									</f:if>
+									class="addLichtBtn" id="licht-btn-{l.uid}" type="radio" name="licht" value="{l.uid}"><label for="licht-btn-{l.uid}">{l.name}</label></p>
+								</f:for>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<p style="font-family: Arial; font-size: 12pt; color: #444444;margin:4px 0;">Bitte treffen Sie eine Auswahl</p>
+						</div>
+						<div id="view-led-variante-auswahl" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+						</div>
+					</div>
+
+				</div> 
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="title-panel_platte">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#konfigurator-view-beleuchtung" href="#panel_platte" aria-expanded="true" aria-controls="panel_platte">Lichtstreuplatte</a> 
+				</h4>
+				<span class="right info-icon bK">i</span>
+			</div>
+			<div id="panel_platte" class="content panel-collapse collapse out" role="tabpanel" aria-labelledby="title-panel_platte">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<p style="font-family: Arial; font-size: 12pt; color: #444444;margin:4px 0;">Lichtstreuplatte ausw&auml;hlen</p>
+						</div>
+						<div id="view-led-streuplatte-auswahl" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 view-led-streuplatte-auswahl">
+							<f:for each="{streuplatten}" as="s" key="m" iteration="sType">
+								<p><input
+								<f:if condition="{s.uid} == {edit.rahmen.streuplatte.uid}">
+									checked="checked"
+								</f:if>
+								class="addStreuplatteBtn" id="led_streuplatte_{s.uid}" type="radio" name="streuplatte" value="{s.uid}"><label for="led_streuplatte_{s.uid}">{s.name}</label></p>																									
+							</f:for>
+						</div>
+					</div> 
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<p style="font-family: Arial; font-size: 12pt; color: #444444;margin:4px 0;">Beleuchtete Kanten ausw&auml;hlen</p>
+						</div>
+						<div id="view-led-kanten-auswahl" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+						</div>
+					</div>
+					<div class="row">
+						<div id="view-led-streuplatte-ansicht" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<canvas width="270" height="270" id="view-streuplatte-licht" style="display: block; margin: 0 auto !important;"></canvas>
+						</div>
+					</div>
+				</div> 
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="title-panel_netz">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#konfigurator-view-beleuchtung" href="#panel_netz" aria-expanded="true" aria-controls="panel_netz">Netzanschluss</a> 
+				</h4>
+				<span class="right info-icon bK">i</span>
+			</div>
+			<div id="panel_netz" class="content panel-collapse collapse out" role="tabpanel" aria-labelledby="title-panel_netz">
+				<div class="panel-body">
+					<f:for each="{anschlusse}" as="a" key="r" iteration="aType">
+						<div class="row">
+							<div id="view-led-anschluss-auswahl" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 view-led-anschluss-auswahl">
+								<input type="hidden" value="{a.uid}" name="anschlussTyp" />
+								<f:for each="{a.variante}" as="v" key="t" iteration="aVType">
+									<p><input
+									<f:if condition="{v.uid} == {edit.rahmen.anschluss.uid}">
+										checked="checked"
+									</f:if>
+									class="addNetzanschlussBtn" id="led_anschluss_{a.uid}_{v.uid}" type="radio" name="anschluss" value="{v.uid}"><label for="led_anschluss_{a.uid}_{v.uid}">{v.name}</label></p>
+								</f:for>								
+							</div>
+						</div>
+						<div class="row">
+							<div id="view-led-anschluss-bild-{a.uid}" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<a href="<glacryl:configValue config='{shopConfig}' key='rahmenImgPath' />{a.bild}" data-lightbox="rahmen{a.uid}" data-title="{a.name}" >
+									<img class="img-responsive" src="<glacryl:configValue config='{shopConfig}' key='rahmenImgPath' /><glacryl:img type='path' /><glacryl:img type='name' imgName='{a.bild}' />" />
+								</a>
+							</div>
+						</div>
+					</f:for>
+				</div> 
+			</div>
+		</div>
+
+	</div>
+</div>

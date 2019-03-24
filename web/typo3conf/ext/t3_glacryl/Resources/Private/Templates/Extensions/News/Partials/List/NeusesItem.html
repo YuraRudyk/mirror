@@ -1,0 +1,42 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<n:excludeDisplayedNews newsItem="{newsItem}"/>
+<div class="item">
+    <div class="news-item">
+        <div class="news-img">
+            <f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+                <f:if condition="{mediaElement.originalResource.type} == 2">
+                    <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="{f:if(condition: settings.media.maxWidth, then: settings.media.maxWidth, else: settings.list.media.image.maxWidth)}" maxHeight="{f:if(condition: settings.media.maxHeight, then: settings.media.maxHeight, else: settings.list.media.image.maxHeight)}"/>
+                </f:if>
+                <f:if condition="{mediaElement.originalResource.type} == 4">
+                    <f:render partial="Detail/MediaVideo" arguments="{mediaElement: mediaElement}"/>
+                </f:if>
+                <f:if condition="{mediaElement.originalResource.type} == 5">
+                    <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="{f:if(condition: settings.media.maxWidth, then: settings.media.maxWidth, else: settings.list.media.image.maxWidth)}" maxHeight="{f:if(condition: settings.media.maxHeight, then: settings.media.maxHeight, else: settings.list.media.image.maxHeight)}"/>
+                </f:if>
+            </f:alias>
+        </div>
+
+        <div class="news-body">
+            <h4><n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">{newsItem.title}</n:link></h4>
+            <div class="meta">{f:format.date(date:newsItem.datetime, format:'d')}. {f:format.date(date:newsItem.datetime, format:'F')} {f:format.date(date:newsItem.datetime, format:'Y')}</div>
+            <div class="text">
+                <f:if condition="{newsItem.teaser}">
+                    <f:then>
+                        {newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+                    </f:then>
+                    <f:else>
+                        {newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+                    </f:else>
+                </f:if>
+            </div>
+            <n:link newsItem="{newsItem}" settings="{settings}" class="text-link text-red" title="{newsItem.title}"><f:translate key="more-details" extensionName="T3Glacryl"/></n:link>
+        </div>
+    </div>
+    <!-- End News Item -->
+</div>
+
+</html>
+

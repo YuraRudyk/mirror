@@ -1,0 +1,45 @@
+
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+<h1>Listing for Shippingaddress</h1>
+
+<f:flashMessages />
+
+<table  class="tx_glshop" >
+	<tr>
+		<th><f:translate key="tx_glshop_domain_model_shippingaddress.company" /></th>
+		<th><f:translate key="tx_glshop_domain_model_shippingaddress.person" /></th>
+		<th><f:translate key="tx_glshop_domain_model_shippingaddress.street" /></th>
+		<th><f:translate key="tx_glshop_domain_model_shippingaddress.zip" /></th>
+		<th><f:translate key="tx_glshop_domain_model_shippingaddress.city" /></th>
+		<th> </th>
+		<th> </th>
+	</tr>
+
+	<f:for each="{shippingaddresses}" as="shippingaddress">
+		<tr>
+			<td><f:link.action action="show" arguments="{shippingaddress : shippingaddress}"> {shippingaddress.company}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{shippingaddress : shippingaddress}"> {shippingaddress.person}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{shippingaddress : shippingaddress}"> {shippingaddress.street}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{shippingaddress : shippingaddress}"> {shippingaddress.zip}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{shippingaddress : shippingaddress}"> {shippingaddress.city}</f:link.action></td>
+			<td><f:link.action action="edit" arguments="{shippingaddress : shippingaddress}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{shippingaddress : shippingaddress}">Delete</f:link.action></td>
+		</tr>
+	</f:for>
+</table>
+
+<f:link.action action="new">New Shippingaddress</f:link.action>
+</f:section>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2017-02-02T15:37:52Z" product-name="glshop">
+		<header/>
+		<body>
+			<trans-unit id="wert.description">
+				<source>wert</source>
+			</trans-unit>
+			<trans-unit id="eigenschaften.description">
+				<source>eigenschaften</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

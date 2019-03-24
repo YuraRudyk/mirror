@@ -1,0 +1,124 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<f:section name="MultiLevelPushMenu">
+	<!-- mp-menu -->
+	<div id="mp-menu" class="mp-menu">
+		<div class="mp-level">
+			<v:menu.directory pages="4" classActive="active" classCurrent="current" classHasSubpages="hasSubpages" classFirst="" classLast="">
+				<f:if condition="{menu}">
+					<h3>{f:translate(key: 'mobileMenuHeader')}</h3>
+					<ul>
+						<f:comment>################   Home page   ########################</f:comment>
+						<f:if condition="{settings.content.homeInMenu}">
+							<f:if condition="{v:page.info(field: 'uid')} == {settings.page.home}">
+								<f:then>
+									<li class="first active current"><a href="/" {f:if(then: '
+										title="{v:page.info(field: \'subtitle\', pageUid:\'{settings.page.home}\')}"', condition:
+										'{v:page.info(field: \'subtitle\', pageUid:\'{settings.page.home}\')}')}>{v:page.info(field:
+										'nav_title', pageUid:'{settings.page.home}') -> v:or(alternative:
+										"{v:page.info(field: 'title', pageUid:'{settings.page.home}')}")}</a></li>
+								</f:then>
+								<f:else>
+									<li class="first"><a href="/" {f:if(then: '
+										title="{v:page.info(field: \'subtitle\', pageUid:\'{settings.page.home}\')}"', condition:
+										'{v:page.info(field: \'subtitle\', pageUid:\'{settings.page.home}\')}')}>{v:page.info(field:
+										'nav_title', pageUid:'{settings.page.home}') -> v:or(alternative:
+										"{v:page.info(field: 'title', pageUid:'{settings.page.home}')}")}</a></li>
+								</f:else>
+							</f:if>
+						</f:if>
+						<f:for each="{menu}" as="menuPages" iteration="iteration">
+							<li{f:if(then: ' class="{menuPages.class}"', else: '', condition: '{menuPages.class}')}>
+								<a href="{menuPages.link}"{f:if(then: ' class="{menuPages.class}"', else: '', condition: '{menuPages.class}')}>{menuPages.nav_title -> v:or(alternative: '{menuPages.title}') -> f:format.raw()}{f:if(then: '<span class="arrow"></span>', condition: '{menuPages.hasSubPages}')}</a>
+								<f:if condition="{menuPages.hasSubPages}">
+									<f:render section="multiLevelPushSubMenu" arguments="{uid: menuPages.uid, parentTitle:'{menuPages.nav_title -> v:or(alternative: \'{menuPages.title}\') -> f:format.raw()}'}"/>
+								</f:if>
+							</li>
+						</f:for>
+					</ul>
+				</f:if>
+			</v:menu.directory>
+		</div>
+	</div>
+	<!-- /mp-menu -->
+</f:section>
+
+
+
+<f:section name="multiLevelPushSubMenu">
+	<div class="mp-level">
+		<h3 class="mp-back">{parentTitle}</h3>
+		<v:page.menu pageUid="{uid}" excludePages="34" classActive="active" classCurrent="current" classHasSubpages="hasSubpages" classFirst="" classLast="">
+			<ul>
+				<f:if condition="{menu}">
+					<f:for each="{menu}" as="menuPages" iteration="iteration">
+						<li{f:if(then: ' class="{menuPages.class}"', condition: '{menuPages.class}')}>
+							<a href="{menuPages.link}"{f:if(then: ' class="{menuPages.class}"', else: '', condition: '{menuPages.class}')}>{menuPages.nav_title -> v:or(alternative: '{menuPages.title}') -> f:format.raw()}{f:if(then: '<span class="arrow"></span>', condition: '{menuPages.hasSubPages}')}</a>
+							<f:if condition="{menuPages.hasSubPages}">
+								<f:render section="multiLevelPushSubMenu" arguments="{uid: menuPages.uid, parentTitle:'{menuPages.nav_title -> v:or(alternative: \'{menuPages.title}\') -> f:format.raw()}'}"/>
+							</f:if>
+						</li>
+					</f:for>
+				</f:if>
+			</ul>
+		</v:page.menu>
+	</div>
+</f:section>
+
+
+
+
+<f:section name="PushyMenu">
+	<v:page.menu classActive="active" classCurrent="current" classHasSubpages="pushy-submenu" classFirst="" classLast="">
+		<f:if condition="{menu}">
+			<nav class="pushy pushy-left">
+				<div class="pushy-content">
+					<ul>
+						<f:for each="{menu}" as="menuPages" iteration="iteration">
+							<li{f:if(then: ' class="{menuPages.class}"', else: '', condition: '{menuPages.class}')}>
+								<f:if condition="{menuPages.current} == 1">
+									<f:then>
+										<span>{menuPages.nav_title -> v:or(alternative: "{menuPages.title}") -> f:format.raw()}</span>
+										<f:comment><a href="{menuPages.link}"{f:if(then: ' title="{menuPages.subtitle -> f:format.raw()}"', condition: '{menuPages.subtitle}')}>{menuPages.nav_title -> v:or(alternative: "{menuPages.title}") -> f:format.raw()}{f:if(condition:'{iteration.isLast}', then:' <i class="fa fa-search"></i>')}</a></f:comment>
+									</f:then>
+									<f:else>
+										<a href="{menuPages.link}"{f:if(then: ' title="{menuPages.subtitle -> f:format.raw()}"', condition: '{menuPages.subtitle}')}>{menuPages.nav_title -> v:or(alternative: "{menuPages.title}") -> f:format.raw()}{f:if(condition:'{iteration.isLast}', then:' <i class="fa fa-search"></i>')}</a>
+									</f:else>
+								</f:if>
+								<f:if condition="{menuPages.hasSubPages} == 1">
+									<f:render section="subMenuPages" arguments="{uid: menuPages.uid}"/>
+								</f:if>
+							</li>
+						</f:for>
+					</ul>
+				</div>
+			</nav>
+			<!-- Site Overlay -->
+			<div class="site-overlay"></div>
+		</f:if>
+	</v:page.menu>
+</f:section>
+
+<f:section name="subMenuPages">
+	<v:page.menu pageUid="{uid}" classActive="active" classCurrent="current" classHasSubpages="pushy-submenu" classFirst="first" classLast="last">
+		<ul>
+			<f:if condition="{menu}">
+				<f:for each="{menu}" as="menuPages" iteration="iteration">
+					<li{f:if(then: ' class="{menuPages.class}"', condition: '{menuPages.class}')}>
+						<f:if condition="{menuPages.current} == 1">
+							<f:then>
+								<span>{menuPages.nav_title -> v:or(alternative: "{menuPages.title}") -> f:format.raw()}</span>
+							</f:then>
+							<f:else>
+								<a href="{menuPages.link}"{f:if(then: ' title="{menuPages.subtitle -> f:format.raw()}"', condition: '{menuPages.subtitle}')}>{menuPages.nav_title -> v:or(alternative: "{menuPages.title}") -> f:format.raw()}</a>
+							</f:else>
+						</f:if>
+						<f:if condition="{menuPages.hasSubPages} == 1">
+							<f:render section="subMenuPages" arguments="{uid: menuPages.uid}"/>
+						</f:if>
+					</li>
+				</f:for>
+			</f:if>
+		</ul>
+	</v:page.menu>
+</f:section>

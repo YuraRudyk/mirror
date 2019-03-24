@@ -1,0 +1,69 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+    <f:layout name="Defaultpage"/>
+
+    <f:section name="Configuration">
+        <flux:form id="contentpage1">
+
+            <flux:form.sheet name="pageProp" label="Page properties">
+                <flux:field.checkbox name="noBreadcrumb" default="0"
+                                     label="{v:l(key: 'noBreadcrumb', extensionName: 't3_glacryl')}"/>
+
+                <flux:field.select name="pageColorClass"
+                                   items=",green-page,red-page,blue-page,grey-page,orange-page"
+                                   default=""
+                                   label="{v:l(key: 'pageColor', extensionName: 't3_glacryl')}"/>
+                <flux:field.input name="pageCustomClass"
+                                  label="{v:l(key: 'pageCustomClass', extensionName: 't3_glacryl')}"/>
+
+                <flux:field.input name="sectionCustomClass"
+                                  label="{v:l(key: 'sectionCustomClass', extensionName: 't3_glacryl')}" default="" />
+                <flux:field.input name="sectionId"
+                                  label="{v:l(key: 'sectionId', extensionName: 't3_glacryl')}"/>
+            </flux:form.sheet>
+
+            <f:if condition="{settings.manualCSS} == 1">
+                <flux:form.sheet name="resourcesCSS" label="CSS files">
+                    <f:render partial="PageResources/Stylesheets" arguments="{_all}"/>
+                </flux:form.sheet>
+            </f:if>
+
+            <f:if condition="{settings.manualJS} == 1">
+                <flux:form.sheet name="resourcesJS" label="JavaScript files">
+                    <f:render partial="PageResources/Javascripts" arguments="{_all}"/>
+                </flux:form.sheet>
+            </f:if>
+
+        </flux:form>
+
+
+        <flux:grid>
+            <!-- #####################  Banner/Slider   ######################## -->
+            <flux:grid.row>
+                <flux:grid.column name="banner.slider"
+                                  label="{v:l(key: 'banner.slider', extensionName: 't3_glacryl')}"
+                                  colPos="99" colspan="4">
+                    <flux:form.variable name="allowedContentTypes" value="textmedia,html,bullets,list,fluidcontent_content"/>
+                    <flux:form.variable name="Fluidcontent"
+                                        value="{allowedContentTypes: 'Glacryl.T3Glacryl:FCE_BootstrapSlider.html'}"/>
+                </flux:grid.column>
+            </flux:grid.row>
+            <flux:grid.row>
+                <flux:grid.column name="content.column" colPos="1"
+                                  label="{v:l(key: 'content.column', extensionName: 't3_glacryl')}"
+                                  colspan="4">
+                    <flux:form.variable name="allowedContentTypes" value="header,textmedia,list,form_formframework,fluidcontent_content"/>
+                    <flux:form.variable name="Fluidcontent"
+                                        value="{allowedContentTypes: 'Glacryl.T3Glacryl:FCE_BootstrapGrids.html'}"/>
+                </flux:grid.column>
+            </flux:grid.row>
+        </flux:grid>
+
+    </f:section>
+
+    <f:section name="Main">
+        <f:render partial="Page/Main" section="Content1" arguments="{_all}"/>
+    </f:section>
+
+</div>

@@ -1,0 +1,21 @@
+
+<label for="date">
+	<f:translate key="tx_glshop_domain_model_request.date" />
+</label><br />
+	<f:form.textfield property="date"  value="{request.date->f:format.date()}" /><br />
+<label for="title">
+	<f:translate key="tx_glshop_domain_model_request.title" />
+</label><br />
+	<f:form.textarea property="title" cols="40" rows="15" /><br />
+<label for="text">
+	<f:translate key="tx_glshop_domain_model_request.text" />
+</label><br />
+	<f:form.textarea property="text" cols="40" rows="15" /><br />
+<label for="files">
+	<f:translate key="tx_glshop_domain_model_request.files" />
+</label><br />
+	<f:form.textarea property="files" cols="40" rows="15" /><br />
+<label for="done">
+	<f:translate key="tx_glshop_domain_model_request.done" />
+</label><br />
+	<f:form.textfield property="done" /><br />

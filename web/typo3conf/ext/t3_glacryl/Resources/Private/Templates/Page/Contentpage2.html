@@ -1,0 +1,146 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+    <f:layout name="Defaultpage"/>
+
+    <f:section name="Configuration">
+        <flux:form id="contentpage2">
+
+            <flux:form.sheet name="pageProp" label="Page properties">
+                <flux:field.checkbox name="noBreadcrumb" default="0"
+                                     label="{v:l(key: 'noBreadcrumb', extensionName: 't3_glacryl')}"/>
+
+                <flux:field.select name="pageColorClass"
+                                   items=",green-page,red-page,blue-page,grey-page,orange-page"
+                                   default=""
+                                   label="{v:l(key: 'pageColor', extensionName: 't3_glacryl')}"/>
+                <flux:field.input name="pageCustomClass"
+                                  label="{v:l(key: 'pageCustomClass', extensionName: 't3_glacryl')}"/>
+            </flux:form.sheet>
+
+            <f:if condition="{settings.manualCSS} == 1">
+                <flux:form.sheet name="resourcesCSS" label="CSS files">
+                    <f:render partial="PageResources/Stylesheets" arguments="{_all}"/>
+                </flux:form.sheet>
+            </f:if>
+
+            <f:if condition="{settings.manualJS} == 1">
+                <flux:form.sheet name="resourcesJS" label="JavaScript files">
+                    <f:render partial="PageResources/Javascripts" arguments="{_all}"/>
+                </flux:form.sheet>
+            </f:if>
+
+            <f:render partial="Page/PageSectionsBE" arguments="{_all}"/>
+
+        </flux:form>
+
+        <flux:grid>
+            <!-- #####################  Site header: logo and etc (on root page only) ################ -->
+            <f:render partial="Page/HeaderBE" arguments="{_all}"/>
+
+            <!-- #####################  Banner/Slider   ######################## -->
+            <f:render partial="Page/BannerSliderBE" arguments="{_all}"/>
+
+            <!-- ###################  Dynamic content sections (top)  ################################ -->
+
+            <v:condition.type.isArray value="{sections}">
+                {v:variable.set(value: '1', name: 'cnt')}
+                <f:for each="{sections}" as="beSection" iteration="iteration">
+                    <f:if condition="{beSection.section.sectionPosition} == 0">
+                        <f:if condition="{beSection.section.sectionRows} == 0">
+                            <f:then>
+                                {cnt -> v:math.sum(b: 30) -> v:variable.set(name: 'sectionColPos')}
+                            </f:then>
+                            <f:else>
+                                {beSection.section.sectionRows -> v:variable.set(name: 'sectionColPos')}
+                            </f:else>
+                        </f:if>
+                        <flux:grid.row>
+                            <flux:grid.column name="content.top.{iteration.cycle}" colPos="{sectionColPos}"
+                                              label="{f:if(condition: '{beSection.section.sectionTitle}', then: '{beSection.section.sectionTitle}', else: '{v:l(key: \'flux.fluidpage.content.{iteration.cycle}\', extensionName: \'t3_glacryl\')}')}"
+                                              colspan="4">
+                                <flux:form.variable name="allowedContentTypes" value="header,bullets,textmedia,list,fluidcontent_content,html,shortcut"/>
+                            </flux:grid.column>
+                        </flux:grid.row>
+                        {cnt -> v:math.sum(b: 1) -> v:variable.set(name: 'cnt')}
+                    </f:if>
+                </f:for>
+            </v:condition.type.isArray>
+
+            <!-- #####################  Content   ######################## -->
+            <flux:grid.row>
+                <flux:grid.column name="content.left" colPos="0"
+                                  label="{v:l(key: 'left.column', extensionName: 't3_glacryl')}"
+                                  colspan="3">
+                    <flux:form.variable name="allowedContentTypes" value="header,textmedia,bullets,html,list,table,shortcut,form_formframework,fluidcontent_content"/>
+                </flux:grid.column>
+                <flux:grid.column name="content.right" colPos="2"
+                                  label="{v:l(key: 'right.column', extensionName: 't3_glacryl')}"
+                                  variables="{allowedContentTypes: 'header,textmedia,html,menu_subpages,shortcut'}"
+                                  colspan="1">
+
+                </flux:grid.column>
+            </flux:grid.row>
+            <flux:grid.row>
+                <flux:grid.column name="content.left" colPos="10"
+                                  label="{v:l(key: 'left.column', extensionName: 't3_glacryl')}"
+                                  colspan="3">
+                    <flux:form.variable name="allowedContentTypes" value="header,textmedia,bullets,html,list,table,shortcut,form_formframework,fluidcontent_content"/>
+                </flux:grid.column>
+                <flux:grid.column name="content.right" colPos="12"
+                                  label="{v:l(key: 'right.column', extensionName: 't3_glacryl')}"
+                                  variables="{allowedContentTypes: 'header,textmedia,html,menu_subpages,shortcut'}"
+                                  colspan="1">
+
+                </flux:grid.column>
+            </flux:grid.row>
+            <flux:grid.row>
+                <flux:grid.column name="content.left" colPos="20"
+                                  label="{v:l(key: 'left.column', extensionName: 't3_glacryl')}"
+                                  colspan="3">
+                    <flux:form.variable name="allowedContentTypes" value="header,textmedia,bullets,html,list,table,shortcut,form_formframework,fluidcontent_content"/>
+                </flux:grid.column>
+                <flux:grid.column name="content.right" colPos="21"
+                                  label="{v:l(key: 'right.column', extensionName: 't3_glacryl')}"
+                                  variables="{allowedContentTypes: 'header,textmedia,html,menu_subpages,shortcut'}"
+                                  colspan="1">
+
+                </flux:grid.column>
+            </flux:grid.row>
+
+            <!-- ###################  Dynamic content sections (bottom)  ################################ -->
+            <v:condition.type.isArray value="{sections}">
+                {v:variable.set(value: '1', name: 'cnt')}
+                <f:for each="{sections}" as="beSection" iteration="iteration">
+                    <f:if condition="{beSection.section.sectionPosition} == 1">
+                        <f:if condition="{beSection.section.sectionRows} == 0">
+                            <f:then>
+                                {cnt -> v:math.sum(b: 40) -> v:variable.set(name: 'sectionColPos')}
+                            </f:then>
+                            <f:else>
+                                {beSection.section.sectionRows -> v:variable.set(name: 'sectionColPos')}
+                            </f:else>
+                        </f:if>
+                        <flux:grid.row>
+                            <flux:grid.column name="content.bottom.{iteration.cycle}" colPos="{sectionColPos}"
+                                              label="{f:if(condition: '{beSection.section.sectionTitle}', then: '{beSection.section.sectionTitle}', else: '{v:l(key: \'flux.fluidpage.content.{iteration.cycle}\', extensionName: \'t3_glacryl\')}')}"
+                                              colspan="4">
+                                <flux:form.variable name="allowedContentTypes" value="header,bullets,textmedia,list,fluidcontent_content,html,shortcut"/>
+                            </flux:grid.column>
+                        </flux:grid.row>
+                        {cnt -> v:math.sum(b: 1) -> v:variable.set(name: 'cnt')}
+                    </f:if>
+                </f:for>
+            </v:condition.type.isArray>
+
+            <!-- #################### Site footer on root page only #######################  -->
+            <f:render partial="Page/FooterBE" arguments="{_all}"/>
+        </flux:grid>
+
+    </f:section>
+
+    <f:section name="Main">
+        <f:render partial="Page/Main" section="Content2" arguments="{_all}"/>
+    </f:section>
+
+</div>

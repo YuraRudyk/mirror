@@ -1,0 +1,88 @@
+{namespace glacryl=Glacryl\Glshop\ViewHelpers}
+
+<f:be.container
+	pageTitle="Glacryl Shop Backend"
+	loadJQuery="TRUE"
+	includeJsFiles="{
+	0:'{f:uri.resource(path:\'Js/jquery-1.11.1.min.js\')}',
+	1:'{f:uri.resource(path:\'Js/jquery-ui-1.11.1.custom.min.js\')}',
+	2:'{f:uri.resource(path:\'Js/Backend/prototype.js\')}',
+	3:'{f:uri.resource(path:\'Js/Backend/bootstrap.min.js\')}',
+	4:'{f:uri.resource(path:\'Js/jquery.fileDownload.js\')}',
+	5:'{f:uri.resource(path:\'Js/jquery.dataTables.min.js\')}',
+	6:'{f:uri.resource(path:\'Js/Backend/dataTables.natural.js\')}',
+	7:'{f:uri.resource(path:\'Js/Backend/dataTables.date-de.js\')}',
+	8:'{f:uri.resource(path:\'Js/Backend/xdate.js\')}'
+	9:'{f:uri.resource(path:\'Js/Backend/bootstrap-datepicker.min.js\')}'
+	10:'{f:uri.resource(path:\'Js/Backend/locales/bootstrap-datepicker.de.min.js\')}'
+	11:'{f:uri.resource(path:\'Js/Backend/Backend.js\')}'
+	}"
+	includeCssFiles="{
+	0:'{f:uri.resource(path:\'Css/smoothness/jquery-ui-1.10.4.custom.min.css\')}',
+	1:'{f:uri.resource(path:\'Css/Backend/bootstrap.min.css\')}',
+	2:'{f:uri.resource(path:\'Css/Backend/bootstrap-datepicker.min.css\')}',
+	3:'{f:uri.resource(path:\'Css/Backend/Backend.css\')}'
+	}"
+	>
+	
+	<div class="typo3-fullDoc">
+		<div id="typo3-docheader">
+			<div class="typo3-docheader-functions">
+				<div class="left">
+					<f:be.buttons.csh />
+					<f:render section="button-toolbar" optional="true" />
+					<f:be.menus.actionMenu>
+						<f:be.menus.actionMenuItem label="Overview" action="index" controller="Backend" />
+						<f:be.menus.actionMenuItem label="Bestellübersicht" action="list" controller="Order" />
+						<f:be.menus.actionMenuItem label="Kundenverwaltung" action="backend" controller="Customer" />
+						<f:be.menus.actionMenuItem label="Monatsabschluss" action="abschluss" controller="Backend" />
+						<f:be.menus.actionMenuItem label="Mahnwesen" action="mahnung" controller="Backend" />
+						
+						
+						<f:be.menus.actionMenuItem label="Create new Material" action="new" controller="Material" />
+								<f:be.menus.actionMenuItem label="Create new Materialoption" action="new" controller="Materialoption" />
+								<f:be.menus.actionMenuItem label="Create new Conditions" action="new" controller="Conditions" />
+								<f:be.menus.actionMenuItem label="Create new Fixing" action="new" controller="Fixing" />
+								<f:be.menus.actionMenuItem label="Create new Borderediting" action="new" controller="Borderediting" />
+								<f:be.menus.actionMenuItem label="Create new Noticelist" action="new" controller="Noticelist" />
+								<f:be.menus.actionMenuItem label="Create new Cornerediting" action="new" controller="Cornerediting" />
+								<f:be.menus.actionMenuItem label="Create new Bevel" action="new" controller="Bevel" />
+								<f:be.menus.actionMenuItem label="Create new Drill" action="new" controller="Drill" />
+								<f:be.menus.actionMenuItem label="Create new Order" action="new" controller="Order" />
+								<f:be.menus.actionMenuItem label="Create new Orderstatus" action="new" controller="Orderstatus" />
+								<f:be.menus.actionMenuItem label="Create new Orderstate" action="new" controller="Orderstate" />
+								<f:be.menus.actionMenuItem label="Create new Shippingaddress" action="new" controller="Shippingaddress" />
+								<f:be.menus.actionMenuItem label="Create new Confirmation" action="new" controller="Confirmation" />
+								<f:be.menus.actionMenuItem label="Create new Production" action="new" controller="Production" />
+								<f:be.menus.actionMenuItem label="Create new Delivery" action="new" controller="Delivery" />
+								<f:be.menus.actionMenuItem label="Create new Invoice" action="new" controller="Invoice" />
+								<f:be.menus.actionMenuItem label="Create new Cart" action="new" controller="Cart" />
+								<f:be.menus.actionMenuItem label="Create new Request" action="new" controller="Request" />
+								<f:be.menus.actionMenuItem label="Create new Shop" action="new" controller="Shop" />
+								<f:be.menus.actionMenuItem label="Create new Product" action="new" controller="Product" />
+								<f:be.menus.actionMenuItem label="Create new Productoption" action="new" controller="Productoption" />
+					</f:be.menus.actionMenu>
+				</div>
+				<div class="right">
+					<f:be.pagePath />
+					<f:be.pageInfo />
+				</div>
+			</div>
+			<div class="typo3-docheader-buttons">
+				<div class="left">
+
+				</div>
+				<div class="right">
+					<f:be.buttons.shortcut />
+				</div>
+			</div>
+
+		</div>
+		<div id="typo3-docbody">
+			<div id="typo3-inner-docbody">
+				<f:flashMessages renderMode="div" />
+				<f:render section="content" />
+			</div>
+		</div>
+	</div>
+</f:be.container>

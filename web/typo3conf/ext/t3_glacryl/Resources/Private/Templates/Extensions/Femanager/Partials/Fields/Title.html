@@ -1,0 +1,28 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<v:variable.set name="asterisk" value="" />
+
+<f:if condition="{femanager:Validation.IsRequiredField(fieldName:'title')}">
+	<v:variable.set name="asterisk" value="*" />
+</f:if>
+
+<div class="col-xs-12 col-md-6">
+
+	<label class="form-group">
+		<f:comment>
+			<f:form.select id="femanager_field_title"
+						   property="title"
+						   options="{1:'{f:translate(key: \'tx_femanager_domain_model_user.title1\')}',
+					   2:'{f:translate(key: \'tx_femanager_domain_model_user.title2\')}'}"
+						   additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'title')}" />
+		</f:comment>
+
+		<femanager:form.textfield
+				id="femanager_field_title"
+				property="title"
+				class="input-block-level"
+				placeholder="{f:translate(key: 'tx_femanager_domain_model_user.title')}{asterisk}"
+				additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'title')}" />
+	</label>
+
+</div>

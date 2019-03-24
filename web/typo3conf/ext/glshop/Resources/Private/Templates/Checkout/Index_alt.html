@@ -1,0 +1,57 @@
+<f:layout name="Shop" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+    <f:flashMessages />
+	
+	<!-- Kasse -->
+	
+	<div class="kasse">
+		<div class="lighting-top"></div>
+		<div class="container-fluid main-title">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+						<h3 style="margin: 0px; color: #33976C; font-family: Arial; font-size: 24pt;">Kasse</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom-diver-products"></div>
+		<div class="lighting-bottom"></div>
+
+		<div class="container">
+			<f:render partial="Checkout/Menue" />
+
+			<div class="kasse-maske">
+
+				<f:render partial="Checkout/Adresse" arguments="{user:user, lieferadressen:lieferadressen, userGroup:userGroup}" />
+
+				<f:render partial="Checkout/Bemerkungen" />
+
+				<f:render partial="Checkout/Versand" arguments="{shipping:shipping}" />
+
+				<f:render partial="Checkout/Zahlung" />
+
+				<f:render partial="Checkout/Artikel" arguments="{_all}" />
+
+				<f:render partial="Checkout/SummeBestellen" arguments="{prices:prices, userGroup:userGroup}" />
+
+
+			</div>
+
+			<f:render partial="Checkout/Success" />
+		</div>
+	</div>
+
+</f:section>

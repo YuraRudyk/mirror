@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Templates for felogin</title>
+</head>
+<body>
+
+<h1>Common markers</h1>
+<p>These are substituted in all felogin item displaying templates.</p>
+
+<h2>Markers</h2>
+<ul>
+	<li>###ACTION_URI###     - URI of the request for the login/logout form</li>
+	<li>###EXTRA_HIDDEN###   - Hook required (additional hidden field used by kb_md5fepw extension by Kraft Bernhard)</li>
+	<li>###ON_SUBMIT###      - Hook required (used by kb_md5fepw extension by Kraft Bernhard)</li>
+	<li>###PREFIXID###       - Same as class name ('tx_felogin_pi1') useful to get a unique classname prefix</li>
+	<li>###REDIRECT_URL###   - URL of redirection upon login</li>
+	<li>###NOREDIRECT###     - if set, no redirect will be done</li>
+	<li>###STORAGE_PID###    - explicit enough I guess (if not : id of the page where user are stored)</li>
+	<li>###STATUS_HEADER###  - depends of the template</li>
+	<li>###STATUS_MESSAGE### - depends of the template</li>
+</ul>
+
+<h2>Wrap parts</h2>
+<ul>
+	<li>###HEADER_VALID###  - useful to define what to show/hide</li>
+	<li>###MESSAGE_VALID### - useful to define what to show/hide</li>
+	<li>###FORGOTP_VALID### - useful to define what to show/hide</li>
+	<li>###PERMALOGIN_VALID### - useful to define what to show/hide</li>
+</ul>
+
+<h2>felogin Language Markers (see pi/locallang.xlf)</h2>
+<ul>
+	<li>###EMAIL_LABEL###                 - corresponding to 'your_email'</li>
+	<li>###FORGOT_PASSWORD###             - corresponding to 'forgot_password'</li>
+	<li>###FORGOT_PASSWORD_BACKTOLOGIN### - corresponding to 'forgot_password_backToLogin'</li>
+	<li>###FORGOT_PASSWORD_ENTEREMAIL###  - corresponding to 'forgot_password_enterEmail'</li>
+	<li>###LOGIN_LABEL###                 - corresponding to 'login'</li>
+	<li>###PASSWORD_LABEL###              - corresponding to 'password'</li>
+	<li>###SEND_PASSWORD###               - corresponding to 'send_password'</li>
+	<li>###USERNAME_LABEL###              - corresponding to 'username'</li>
+</ul>
+
+<!--###TEMPLATE_LOGIN###-->
+
+<!-- ###LOGIN_FORM### -->
+<form action="###ACTION_URI###" novalidate="" target="_top" method="post" id="contact_form1" class="contact_form" onsubmit="###ON_SUBMIT###">
+	<!--<legend>###LEGEND###</legend>-->
+	<!--###STATUS_HEADER###-->
+	###STATUS_MESSAGE###
+
+	<div class="row">
+		<!--###FORGOTP_VALID###-->
+		<div class="col-xs-12">
+			<div class="restore_passsword">
+				<!--###FORGOT_PASSWORD_LINK###-->###FORGOT_PASSWORD###<!--###FORGOT_PASSWORD_LINK###-->
+			</div>
+		</div>
+		<!--###FORGOTP_VALID###-->
+
+		<div class="col-xs-12 col-md-6 bottom_row" style="height: 60px;">
+
+			<label class="form-group">
+				<input id="benutzername" type="text" name="user" placeholder="###USERNAME_LABEL###" required="">
+			</label>
+
+		</div><!-- */col-md-6 -->
+
+		<div class="col-xs-12 col-md-6 bottom_row" style="height: 60px;">
+			<label class="form-group">
+				<input id="passwort" type="password" name="pass" placeholder="###PASSWORD_LABEL###" data-rsa-encryption="" required="">
+			</label>
+
+		</div><!-- */col-md-6 -->
+
+
+		<div class="col-xs-12 col-md-6">
+			<div class="button_submit">
+				<input type="submit" name="submit" value="###LOGIN_LABEL###" />
+			</div>
+		</div>
+
+		<!--###PERMALOGIN_VALID###-->
+		<div class="col-xs-12 col-md-12">
+			<div class="form-group-checkbox">
+				<!--
+				<input type="checkbox" id="cbox1" value="first_checkbox">
+				<label for="checkbox-id">Eingeloggt bleiben.</label>
+				-->
+
+				<input name="permalogin" value="0" type="hidden" ###PERMALOGIN_HIDDENFIELD_ATTRIBUTES### id="permaloginHiddenField" />
+				<input name="permalogin" value="1" type="checkbox" ###PERMALOGIN_CHECKBOX_ATTRIBUTES### id="permalogin" onclick="document.getElementById('permaloginHiddenField').disabled = this.checked;" />
+				<label for="permalogin">###PERMALOGIN###</label>
+
+			</div>
+		</div>
+		<!--###PERMALOGIN_VALID###-->
+
+	</div> <!-- */row -->
+
+	<div class="felogin-hidden">
+		<input type="hidden" name="logintype" value="login" />
+		<input type="hidden" name="pid" value="###STORAGE_PID###" />
+		<input type="hidden" name="redirect_url" value="###REDIRECT_URL###" />
+		<input type="hidden" name="###PREFIXID###[noredirect]" value="###NOREDIRECT###" />
+		###EXTRA_HIDDEN###
+	</div>
+</form>
+
+
+
+<!-- ###LOGIN_FORM### -->
+
+<!--###TEMPLATE_LOGIN###-->
+
+<!--###TEMPLATE_LOGOUT###-->
+<!--
+###STATUS_HEADER###
+###STATUS_MESSAGE###
+-->
+<form action="###ACTION_URI###" target="_top" method="post" id="contact_form1" class="contact_form">
+	<div class="row">
+		<div class="col-xs-12 col-md-12 bottom_row" style="height: 60px;">
+			<div class="login-status">
+			###STATUS_MESSAGE### ###LEGEND###
+			</div>
+			<label class="form-group">
+				###USERNAME_LABEL### ###USERNAME###
+			</label>
+
+		</div><!-- */col-md-6 -->
+
+		<div class="col-xs-12 col-md-6">
+			<div class="button_submit">
+				<input type="submit" name="submit" value="###LOGOUT_LABEL###" />
+			</div>
+		</div>
+
+		<div class="felogin-hidden">
+			<input type="hidden" name="logintype" value="logout" />
+			<input type="hidden" name="pid" value="###STORAGE_PID###" />
+			<input type="hidden" name="###PREFIXID###[noredirect]" value="###NOREDIRECT###" />
+		</div>
+	</div>
+</form>
+
+<!--###TEMPLATE_LOGOUT###-->
+
+<!--###TEMPLATE_FORGOT###-->
+<!--
+###STATUS_HEADER###
+-->
+<div class="general-text">###STATUS_MESSAGE###</div>
+
+<!-- ###FORGOT_FORM### -->
+<form action="###ACTION_URI###" method="post" id="contact_form1" class="contact_form">
+    <div class="felogin-hidden">
+		<input type="hidden" name="tx_felogin_pi1[forgot_hash]" value="###FORGOTHASH###" />
+	</div>
+	<!--
+	<div>
+		<label for="tx_felogin_pi1-forgot-email">###DATA_LABEL###</label>
+		<input type="text" name="###FORGOT_EMAIL###" id="tx_felogin_pi1-forgot-email" />
+	</div>
+	-->
+	<div class="row">
+		<div class="col-xs-12 col-md-6 bottom_row">
+
+			<label class="form-group">
+				<input type="text" name="###FORGOT_EMAIL###" placeholder="###DATA_LABEL###" id="tx_felogin_pi1-forgot-email" />
+			</label>
+
+		</div><!-- */col-md-6 -->
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-md-12">
+			<div class="button_submit">
+				<input type="submit" name="submit" value="###SEND_PASSWORD###" />
+			</div>
+		</div>
+	</div>
+	<!--
+	<div class="col-xs-12 col-md-12">
+		<div class="button_submit">
+			###BACKLINK_LOGIN###&nbsp;
+		</div>
+	</div>
+	-->
+</form>
+<!-- ###FORGOT_FORM### -->
+<!--###TEMPLATE_FORGOT###-->
+
+<!--###TEMPLATE_CHANGEPASSWORD###-->
+
+<!--###STATUS_HEADER###-->
+
+<!-- ###CHANGEPASSWORD_FORM### -->
+<form action="###ACTION_URI###" method="post" id="contact_form1" class="contact_form">
+<!--
+		<div>
+			<label for="tx_felogin_pi1-newpassword1">###NEWPASSWORD1_LABEL###</label>
+			<input type="password" name="###NEWPASSWORD1###" id="tx_felogin_pi1-newpassword1" />
+		</div>
+		<div>
+			<label for="tx_felogin_pi1-newpassword2">###NEWPASSWORD2_LABEL###</label>
+			<input type="password" name="###NEWPASSWORD2###" id="tx_felogin_pi1-newpassword2" />
+		</div>
+-->
+	<div class="row">
+		<div class="col-xs-12 col-md-6 bottom_row" style="height: 60px;">
+			<label class="form-group">
+				<input type="password" name="###NEWPASSWORD1###" placeholder="###NEWPASSWORD1_LABEL###" id="tx_felogin_pi1-newpassword1" />
+			</label>
+		</div><!-- */col-md-6 -->
+
+		<div class="col-xs-12 col-md-6 bottom_row" style="height: 60px;">
+			<label class="form-group">
+				<input type="password" name="###NEWPASSWORD2###" placeholder="###NEWPASSWORD2_LABEL###" id="tx_felogin_pi1-newpassword2" />
+			</label>
+		</div><!-- */col-md-6 -->
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12 col-md-12">
+			<div class="button_submit">
+				<input type="submit" name="tx_felogin_pi1[changepasswordsubmit]" value="###SEND_PASSWORD###" />
+			</div>
+		</div>
+	</div>
+</form>
+<!-- ###CHANGEPASSWORD_FORM### -->
+<div class="general-text">###STATUS_MESSAGE###</div>
+<div class="button_red">###BACKLINK_LOGIN###</div>
+<!--###TEMPLATE_CHANGEPASSWORD###-->

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+    <file source-language="de" datatype="plaintext" original="messages" product-name="t3_glacryl">
+        <header/>
+
+        <body>
+
+            <!-- Site settings -->
+            <trans-unit id="settings.protocol" xml:space="preserve">
+				<source>Protocol (http or https)</source>
+			</trans-unit>
+
+            <trans-unit id="settings.domain" xml:space="preserve">
+				<source>Domain name (for example, www.domain.com)</source>
+			</trans-unit>
+            <trans-unit id="settings.adminEmail" xml:space="preserve">
+				<source>Admin email address (for example, admin@domain.com)</source>
+			</trans-unit>
+
+            <trans-unit id="settings.manualCSS" xml:space="preserve">
+				<source>Allow manual include CSS files (works for one page only, not works for children pages!)</source>
+			</trans-unit>			
+            <trans-unit id="settings.manualJS" xml:space="preserve">
+				<source>Allow manual include JS files (works for one page only, not works for children pages!)</source>
+			</trans-unit>
+            <trans-unit id="settings.multiLng" xml:space="preserve">
+				<source>Site is multilanguages (yes/no)?</source>
+			</trans-unit>
+            <trans-unit id="settings.languagesIds" xml:space="preserve">
+				<source>IDs of all site languages (for example, 0,1,4,3)</source>
+			</trans-unit>
+            <trans-unit id="settings.languagesLabels" xml:space="preserve">
+				<source>Labels of all site languages (for example, Deutsch,English,French,Spain)</source>
+			</trans-unit>
+
+				
+            <trans-unit id="settings.page.home" xml:space="preserve">
+				<source>Home page (page ID)</source>
+			</trans-unit>
+            <trans-unit id="settings.page.searchResults" xml:space="preserve">
+				<source>Search results page (page ID)</source>
+			</trans-unit>
+            <trans-unit id="settings.page.error404" xml:space="preserve">
+				<source>404 error (page ID)</source>
+			</trans-unit>
+            <trans-unit id="settings.page.siteMap" xml:space="preserve">
+				<source>Sitemap page (page ID)</source>
+			</trans-unit>
+			<trans-unit id="settings.page.shop" xml:space="preserve">
+				<source>Shop page (page ID)</source>
+			</trans-unit>
+
+
+
+
+            <trans-unit id="settings.folder.globalContent" xml:space="preserve">
+				<source>Global content (folder ID)</source>
+			</trans-unit>
+
+	    	<trans-unit id="settings.folder.topLinks" xml:space="preserve">
+				<source>Top links (parent page/folder ID)</source>
+			</trans-unit>
+            <trans-unit id="settings.folder.footerLinks" xml:space="preserve">
+				<source>Footer links (parent page/folder ID)</source>
+			</trans-unit>
+            <trans-unit id="settings.folder.socialLinks" xml:space="preserve">
+				<source>Socialmedia menu (parent page/folder ID)</source>
+			</trans-unit>
+
+
+			<trans-unit id="settings.content.toTopEnable" xml:space="preserve">
+				<source>Enable ToTop icon</source>
+			</trans-unit>
+			<trans-unit id="settings.content.preLoader" xml:space="preserve">
+				<source>Enable page preloader animation</source>
+			</trans-unit>
+			<trans-unit id="settings.content.copyrightEnable" xml:space="preserve">
+				<source>Enable copyright</source>
+			</trans-unit>
+            <trans-unit id="settings.content.headerHTML" xml:space="preserve">
+				<source>Record ID for custom HTML code in header</source>
+			</trans-unit>	
+	    	<trans-unit id="settings.content.footerHTML" xml:space="preserve">
+				<source>Record ID for custom HTML code in footer</source>
+			</trans-unit>
+	    	<trans-unit id="settings.content.loginForm" xml:space="preserve">
+				<source>Record ID of user login form</source>
+			</trans-unit>
+	    	<trans-unit id="settings.content.copyright" xml:space="preserve">
+				<source>Record ID of copyright text</source>
+			</trans-unit>
+			<trans-unit id="settings.content.breadcrumbEnable" xml:space="preserve">
+				<source>Enable breadcrumbs</source>
+			</trans-unit>
+	    	<trans-unit id="settings.content.homeInMenu" xml:space="preserve">
+				<source>Include home page to sitemenu</source>
+			</trans-unit>
+
+            <!-- /Site settings -->
+
+            <!-- Meta tags -->
+            <trans-unit id="meta.description" xml:space="preserve">
+		<source>Default page description</source>
+	</trans-unit>	
+	 <trans-unit id="meta.keywords" xml:space="preserve">
+		<source>Default keywords</source>
+	</trans-unit>	
+	 <trans-unit id="meta.author" xml:space="preserve">
+		<source>Author</source>
+	</trans-unit>	
+	 <trans-unit id="meta.robots" xml:space="preserve">
+		<source>Robots (index,follow)</source>
+	</trans-unit>
+
+            <!-- /Meta tags -->
+
+
+        </body>
+    </file>
+</xliff>
+

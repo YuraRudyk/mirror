@@ -1,0 +1,100 @@
+#############################################
+# Include CSS files
+#############################################
+[{$plugin.tx_t3glacryl.settings.manualCSS} == 1]
+    # Clear all CSS files if manual control
+    page.includeCSS >
+[ELSE]
+    page.includeCSS >
+    page.includeCSS {
+        #normalize     = {$plugin.tx_t3glacryl.settings.csspath}normalize.css
+        #gfont         = https://fonts.googleapis.com/css?family=Cormorant|Lato
+        #fonts         = files/fonts/font-awesome-4.7.0/css/font-awesome.min.css
+        bootstrap     = {$plugin.tx_t3glacryl.settings.csspath}bootstrap.min.css
+        mpopup         = {$plugin.tx_t3glacryl.settings.csspath}magnific-popup.css
+        animate        = {$plugin.tx_t3glacryl.settings.csspath}animate.css
+        slick         = {$plugin.tx_t3glacryl.settings.csspath}slick.css
+        slickTheme    = {$plugin.tx_t3glacryl.settings.csspath}slick-theme.css
+        custom         = {$plugin.tx_t3glacryl.settings.csspath}styles.css
+    }
+[GLOBAL]
+
+#############################################
+# Include JS files
+#############################################
+[{$plugin.tx_t3glacryl.settings.manualJS} == 1]
+	# Clear all JS files if manual control
+	page.includeJS >
+	page.includeJSFooter >
+[ELSE]
+    page {
+        #####################################
+        # Top of page #######################
+        #####################################
+        includeJS {
+        	#modernizr			     = {$plugin.tx_t3glacryl.settings.jspath}modernizr-2.6.3.min.js
+        	#modernizr.forceOnTop	 = 1
+            jquery = {$plugin.tx_t3glacryl.settings.jspath}jquery-3.3.1.min.js
+            jquery.forceOnTop = 1
+        }
+        headerData {
+            #999 = TEXT
+            #999.value(
+            #)
+        }
+        #####################################
+        # Bottom of page ####################
+        #####################################
+        includeJSFooter {
+            #modernizr	  = {$plugin.tx_t3glacryl.settings.jspath}modernizr-2.6.3.min.js
+            bootstrap     = {$plugin.tx_t3glacryl.settings.jspath}bootstrap.bundle.min.js
+            slick         = {$plugin.tx_t3glacryl.settings.jspath}slick.min.js
+            wow           = {$plugin.tx_t3glacryl.settings.jspath}wow.min.js
+            mpopup        = {$plugin.tx_t3glacryl.settings.jspath}jquery.magnific-popup.min.js
+            matchHeight   = {$plugin.tx_t3glacryl.settings.jspath}jquery.matchHeight-min.js
+            hmbrgr        = {$plugin.tx_t3glacryl.settings.jspath}jquery.hmbrgr.min.js
+
+            #amazonaws     = {$plugin.tx_t3glacryl.settings.protocol}://s3.amazonaws.com/valao-cloud/cookie-hinweis/script.js
+            #amazonaws.external = 1
+
+            # Powermail scripts (manual mode)
+            #parsley          = /typo3conf/ext/powermail/Resources/Public/JavaScripts/Libraries/parsley.min.js
+            #powermail        = /typo3conf/ext/powermail/Resources/Public/JavaScripts/Powermail/Form.min.js
+        }
+        #####################################
+        # custom.js - is always last file and always at bottom of page
+        #####################################
+        footerData {
+        	#999 = TEXT
+        	#999.value(
+        	#<script src="{$plugin.tx_t3glacryl.settings.jspath}custom.js"></script>
+        	#)
+        }
+    }
+[GLOBAL]
+
+[page["uid"] == {$plugin.tx_t3glacryl.settings.page.contacts}]
+#########################
+# Kontakt page ##########
+#########################
+page {
+    includeCSS {
+        #queries   = {$plugin.tx_t3glacryl.settings.csspath}queries-on3step.css
+    }
+    includeJS {
+        #recaptchaApi = https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit
+    }
+    footerData {
+        #998 = TEXT
+        #998.value(
+        #<script src="{$plugin.tx_t3glacryl.settings.jspath}gmap.js"></script>
+        #)
+    }
+}
+[GLOBAL]
+
+
+
+
+
+

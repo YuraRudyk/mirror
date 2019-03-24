@@ -1,0 +1,67 @@
+/* Übersichtsseite */
+.glBeOverviewContainer {
+	border: 1px solid;
+	padding: 1.2em;
+	width: 300px;
+	margin: 5px;
+}
+
+/* Bestellungenübersicht */
+.glshop_table {
+    border-collapse: collapse;  
+    border-spacing: 0px;
+    margin: 0px;
+	width:  100%;
+}
+.glshop_table thead tr {
+    background-color: #CCCCCC;
+}
+.glshop_table tbody tr td, .glBeOrderTable thead tr th {
+    border: 1px solid #666666;    
+    padding: 5px;
+}
+.glshop_table tbody tr.odd { 
+    background-color: #FFFFCC;
+}
+.glshop_table tbody tr.even { 
+    background-color: #FFFFFF;
+}
+.dataTables_length {
+	float: left;
+}
+.dataTables_filter {
+	float: right;
+}
+.dataTables_filter label input {
+	margin-left: 12px;
+}
+
+.fg-toolbar {
+	padding: 5px;
+}
+.dataTables_paginate, .dataTables_info {
+	display: inline-block;
+	margin-right: 5px;
+}
+.DataTables_sort_icon {
+	display: inline-block;
+	float: right;
+}
+
+.dataTables_paginate, .pagination {
+	width: 100%;
+}
+
+/* Dialoge */
+
+#ab-edit-Dialog-daten { width: 100%; margin: 0 auto;}
+
+#ab-edit-Dialog-positionen { margin-top: 24px;}
+
+.Formular-edit {margin: 20px 0;}
+.Formular-edit label {display: inline-block !important; margin-left: -1px !important;}
+
+/* Buttons */
+a, a:hover {
+	text-decoration: none !important;
+}

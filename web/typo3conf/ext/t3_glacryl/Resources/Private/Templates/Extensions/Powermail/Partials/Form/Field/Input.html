@@ -1,0 +1,104 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+
+<f:switch expression="{field.css}">
+	<f:case value="halfwidth">
+		<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="form-group">
+				<f:form.textfield
+						type="{vh:Validation.FieldTypeFromValidation(field:field)}"
+						property="{field.marker}"
+						placeholder="{field.placeholder}"
+						value="{vh:Misc.PrefillField(field:field, mail:mail)}"
+						class="powermail_input {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}"
+						additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+						id="powermail_field_{field.marker}" />
+			</div>
+		</div>
+	</f:case>
+	<f:case value="zip">
+		<div class="csc-mailform-field" id="zip-container">
+			<div class="frmlbl">
+				<f:render partial="Form/FieldLabel" arguments="{_all}" />
+			</div>
+			<div class="frminp">
+				<f:form.textfield
+						type="{vh:Validation.FieldTypeFromValidation(field:field)}"
+						property="{field.marker}"
+						placeholder="{field.placeholder}"
+						value="{vh:Misc.PrefillField(field:field, mail:mail)}"
+						class="powermail_input {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}"
+						additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+						id="powermail_field_{field.marker}" />
+			</div>
+			<div class="clear"></div>
+		</div>
+	</f:case>
+	<f:case value="city">
+		<div class="csc-mailform-field" id="city-container">
+			<div class="frmlbl">
+				<f:render partial="Form/FieldLabel" arguments="{_all}" />
+			</div>
+			<div class="frminp">
+				<f:form.textfield
+						type="{vh:Validation.FieldTypeFromValidation(field:field)}"
+						property="{field.marker}"
+						placeholder="{field.placeholder}"
+						value="{vh:Misc.PrefillField(field:field, mail:mail)}"
+						class="powermail_input {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}"
+						additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+						id="powermail_field_{field.marker}" />
+			</div>
+			<div class="clear"></div>
+		</div>
+	</f:case>
+	<f:case value="fullwidth">
+		<div class="clear"></div>
+		<div class="csc-mailform-field">
+			<div class="frmlbl">
+				<f:render partial="Form/FieldLabel" arguments="{_all}" />
+			</div>
+			<div class="frminp">
+				<f:form.textfield
+						type="{vh:Validation.FieldTypeFromValidation(field:field)}"
+						property="{field.marker}"
+						placeholder="{field.placeholder}"
+						value="{vh:Misc.PrefillField(field:field, mail:mail)}"
+						class="powermail_input {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}"
+						additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+						id="powermail_field_{field.marker}" />
+			</div>
+		</div>
+	</f:case>
+	<f:case value="nolabel">
+		<div class="clear"></div>
+		<div class="csc-mailform-field">
+			<div class="frminp">
+				<f:form.textfield
+						type="{vh:Validation.FieldTypeFromValidation(field:field)}"
+						property="{field.marker}"
+						placeholder="{field.placeholder}"
+						value="{vh:Misc.PrefillField(field:field, mail:mail)}"
+						class="powermail_input {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}"
+						additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+						id="powermail_field_{field.marker}" />
+			</div>
+		</div>
+	</f:case>
+	<f:case default="TRUE">
+		<div class="powermail_fieldwrap powermail_fieldwrap_type_input powermail_fieldwrap_{field.marker} {field.css} {settings.styles.framework.fieldAndLabelWrappingClasses}">
+			<f:render partial="Form/FieldLabel" arguments="{_all}" />
+
+			<div class="{settings.styles.framework.fieldWrappingClasses}">
+				<f:form.textfield
+						type="{vh:Validation.FieldTypeFromValidation(field:field)}"
+						property="{field.marker}"
+						placeholder="{field.placeholder}"
+						value="{vh:Misc.PrefillField(field:field, mail:mail)}"
+						class="powermail_input {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}"
+						additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+						id="powermail_field_{field.marker}" />
+			</div>
+		</div>
+	</f:case>
+</f:switch>
+

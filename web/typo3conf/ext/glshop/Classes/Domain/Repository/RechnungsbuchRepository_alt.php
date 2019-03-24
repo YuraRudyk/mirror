@@ -1,0 +1,82 @@
+<?php
+
+namespace Glacryl\Glshop\Domain\Repository;
+
+/* * *************************************************************
+ *
+ *  Copyright notice
+ *
+ *  (c) 2014 Petro Dikij <petro.dikij@glacryl.de>, Glacryl Hedel GmbH
+ *
+ *  All rights reserved
+ *
+ *  This script is part of the TYPO3 project. The TYPO3 project is
+ *  free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  The GNU General Public License can be found at
+ *  http://www.gnu.org/copyleft/gpl.html.
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ * ************************************************************* */
+
+/**
+ * The repository for Requests
+ */
+class RechnungsbuchRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+
+	/**
+	 * PersistenceManager
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager
+	 * @inject
+	 */
+	protected $persistenceManager;
+
+	/**
+	 * Initialize the repository
+	 *
+	 * @return void
+	 */
+	public function initializeObject() {
+		$querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
+		$querySettings->setRespectStoragePage(FALSE);
+		$this->setDefaultQuerySettings($querySettings);
+	}
+
+	/**
+	 * Funciton SaveBuch
+	 *
+	 * @param \Glacryl\Glshop\Domain\Model\Rechnungsbuch $buch
+	 * @return \Glacryl\Glshop\Domain\Model\Rechnungsbuch $buch
+	 */
+	public function saveBuch($buch) {
+		$this->add($buch);
+		$this->persistenceManager->persistAll();
+		return $buch;
+	}
+
+	/**
+	 * UpdateBuch
+	 * 
+	 * @param \Glacryl\Glshop\Domain\Model\Rechnungsbuch $buch
+	 * @return \Glacryl\Glshop\Domain\Model\Rechnungsbuch $buch
+	 */
+	public function updateBuch($buch) {
+		$this->update($buch);
+		$this->persistenceManager->persistAll();
+		return $buch;
+	}
+
+	public function debugTypo($data, $name = '') {
+		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($data, $name);
+	}
+
+}

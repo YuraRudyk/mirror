@@ -1,0 +1,11 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{media}">
+    <!-- media files -->
+    <div class="news-single-img">
+        <f:for each="{media}" as="mediaElement">
+            <f:render partial="Detail/AktuelleImage" arguments="{mediaElement: mediaElement, settings:settings}"/>
+        </f:for>
+        <div class="clear clearer"></div>
+    </div>
+</f:if>
+</html>

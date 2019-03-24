@@ -1,0 +1,6 @@
+[globalVar = GP : defVals | tt_content | CType == header]
+     TCAdefaults.tt_content.layout = 0
+[END]
+[globalVar = GP : defVals | tt_content | CType == textmedia]
+     TCAdefaults.tt_content.header_position = center
+[END]

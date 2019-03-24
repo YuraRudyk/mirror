@@ -1,0 +1,29 @@
+###################################################
+# Plugin Form
+###################################################
+plugin.tx_form {
+	#view {
+	#	templateRootPaths.0 = EXT:t3_glacryl/Resources/Private/Templates/Extensions/Form/Frontend/Templates/
+	#	partialRootPaths.0  = EXT:t3_glacryl/Resources/Private/Templates/Extensions/Form/Frontend/Partials/
+	#	layoutRootPaths.0   = EXT:t3_glacryl/Resources/Private/Templates/Extensions/Form/Frontend/Layouts/
+	#}	
+
+    mvc {
+        callDefaultActionIfActionCantBeResolved = 1
+    }
+
+    settings {
+        yamlConfigurations {
+            10 = EXT:t3_glacryl/Configuration/TypoScript/ext/form/Yaml/BaseSetup.yaml
+            20 = EXT:t3_glacryl/Configuration/TypoScript/ext/form/Yaml/FormEngineSetup.yaml
+        }
+    }
+}
+
+# Rendering of content elements
+lib.tx_form.contentElementRendering = RECORDS
+lib.tx_form.contentElementRendering {
+    tables = tt_content
+    source.current = 1
+    dontCheckPid = 1
+}

@@ -1,0 +1,64 @@
+<div class="container">
+	<div class="row kunden-daten-panel">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+					<div class="row">
+						<div class="hidden-xs col-md-1 col-lg-1">&nbsp;</div>
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+							<fieldset>
+								<legend>Firmendaten <span style="float:right;" class="sprite-Stift edit-firmenDaten"></span></legend>
+								<div><b>Kd.Nr.:</b><span class="data-kdNr">{customer.uid}</span></div>
+								<div><b>Firma:</b> <span class="data-kdFirma">{customer.company}</span></div>
+								<div><b>Ust.Id:</b> <span class="data-kdUstId">{customer.ustId}</span></div>
+							</fieldset>
+						</div>
+						<div class="hidden-xs col-md-1 col-lg-2">&nbsp;</div>
+						<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+							<fieldset>
+								<legend>Adresse <span style="float:right;" class="sprite-Stift edit-firmenAdresse"></span></legend>
+								<div><b>Stra&szlig;e:</b> <span class="data-kdStr">{customer.adress}</span></div>
+								<div><b>PLZ / Ort:</b> <span class="data-kdOrt">{customer.city}</span><span class="data-kdPlz">{customer.zip}</span></div>
+							</fieldset>
+						</div>
+						<div class="hidden-xs col-md-1 col-lg-1">&nbsp;</div>
+					</div>
+
+					<div class="row">
+						<div class="hidden-xs col-md-1 col-lg-1">&nbsp;</div>
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+							<fieldset>
+								<legend>Hauptansprechpartner <span style="float:right;" class="sprite-Stift edit-ansprechpartner"></span></legend>
+
+								<div><b>Anrede:</b>
+									<f:if condition="{customer.gender} == '0'">
+										<f:then>
+											<span class="data-kdSex">Herr</span>
+										</f:then>
+										<f:else>
+											<span class="data-kdSex">Frau</span>
+										</f:else>
+									</f:if>							
+								</div>
+								<div><b>Name:</b> <span class="data-kdName">{customer.lastName}</span></div>
+								<div><b>Vorname:</b> <span class="data-kdVorname">{customer.firstName}</span></div>
+							</fieldset>
+						</div>
+						<div class="hidden-xs col-md-1 col-lg-2">&nbsp;</div>
+						<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+							<fieldset>
+								<legend>Kontakt <span style="float:right;" class="sprite-Stift edit-kontakt"></span></legend>
+								<div><b>EMail:</b> <span class="data-kdMail">{customer.email}</span></div>
+								<div><b>Tel:</b> <span class="data-kdTel">{customer.telephone}</span></div>
+								<div><b>Fax:</b> <span class="data-kdFax">{customer.fax}</span></div>							
+							</fieldset>
+						</div>
+						<div class="hidden-xs col-md-1 col-lg-1">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
