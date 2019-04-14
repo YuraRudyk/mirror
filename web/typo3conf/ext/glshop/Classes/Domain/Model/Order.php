@@ -73,7 +73,7 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Kunde
      * 
-     * @var
+     * @var integer
      */
     protected $user = NULL;
 

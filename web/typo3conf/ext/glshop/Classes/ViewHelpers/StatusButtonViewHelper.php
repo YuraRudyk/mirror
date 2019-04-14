@@ -5,8 +5,10 @@ namespace Glacryl\Glshop\ViewHelpers;
 Class StatusButtonViewHelper Extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
 
 	protected $debugMode = true;
+	protected $escapeOutput = false;
 
-    public function initializeArguments()
+
+	public function initializeArguments()
     {
         $this->registerArgument('states', 'object', '');
         $this->registerArgument('order', 'object', '');
@@ -57,6 +59,7 @@ Class StatusButtonViewHelper Extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVi
 		//$this->debugTypo($states, 'States');
 
 		foreach ($states as $state) {
+//			debug($state->getLabel());
 			$statusColor = 'style="background-color:#ffffff;"';
 			
 			foreach ($order->getOrderstatus() as $status) {

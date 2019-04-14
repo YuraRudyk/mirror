@@ -152,6 +152,16 @@ return [
                 'eval' => 'trim'
             ],
         ],
+
+        'label' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:glshop/Resources/Private/Language/locallang_db.xlf:tx_glshop_domain_model_orderstate.label',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
+		),
     
     ],
 ];

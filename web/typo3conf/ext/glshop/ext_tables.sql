@@ -223,6 +223,7 @@ CREATE TABLE tx_glshop_domain_model_orderstate (
 	value int(11) DEFAULT '0' NOT NULL,
 	acr varchar(255) DEFAULT '' NOT NULL,
 	prefix varchar(255) DEFAULT '' NOT NULL,
+	label varchar(255) DEFAULT '' NOT NULL,
 
 );
 

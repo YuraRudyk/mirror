@@ -4,7 +4,9 @@ namespace Glacryl\Glshop\ViewHelpers;
 
 Class NoticeOrderViewHelper Extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
 
-    public function initializeArguments()
+	protected $escapeOutput = false;
+
+	public function initializeArguments()
     {
         $this->registerArgument('order', 'object', '');
     }

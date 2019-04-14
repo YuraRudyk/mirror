@@ -4,6 +4,8 @@ namespace Glacryl\Glshop\ViewHelpers;
 
 Class TimdataViewHelper Extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
 
+	protected $escapeOutput = false;
+
     public function initializeArguments()
     {
         $this->registerArgument('user', 'object', '');

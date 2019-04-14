@@ -80,7 +80,7 @@ class Shippingaddress extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * user
      * 
-     * @var
+     * @var integer
      */
     protected $user = NULL;
 

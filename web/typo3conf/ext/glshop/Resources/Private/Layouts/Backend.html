@@ -2,7 +2,6 @@
 
 <f:be.container
 	pageTitle="Glacryl Shop Backend"
-	loadJQuery="TRUE"
 	includeJsFiles="{
 	0:'{f:uri.resource(path:\'Js/jquery-1.11.1.min.js\')}',
 	1:'{f:uri.resource(path:\'Js/jquery-ui-1.11.1.custom.min.js\')}',
@@ -58,7 +57,7 @@
 		</div>
 		<div id="typo3-docbody">
 			<div id="typo3-inner-docbody">
-				<f:flashMessages renderMode="div" />
+				<f:flashMessages />
 				<f:render section="content" />
 			</div>
 		</div>
