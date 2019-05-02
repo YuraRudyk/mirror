@@ -1,30 +1,32 @@
 {namespace glacryl=Glacryl\Glshop\ViewHelpers}
 
+
+<f:comment>DFutsur!!!!Removed bootstrap.min form required modules.!!!! </f:comment>
 <f:be.container
-	pageTitle="Glacryl Shop Backend"
-	includeJsFiles="{
-	0:'{f:uri.resource(path:\'Js/jquery-1.11.1.min.js\')}',
-	1:'{f:uri.resource(path:\'Js/jquery-ui-1.11.1.custom.min.js\')}',
-	2:'{f:uri.resource(path:\'Js/Backend/prototype.js\')}',
-	3:'{f:uri.resource(path:\'Js/Backend/bootstrap.min.js\')}',
-	4:'{f:uri.resource(path:\'Js/jquery.fileDownload.js\')}',
-	5:'{f:uri.resource(path:\'Js/jquery.dataTables.min.js\')}',
-	6:'{f:uri.resource(path:\'Js/Backend/dataTables.natural.js\')}',
-	7:'{f:uri.resource(path:\'Js/Backend/dataTables.date-de.js\')}',
-	8:'{f:uri.resource(path:\'Js/Backend/xdate.js\')}'
-	9:'{f:uri.resource(path:\'Js/Backend/bootstrap-datepicker.min.js\')}'
-	10:'{f:uri.resource(path:\'Js/Backend/locales/bootstrap-datepicker.de.min.js\')}'
-	11:'{f:uri.resource(path:\'Js/Backend/Backend.js\')}'
-	}"
-	includeCssFiles="{
-	0:'{f:uri.resource(path:\'Css/smoothness/jquery-ui-1.10.4.custom.min.css\')}',
-	1:'{f:uri.resource(path:\'Css/Backend/bootstrap.min.css\')}',
-	2:'{f:uri.resource(path:\'Css/Backend/bootstrap-datepicker.min.css\')}',
-	3:'{f:uri.resource(path:\'Css/Backend/Backend.css\')}'
-	}"
-	>
-	
-	<div class="typo3-fullDoc">
+		pageTitle="Glacryl Shop Backend"
+		includeRequireJsModules="{
+			0:'TYPO3/CMS/Glshop/jquery-1.11.1.min',
+			1:'TYPO3/CMS/Glshop/jquery-ui-1.11.1.custom.min',
+			2:'TYPO3/CMS/Glshop/Backend/prototype',
+			4:'TYPO3/CMS/Glshop/jquery.fileDownload',
+			5:'TYPO3/CMS/Glshop/jquery.dataTables.min',
+			6:'TYPO3/CMS/Glshop/Backend/dataTables.natural',
+			7:'TYPO3/CMS/Glshop/Backend/dataTables.date-de',
+			8:'TYPO3/CMS/Glshop/Backend/xdate',
+			9:'TYPO3/CMS/Glshop/Backend/bootstrap-datepicker.min',
+			10:'TYPO3/CMS/Glshop/Backend/locales/bootstrap-datepicker.de.min',
+			11: 'TYPO3/CMS/Glshop/Backend/Backend'
+		}"
+		includeCssFiles="{
+			0:'{f:uri.resource(path:\'Css/smoothness/jquery-ui-1.10.4.custom.min.css\')}',
+			1:'{f:uri.resource(path:\'Css/Backend/bootstrap.min.css\')}',
+			2:'{f:uri.resource(path:\'Css/Backend/bootstrap-datepicker.min.css\')}',
+			3:'{f:uri.resource(path:\'Css/Backend/datatables.min.css\')}',
+			4:'{f:uri.resource(path:\'Css/Backend/Backend.css\')}'
+		}"
+>
+
+<div class="typo3-fullDoc">
 		<div id="typo3-docheader">
 			<div class="typo3-docheader-functions">
 				<div class="left">
@@ -37,7 +39,7 @@
 						<f:be.menus.actionMenuItem label="Partnerlisten" action="backend" controller="Customer" />
 						<f:be.menus.actionMenuItem label="Monatsabschluss" action="abschluss" controller="Backend" />
 						<f:be.menus.actionMenuItem label="Mahnwesen" action="mahnung" controller="Backend" />
-						
+
 					</f:be.menus.actionMenu>
 				</div>
 				<div class="right">
@@ -62,4 +64,5 @@
 			</div>
 		</div>
 	</div>
+
 </f:be.container>

@@ -118,4 +118,24 @@ if (TYPO3_MODE == 'FE') {
     $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['ajaxDispatcher'] = Glacryl\Glshop\Eid\TestEid::class . '::processRequest';
 }
 
+if (TYPO3_REQUESTTYPE & TYPO3_REQUESTTYPE_BE) {
+    \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+        \TYPO3\CMS\Core\Page\PageRenderer::class
+    )->addRequireJsConfiguration([
+        'paths' => [
+            'jquery' => \TYPO3\CMS\Core\Utility\PathUtility::getAbsoluteWebPath(
+                    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('glshop', 'Resources/Public/JavaScript/')
+                ) . 'jquery-1.11.1.min',
+            'datatables' =>  \TYPO3\CMS\Core\Utility\PathUtility::getAbsoluteWebPath(
+                    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('glshop', 'Resources/Public/JavaScript/')
+                ) . 'jquery.dataTables.min',
+
+        ],
+        'shim' => [
+            'deps' => ['jquery'],
+            'datatables' => ['exports' => 'datatables'],
+        ],
+    ]);
+}
+
 //$GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['myEid'] = \MyVendor\MyExt\Controller\MyEidController::class . '::myMethod';
