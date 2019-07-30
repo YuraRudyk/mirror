@@ -3,6 +3,8 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
+// add some comment for test tag
+
 $GLOBALS['TCA']['tx_glshop_domain_model_rahmenprodukt'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_glshop_domain_model_rahmenprodukt']['ctrl'],
 	'interface' => array(
